@@ -14,9 +14,13 @@ C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAR
 C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\bin\Debug\BAREST.pdb
 C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.csprojAssemblyReference.cache
 C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.Form1.resources
-C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.Inicio.resources
 C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.Properties.Resources.resources
 C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.csproj.GenerateResource.cache
 C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.csproj.CoreCompileInputs.cache
 C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.exe
 C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.pdb
+C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.csproj.CopyComplete
+C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.configuracion.resources
+C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.Caja.resources
