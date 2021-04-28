@@ -1,7 +1,7 @@
 ﻿
 namespace BAREST
 {
-    partial class Caja
+    partial class Usuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -31,15 +31,15 @@ namespace BAREST
         {
             this.SuspendLayout();
             // 
-            // Caja
+            // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(947, 601);
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ClientSize = new System.Drawing.Size(931, 562);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Caja";
-            this.Text = "Caja";
+            this.Name = "Usuarios";
+            this.Text = "Usuarios";
             this.ResumeLayout(false);
 
         }

@@ -143,6 +143,16 @@ namespace BAREST.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap El_lugar_de_la_buena_vida {
+            get {
+                object obj = ResourceManager.GetObject("El lugar de la buena vida", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap estadisticas {
             get {
                 object obj = ResourceManager.GetObject("estadisticas", resourceCulture);

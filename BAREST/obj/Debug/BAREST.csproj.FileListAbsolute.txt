@@ -24,3 +24,4 @@ C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAR
 C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.configuracion.resources
 C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.Caja.resources
+C:\Users\Nacho\Desktop\Nacho4\ISSD\5to SEMESTRE\Practica Profesionalizante 2\BAREST\BAREST\obj\Debug\BAREST.Usuarios.resources
