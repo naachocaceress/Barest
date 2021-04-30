@@ -39,7 +39,7 @@ namespace BAREST
         {
             if (tboxUsuario.Text == "admin" && tboxContraseña.Text == "admin")
             {
-                configuracion m = new configuracion();
+                inicio m = new inicio();
                 m.ShowDialog();
                 this.Hide();
                 this.Close();

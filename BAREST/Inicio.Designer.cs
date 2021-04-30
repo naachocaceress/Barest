@@ -1,6 +1,6 @@
 ﻿namespace BAREST
 {
-    partial class configuracion
+    partial class inicio
     {
         /// <summary>
         /// Required designer variable.
@@ -28,72 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(configuracion));
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(inicio));
+            this.panelTitulos = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelBotones = new System.Windows.Forms.Panel();
-            this.panelCaja = new System.Windows.Forms.Panel();
-            this.caja2 = new System.Windows.Forms.Button();
-            this.caja1 = new System.Windows.Forms.Button();
+            this.config = new FontAwesome.Sharp.IconButton();
+            this.informes = new FontAwesome.Sharp.IconButton();
+            this.panelPersonal = new System.Windows.Forms.Panel();
+            this.categorias = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.personal = new FontAwesome.Sharp.IconButton();
+            this.panelStock = new System.Windows.Forms.Panel();
+            this.inventariosStock = new System.Windows.Forms.Button();
+            this.manejoStock = new System.Windows.Forms.Button();
+            this.stock = new FontAwesome.Sharp.IconButton();
             this.panelCompras = new System.Windows.Forms.Panel();
             this.estadoCompras = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.proveedores = new System.Windows.Forms.Button();
-            this.panelContenedor = new System.Windows.Forms.Panel();
-            this.panelStock = new System.Windows.Forms.Panel();
-            this.inventariosStock = new System.Windows.Forms.Button();
-            this.manejoStock = new System.Windows.Forms.Button();
-            this.panelPersonal = new System.Windows.Forms.Panel();
-            this.categorias = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panelTurno = new System.Windows.Forms.Panel();
-            this.cerrar = new System.Windows.Forms.Button();
-            this.iniciar = new System.Windows.Forms.Button();
-            this.config = new FontAwesome.Sharp.IconButton();
-            this.informes = new FontAwesome.Sharp.IconButton();
-            this.personal = new FontAwesome.Sharp.IconButton();
-            this.stock = new FontAwesome.Sharp.IconButton();
             this.compras = new FontAwesome.Sharp.IconButton();
             this.ventas = new FontAwesome.Sharp.IconButton();
             this.menu = new FontAwesome.Sharp.IconButton();
+            this.panelCaja = new System.Windows.Forms.Panel();
+            this.caja2 = new System.Windows.Forms.Button();
+            this.caja1 = new System.Windows.Forms.Button();
             this.caja = new FontAwesome.Sharp.IconButton();
             this.reservas = new FontAwesome.Sharp.IconButton();
+            this.panelTurno = new System.Windows.Forms.Panel();
+            this.cerrar = new System.Windows.Forms.Button();
+            this.iniciar = new System.Windows.Forms.Button();
             this.salir = new FontAwesome.Sharp.IconButton();
             this.turno = new FontAwesome.Sharp.IconButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel4.SuspendLayout();
-            this.panelBotones.SuspendLayout();
-            this.panelCaja.SuspendLayout();
-            this.panelCompras.SuspendLayout();
-            this.panelContenedor.SuspendLayout();
-            this.panelStock.SuspendLayout();
-            this.panelPersonal.SuspendLayout();
-            this.panelTurno.SuspendLayout();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.panelTitulos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelBotones.SuspendLayout();
+            this.panelPersonal.SuspendLayout();
+            this.panelStock.SuspendLayout();
+            this.panelCompras.SuspendLayout();
+            this.panelCaja.SuspendLayout();
+            this.panelTurno.SuspendLayout();
+            this.panelContenedor.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel4
+            // panelTitulos
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.pictureBox2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(120, 58);
-            this.panel4.TabIndex = 0;
+            this.panelTitulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.panelTitulos.Controls.Add(this.pictureBox2);
+            this.panelTitulos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitulos.Location = new System.Drawing.Point(0, 0);
+            this.panelTitulos.Name = "panelTitulos";
+            this.panelTitulos.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.panelTitulos.Size = new System.Drawing.Size(120, 50);
+            this.panelTitulos.TabIndex = 0;
             // 
-            // label1
+            // pictureBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.label1.Location = new System.Drawing.Point(45, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Vidon Bar";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::BAREST.Properties.Resources.Vidon_bar;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(120, 47);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // panelBotones
             // 
@@ -115,52 +115,176 @@
             this.panelBotones.Controls.Add(this.panelTurno);
             this.panelBotones.Controls.Add(this.salir);
             this.panelBotones.Controls.Add(this.turno);
-            this.panelBotones.Controls.Add(this.panel4);
+            this.panelBotones.Controls.Add(this.panelTitulos);
             this.panelBotones.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelBotones.Location = new System.Drawing.Point(0, 0);
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Size = new System.Drawing.Size(137, 640);
             this.panelBotones.TabIndex = 1;
             // 
-            // panelCaja
+            // config
             // 
-            this.panelCaja.Controls.Add(this.caja2);
-            this.panelCaja.Controls.Add(this.caja1);
-            this.panelCaja.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCaja.Location = new System.Drawing.Point(0, 233);
-            this.panelCaja.Name = "panelCaja";
-            this.panelCaja.Size = new System.Drawing.Size(120, 70);
-            this.panelCaja.TabIndex = 2;
+            this.config.Dock = System.Windows.Forms.DockStyle.Top;
+            this.config.FlatAppearance.BorderSize = 0;
+            this.config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.config.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.config.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.config.IconChar = FontAwesome.Sharp.IconChar.Cogs;
+            this.config.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.config.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.config.IconSize = 30;
+            this.config.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.config.Location = new System.Drawing.Point(0, 750);
+            this.config.Name = "config";
+            this.config.Size = new System.Drawing.Size(120, 35);
+            this.config.TabIndex = 8;
+            this.config.Text = "       Configuracion";
+            this.config.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.config.UseVisualStyleBackColor = true;
+            this.config.Click += new System.EventHandler(this.iconButton6_Click);
             // 
-            // caja2
+            // informes
             // 
-            this.caja2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.caja2.FlatAppearance.BorderSize = 0;
-            this.caja2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.caja2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.caja2.Location = new System.Drawing.Point(0, 35);
-            this.caja2.Name = "caja2";
-            this.caja2.Size = new System.Drawing.Size(120, 35);
-            this.caja2.TabIndex = 4;
-            this.caja2.Text = "       Caja Mayor";
-            this.caja2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.caja2.UseVisualStyleBackColor = true;
-            this.caja2.Click += new System.EventHandler(this.caja2_Click);
+            this.informes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.informes.FlatAppearance.BorderSize = 0;
+            this.informes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.informes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.informes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.informes.IconChar = FontAwesome.Sharp.IconChar.Wpforms;
+            this.informes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.informes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.informes.IconSize = 30;
+            this.informes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.informes.Location = new System.Drawing.Point(0, 715);
+            this.informes.Name = "informes";
+            this.informes.Size = new System.Drawing.Size(120, 35);
+            this.informes.TabIndex = 11;
+            this.informes.Text = "       Informes";
+            this.informes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.informes.UseVisualStyleBackColor = true;
+            this.informes.Click += new System.EventHandler(this.informes_Click);
             // 
-            // caja1
+            // panelPersonal
             // 
-            this.caja1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.caja1.FlatAppearance.BorderSize = 0;
-            this.caja1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.caja1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.caja1.Location = new System.Drawing.Point(0, 0);
-            this.caja1.Name = "caja1";
-            this.caja1.Size = new System.Drawing.Size(120, 35);
-            this.caja1.TabIndex = 3;
-            this.caja1.Text = "       Caja Chica";
-            this.caja1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.caja1.UseVisualStyleBackColor = true;
-            this.caja1.Click += new System.EventHandler(this.caja1_Click);
+            this.panelPersonal.Controls.Add(this.categorias);
+            this.panelPersonal.Controls.Add(this.button2);
+            this.panelPersonal.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPersonal.Location = new System.Drawing.Point(0, 645);
+            this.panelPersonal.Name = "panelPersonal";
+            this.panelPersonal.Size = new System.Drawing.Size(120, 70);
+            this.panelPersonal.TabIndex = 12;
+            // 
+            // categorias
+            // 
+            this.categorias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.categorias.FlatAppearance.BorderSize = 0;
+            this.categorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.categorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.categorias.Location = new System.Drawing.Point(0, 35);
+            this.categorias.Name = "categorias";
+            this.categorias.Size = new System.Drawing.Size(120, 35);
+            this.categorias.TabIndex = 2;
+            this.categorias.Text = "       Categorias";
+            this.categorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.categorias.UseVisualStyleBackColor = true;
+            this.categorias.Click += new System.EventHandler(this.categorias_Click);
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 35);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "       Empleados";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // personal
+            // 
+            this.personal.Dock = System.Windows.Forms.DockStyle.Top;
+            this.personal.FlatAppearance.BorderSize = 0;
+            this.personal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.personal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.personal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.personal.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.personal.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.personal.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.personal.IconSize = 30;
+            this.personal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.personal.Location = new System.Drawing.Point(0, 610);
+            this.personal.Name = "personal";
+            this.personal.Size = new System.Drawing.Size(120, 35);
+            this.personal.TabIndex = 10;
+            this.personal.Text = "       Personal";
+            this.personal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.personal.UseVisualStyleBackColor = true;
+            this.personal.Click += new System.EventHandler(this.personal_Click);
+            // 
+            // panelStock
+            // 
+            this.panelStock.Controls.Add(this.inventariosStock);
+            this.panelStock.Controls.Add(this.manejoStock);
+            this.panelStock.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStock.Location = new System.Drawing.Point(0, 540);
+            this.panelStock.Name = "panelStock";
+            this.panelStock.Size = new System.Drawing.Size(120, 70);
+            this.panelStock.TabIndex = 11;
+            // 
+            // inventariosStock
+            // 
+            this.inventariosStock.Dock = System.Windows.Forms.DockStyle.Top;
+            this.inventariosStock.FlatAppearance.BorderSize = 0;
+            this.inventariosStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventariosStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.inventariosStock.Location = new System.Drawing.Point(0, 35);
+            this.inventariosStock.Name = "inventariosStock";
+            this.inventariosStock.Size = new System.Drawing.Size(120, 35);
+            this.inventariosStock.TabIndex = 2;
+            this.inventariosStock.Text = "       Inventarios";
+            this.inventariosStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.inventariosStock.UseVisualStyleBackColor = true;
+            this.inventariosStock.Click += new System.EventHandler(this.inventariosStock_Click);
+            // 
+            // manejoStock
+            // 
+            this.manejoStock.Dock = System.Windows.Forms.DockStyle.Top;
+            this.manejoStock.FlatAppearance.BorderSize = 0;
+            this.manejoStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manejoStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.manejoStock.Location = new System.Drawing.Point(0, 0);
+            this.manejoStock.Name = "manejoStock";
+            this.manejoStock.Size = new System.Drawing.Size(120, 35);
+            this.manejoStock.TabIndex = 1;
+            this.manejoStock.Text = "       Manejo de Stock";
+            this.manejoStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manejoStock.UseVisualStyleBackColor = true;
+            this.manejoStock.Click += new System.EventHandler(this.manejoStock_Click);
+            // 
+            // stock
+            // 
+            this.stock.Dock = System.Windows.Forms.DockStyle.Top;
+            this.stock.FlatAppearance.BorderSize = 0;
+            this.stock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.stock.IconChar = FontAwesome.Sharp.IconChar.BoxOpen;
+            this.stock.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.stock.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.stock.IconSize = 30;
+            this.stock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.stock.Location = new System.Drawing.Point(0, 505);
+            this.stock.Name = "stock";
+            this.stock.Size = new System.Drawing.Size(120, 35);
+            this.stock.TabIndex = 11;
+            this.stock.Text = "       Stock";
+            this.stock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.stock.UseVisualStyleBackColor = true;
+            this.stock.Click += new System.EventHandler(this.Stock_Click);
             // 
             // panelCompras
             // 
@@ -168,7 +292,7 @@
             this.panelCompras.Controls.Add(this.button21);
             this.panelCompras.Controls.Add(this.proveedores);
             this.panelCompras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCompras.Location = new System.Drawing.Point(0, 408);
+            this.panelCompras.Location = new System.Drawing.Point(0, 400);
             this.panelCompras.Name = "panelCompras";
             this.panelCompras.Size = new System.Drawing.Size(120, 105);
             this.panelCompras.TabIndex = 6;
@@ -218,104 +342,157 @@
             this.proveedores.UseVisualStyleBackColor = true;
             this.proveedores.Click += new System.EventHandler(this.proveedores_Click);
             // 
-            // panelContenedor
+            // compras
             // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.panelContenedor.BackgroundImage = global::BAREST.Properties.Resources.El_lugar_de_la_buena_vida;
-            this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelContenedor.Controls.Add(this.panelBotones);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1112, 640);
-            this.panelContenedor.TabIndex = 3;
+            this.compras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.compras.FlatAppearance.BorderSize = 0;
+            this.compras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.compras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.compras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.compras.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
+            this.compras.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.compras.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.compras.IconSize = 30;
+            this.compras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.compras.Location = new System.Drawing.Point(0, 365);
+            this.compras.Name = "compras";
+            this.compras.Size = new System.Drawing.Size(120, 35);
+            this.compras.TabIndex = 6;
+            this.compras.Text = "       Compras";
+            this.compras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.compras.UseVisualStyleBackColor = true;
+            this.compras.Click += new System.EventHandler(this.compras_Click_1);
             // 
-            // panelStock
+            // ventas
             // 
-            this.panelStock.Controls.Add(this.inventariosStock);
-            this.panelStock.Controls.Add(this.manejoStock);
-            this.panelStock.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStock.Location = new System.Drawing.Point(0, 548);
-            this.panelStock.Name = "panelStock";
-            this.panelStock.Size = new System.Drawing.Size(120, 70);
-            this.panelStock.TabIndex = 11;
+            this.ventas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ventas.FlatAppearance.BorderSize = 0;
+            this.ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ventas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.ventas.IconChar = FontAwesome.Sharp.IconChar.HandHoldingUsd;
+            this.ventas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.ventas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ventas.IconSize = 30;
+            this.ventas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ventas.Location = new System.Drawing.Point(0, 330);
+            this.ventas.Name = "ventas";
+            this.ventas.Size = new System.Drawing.Size(120, 35);
+            this.ventas.TabIndex = 5;
+            this.ventas.Text = "       Ventas";
+            this.ventas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ventas.UseVisualStyleBackColor = true;
+            this.ventas.Click += new System.EventHandler(this.iconButton3_Click);
             // 
-            // inventariosStock
+            // menu
             // 
-            this.inventariosStock.Dock = System.Windows.Forms.DockStyle.Top;
-            this.inventariosStock.FlatAppearance.BorderSize = 0;
-            this.inventariosStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventariosStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.inventariosStock.Location = new System.Drawing.Point(0, 35);
-            this.inventariosStock.Name = "inventariosStock";
-            this.inventariosStock.Size = new System.Drawing.Size(120, 35);
-            this.inventariosStock.TabIndex = 2;
-            this.inventariosStock.Text = "       Inventarios";
-            this.inventariosStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.inventariosStock.UseVisualStyleBackColor = true;
-            this.inventariosStock.Click += new System.EventHandler(this.inventariosStock_Click);
+            this.menu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menu.FlatAppearance.BorderSize = 0;
+            this.menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.menu.IconChar = FontAwesome.Sharp.IconChar.BookReader;
+            this.menu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.menu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menu.IconSize = 30;
+            this.menu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menu.Location = new System.Drawing.Point(0, 295);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(120, 35);
+            this.menu.TabIndex = 7;
+            this.menu.Text = "       Menu";
+            this.menu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menu.UseVisualStyleBackColor = true;
+            this.menu.Click += new System.EventHandler(this.menu_Click);
             // 
-            // manejoStock
+            // panelCaja
             // 
-            this.manejoStock.Dock = System.Windows.Forms.DockStyle.Top;
-            this.manejoStock.FlatAppearance.BorderSize = 0;
-            this.manejoStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.manejoStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.manejoStock.Location = new System.Drawing.Point(0, 0);
-            this.manejoStock.Name = "manejoStock";
-            this.manejoStock.Size = new System.Drawing.Size(120, 35);
-            this.manejoStock.TabIndex = 1;
-            this.manejoStock.Text = "       Manejo de Stock";
-            this.manejoStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.manejoStock.UseVisualStyleBackColor = true;
-            this.manejoStock.Click += new System.EventHandler(this.manejoStock_Click);
+            this.panelCaja.Controls.Add(this.caja2);
+            this.panelCaja.Controls.Add(this.caja1);
+            this.panelCaja.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCaja.Location = new System.Drawing.Point(0, 225);
+            this.panelCaja.Name = "panelCaja";
+            this.panelCaja.Size = new System.Drawing.Size(120, 70);
+            this.panelCaja.TabIndex = 2;
             // 
-            // panelPersonal
+            // caja2
             // 
-            this.panelPersonal.Controls.Add(this.categorias);
-            this.panelPersonal.Controls.Add(this.button2);
-            this.panelPersonal.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPersonal.Location = new System.Drawing.Point(0, 653);
-            this.panelPersonal.Name = "panelPersonal";
-            this.panelPersonal.Size = new System.Drawing.Size(120, 70);
-            this.panelPersonal.TabIndex = 12;
+            this.caja2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.caja2.FlatAppearance.BorderSize = 0;
+            this.caja2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.caja2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.caja2.Location = new System.Drawing.Point(0, 35);
+            this.caja2.Name = "caja2";
+            this.caja2.Size = new System.Drawing.Size(120, 35);
+            this.caja2.TabIndex = 4;
+            this.caja2.Text = "       Caja Mayor";
+            this.caja2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.caja2.UseVisualStyleBackColor = true;
+            this.caja2.Click += new System.EventHandler(this.caja2_Click);
             // 
-            // categorias
+            // caja1
             // 
-            this.categorias.Dock = System.Windows.Forms.DockStyle.Top;
-            this.categorias.FlatAppearance.BorderSize = 0;
-            this.categorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.categorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.categorias.Location = new System.Drawing.Point(0, 35);
-            this.categorias.Name = "categorias";
-            this.categorias.Size = new System.Drawing.Size(120, 35);
-            this.categorias.TabIndex = 2;
-            this.categorias.Text = "       Categorias";
-            this.categorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.categorias.UseVisualStyleBackColor = true;
-            this.categorias.Click += new System.EventHandler(this.categorias_Click);
+            this.caja1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.caja1.FlatAppearance.BorderSize = 0;
+            this.caja1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.caja1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.caja1.Location = new System.Drawing.Point(0, 0);
+            this.caja1.Name = "caja1";
+            this.caja1.Size = new System.Drawing.Size(120, 35);
+            this.caja1.TabIndex = 3;
+            this.caja1.Text = "       Caja Chica";
+            this.caja1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.caja1.UseVisualStyleBackColor = true;
+            this.caja1.Click += new System.EventHandler(this.caja1_Click);
             // 
-            // button2
+            // caja
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 35);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "       Empleados";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.caja.Dock = System.Windows.Forms.DockStyle.Top;
+            this.caja.FlatAppearance.BorderSize = 0;
+            this.caja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.caja.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.caja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.caja.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
+            this.caja.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.caja.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.caja.IconSize = 30;
+            this.caja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.caja.Location = new System.Drawing.Point(0, 190);
+            this.caja.Name = "caja";
+            this.caja.Size = new System.Drawing.Size(120, 35);
+            this.caja.TabIndex = 3;
+            this.caja.Text = "       Caja";
+            this.caja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.caja.UseVisualStyleBackColor = true;
+            this.caja.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // reservas
+            // 
+            this.reservas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.reservas.FlatAppearance.BorderSize = 0;
+            this.reservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reservas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.reservas.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.reservas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.reservas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.reservas.IconSize = 30;
+            this.reservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reservas.Location = new System.Drawing.Point(0, 155);
+            this.reservas.Name = "reservas";
+            this.reservas.Size = new System.Drawing.Size(120, 35);
+            this.reservas.TabIndex = 8;
+            this.reservas.Text = "       Reservas";
+            this.reservas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reservas.UseVisualStyleBackColor = true;
+            this.reservas.Click += new System.EventHandler(this.reservas_Click);
             // 
             // panelTurno
             // 
             this.panelTurno.Controls.Add(this.cerrar);
             this.panelTurno.Controls.Add(this.iniciar);
             this.panelTurno.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTurno.Location = new System.Drawing.Point(0, 93);
+            this.panelTurno.Location = new System.Drawing.Point(0, 85);
             this.panelTurno.Name = "panelTurno";
             this.panelTurno.Size = new System.Drawing.Size(120, 70);
             this.panelTurno.TabIndex = 3;
@@ -350,195 +527,6 @@
             this.iniciar.UseVisualStyleBackColor = true;
             this.iniciar.Click += new System.EventHandler(this.iniciar_Click);
             // 
-            // config
-            // 
-            this.config.Dock = System.Windows.Forms.DockStyle.Top;
-            this.config.FlatAppearance.BorderSize = 0;
-            this.config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.config.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.config.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.config.IconChar = FontAwesome.Sharp.IconChar.Cogs;
-            this.config.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.config.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.config.IconSize = 30;
-            this.config.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.config.Location = new System.Drawing.Point(0, 758);
-            this.config.Name = "config";
-            this.config.Size = new System.Drawing.Size(120, 35);
-            this.config.TabIndex = 8;
-            this.config.Text = "       Configuracion";
-            this.config.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.config.UseVisualStyleBackColor = true;
-            this.config.Click += new System.EventHandler(this.iconButton6_Click);
-            // 
-            // informes
-            // 
-            this.informes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.informes.FlatAppearance.BorderSize = 0;
-            this.informes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.informes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.informes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.informes.IconChar = FontAwesome.Sharp.IconChar.Wpforms;
-            this.informes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.informes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.informes.IconSize = 30;
-            this.informes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.informes.Location = new System.Drawing.Point(0, 723);
-            this.informes.Name = "informes";
-            this.informes.Size = new System.Drawing.Size(120, 35);
-            this.informes.TabIndex = 11;
-            this.informes.Text = "       Informes";
-            this.informes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.informes.UseVisualStyleBackColor = true;
-            this.informes.Click += new System.EventHandler(this.informes_Click);
-            // 
-            // personal
-            // 
-            this.personal.Dock = System.Windows.Forms.DockStyle.Top;
-            this.personal.FlatAppearance.BorderSize = 0;
-            this.personal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.personal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.personal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.personal.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.personal.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.personal.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.personal.IconSize = 30;
-            this.personal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personal.Location = new System.Drawing.Point(0, 618);
-            this.personal.Name = "personal";
-            this.personal.Size = new System.Drawing.Size(120, 35);
-            this.personal.TabIndex = 10;
-            this.personal.Text = "       Personal";
-            this.personal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personal.UseVisualStyleBackColor = true;
-            this.personal.Click += new System.EventHandler(this.personal_Click);
-            // 
-            // stock
-            // 
-            this.stock.Dock = System.Windows.Forms.DockStyle.Top;
-            this.stock.FlatAppearance.BorderSize = 0;
-            this.stock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.stock.IconChar = FontAwesome.Sharp.IconChar.BoxOpen;
-            this.stock.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.stock.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.stock.IconSize = 30;
-            this.stock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.stock.Location = new System.Drawing.Point(0, 513);
-            this.stock.Name = "stock";
-            this.stock.Size = new System.Drawing.Size(120, 35);
-            this.stock.TabIndex = 11;
-            this.stock.Text = "       Stock";
-            this.stock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.stock.UseVisualStyleBackColor = true;
-            this.stock.Click += new System.EventHandler(this.Stock_Click);
-            // 
-            // compras
-            // 
-            this.compras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.compras.FlatAppearance.BorderSize = 0;
-            this.compras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.compras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.compras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.compras.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
-            this.compras.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.compras.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.compras.IconSize = 30;
-            this.compras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.compras.Location = new System.Drawing.Point(0, 373);
-            this.compras.Name = "compras";
-            this.compras.Size = new System.Drawing.Size(120, 35);
-            this.compras.TabIndex = 6;
-            this.compras.Text = "       Compras";
-            this.compras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.compras.UseVisualStyleBackColor = true;
-            this.compras.Click += new System.EventHandler(this.compras_Click_1);
-            // 
-            // ventas
-            // 
-            this.ventas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ventas.FlatAppearance.BorderSize = 0;
-            this.ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ventas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.ventas.IconChar = FontAwesome.Sharp.IconChar.HandHoldingUsd;
-            this.ventas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.ventas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ventas.IconSize = 30;
-            this.ventas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ventas.Location = new System.Drawing.Point(0, 338);
-            this.ventas.Name = "ventas";
-            this.ventas.Size = new System.Drawing.Size(120, 35);
-            this.ventas.TabIndex = 5;
-            this.ventas.Text = "       Ventas";
-            this.ventas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ventas.UseVisualStyleBackColor = true;
-            this.ventas.Click += new System.EventHandler(this.iconButton3_Click);
-            // 
-            // menu
-            // 
-            this.menu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu.FlatAppearance.BorderSize = 0;
-            this.menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.menu.IconChar = FontAwesome.Sharp.IconChar.BookReader;
-            this.menu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.menu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menu.IconSize = 30;
-            this.menu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menu.Location = new System.Drawing.Point(0, 303);
-            this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(120, 35);
-            this.menu.TabIndex = 7;
-            this.menu.Text = "       Menu";
-            this.menu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menu.UseVisualStyleBackColor = true;
-            this.menu.Click += new System.EventHandler(this.menu_Click);
-            // 
-            // caja
-            // 
-            this.caja.Dock = System.Windows.Forms.DockStyle.Top;
-            this.caja.FlatAppearance.BorderSize = 0;
-            this.caja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.caja.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.caja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.caja.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
-            this.caja.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.caja.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.caja.IconSize = 30;
-            this.caja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.caja.Location = new System.Drawing.Point(0, 198);
-            this.caja.Name = "caja";
-            this.caja.Size = new System.Drawing.Size(120, 35);
-            this.caja.TabIndex = 3;
-            this.caja.Text = "       Caja";
-            this.caja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.caja.UseVisualStyleBackColor = true;
-            this.caja.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
-            // reservas
-            // 
-            this.reservas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.reservas.FlatAppearance.BorderSize = 0;
-            this.reservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reservas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.reservas.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
-            this.reservas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.reservas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.reservas.IconSize = 30;
-            this.reservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reservas.Location = new System.Drawing.Point(0, 163);
-            this.reservas.Name = "reservas";
-            this.reservas.Size = new System.Drawing.Size(120, 35);
-            this.reservas.TabIndex = 8;
-            this.reservas.Text = "       Reservas";
-            this.reservas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reservas.UseVisualStyleBackColor = true;
-            this.reservas.Click += new System.EventHandler(this.reservas_Click);
-            // 
             // salir
             // 
             this.salir.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -551,7 +539,7 @@
             this.salir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.salir.IconSize = 30;
             this.salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salir.Location = new System.Drawing.Point(0, 793);
+            this.salir.Location = new System.Drawing.Point(0, 785);
             this.salir.Name = "salir";
             this.salir.Size = new System.Drawing.Size(120, 35);
             this.salir.TabIndex = 9;
@@ -572,7 +560,7 @@
             this.turno.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.turno.IconSize = 30;
             this.turno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.turno.Location = new System.Drawing.Point(0, 58);
+            this.turno.Location = new System.Drawing.Point(0, 50);
             this.turno.Name = "turno";
             this.turno.Size = new System.Drawing.Size(120, 35);
             this.turno.TabIndex = 4;
@@ -581,19 +569,19 @@
             this.turno.UseVisualStyleBackColor = true;
             this.turno.Click += new System.EventHandler(this.inicioTurno_Click);
             // 
-            // pictureBox2
+            // panelContenedor
             // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::BAREST.Properties.Resources.Vidon_bar;
-            this.pictureBox2.Location = new System.Drawing.Point(2, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(37, 49);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.panelContenedor.BackgroundImage = global::BAREST.Properties.Resources.El_lugar_de_la_buena_vida;
+            this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelContenedor.Controls.Add(this.panelBotones);
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1112, 640);
+            this.panelContenedor.TabIndex = 3;
             // 
-            // configuracion
+            // inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -602,33 +590,32 @@
             this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "configuracion";
+            this.Name = "inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barest";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panelBotones.ResumeLayout(false);
-            this.panelCaja.ResumeLayout(false);
-            this.panelCompras.ResumeLayout(false);
-            this.panelContenedor.ResumeLayout(false);
-            this.panelStock.ResumeLayout(false);
-            this.panelPersonal.ResumeLayout(false);
-            this.panelTurno.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.configuracion_Load);
+            this.panelTitulos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelBotones.ResumeLayout(false);
+            this.panelPersonal.ResumeLayout(false);
+            this.panelStock.ResumeLayout(false);
+            this.panelCompras.ResumeLayout(false);
+            this.panelCaja.ResumeLayout(false);
+            this.panelTurno.ResumeLayout(false);
+            this.panelContenedor.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel panelBotones;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelTitulos;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panelCompras;
         private System.Windows.Forms.Button estadoCompras;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button proveedores;
-        private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton caja;
         private FontAwesome.Sharp.IconButton turno;
         private FontAwesome.Sharp.IconButton ventas;

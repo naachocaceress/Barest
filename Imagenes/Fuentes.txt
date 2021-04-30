@@ -1,2 +1,3 @@
 Color verde : 12; 132; 68
 Color blanco : 241; 243; 244 
+Color dorado: 214; 155; 60

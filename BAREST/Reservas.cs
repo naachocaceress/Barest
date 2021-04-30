@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace BAREST
 {
-    public partial class Caja : Form
+    public partial class Reservas : Form
     {
-        public Caja()
+        public Reservas()
         {
             InitializeComponent();
         }
 
-        private void Caja_Load(object sender, EventArgs e)
+        private void Reservas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

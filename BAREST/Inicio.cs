@@ -7,15 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FontAwesome.Sharp;
 
 namespace BAREST
 {
-    public partial class configuracion : Form
+    public partial class inicio : Form
     {
-        public configuracion()
+        private IconButton currentBtn;
+        public inicio()
         {
             InitializeComponent();
             customizeDesign();
+        } 
+
+        private void BotonActivo (object senderBtn)
+        {
+            if(senderBtn != null)
+            {
+                BotonDesactivo();
+                currentBtn = (IconButton)senderBtn;
+                currentBtn.ForeColor = Color.FromArgb(214, 155, 60);
+                currentBtn.IconColor = Color.FromArgb(214, 155, 60);
+            }
+        }
+
+        private void BotonDesactivo ()
+        {
+            if(currentBtn != null)
+            {
+                currentBtn.ForeColor = Color.FromArgb(241, 243, 244 );
+                currentBtn.IconColor = Color.FromArgb(241, 243, 244 );
+            }
         }
 
         private void customizeDesign()
@@ -99,6 +121,7 @@ namespace BAREST
             config.Text = ("");
             salir.Text = ("");
             hideSubMenu();
+            panelTitulos.Height = 49;
         }
 
         private void mostrarMenu()
@@ -124,22 +147,25 @@ namespace BAREST
             mostrarMenu();
             hideSubMenu();
             showSubMenu(panelCaja);
-            //openChilForm(new Caja());
+            BotonActivo(sender);
         }
 
         private void iconButton6_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            BotonActivo(sender);
         }
 
         private void salir_Click(object sender, EventArgs e)
         {
             this.Close();
+            BotonActivo(sender);
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            BotonActivo(sender);
         }
 
         private void compras_Click_1(object sender, EventArgs e)
@@ -147,6 +173,7 @@ namespace BAREST
             mostrarMenu();
             hideSubMenu();
             showSubMenu(panelCompras);
+            BotonActivo(sender);
         }
 
         private void inicioTurno_Click(object sender, EventArgs e)
@@ -154,6 +181,7 @@ namespace BAREST
             mostrarMenu();
             hideSubMenu();
             showSubMenu(panelTurno);
+            BotonActivo(sender);
         }
 
 
@@ -181,7 +209,8 @@ namespace BAREST
         {
             mostrarMenu();
             hideSubMenu();
-            showSubMenu(panelStock);         
+            showSubMenu(panelStock);
+            BotonActivo(sender);
         }
 
         private void personal_Click(object sender, EventArgs e)
@@ -189,11 +218,13 @@ namespace BAREST
             mostrarMenu();
             hideSubMenu();
             showSubMenu(panelPersonal);
+            BotonActivo(sender);
         }
 
         private void informes_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            BotonActivo(sender);
         }
 
         private void iniciar_Click(object sender, EventArgs e)
@@ -209,6 +240,7 @@ namespace BAREST
         private void caja1_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            openChilForm(new Caja());
         }
 
         private void caja2_Click(object sender, EventArgs e)
@@ -254,11 +286,24 @@ namespace BAREST
         private void reservas_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            openChilForm(new Reservas());
+            BotonActivo(sender);
         }
 
         private void menu_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            BotonActivo(sender);
+        }
+
+        private void configuracion_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usuarioText_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
