@@ -54,6 +54,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\Acerca de.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Acerca de.Designer.cs">
+      <DependentUpon>Acerca de.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\Diseño.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Diseño.Designer.cs">
+      <DependentUpon>Diseño.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reservas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,12 +98,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usuarios.cs">
+    <Compile Include="Configuracion\Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuarios.Designer.cs">
+    <Compile Include="Configuracion\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Acerca de.resx">
+      <DependentUpon>Acerca de.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Diseño.resx">
+      <DependentUpon>Diseño.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reservas.resx">
       <DependentUpon>Reservas.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,7 +135,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Usuarios.resx">
+    <EmbeddedResource Include="Configuracion\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -187,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\El lugar de la buena vida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vidon Barest Marca de agua.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

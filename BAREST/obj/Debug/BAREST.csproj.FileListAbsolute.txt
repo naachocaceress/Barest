@@ -41,3 +41,6 @@ C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.csproj.CopyCom
 C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.exe
 C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.pdb
 C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.inicio.resources
+C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Configuracion.resources
+C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Configuracion.Acerca_de.resources
+C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Configuracion.Diseño.resources

@@ -269,5 +269,15 @@ namespace BAREST.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Vidon_Barest_Marca_de_agua {
+            get {
+                object obj = ResourceManager.GetObject("Vidon Barest Marca de agua", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

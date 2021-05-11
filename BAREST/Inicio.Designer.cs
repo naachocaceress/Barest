@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(inicio));
-            this.panelTitulos = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelBotones = new System.Windows.Forms.Panel();
             this.config = new FontAwesome.Sharp.IconButton();
             this.informes = new FontAwesome.Sharp.IconButton();
@@ -50,6 +49,7 @@
             this.ventas = new FontAwesome.Sharp.IconButton();
             this.menu = new FontAwesome.Sharp.IconButton();
             this.panelCaja = new System.Windows.Forms.Panel();
+            this.cajaSocios = new System.Windows.Forms.Button();
             this.caja2 = new System.Windows.Forms.Button();
             this.caja1 = new System.Windows.Forms.Button();
             this.caja = new FontAwesome.Sharp.IconButton();
@@ -59,41 +59,30 @@
             this.iniciar = new System.Windows.Forms.Button();
             this.salir = new FontAwesome.Sharp.IconButton();
             this.turno = new FontAwesome.Sharp.IconButton();
-            this.panelContenedor = new System.Windows.Forms.Panel();
-            this.panelTitulos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelTitulos = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panelContenedor.SuspendLayout();
             this.panelBotones.SuspendLayout();
             this.panelPersonal.SuspendLayout();
             this.panelStock.SuspendLayout();
             this.panelCompras.SuspendLayout();
             this.panelCaja.SuspendLayout();
             this.panelTurno.SuspendLayout();
-            this.panelContenedor.SuspendLayout();
+            this.panelTitulos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelTitulos
+            // panelContenedor
             // 
-            this.panelTitulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
-            this.panelTitulos.Controls.Add(this.pictureBox2);
-            this.panelTitulos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitulos.Location = new System.Drawing.Point(0, 0);
-            this.panelTitulos.Name = "panelTitulos";
-            this.panelTitulos.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.panelTitulos.Size = new System.Drawing.Size(120, 50);
-            this.panelTitulos.TabIndex = 0;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::BAREST.Properties.Resources.Vidon_bar;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(120, 47);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.panelContenedor.BackgroundImage = global::BAREST.Properties.Resources.El_lugar_de_la_buena_vida;
+            this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelContenedor.Controls.Add(this.panelBotones);
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1112, 640);
+            this.panelContenedor.TabIndex = 3;
             // 
             // panelBotones
             // 
@@ -134,7 +123,7 @@
             this.config.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.config.IconSize = 30;
             this.config.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.config.Location = new System.Drawing.Point(0, 750);
+            this.config.Location = new System.Drawing.Point(0, 785);
             this.config.Name = "config";
             this.config.Size = new System.Drawing.Size(120, 35);
             this.config.TabIndex = 8;
@@ -155,7 +144,7 @@
             this.informes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.informes.IconSize = 30;
             this.informes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.informes.Location = new System.Drawing.Point(0, 715);
+            this.informes.Location = new System.Drawing.Point(0, 750);
             this.informes.Name = "informes";
             this.informes.Size = new System.Drawing.Size(120, 35);
             this.informes.TabIndex = 11;
@@ -169,7 +158,7 @@
             this.panelPersonal.Controls.Add(this.categorias);
             this.panelPersonal.Controls.Add(this.button2);
             this.panelPersonal.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPersonal.Location = new System.Drawing.Point(0, 645);
+            this.panelPersonal.Location = new System.Drawing.Point(0, 680);
             this.panelPersonal.Name = "panelPersonal";
             this.panelPersonal.Size = new System.Drawing.Size(120, 70);
             this.panelPersonal.TabIndex = 12;
@@ -216,7 +205,7 @@
             this.personal.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.personal.IconSize = 30;
             this.personal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personal.Location = new System.Drawing.Point(0, 610);
+            this.personal.Location = new System.Drawing.Point(0, 645);
             this.personal.Name = "personal";
             this.personal.Size = new System.Drawing.Size(120, 35);
             this.personal.TabIndex = 10;
@@ -230,7 +219,7 @@
             this.panelStock.Controls.Add(this.inventariosStock);
             this.panelStock.Controls.Add(this.manejoStock);
             this.panelStock.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStock.Location = new System.Drawing.Point(0, 540);
+            this.panelStock.Location = new System.Drawing.Point(0, 575);
             this.panelStock.Name = "panelStock";
             this.panelStock.Size = new System.Drawing.Size(120, 70);
             this.panelStock.TabIndex = 11;
@@ -277,7 +266,7 @@
             this.stock.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.stock.IconSize = 30;
             this.stock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.stock.Location = new System.Drawing.Point(0, 505);
+            this.stock.Location = new System.Drawing.Point(0, 540);
             this.stock.Name = "stock";
             this.stock.Size = new System.Drawing.Size(120, 35);
             this.stock.TabIndex = 11;
@@ -292,7 +281,7 @@
             this.panelCompras.Controls.Add(this.button21);
             this.panelCompras.Controls.Add(this.proveedores);
             this.panelCompras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCompras.Location = new System.Drawing.Point(0, 400);
+            this.panelCompras.Location = new System.Drawing.Point(0, 435);
             this.panelCompras.Name = "panelCompras";
             this.panelCompras.Size = new System.Drawing.Size(120, 105);
             this.panelCompras.TabIndex = 6;
@@ -354,7 +343,7 @@
             this.compras.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.compras.IconSize = 30;
             this.compras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.compras.Location = new System.Drawing.Point(0, 365);
+            this.compras.Location = new System.Drawing.Point(0, 400);
             this.compras.Name = "compras";
             this.compras.Size = new System.Drawing.Size(120, 35);
             this.compras.TabIndex = 6;
@@ -375,7 +364,7 @@
             this.ventas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ventas.IconSize = 30;
             this.ventas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ventas.Location = new System.Drawing.Point(0, 330);
+            this.ventas.Location = new System.Drawing.Point(0, 365);
             this.ventas.Name = "ventas";
             this.ventas.Size = new System.Drawing.Size(120, 35);
             this.ventas.TabIndex = 5;
@@ -396,7 +385,7 @@
             this.menu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.menu.IconSize = 30;
             this.menu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menu.Location = new System.Drawing.Point(0, 295);
+            this.menu.Location = new System.Drawing.Point(0, 330);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(120, 35);
             this.menu.TabIndex = 7;
@@ -407,13 +396,29 @@
             // 
             // panelCaja
             // 
+            this.panelCaja.Controls.Add(this.cajaSocios);
             this.panelCaja.Controls.Add(this.caja2);
             this.panelCaja.Controls.Add(this.caja1);
             this.panelCaja.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCaja.Location = new System.Drawing.Point(0, 225);
             this.panelCaja.Name = "panelCaja";
-            this.panelCaja.Size = new System.Drawing.Size(120, 70);
+            this.panelCaja.Size = new System.Drawing.Size(120, 105);
             this.panelCaja.TabIndex = 2;
+            // 
+            // cajaSocios
+            // 
+            this.cajaSocios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cajaSocios.FlatAppearance.BorderSize = 0;
+            this.cajaSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cajaSocios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.cajaSocios.Location = new System.Drawing.Point(0, 70);
+            this.cajaSocios.Name = "cajaSocios";
+            this.cajaSocios.Size = new System.Drawing.Size(120, 35);
+            this.cajaSocios.TabIndex = 4;
+            this.cajaSocios.Text = "       Caja Socios";
+            this.cajaSocios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cajaSocios.UseVisualStyleBackColor = true;
+            this.cajaSocios.Click += new System.EventHandler(this.button1_Click);
             // 
             // caja2
             // 
@@ -539,7 +544,7 @@
             this.salir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.salir.IconSize = 30;
             this.salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salir.Location = new System.Drawing.Point(0, 785);
+            this.salir.Location = new System.Drawing.Point(0, 820);
             this.salir.Name = "salir";
             this.salir.Size = new System.Drawing.Size(120, 35);
             this.salir.TabIndex = 9;
@@ -569,17 +574,29 @@
             this.turno.UseVisualStyleBackColor = true;
             this.turno.Click += new System.EventHandler(this.inicioTurno_Click);
             // 
-            // panelContenedor
+            // panelTitulos
             // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.panelContenedor.BackgroundImage = global::BAREST.Properties.Resources.El_lugar_de_la_buena_vida;
-            this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelContenedor.Controls.Add(this.panelBotones);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1112, 640);
-            this.panelContenedor.TabIndex = 3;
+            this.panelTitulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.panelTitulos.Controls.Add(this.pictureBox2);
+            this.panelTitulos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitulos.Location = new System.Drawing.Point(0, 0);
+            this.panelTitulos.Name = "panelTitulos";
+            this.panelTitulos.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.panelTitulos.Size = new System.Drawing.Size(120, 50);
+            this.panelTitulos.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::BAREST.Properties.Resources.Vidon_bar;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(120, 47);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // inicio
             // 
@@ -595,15 +612,15 @@
             this.Text = "Barest";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.configuracion_Load);
-            this.panelTitulos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelContenedor.ResumeLayout(false);
             this.panelBotones.ResumeLayout(false);
             this.panelPersonal.ResumeLayout(false);
             this.panelStock.ResumeLayout(false);
             this.panelCompras.ResumeLayout(false);
             this.panelCaja.ResumeLayout(false);
             this.panelTurno.ResumeLayout(false);
-            this.panelContenedor.ResumeLayout(false);
+            this.panelTitulos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -640,5 +657,6 @@
         private System.Windows.Forms.Panel panelTurno;
         private System.Windows.Forms.Button cerrar;
         private System.Windows.Forms.Button iniciar;
+        private System.Windows.Forms.Button cajaSocios;
     }
 }

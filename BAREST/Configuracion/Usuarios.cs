@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace BAREST
 {
-    public partial class Usuarios : Form
+    public partial class Usuarios: Form
     {
         public Usuarios()
         {

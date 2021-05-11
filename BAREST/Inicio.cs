@@ -154,6 +154,8 @@ namespace BAREST
         {
             esconderMenu();
             BotonActivo(sender);
+            configuracion m = new configuracion();
+            m.ShowDialog();
         }
 
         private void salir_Click(object sender, EventArgs e)
@@ -302,6 +304,11 @@ namespace BAREST
         }
 
         private void usuarioText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
