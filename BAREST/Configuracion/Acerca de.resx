@@ -117,4 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label3.Text" xml:space="preserve">
+    <value> Advertencia: este programa esta protegido por leyes de derechos de autor y otros tratados internacionales. 
+ La reproduccion o distribucion ilicita de este programa o de cualquier parte del mismo esta penada por
+la ley con severas sanciones civiles y penales y sera objeto de todas las acciones judiciales que 
+correspondan.</value>
+  </data>
 </root>

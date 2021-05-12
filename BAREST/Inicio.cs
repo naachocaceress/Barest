@@ -312,5 +312,45 @@ namespace BAREST
         {
 
         }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            if (panelBotones.Width == 137)
+            {
+                panelBotones.Width = 41;
+                turno.Text = ("");
+                caja.Text = ("");
+                ventas.Text = ("");
+                compras.Text = ("");
+                menu.Text = ("");
+                stock.Text = ("");
+                informes.Text = ("");
+                personal.Text = ("");
+                config.Text = ("");
+                salir.Text = ("");
+                botonHiden.Text = ("");
+            }
+            else
+            {
+                panelBotones.Width = 137;
+                turno.Text = ("       Iniciar Turno");
+                caja.Text = ("       Caja");
+                ventas.Text = ("       Ventas");
+                compras.Text = ("       Compras");
+                menu.Text = ("       Menu");
+                stock.Text = ("       Stock");
+                informes.Text = ("       Informes");
+                personal.Text = ("       Personal");
+                config.Text = ("       Configuracion");
+                salir.Text = ("       Salir");
+                botonHiden.Text = ("       BAREST");
+            }
+        }
+
+        private void horafecha_Tick(object sender, EventArgs e)
+        {
+            fechaLabel.Text = DateTime.Now.ToString("g");
+        }
     }
 }

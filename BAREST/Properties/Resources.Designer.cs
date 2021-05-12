@@ -63,6 +63,36 @@ namespace BAREST.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Banner_Vidon_2 {
+            get {
+                object obj = ResourceManager.GetObject("Banner Vidon 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Banner_Vidon_3 {
+            get {
+                object obj = ResourceManager.GetObject("Banner Vidon 3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BannerVidon {
+            get {
+                object obj = ResourceManager.GetObject("BannerVidon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Barest {
             get {
                 object obj = ResourceManager.GetObject("Barest", resourceCulture);
@@ -156,6 +186,26 @@ namespace BAREST.Properties {
         internal static System.Drawing.Bitmap estadisticas {
             get {
                 object obj = ResourceManager.GetObject("estadisticas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap instagram {
+            get {
+                object obj = ResourceManager.GetObject("instagram", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap linkediln {
+            get {
+                object obj = ResourceManager.GetObject("linkediln", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
