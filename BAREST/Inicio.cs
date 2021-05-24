@@ -272,7 +272,12 @@ namespace BAREST
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             esconderMenu();
+            Empleado em = new Empleado();
+            em.ShowDialog();
+            
+
         }
 
         private void categorias_Click(object sender, EventArgs e)

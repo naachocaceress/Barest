@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
@@ -71,6 +72,12 @@
     </Compile>
     <Compile Include="Configuracion\Diseño.Designer.cs">
       <DependentUpon>Diseño.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleado.Designer.cs">
+      <DependentUpon>Empleado.cs</DependentUpon>
     </Compile>
     <Compile Include="Reservas.cs">
       <SubType>Form</SubType>
@@ -112,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\Diseño.resx">
       <DependentUpon>Diseño.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleado.resx">
+      <DependentUpon>Empleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reservas.resx">
       <DependentUpon>Reservas.cs</DependentUpon>

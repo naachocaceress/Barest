@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace BAREST
 {
     public partial class Form1 : Form
     {
+        private SqlConnection Cone = new SqlConnection("Data Source=localhost; Initial Catalog=BaseBarest;Integrated Security=True");
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace BAREST
                 logiarse();
             }
         }
-
+        // METODO PARA INCIARSECCION
         private void logiarse()
         {
             if (tboxUsuario.Text == "admin" && tboxContraseña.Text == "admin")
@@ -53,5 +55,9 @@ namespace BAREST
             }
         }
 
+        private void tboxUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

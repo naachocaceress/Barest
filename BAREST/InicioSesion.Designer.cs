@@ -140,6 +140,7 @@
             this.tboxUsuario.Name = "tboxUsuario";
             this.tboxUsuario.Size = new System.Drawing.Size(204, 25);
             this.tboxUsuario.TabIndex = 16;
+            this.tboxUsuario.TextChanged += new System.EventHandler(this.tboxUsuario_TextChanged);
             // 
             // tboxContraseña
             // 
