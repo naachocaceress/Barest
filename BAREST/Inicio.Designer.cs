@@ -209,9 +209,9 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(155)))), ((int)(((byte)(60)))));
             this.label2.Location = new System.Drawing.Point(165, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "admin";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -830,7 +830,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton botonHiden;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer horafecha;
         private System.Windows.Forms.Label fechaLabel;
@@ -841,5 +840,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label2;
     }
 }

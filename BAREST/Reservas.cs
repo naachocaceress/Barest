@@ -31,5 +31,10 @@ namespace BAREST
         {
             this.Close();
         }
+
+        private void reservasTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="buscarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buscarUsuario.Designer.cs">
+      <DependentUpon>buscarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     </Compile>
     <Compile Include="Empleado.Designer.cs">
       <DependentUpon>Empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Reservas.cs">
       <SubType>Form</SubType>
@@ -111,6 +123,9 @@
     <Compile Include="Configuracion\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="buscarUsuario.resx">
+      <DependentUpon>buscarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Empleado.resx">
       <DependentUpon>Empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reservas.resx">
       <DependentUpon>Reservas.cs</DependentUpon>

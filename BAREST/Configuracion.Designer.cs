@@ -30,10 +30,10 @@ namespace BAREST
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelContenedor = new System.Windows.Forms.Panel();
             this.acercaDe = new FontAwesome.Sharp.IconButton();
             this.disenioBtn = new FontAwesome.Sharp.IconButton();
             this.usuariosBtn = new FontAwesome.Sharp.IconButton();
+            this.panelContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.panelContenedor.SuspendLayout();
@@ -50,18 +50,8 @@ namespace BAREST
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(172, 601);
+            this.panelMenu.Size = new System.Drawing.Size(172, 548);
             this.panelMenu.TabIndex = 8;
-            // 
-            // panelContenedor
-            // 
-            this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelContenedor.Controls.Add(this.pictureBox1);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(172, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(775, 601);
-            this.panelContenedor.TabIndex = 9;
             // 
             // acercaDe
             // 
@@ -129,12 +119,22 @@ namespace BAREST
             this.usuariosBtn.UseVisualStyleBackColor = false;
             this.usuariosBtn.Click += new System.EventHandler(this.usuariosBtn_Click);
             // 
+            // panelContenedor
+            // 
+            this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelContenedor.Controls.Add(this.pictureBox1);
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(172, 0);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(775, 548);
+            this.panelContenedor.TabIndex = 9;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::BAREST.Properties.Resources.Vidon_Barest_Marca_de_agua;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -50);
+            this.pictureBox1.Location = new System.Drawing.Point(0, -47);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(775, 621);
+            this.pictureBox1.Size = new System.Drawing.Size(775, 559);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -144,7 +144,7 @@ namespace BAREST
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(947, 601);
+            this.ClientSize = new System.Drawing.Size(947, 548);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

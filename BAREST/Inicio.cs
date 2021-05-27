@@ -293,14 +293,19 @@ namespace BAREST
         private void reservas_Click(object sender, EventArgs e)
         {
             esconderMenu();
-            openChilForm(new Reservas());
+            //openChilForm(new Reservas());
             BotonActivo(sender);
+            Reservas m = new Reservas();
+            m.ShowDialog();
         }
 
         private void menu_Click(object sender, EventArgs e)
         {
             esconderMenu();
             BotonActivo(sender);
+            // openChilForm(new Menu());
+            Menu m = new Menu();
+            m.ShowDialog();
         }
 
         private void configuracion_Load(object sender, EventArgs e)
@@ -356,6 +361,11 @@ namespace BAREST
         private void horafecha_Tick(object sender, EventArgs e)
         {
             fechaLabel.Text = DateTime.Now.ToString("g");
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

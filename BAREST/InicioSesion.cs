@@ -36,14 +36,22 @@ namespace BAREST
                 logiarse();
             }
         }
-        // METODO PARA INCIARSECCION
+
+        // METODO PARA INCIAR SESION
         private void logiarse()
         {
-            if (tboxUsuario.Text == "admin" && tboxContraseña.Text == "admin")
+            Cone.Open();
+            string sql = "SELECT legajo, contraseña, cargo FROM Empleado WHERE legajo = @legajo AND contraseña = @contra AND cargo = 'Administrador'";
+            SqlCommand comando = new SqlCommand(sql, Cone);
+            comando.Parameters.Add("@legajo", SqlDbType.VarChar).Value = tboxUsuario.Text;
+            comando.Parameters.Add("@contra", SqlDbType.VarChar).Value = tboxContraseña.Text;
+            SqlDataReader dr = comando.ExecuteReader();
+            if (dr.Read())
             {
                 inicio m = new inicio();
-                m.ShowDialog();
+                m.label2.Text = tboxUsuario.Text;
                 this.Hide();
+                m.ShowDialog();
                 this.Close();
             }
             else
@@ -53,6 +61,8 @@ namespace BAREST
                 tboxContraseña.Clear();
                 tboxUsuario.Focus();
             }
+            dr.Close();
+            Cone.Close();
         }
 
         private void tboxUsuario_TextChanged(object sender, EventArgs e)

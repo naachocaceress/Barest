@@ -54,7 +54,7 @@
             this.button1.Location = new System.Drawing.Point(34, 408);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(236, 33);
-            this.button1.TabIndex = 8;
+            this.button1.TabIndex = 3;
             this.button1.Text = "INICIAR SESION";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -125,7 +125,7 @@
             this.label2.Location = new System.Drawing.Point(131, 461);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 16);
-            this.label2.TabIndex = 15;
+            this.label2.TabIndex = 4;
             this.label2.Text = "Salir";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
@@ -139,7 +139,7 @@
             this.tboxUsuario.Multiline = true;
             this.tboxUsuario.Name = "tboxUsuario";
             this.tboxUsuario.Size = new System.Drawing.Size(204, 25);
-            this.tboxUsuario.TabIndex = 16;
+            this.tboxUsuario.TabIndex = 1;
             this.tboxUsuario.TextChanged += new System.EventHandler(this.tboxUsuario_TextChanged);
             // 
             // tboxContraseña
@@ -153,7 +153,7 @@
             this.tboxContraseña.Name = "tboxContraseña";
             this.tboxContraseña.PasswordChar = '*';
             this.tboxContraseña.Size = new System.Drawing.Size(204, 25);
-            this.tboxContraseña.TabIndex = 17;
+            this.tboxContraseña.TabIndex = 2;
             this.tboxContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxContraseña_KeyPress);
             // 
             // Form1
