@@ -61,6 +61,18 @@
     <Compile Include="buscarUsuario.Designer.cs">
       <DependentUpon>buscarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\consultaInsumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\consultaInsumos.Designer.cs">
+      <DependentUpon>consultaInsumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\Insumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\Insumos.Designer.cs">
+      <DependentUpon>Insumos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +137,12 @@
     </Compile>
     <EmbeddedResource Include="buscarUsuario.resx">
       <DependentUpon>buscarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\consultaInsumos.resx">
+      <DependentUpon>consultaInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\Insumos.resx">
+      <DependentUpon>Insumos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>

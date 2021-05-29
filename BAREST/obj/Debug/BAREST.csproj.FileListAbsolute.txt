@@ -90,3 +90,5 @@ C:\Users\pachy\Desktop\Barest-20210525T184611Z-001\Barest\BAREST\obj\Debug\BARES
 C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.buscarUsuario.resources
 C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Empleado.resources
 C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Menu.resources
+C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Compras.Insumos.resources
+C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Compras.consultaInsumos.resources

@@ -190,6 +190,8 @@ namespace BAREST
         private void button21_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            Compras.Insumos m = new Compras.Insumos();
+            m.ShowDialog();
         }
 
         private Form activeForm = null;
@@ -272,12 +274,9 @@ namespace BAREST
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
             esconderMenu();
             Empleado em = new Empleado();
             em.ShowDialog();
-            
-
         }
 
         private void categorias_Click(object sender, EventArgs e)
