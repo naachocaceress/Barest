@@ -84,7 +84,7 @@ namespace BAREST
         {
 
         }
-
+        // A MODIFICAR EL UPDATE
         private void button3_Click(object sender, EventArgs e)
         {
             Cone.Open();
@@ -160,22 +160,28 @@ namespace BAREST
                 MessageBox.Show("Es necesario el 'documento' para eliminar un usuario"); 
             }
             else 
-            { 
-                Cone.Open();
-                string sql = "delete from Persona where cuil= @doc";
-                SqlCommand comando = new SqlCommand(sql, Cone);
-                comando.Parameters.Add("@doc", SqlDbType.VarChar).Value = textDocumento.Text;
-                int cant = comando.ExecuteNonQuery();
-                MessageBox.Show("Se eliminó el usuario: " + textUsuario.Text );
-                Cone.Close();
-                CargarGrilla();
-                textNombre.Text = "";
-                textApellido.Text = "";
-                textTelefono.Text = "";
-                textDocumento.Text = "";
-                textUsuario.Text = "";
-                textContraseña.Text = "";
-                comboCargo.SelectedIndex = -1;
+            {
+                MessageBoxButtons botones = MessageBoxButtons.YesNo;
+                DialogResult dr = MessageBox.Show("¿Esta seguro que quiere borrar el usuario?", "Borrar usuario", botones, MessageBoxIcon.Question);
+
+                if (dr == DialogResult.Yes)
+                {
+                    Cone.Open();
+                    string sql = "delete from Persona where cuil= @doc";
+                    SqlCommand comando = new SqlCommand(sql, Cone);
+                    comando.Parameters.Add("@doc", SqlDbType.VarChar).Value = textDocumento.Text;
+                    int cant = comando.ExecuteNonQuery();
+                    MessageBox.Show("Se eliminó el usuario: " + textUsuario.Text);
+                    Cone.Close();
+                    CargarGrilla();
+                    textNombre.Text = "";
+                    textApellido.Text = "";
+                    textTelefono.Text = "";
+                    textDocumento.Text = "";
+                    textUsuario.Text = "";
+                    textContraseña.Text = "";
+                    comboCargo.SelectedIndex = -1;
+                }
             }
         }
 
@@ -197,11 +203,6 @@ namespace BAREST
             }
             registros.Close();
             Cone.Close();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

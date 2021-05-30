@@ -255,6 +255,8 @@ namespace BAREST
         private void proveedores_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            Compras.Proveedores m = new Compras.Proveedores();
+            m.ShowDialog();
         }
 
         private void estadoCompras_Click(object sender, EventArgs e)
