@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.agregarInsu = new FontAwesome.Sharp.IconButton();
             this.EliminarInsu = new FontAwesome.Sharp.IconButton();
             this.modificarInsu = new FontAwesome.Sharp.IconButton();
@@ -46,12 +47,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,10 +64,30 @@
             this.panel1.Controls.Add(this.EliminarInsu);
             this.panel1.Controls.Add(this.modificarInsu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 294);
+            this.panel1.Location = new System.Drawing.Point(0, 295);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(674, 50);
+            this.panel1.Size = new System.Drawing.Size(715, 50);
             this.panel1.TabIndex = 1;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 0);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(92, 50);
+            this.iconButton1.TabIndex = 9;
+            this.iconButton1.Text = "       Carta";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // agregarInsu
             // 
@@ -79,7 +101,7 @@
             this.agregarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.agregarInsu.IconSize = 30;
             this.agregarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarInsu.Location = new System.Drawing.Point(364, 0);
+            this.agregarInsu.Location = new System.Drawing.Point(405, 0);
             this.agregarInsu.Name = "agregarInsu";
             this.agregarInsu.Size = new System.Drawing.Size(100, 50);
             this.agregarInsu.TabIndex = 7;
@@ -99,7 +121,7 @@
             this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.EliminarInsu.IconSize = 30;
             this.EliminarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.Location = new System.Drawing.Point(464, 0);
+            this.EliminarInsu.Location = new System.Drawing.Point(505, 0);
             this.EliminarInsu.Name = "EliminarInsu";
             this.EliminarInsu.Size = new System.Drawing.Size(100, 50);
             this.EliminarInsu.TabIndex = 6;
@@ -119,7 +141,7 @@
             this.modificarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.modificarInsu.IconSize = 30;
             this.modificarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.modificarInsu.Location = new System.Drawing.Point(564, 0);
+            this.modificarInsu.Location = new System.Drawing.Point(605, 0);
             this.modificarInsu.Name = "modificarInsu";
             this.modificarInsu.Size = new System.Drawing.Size(110, 50);
             this.modificarInsu.TabIndex = 5;
@@ -134,7 +156,7 @@
             this.groupBox1.Controls.Add(this.agregarRubro);
             this.groupBox1.Controls.Add(this.textRubro);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(450, 12);
+            this.groupBox1.Location = new System.Drawing.Point(490, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(213, 275);
             this.groupBox1.TabIndex = 3;
@@ -169,6 +191,7 @@
             this.eliminarRubro.TabIndex = 3;
             this.eliminarRubro.Text = "Eliminar";
             this.eliminarRubro.UseVisualStyleBackColor = true;
+            this.eliminarRubro.Click += new System.EventHandler(this.eliminarRubro_Click);
             // 
             // agregarRubro
             // 
@@ -178,6 +201,7 @@
             this.agregarRubro.TabIndex = 2;
             this.agregarRubro.Text = "Agregar";
             this.agregarRubro.UseVisualStyleBackColor = true;
+            this.agregarRubro.Click += new System.EventHandler(this.agregarRubro_Click);
             // 
             // textRubro
             // 
@@ -202,10 +226,10 @@
             this.tablaArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Articulos});
-            this.tablaArticulos.Location = new System.Drawing.Point(287, 24);
+            this.tablaArticulos.Location = new System.Drawing.Point(333, 24);
             this.tablaArticulos.Name = "tablaArticulos";
             this.tablaArticulos.ReadOnly = true;
-            this.tablaArticulos.Size = new System.Drawing.Size(132, 229);
+            this.tablaArticulos.Size = new System.Drawing.Size(132, 236);
             this.tablaArticulos.TabIndex = 12;
             // 
             // Articulos
@@ -218,7 +242,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 24);
+            this.label2.Location = new System.Drawing.Point(105, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 13;
@@ -226,7 +250,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(79, 21);
+            this.textBox1.Location = new System.Drawing.Point(158, 24);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(147, 20);
             this.textBox1.TabIndex = 14;
@@ -234,7 +258,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 58);
+            this.label3.Location = new System.Drawing.Point(12, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 15;
@@ -243,7 +267,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 201);
+            this.label6.Location = new System.Drawing.Point(105, 66);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 21;
@@ -251,44 +275,33 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(69, 198);
+            this.textBox2.Location = new System.Drawing.Point(158, 63);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(147, 20);
+            this.textBox2.Size = new System.Drawing.Size(93, 20);
             this.textBox2.TabIndex = 22;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(92, 50);
-            this.iconButton1.TabIndex = 9;
-            this.iconButton1.Text = "       Carta";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(15, 74);
+            this.textBox3.Location = new System.Drawing.Point(15, 118);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(248, 107);
+            this.textBox3.Size = new System.Drawing.Size(290, 107);
             this.textBox3.TabIndex = 23;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(13, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(80, 67);
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 344);
+            this.ClientSize = new System.Drawing.Size(715, 345);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label6);
@@ -308,6 +321,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,5 +349,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

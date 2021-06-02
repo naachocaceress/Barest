@@ -49,7 +49,7 @@ namespace BAREST.Configuracion
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start("https://www.linkedin.com/in/juan-cruz-calvo-21b654188/");
         }
     }
 }

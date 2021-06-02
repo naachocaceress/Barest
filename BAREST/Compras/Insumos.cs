@@ -14,6 +14,7 @@ namespace BAREST.Compras
     public partial class Insumos : Form
     {
         private SqlConnection Cone = new SqlConnection("Data Source=localhost; Initial Catalog=BaseBarest;Integrated Security=True");
+        public string arti = "";
         public Insumos()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace BAREST.Compras
                 return;
             }
 
-            if (textDescInsumo.Text == "" || textUnidad.Text == "" || textCant.Text == "" || comboRubro.SelectedIndex.Equals(-1) || comboProveedor.SelectedIndex.Equals(-1))
+            if (textDescInsumo.Text == "" || textUnidad.Text == "" || textCant.Text == "" || comboRubro.SelectedIndex.Equals(-1))
             {
                 MessageBox.Show("Falta completar algun campo");
             }
@@ -145,6 +146,7 @@ namespace BAREST.Compras
 
         private void Insumos_Load(object sender, EventArgs e)
         {
+            guardarModifi.Visible = false;
             cargarRubro();
             cargarArticulos();
             cargarComboRubro();
@@ -202,6 +204,54 @@ namespace BAREST.Compras
                 Cone.Close();
                 cargarArticulos();
             }
+        }
+
+        private void modificarInsu_Click(object sender, EventArgs e)
+        {
+            string Insum2 = "";
+            Insum2 = tablaArticulos.Rows[tablaArticulos.CurrentRow.Index].Cells["Articulos"].Value.ToString();
+            Cone.Open();
+            string sql = "select descripcion, unidad, cant, idRubro, idProveedor from Insumo where descripcion=@descripcion";
+            SqlCommand comando = new SqlCommand(sql, Cone);
+            comando.Parameters.AddWithValue("@descripcion", Insum2);
+            SqlDataReader leido = comando.ExecuteReader();
+            if (leido.Read())
+            {
+                textDescInsumo.Text = leido["descripcion"].ToString();
+                textUnidad.Text = leido["unidad"].ToString();
+                textCant.Text = leido["cant"].ToString();
+                comboRubro.Text = leido["idRubro"].ToString();
+                comboProveedor.Text = leido["idProveedor"].ToString();
+
+                arti = textDescInsumo.Text;
+
+            }
+            Cone.Close();
+            guardarModifi.Visible = true;
+        }
+
+        private void guardarModifi_Click(object sender, EventArgs e)
+        {
+                Cone.Open();
+                string sql = "update Insumo set descripcion=@descripcion, unidad=@unidad, cant=@cant where descripcion =@arti";
+                SqlCommand comando = new SqlCommand(sql, Cone);
+                comando.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = textDescInsumo.Text;
+                comando.Parameters.Add("@unidad", SqlDbType.VarChar).Value = textUnidad.Text;
+                comando.Parameters.Add("@cant", SqlDbType.VarChar).Value = textCant.Text;
+                //comando.Parameters.Add("@cargo", SqlDbType.VarChar).Value = comboCargo.SelectedItem.ToString();
+                comando.Parameters.Add("@arti", SqlDbType.VarChar).Value = arti;
+                int cant = comando.ExecuteNonQuery();
+                if (cant != 0)
+                {
+                    MessageBox.Show("Los datos se modificaron correctamente");
+                    arti = "";
+                    textDescInsumo.Text = "";
+                    textUnidad.Text = "";
+                    textCant.Text = "";
+            }
+                Cone.Close();
+                cargarArticulos();
+                guardarModifi.Visible = false;
         }
     }
 }

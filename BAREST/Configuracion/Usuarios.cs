@@ -14,6 +14,8 @@ namespace BAREST
     public partial class Usuarios: Form
     {
         private SqlConnection Cone = new SqlConnection("Data Source=localhost; Initial Catalog=BaseBarest;Integrated Security=True");
+        public string usuario = "";
+        public string docu = "";
 
         public Usuarios()
         {
@@ -24,7 +26,7 @@ namespace BAREST
         {
             if (Inscripto())
             {
-                MessageBox.Show("El alumno ya esta inscripto a dicha carrera");
+                MessageBox.Show("El usuario con ese 'documento' ya esta registrado");
                 return;
             }
 
@@ -78,31 +80,27 @@ namespace BAREST
             return existe;
         }
 
-        //--------------------------------------------------------------------------------
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
         // A MODIFICAR EL UPDATE
         private void button3_Click(object sender, EventArgs e)
         {
             Cone.Open();
-            string sql = "update Empleado set legajo=@usuario,contraseña=@cont,cargo=@cargo update Persona set nombre =@nombre, apellido =@apellido, telefono =@tel, fechaNacimiento =@fecha, cuil =@cuil";
+            string sql = "update Persona set nombre =@nombre, apellido =@apellido, telefono =@tel, fechaNacimiento =@fecha, cuil =@cuil where cuil =@docu";
             SqlCommand comando = new SqlCommand(sql, Cone);
             comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = textNombre.Text;
             comando.Parameters.Add("@apellido", SqlDbType.VarChar).Value = textApellido.Text;
             comando.Parameters.Add("@tel", SqlDbType.VarChar).Value = textTelefono.Text;
             comando.Parameters.Add("@fecha", SqlDbType.Date).Value = dateTimePicker1.Value;
             comando.Parameters.Add("@cuil", SqlDbType.VarChar).Value = textDocumento.Text;
-            comando.Parameters.Add("@usuario", SqlDbType.VarChar).Value = textUsuario.Text;
-            comando.Parameters.Add("@cont", SqlDbType.VarChar).Value = textContraseña.Text;
-            comando.Parameters.Add("@cargo", SqlDbType.VarChar).Value = comboCargo.SelectedItem.ToString();
+            comando.Parameters.Add("@docu", SqlDbType.VarChar).Value = docu;
+
             int cant = comando.ExecuteNonQuery();
             if (cant != 0)
+            {
                 MessageBox.Show("Los datos se modificaron correctamente");
+                docu = textDocumento.Text;
+            }
             else
-                MessageBox.Show("Buscar por el nombre el usuario a modificar");
+                MessageBox.Show("Buscar por el 'documento' el usuario a modificar");
             Cone.Close();
             CargarGrilla();
         }
@@ -122,6 +120,9 @@ namespace BAREST
                 textUsuario.Text = leido["legajo"].ToString();
                 textContraseña.Text = leido["contraseña"].ToString();
                 comboCargo.Text = leido["cargo"].ToString();
+
+                usuario = textUsuario.Text;
+                docu = textDocumento.Text;
 
                 //---PARA PODER PONER LA FECHA EN EL DATATIMEPICKER---
 
@@ -203,6 +204,34 @@ namespace BAREST
             }
             registros.Close();
             Cone.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (textUsuario.Text == "" || textContraseña.Text == "" ||  comboCargo.SelectedIndex.Equals(-1))
+            {
+                MessageBox.Show("Buscar por el 'documento' el usuario a modificar");
+            }
+            else
+            {
+                Cone.Open();
+                string sql = "update Empleado set legajo=@usuario,contraseña=@cont,cargo=@cargo where legajo=@usu";
+                SqlCommand comando = new SqlCommand(sql, Cone);
+                comando.Parameters.Add("@usuario", SqlDbType.VarChar).Value = textUsuario.Text;
+                comando.Parameters.Add("@cont", SqlDbType.VarChar).Value = textContraseña.Text;
+                comando.Parameters.Add("@cargo", SqlDbType.VarChar).Value = comboCargo.SelectedItem.ToString();
+                comando.Parameters.Add("@usu", SqlDbType.VarChar).Value = usuario;
+                int cant = comando.ExecuteNonQuery();
+                if (cant != 0)
+                {
+                    MessageBox.Show("Los datos se modificaron correctamente");
+                    usuario = "";
+                }
+                else
+                    MessageBox.Show("Buscar por el 'documento' el usuario a modificar");
+                Cone.Close();
+                CargarGrilla();
+            }
         }
     }
 }
