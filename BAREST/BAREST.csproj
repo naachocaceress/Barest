@@ -109,6 +109,12 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mesa1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mesa1.Designer.cs">
+      <DependentUpon>Mesa1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reservas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mesa1.resx">
+      <DependentUpon>Mesa1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reservas.resx">
       <DependentUpon>Reservas.cs</DependentUpon>

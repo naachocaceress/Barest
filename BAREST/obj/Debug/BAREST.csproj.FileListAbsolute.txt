@@ -142,3 +142,4 @@ C:\Users\usuario\source\repos\version4\BAREST\obj\Debug\BAREST.csproj.CoreCompil
 C:\Users\usuario\source\repos\version4\BAREST\obj\Debug\BAREST.csproj.CopyComplete
 C:\Users\usuario\source\repos\version4\BAREST\obj\Debug\BAREST.exe
 C:\Users\usuario\source\repos\version4\BAREST\obj\Debug\BAREST.pdb
+C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Mesa1.resources

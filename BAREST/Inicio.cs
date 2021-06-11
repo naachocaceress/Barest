@@ -18,6 +18,9 @@ namespace BAREST
         {
             InitializeComponent();
             customizeDesign();
+            //panel1.BackColor = Color.FromArgb(0, Color.Black);
+            panelPlano1.Visible = false;
+            panelPlano2.Visible = false;
         } 
 
         private void BotonActivo (object senderBtn)
@@ -234,11 +237,15 @@ namespace BAREST
         private void iniciar_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            panelPlano1.Visible = true;
+            panelPlano2.Visible = true;
         }
 
         private void cerrar_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            panelPlano1.Visible = false;
+            panelPlano2.Visible = false;
         }
 
         private void caja1_Click(object sender, EventArgs e)
@@ -367,6 +374,17 @@ namespace BAREST
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Mesa1 m = new Mesa1();
+            m.ShowDialog();
         }
     }
 }
