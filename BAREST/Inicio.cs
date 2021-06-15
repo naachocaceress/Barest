@@ -21,7 +21,8 @@ namespace BAREST
             //panel1.BackColor = Color.FromArgb(0, Color.Black);
             panelPlano1.Visible = false;
             panelPlano2.Visible = false;
-        } 
+            panelPlano3.Visible = false;
+        }
 
         private void BotonActivo (object senderBtn)
         {
@@ -158,13 +159,19 @@ namespace BAREST
             esconderMenu();
             BotonActivo(sender);
             configuracion m = new configuracion();
-            m.ShowDialog();
+            m.Show();
         }
 
         private void salir_Click(object sender, EventArgs e)
         {
-            this.Close();
-            BotonActivo(sender);
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("¿Esta seguro que quiere salir?", "Salir", botones, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                this.Close();
+                BotonActivo(sender);
+            }
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
@@ -194,7 +201,7 @@ namespace BAREST
         {
             esconderMenu();
             Compras.Insumos m = new Compras.Insumos();
-            m.ShowDialog();
+            m.Show();
         }
 
         private Form activeForm = null;
@@ -237,15 +244,31 @@ namespace BAREST
         private void iniciar_Click(object sender, EventArgs e)
         {
             esconderMenu();
-            panelPlano1.Visible = true;
-            panelPlano2.Visible = true;
+
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("¿Esta seguro que quiere iniciar turno?", "Inicio de turno", botones, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                panelPlano1.Visible = true;
+                panelPlano2.Visible = true;
+                panelPlano3.Visible = true;
+            }
         }
 
         private void cerrar_Click(object sender, EventArgs e)
         {
             esconderMenu();
-            panelPlano1.Visible = false;
-            panelPlano2.Visible = false;
+
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("¿Esta seguro que quiere cerrar el turno?", "Cierre de turno", botones, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                panelPlano1.Visible = false;
+                panelPlano2.Visible = false;
+                panelPlano3.Visible = false;
+            }
         }
 
         private void caja1_Click(object sender, EventArgs e)
@@ -263,7 +286,7 @@ namespace BAREST
         {
             esconderMenu();
             Compras.Proveedores m = new Compras.Proveedores();
-            m.ShowDialog();
+            m.Show();
         }
 
         private void estadoCompras_Click(object sender, EventArgs e)
@@ -284,8 +307,6 @@ namespace BAREST
         private void button2_Click(object sender, EventArgs e)
         {
             esconderMenu();
-            Empleado em = new Empleado();
-            em.ShowDialog();
         }
 
         private void categorias_Click(object sender, EventArgs e)
@@ -304,7 +325,7 @@ namespace BAREST
             //openChilForm(new Reservas());
             BotonActivo(sender);
             Reservas m = new Reservas();
-            m.ShowDialog();
+            m.Show();
         }
 
         private void menu_Click(object sender, EventArgs e)
@@ -313,17 +334,7 @@ namespace BAREST
             BotonActivo(sender);
             // openChilForm(new Menu());
             Menu m = new Menu();
-            m.ShowDialog();
-        }
-
-        private void configuracion_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usuarioText_Click(object sender, EventArgs e)
-        {
-
+            m.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -371,20 +382,25 @@ namespace BAREST
             fechaLabel.Text = DateTime.Now.ToString("g");
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panelContenedor_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void mesas_Click(object sender, EventArgs e)
         {
-            Mesa1 m = new Mesa1();
+            Button boton = sender as Button;
+
+            turno.Mozo m = new turno.Mozo();
+            m.label7.Text = boton.Name;
             m.ShowDialog();
+
+            ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
+        }
+
+        private void inicio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

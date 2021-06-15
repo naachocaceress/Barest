@@ -88,7 +88,6 @@ C:\Users\pachy\Desktop\Barest-20210525T184611Z-001\Barest\BAREST\obj\Debug\BARES
 C:\Users\pachy\Desktop\Barest-20210525T184611Z-001\Barest\BAREST\obj\Debug\BAREST.pdb
 C:\Users\pachy\Desktop\Barest-20210525T184611Z-001\Barest\BAREST\obj\Debug\BAREST.Menu.resources
 C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.buscarUsuario.resources
-C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Empleado.resources
 C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Menu.resources
 C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Compras.Insumos.resources
 C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Compras.consultaInsumos.resources
@@ -143,3 +142,35 @@ C:\Users\usuario\source\repos\version4\BAREST\obj\Debug\BAREST.csproj.CopyComple
 C:\Users\usuario\source\repos\version4\BAREST\obj\Debug\BAREST.exe
 C:\Users\usuario\source\repos\version4\BAREST\obj\Debug\BAREST.pdb
 C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Mesa1.resources
+C:\Users\usuario\source\repos\version 6\BAREST\bin\Debug\BAREST.exe.config
+C:\Users\usuario\source\repos\version 6\BAREST\bin\Debug\BAREST.exe
+C:\Users\usuario\source\repos\version 6\BAREST\bin\Debug\BAREST.pdb
+C:\Users\usuario\source\repos\version 6\BAREST\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.csprojAssemblyReference.cache
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.buscarUsuario.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Compras.consultaInsumos.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Compras.Insumos.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Compras.Proveedores.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.configuracion.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Configuracion.Acerca_de.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Configuracion.Diseño.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Menu.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Mesa1.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Reservas.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Caja.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Form1.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.inicio.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Properties.Resources.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Usuarios.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.csproj.GenerateResource.cache
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.csproj.CoreCompileInputs.cache
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.csproj.CopyComplete
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.exe
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.pdb
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Reserva.textLugar.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.turno.Mozo.resources
+C:\Users\usuario\source\repos\version 6\BAREST\obj\Debug\BAREST.Compras.listadoProveedor.resources
+C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Compras.listadoProveedor.resources
+C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.Reserva.textLugar.resources
+C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.turno.Mozo.resources
+C:\Users\Nacho\Desktop\Nacho4\ISSD\BAREST\BAREST\obj\Debug\BAREST.listadoMenu.resources

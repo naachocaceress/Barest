@@ -41,16 +41,20 @@ namespace BAREST.Compras
             else
             {
                 Cone.Open();
-                string sql = "insert into Insumo(descripcion, unidad, cant) values(@des,@uni,@cant)";
+                string sql = "insert into Insumo(descripcion, unidad, cant,idProveedor,idRubro) values(@des,@uni,@cant, @idProv,@idrub)";
                 SqlCommand comando = new SqlCommand(sql, Cone);
                 comando.Parameters.Add("@des", SqlDbType.VarChar).Value = textDescInsumo.Text;
                 comando.Parameters.Add("@uni", SqlDbType.VarChar).Value = textUnidad.Text;
                 comando.Parameters.Add("@cant", SqlDbType.Float).Value = textCant.Text;
+                comando.Parameters.Add("@idProv", SqlDbType.Int).Value = comboProveedor.SelectedValue.ToString();
+                comando.Parameters.Add("@idrub", SqlDbType.Int).Value = comboRubro.SelectedValue.ToString();
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Se ha registrado el articulo " + textDescInsumo.Text + " correctamente");
                 textDescInsumo.Text = "";
                 textUnidad.Text = "";
                 textCant.Text = "";
+                comboRubro.SelectedItem = null;
+                comboProveedor.SelectedItem = null;
                 Cone.Close();
                 cargarArticulos();
             }
@@ -80,6 +84,8 @@ namespace BAREST.Compras
                 MessageBox.Show("Rubro Registrado");
                 cargarRubro();
                 cargarComboRubro();
+                comboRubro.SelectedItem = null;
+                comboProveedor.SelectedItem = null;
             }
         }
         //-------------------- PARA VERIFICAR SI EXISTE UN RUBRO -----------------------------------
@@ -150,18 +156,38 @@ namespace BAREST.Compras
             cargarRubro();
             cargarArticulos();
             cargarComboRubro();
+            cargarcomboProveedor();
+            comboRubro.SelectedItem = null;
+            comboProveedor.SelectedItem = null;
         }
 
         private void cargarComboRubro()
         {
             Cone.Open();
-            string sql = "select descripcion from Rubro";
+            string sql = "select id, descripcion from Rubro";
             SqlCommand comando = new SqlCommand(sql, Cone);
-            SqlDataReader leido = comando.ExecuteReader();
-            while (leido.Read())
-            {
-                comboRubro.Items.Add(leido["descripcion"].ToString());
-            }
+            SqlDataAdapter adaptador1 = new SqlDataAdapter();
+            adaptador1.SelectCommand = comando;
+            DataTable tabla1 = new DataTable();
+            adaptador1.Fill(tabla1);
+            comboRubro.DisplayMember = "descripcion";
+            comboRubro.ValueMember = "id";
+            comboRubro.DataSource = tabla1;
+            Cone.Close();
+        }
+
+        private void cargarcomboProveedor()
+        {
+            Cone.Open();
+            string sql = "select id, nombre from Proveedor";
+            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlDataAdapter adaptador1 = new SqlDataAdapter();
+            adaptador1.SelectCommand = comando;
+            DataTable tabla1 = new DataTable();
+            adaptador1.Fill(tabla1);
+            comboProveedor.DisplayMember = "nombre";
+            comboProveedor.ValueMember = "id";
+            comboProveedor.DataSource = tabla1;
             Cone.Close();
         }
 
@@ -183,6 +209,8 @@ namespace BAREST.Compras
                 Cone.Close();
                 cargarRubro();
                 cargarComboRubro();
+                comboRubro.SelectedItem = null;
+                comboProveedor.SelectedItem = null;
             }
         }
 
@@ -248,7 +276,9 @@ namespace BAREST.Compras
                     textDescInsumo.Text = "";
                     textUnidad.Text = "";
                     textCant.Text = "";
-            }
+                comboRubro.SelectedItem = null;
+                comboProveedor.SelectedItem = null;
+            }   
                 Cone.Close();
                 cargarArticulos();
                 guardarModifi.Visible = false;

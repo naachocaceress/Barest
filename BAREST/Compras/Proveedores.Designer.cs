@@ -160,6 +160,7 @@ namespace BAREST.Compras
             this.iconButton1.Text = "       Proveedores";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // dataGridView1
             // 

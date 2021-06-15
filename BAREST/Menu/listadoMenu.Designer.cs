@@ -1,7 +1,7 @@
 ﻿
-namespace BAREST.Compras
+namespace BAREST
 {
-    partial class consultaInsumos
+    partial class listadoMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +30,10 @@ namespace BAREST.Compras
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnidadDeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Proveedores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,66 +44,51 @@ namespace BAREST.Compras
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre,
             this.Descripcion,
-            this.UnidadDeMedida,
-            this.Cantidad,
             this.Rubro,
-            this.Proveedores});
+            this.Precio});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 389);
+            this.dataGridView1.Size = new System.Drawing.Size(621, 343);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 150;
             // 
             // Descripcion
             // 
-            this.Descripcion.FillWeight = 233.5025F;
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 115;
-            // 
-            // UnidadDeMedida
-            // 
-            this.UnidadDeMedida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UnidadDeMedida.FillWeight = 55.49916F;
-            this.UnidadDeMedida.HeaderText = "Un. de Medida";
-            this.UnidadDeMedida.Name = "UnidadDeMedida";
-            this.UnidadDeMedida.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Cantidad.FillWeight = 55.49916F;
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
             // 
             // Rubro
             // 
-            this.Rubro.FillWeight = 55.49916F;
             this.Rubro.HeaderText = "Rubro";
             this.Rubro.Name = "Rubro";
-            this.Rubro.ReadOnly = true;
             // 
-            // Proveedores
+            // Precio
             // 
-            this.Proveedores.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Proveedores.HeaderText = "Proveedores";
-            this.Proveedores.Name = "Proveedores";
-            this.Proveedores.ReadOnly = true;
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.Width = 75;
             // 
-            // consultaInsumos
+            // listadoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 389);
+            this.ClientSize = new System.Drawing.Size(621, 343);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "consultaInsumos";
+            this.Name = "listadoMenu";
             this.ShowIcon = false;
-            this.Text = "Lista de Insumos";
-            this.Load += new System.EventHandler(this.consultaInsumos_Load);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Carta";
+            this.Load += new System.EventHandler(this.listadoMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -113,10 +97,9 @@ namespace BAREST.Compras
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnidadDeMedida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Proveedores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
     }
 }

@@ -43,12 +43,16 @@
             this.tablaArticulos = new System.Windows.Forms.DataGridView();
             this.Articulos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textnomM = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textPrecioM = new System.Windows.Forms.TextBox();
+            this.textDescM = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bfoto = new System.Windows.Forms.Button();
+            this.comborubroMenu = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.guardarModifi = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubro)).BeginInit();
@@ -88,6 +92,7 @@
             this.iconButton1.Text = "       Carta";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
             // agregarInsu
             // 
@@ -104,10 +109,11 @@
             this.agregarInsu.Location = new System.Drawing.Point(405, 0);
             this.agregarInsu.Name = "agregarInsu";
             this.agregarInsu.Size = new System.Drawing.Size(100, 50);
-            this.agregarInsu.TabIndex = 7;
+            this.agregarInsu.TabIndex = 10;
             this.agregarInsu.Text = "       Agregar";
             this.agregarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.agregarInsu.UseVisualStyleBackColor = true;
+            this.agregarInsu.Click += new System.EventHandler(this.agregarInsu_Click);
             // 
             // EliminarInsu
             // 
@@ -124,10 +130,11 @@
             this.EliminarInsu.Location = new System.Drawing.Point(505, 0);
             this.EliminarInsu.Name = "EliminarInsu";
             this.EliminarInsu.Size = new System.Drawing.Size(100, 50);
-            this.EliminarInsu.TabIndex = 6;
+            this.EliminarInsu.TabIndex = 11;
             this.EliminarInsu.Text = "       Eliminar";
             this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.EliminarInsu.UseVisualStyleBackColor = true;
+            this.EliminarInsu.Click += new System.EventHandler(this.EliminarInsu_Click_1);
             // 
             // modificarInsu
             // 
@@ -144,10 +151,11 @@
             this.modificarInsu.Location = new System.Drawing.Point(605, 0);
             this.modificarInsu.Name = "modificarInsu";
             this.modificarInsu.Size = new System.Drawing.Size(110, 50);
-            this.modificarInsu.TabIndex = 5;
+            this.modificarInsu.TabIndex = 12;
             this.modificarInsu.Text = "       Modificar";
             this.modificarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.modificarInsu.UseVisualStyleBackColor = true;
+            this.modificarInsu.Click += new System.EventHandler(this.modificarInsu_Click_1);
             // 
             // groupBox1
             // 
@@ -188,7 +196,7 @@
             this.eliminarRubro.Location = new System.Drawing.Point(122, 243);
             this.eliminarRubro.Name = "eliminarRubro";
             this.eliminarRubro.Size = new System.Drawing.Size(75, 23);
-            this.eliminarRubro.TabIndex = 3;
+            this.eliminarRubro.TabIndex = 8;
             this.eliminarRubro.Text = "Eliminar";
             this.eliminarRubro.UseVisualStyleBackColor = true;
             this.eliminarRubro.Click += new System.EventHandler(this.eliminarRubro_Click);
@@ -198,7 +206,7 @@
             this.agregarRubro.Location = new System.Drawing.Point(17, 243);
             this.agregarRubro.Name = "agregarRubro";
             this.agregarRubro.Size = new System.Drawing.Size(75, 23);
-            this.agregarRubro.TabIndex = 2;
+            this.agregarRubro.TabIndex = 7;
             this.agregarRubro.Text = "Agregar";
             this.agregarRubro.UseVisualStyleBackColor = true;
             this.agregarRubro.Click += new System.EventHandler(this.agregarRubro_Click);
@@ -208,7 +216,7 @@
             this.textRubro.Location = new System.Drawing.Point(31, 46);
             this.textRubro.Name = "textRubro";
             this.textRubro.Size = new System.Drawing.Size(151, 20);
-            this.textRubro.TabIndex = 0;
+            this.textRubro.TabIndex = 6;
             // 
             // label1
             // 
@@ -226,10 +234,10 @@
             this.tablaArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Articulos});
-            this.tablaArticulos.Location = new System.Drawing.Point(333, 24);
+            this.tablaArticulos.Location = new System.Drawing.Point(321, 24);
             this.tablaArticulos.Name = "tablaArticulos";
             this.tablaArticulos.ReadOnly = true;
-            this.tablaArticulos.Size = new System.Drawing.Size(132, 236);
+            this.tablaArticulos.Size = new System.Drawing.Size(152, 236);
             this.tablaArticulos.TabIndex = 12;
             // 
             // Articulos
@@ -242,23 +250,23 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(105, 24);
+            this.label2.Location = new System.Drawing.Point(12, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "Nombre:";
             // 
-            // textBox1
+            // textnomM
             // 
-            this.textBox1.Location = new System.Drawing.Point(158, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(147, 20);
-            this.textBox1.TabIndex = 14;
+            this.textnomM.Location = new System.Drawing.Point(15, 40);
+            this.textnomM.Name = "textnomM";
+            this.textnomM.Size = new System.Drawing.Size(147, 20);
+            this.textnomM.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 95);
+            this.label3.Location = new System.Drawing.Point(12, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 15;
@@ -267,51 +275,98 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(105, 66);
+            this.label6.Location = new System.Drawing.Point(12, 205);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 21;
             this.label6.Text = "Precio:";
             // 
-            // textBox2
+            // textPrecioM
             // 
-            this.textBox2.Location = new System.Drawing.Point(158, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(93, 20);
-            this.textBox2.TabIndex = 22;
+            this.textPrecioM.Location = new System.Drawing.Point(15, 221);
+            this.textPrecioM.Name = "textPrecioM";
+            this.textPrecioM.Size = new System.Drawing.Size(93, 20);
+            this.textPrecioM.TabIndex = 4;
+            this.textPrecioM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPrecioM_KeyPress);
             // 
-            // textBox3
+            // textDescM
             // 
-            this.textBox3.Location = new System.Drawing.Point(15, 118);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(290, 107);
-            this.textBox3.TabIndex = 23;
+            this.textDescM.Location = new System.Drawing.Point(15, 93);
+            this.textDescM.Multiline = true;
+            this.textDescM.Name = "textDescM";
+            this.textDescM.Size = new System.Drawing.Size(150, 21);
+            this.textDescM.TabIndex = 2;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(13, 14);
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::BAREST.Properties.Resources.imagenmenu;
+            this.pictureBox1.Location = new System.Drawing.Point(188, 40);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 67);
+            this.pictureBox1.Size = new System.Drawing.Size(115, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
+            // 
+            // bfoto
+            // 
+            this.bfoto.Location = new System.Drawing.Point(188, 174);
+            this.bfoto.Name = "bfoto";
+            this.bfoto.Size = new System.Drawing.Size(115, 22);
+            this.bfoto.TabIndex = 5;
+            this.bfoto.Text = "Foto";
+            this.bfoto.UseVisualStyleBackColor = true;
+            this.bfoto.Click += new System.EventHandler(this.bfoto_Click);
+            // 
+            // comborubroMenu
+            // 
+            this.comborubroMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comborubroMenu.FormattingEnabled = true;
+            this.comborubroMenu.Location = new System.Drawing.Point(15, 158);
+            this.comborubroMenu.Name = "comborubroMenu";
+            this.comborubroMenu.Size = new System.Drawing.Size(147, 21);
+            this.comborubroMenu.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 142);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Rubro";
+            // 
+            // guardarModifi
+            // 
+            this.guardarModifi.Location = new System.Drawing.Point(120, 255);
+            this.guardarModifi.Name = "guardarModifi";
+            this.guardarModifi.Size = new System.Drawing.Size(75, 23);
+            this.guardarModifi.TabIndex = 28;
+            this.guardarModifi.Text = "Guardar";
+            this.guardarModifi.UseVisualStyleBackColor = true;
+            this.guardarModifi.Click += new System.EventHandler(this.guardarModifi_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 345);
+            this.Controls.Add(this.guardarModifi);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comborubroMenu);
+            this.Controls.Add(this.bfoto);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textDescM);
+            this.Controls.Add(this.textPrecioM);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textnomM);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tablaArticulos);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
@@ -343,12 +398,16 @@
         private System.Windows.Forms.DataGridView tablaArticulos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Articulos;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textnomM;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textPrecioM;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textDescM;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button bfoto;
+        private System.Windows.Forms.ComboBox comborubroMenu;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button guardarModifi;
     }
 }

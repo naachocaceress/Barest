@@ -73,6 +73,12 @@
     <Compile Include="Compras\Insumos.Designer.cs">
       <DependentUpon>Insumos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\listadoProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\listadoProveedor.Designer.cs">
+      <DependentUpon>listadoProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\Proveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,28 +103,35 @@
     <Compile Include="Configuracion\Diseño.Designer.cs">
       <DependentUpon>Diseño.cs</DependentUpon>
     </Compile>
-    <Compile Include="Empleado.cs">
+    <Compile Include="Menu\listadoMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Empleado.Designer.cs">
-      <DependentUpon>Empleado.cs</DependentUpon>
+    <Compile Include="Menu\listadoMenu.Designer.cs">
+      <DependentUpon>listadoMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="Menu\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="Menu\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mesa1.cs">
+    <Compile Include="Reserva\AgregarReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mesa1.Designer.cs">
+    <Compile Include="Reserva\AgregarReserva.Designer.cs">
+      <DependentUpon>AgregarReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva\registrta.cs" />
+    <Compile Include="Turno\Mesa1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turno\Mesa1.Designer.cs">
       <DependentUpon>Mesa1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reservas.cs">
+    <Compile Include="Reserva\Reservas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reservas.Designer.cs">
+    <Compile Include="Reserva\Reservas.Designer.cs">
       <DependentUpon>Reservas.cs</DependentUpon>
     </Compile>
     <Compile Include="Caja.cs">
@@ -147,6 +160,12 @@
     <Compile Include="Configuracion\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Turno\Mozo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turno\Mozo.Designer.cs">
+      <DependentUpon>Mozo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="buscarUsuario.resx">
       <DependentUpon>buscarUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\Insumos.resx">
       <DependentUpon>Insumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\listadoProveedor.resx">
+      <DependentUpon>listadoProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\Proveedores.resx">
       <DependentUpon>Proveedores.cs</DependentUpon>
@@ -168,16 +190,19 @@
     <EmbeddedResource Include="Configuracion\Diseño.resx">
       <DependentUpon>Diseño.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Empleado.resx">
-      <DependentUpon>Empleado.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\listadoMenu.resx">
+      <DependentUpon>listadoMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="Menu\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mesa1.resx">
+    <EmbeddedResource Include="Reserva\AgregarReserva.resx">
+      <DependentUpon>AgregarReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turno\Mesa1.resx">
       <DependentUpon>Mesa1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reservas.resx">
+    <EmbeddedResource Include="Reserva\Reservas.resx">
       <DependentUpon>Reservas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Caja.resx">
@@ -201,6 +226,9 @@
     </Compile>
     <EmbeddedResource Include="Configuracion\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turno\Mozo.resx">
+      <DependentUpon>Mozo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -297,5 +325,9 @@
   <ItemGroup>
     <None Include="Resources\linkediln.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagenmenu2.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

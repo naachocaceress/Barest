@@ -1,3 +1,10 @@
 Color verde : 12; 132; 68
 Color blanco : 241; 243; 244 
 Color dorado: 214; 155; 60
+
+Color Verde Plano: 27; 111; 114
+Color Verde Mesas: 116; 199; 132
+Color Rojo Mesas Ocupadas: 217; 96; 78
+
+Button btn = sender as Button; //esto es por si necesitas el boton que lanzo el evento
+
