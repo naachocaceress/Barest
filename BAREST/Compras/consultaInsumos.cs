@@ -34,5 +34,10 @@ namespace BAREST.Compras
             registros.Close();
             Cone.Close();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

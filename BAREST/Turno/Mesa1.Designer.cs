@@ -30,22 +30,22 @@ namespace BAREST
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.agregarInsu = new FontAwesome.Sharp.IconButton();
+            this.agregarMenulista = new FontAwesome.Sharp.IconButton();
             this.EliminarInsu = new FontAwesome.Sharp.IconButton();
             this.modificarInsu = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Detalles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -54,7 +54,7 @@ namespace BAREST
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
-            this.panel1.Controls.Add(this.agregarInsu);
+            this.panel1.Controls.Add(this.agregarMenulista);
             this.panel1.Controls.Add(this.EliminarInsu);
             this.panel1.Controls.Add(this.modificarInsu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -63,25 +63,26 @@ namespace BAREST
             this.panel1.Size = new System.Drawing.Size(383, 50);
             this.panel1.TabIndex = 1;
             // 
-            // agregarInsu
+            // agregarMenulista
             // 
-            this.agregarInsu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.agregarInsu.FlatAppearance.BorderSize = 0;
-            this.agregarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.agregarInsu.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.agregarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.agregarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.agregarInsu.IconSize = 30;
-            this.agregarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarInsu.Location = new System.Drawing.Point(73, 0);
-            this.agregarInsu.Name = "agregarInsu";
-            this.agregarInsu.Size = new System.Drawing.Size(100, 50);
-            this.agregarInsu.TabIndex = 11;
-            this.agregarInsu.Text = "       Agregar";
-            this.agregarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarInsu.UseVisualStyleBackColor = true;
+            this.agregarMenulista.Dock = System.Windows.Forms.DockStyle.Right;
+            this.agregarMenulista.FlatAppearance.BorderSize = 0;
+            this.agregarMenulista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregarMenulista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregarMenulista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.agregarMenulista.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.agregarMenulista.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.agregarMenulista.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.agregarMenulista.IconSize = 30;
+            this.agregarMenulista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.agregarMenulista.Location = new System.Drawing.Point(73, 0);
+            this.agregarMenulista.Name = "agregarMenulista";
+            this.agregarMenulista.Size = new System.Drawing.Size(100, 50);
+            this.agregarMenulista.TabIndex = 11;
+            this.agregarMenulista.Text = "       Agregar";
+            this.agregarMenulista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.agregarMenulista.UseVisualStyleBackColor = true;
+            this.agregarMenulista.Click += new System.EventHandler(this.agregarMenulista_Click);
             // 
             // EliminarInsu
             // 
@@ -102,6 +103,7 @@ namespace BAREST
             this.EliminarInsu.Text = "       Eliminar";
             this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.EliminarInsu.UseVisualStyleBackColor = true;
+            this.EliminarInsu.Click += new System.EventHandler(this.EliminarInsu_Click);
             // 
             // modificarInsu
             // 
@@ -137,89 +139,15 @@ namespace BAREST
             this.panel2.Size = new System.Drawing.Size(383, 52);
             this.panel2.TabIndex = 2;
             // 
-            // dataGridView1
+            // button1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cant,
-            this.Detalle,
-            this.precio,
-            this.total});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 64);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(359, 172);
-            this.dataGridView1.TabIndex = 3;
-            // 
-            // cant
-            // 
-            this.cant.HeaderText = "Cant";
-            this.cant.Name = "cant";
-            this.cant.ReadOnly = true;
-            this.cant.Width = 50;
-            // 
-            // Detalle
-            // 
-            this.Detalle.HeaderText = "Detalles";
-            this.Detalle.Name = "Detalle";
-            this.Detalle.ReadOnly = true;
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "P.Unitario";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            // 
-            // total
-            // 
-            this.total.HeaderText = "P.Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(231, 245);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Total:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(271, 242);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "MESA:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "MOZO:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(60, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "---";
+            this.button1.Location = new System.Drawing.Point(296, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Salir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -232,21 +160,101 @@ namespace BAREST
             this.label5.Text = "---";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // button1
+            // label4
             // 
-            this.button1.Location = new System.Drawing.Point(296, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(60, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(23, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "---";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "MOZO:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "MESA:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Detalles,
+            this.precio});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 106);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(359, 244);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(231, 362);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Total:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(271, 359);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Buscar:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(62, 73);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(130, 20);
+            this.textBox2.TabIndex = 7;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // Detalles
+            // 
+            this.Detalles.HeaderText = "Detalles";
+            this.Detalles.Name = "Detalles";
+            this.Detalles.ReadOnly = true;
+            this.Detalles.Width = 200;
+            // 
+            // precio
+            // 
+            this.precio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.precio.HeaderText = "P.Unitario";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
             // 
             // Mesa1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 449);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -258,7 +266,7 @@ namespace BAREST
             this.Name = "Mesa1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mesa1";
+            this.Text = "Mesa";
             this.Load += new System.EventHandler(this.Mesa1_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -272,21 +280,21 @@ namespace BAREST
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private FontAwesome.Sharp.IconButton agregarInsu;
+        private FontAwesome.Sharp.IconButton agregarMenulista;
         private FontAwesome.Sharp.IconButton EliminarInsu;
         private FontAwesome.Sharp.IconButton modificarInsu;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Detalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Detalles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
     }
 }

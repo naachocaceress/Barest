@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using static BAREST.Mesa1;
 
 namespace BAREST
 {
@@ -393,8 +394,16 @@ namespace BAREST
 
             turno.Mozo m = new turno.Mozo();
             m.label7.Text = boton.Name;
-            m.ShowDialog();
 
+            if(ClaseCompartida.usu==0)
+            m.ShowDialog();
+            else
+            {
+                Mesa1 n = new Mesa1();
+                n.ShowDialog();
+            }
+            
+            if(ClaseCompartida.valor==1)
             ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
         }
 

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -283,5 +284,11 @@ namespace BAREST.Compras
                 cargarArticulos();
                 guardarModifi.Visible = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+        
     }
 }

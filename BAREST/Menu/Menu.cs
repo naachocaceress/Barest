@@ -46,7 +46,7 @@ namespace BAREST
             else
             {
                 Cone.Open();
-                string sql = "insert into RubroMenu (descripcion) values (@desRubro)";
+                string sql = "insert into RubroMenu (descripcionMenu) values (@desRubro)";
                 SqlCommand comando = new SqlCommand(sql, Cone);
                 comando.Parameters.Add("@desRubro", SqlDbType.VarChar).Value = textRubro.Text;
                 comando.ExecuteNonQuery();
