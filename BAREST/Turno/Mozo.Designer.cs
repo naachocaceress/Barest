@@ -181,11 +181,12 @@ namespace BAREST.turno
             // 
             this.label6.AutoSize = true;
             this.label6.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label6.Location = new System.Drawing.Point(92, 172);
+            this.label6.Location = new System.Drawing.Point(100, 172);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 17;
-            this.label6.Text = "Penelope";
+            this.label6.Text = "Pedro";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // panel1
             // 
@@ -285,6 +286,7 @@ namespace BAREST.turno
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mozos";
+            this.Load += new System.EventHandler(this.Mozo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.juanfoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calebfoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nachofoto)).EndInit();

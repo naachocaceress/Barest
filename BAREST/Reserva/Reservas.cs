@@ -1,4 +1,12 @@
-﻿using System;
+﻿using iText.IO.Font.Constants;
+using iText.IO.Image;
+using iText.Kernel.Font;
+using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace BAREST
 {
@@ -42,13 +51,13 @@ namespace BAREST
         public void cargarTabla()
         {
             Cone.Open();
-            string sql = "Select r.cantDePersona,r.fecha,r.hora,r.numeroDeReserva,c.nombre,c.telefono from Reserva r Join Cliente c on r.idCliente = c.id ";
+            string sql = "Select c.id, r.cantDePersona,r.fecha,r.hora,r.numeroDeReserva,c.nombre,c.telefono from Reserva r Join Cliente c on r.idCliente = c.id ";
             SqlCommand comando = new SqlCommand(sql, Cone);
             SqlDataReader registros = comando.ExecuteReader();
             dataGridView1.Rows.Clear();
             while (registros.Read())
             {
-                dataGridView1.Rows.Add(registros["nombre"].ToString(), registros["cantDePersona"].ToString(), registros["hora"].ToString(), registros["fecha"].ToString(), registros["telefono"].ToString(), registros["numeroDeReserva"].ToString());
+                dataGridView1.Rows.Add(registros["id"].ToString(), registros["nombre"].ToString(), registros["cantDePersona"].ToString(), registros["hora"].ToString(), registros["fecha"].ToString(), registros["telefono"].ToString(), registros["numeroDeReserva"].ToString());
             }
             registros.Close();
             Cone.Close();
@@ -56,28 +65,32 @@ namespace BAREST
 
         private void agregarInsu_Click(object sender, EventArgs e)
         {
+            ClaseCompartida.Insum2 = 0;
             ingresarReserva i = new ingresarReserva();
             i.ShowDialog();
-         // Reserva.AgregarReserva m = Reserva.AgregarReserva();
-         // m.ShowDialog();
-
+            // Reserva.AgregarReserva m = Reserva.AgregarReserva();
+            // m.ShowDialog();
+            cargarTabla();
         }
 
         private void modificarInsu_Click(object sender, EventArgs e)
         {
-            
-            Cone.Open();
-            string sql = "update Reserva set cantDePersona ='5', hora='23:00',numeroDeReserva='500' where fecha = @date ";
-            SqlCommand comando = new SqlCommand(sql, Cone);
-            comando.Parameters.Add("@date", SqlDbType.Date).Value = dateTimePicker1.Value;
-            SqlDataReader registros = comando.ExecuteReader();
-            dataGridView1.Rows.Clear();
-            while (registros.Read())
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("¿Esta seguro que quiere borrar?", "Borrar reserva", botones, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
             {
-                dataGridView1.Rows.Add(registros["nombre"].ToString(), registros["cantDePersona"].ToString(), registros["hora"].ToString(), registros["fecha"].ToString(), registros["telefono"].ToString(), registros["numeroDeReserva"].ToString());
+                string Insum = "";
+                Insum = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["Id"].Value.ToString();
+                Cone.Open();
+                string sql = "delete from reserva where idcliente = @descripcion";
+                SqlCommand comando = new SqlCommand(sql, Cone);
+                comando.Parameters.AddWithValue("@descripcion", Insum);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Se eliminó la reserva");
+                Cone.Close();
+                cargarTabla();
             }
-            registros.Close();
-            Cone.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -125,13 +138,82 @@ namespace BAREST
             return existe;
         }
 
+        private void crearPDF()
+        {
+            PdfWriter pdfWriter = new PdfWriter("Reservas.pdf");
+            PdfDocument pdf = new PdfDocument(pdfWriter);
+            Document documento = new Document(pdf, PageSize.A4);
+
+            documento.SetMargins(60,20,55,20);
+
+            PdfFont fontColumnas = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+            PdfFont fontContenido = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+
+            string[] columnas = { "Id", "Nombre", "PAX", "Hora", "Fecha", "Telefono", "Seña" };
+
+            float[] tamanios = { 2, 4, 2, 3, 3, 4, 2 };
+            Table tabla = new Table(UnitValue.CreatePercentArray(tamanios));
+            tabla.SetWidth(UnitValue.CreatePercentValue(100));
+
+            foreach(string columna in columnas)
+            {
+                tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(fontColumnas)));
+            }
+
+            Cone.Open();
+            string sql = "Select c.id, r.cantDePersona,r.fecha,r.hora,r.numeroDeReserva,c.nombre,c.telefono from Reserva r Join Cliente c on r.idCliente = c.id ";
+            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlDataReader registros = comando.ExecuteReader();
+            //dataGridView1.Rows.Clear();
+            while (registros.Read())
+            {
+                tabla.AddCell(new Cell().Add(new Paragraph(registros["id"].ToString()).SetFont(fontContenido)));
+                tabla.AddCell(new Cell().Add(new Paragraph(registros["nombre"].ToString()).SetFont(fontContenido)));
+                tabla.AddCell(new Cell().Add(new Paragraph(registros["cantDePersona"].ToString()).SetFont(fontContenido)));
+                tabla.AddCell(new Cell().Add(new Paragraph(registros["hora"].ToString()).SetFont(fontContenido)));
+                tabla.AddCell(new Cell().Add(new Paragraph(registros["fecha"].ToString()).SetFont(fontContenido)));
+                tabla.AddCell(new Cell().Add(new Paragraph(registros["telefono"].ToString()).SetFont(fontContenido)));
+                tabla.AddCell(new Cell().Add(new Paragraph(registros["numeroDeReserva"].ToString()).SetFont(fontContenido)));
+            }
+            registros.Close();
+            Cone.Close();
+
+            documento.Add(tabla);
+            documento.Close();
+
+            var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Nacho/OneDrive/Escritorio/Nacho5/ISSD/BAREST/Imagenes/Login/Barest.png")).SetWidth(50);
+            var PLOGO = new Paragraph("").Add(logo);
+            var titulo = new Paragraph("RESERVAS");
+            titulo.SetTextAlignment(TextAlignment.CENTER);
+            titulo.SetFontSize(12);
+
+            var dfecha = DateTime.Now.ToString("dd-MM-yyyy");
+            var dhora = DateTime.Now.ToString("hh:mm:ss");
+            var fecha = new Paragraph("Fecha: " + dfecha + "\nHora: " + dhora);
+
+            PdfDocument pdfDoc = new PdfDocument(new PdfReader("Reservas.pdf"), new PdfWriter("ReservasProducto.pdf"));
+            Document doc = new Document(pdfDoc);
+
+            int numero = pdfDoc.GetNumberOfPages();
+
+            for(int i = 1; i<= numero;i++)
+            {
+                PdfPage pagina = pdfDoc.GetPage(i);
+                float y = (pdfDoc.GetPage(i).GetPageSize().GetTop() - 15);
+                doc.ShowTextAligned(PLOGO, 40, y + 8, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+                doc.ShowTextAligned(titulo, 150, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+                doc.ShowTextAligned(fecha, 520, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+
+                doc.ShowTextAligned(new Paragraph(String.Format("Pagina {0} de {1}", i, numero)), pdfDoc.GetPage(i).GetPageSize().GetWidth() / 2, pdfDoc.GetPage(i).GetPageSize().GetBottom() + 30, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0); 
+            }
+            doc.Close();
+        }
+
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
-            printDocument1 = new PrintDocument();
-            PrinterSettings ps = new PrinterSettings();
-            printDocument1.PrinterSettings = ps;
-            printDocument1.PrintPage += Imprimir;
-            printDocument1.Print();
+            crearPDF();
+            MessageBox.Show("Se imprimio correctamente");
+
         }
 
         private void cargarRubro()
@@ -149,65 +231,19 @@ namespace BAREST
             Cone.Close();
         }
 
-        private void Imprimir(object sender, PrintPageEventArgs e)
+        public static class ClaseCompartida
         {
-            /* Font font = new Font("Arial", 14);
-             int ancho = 150;
-             int y = 30;
-             e.Graphics.DrawString("---- BAREST ----", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
-             e.Graphics.DrawString("Reserva# ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+            public static int Insum2 = 0;
+        }
 
-             foreach (DataRow row in dataGridView1.Rows)
-             {
-                 e.Graphics.DrawString(row["nombre"].ToString() + " " +
-                     row["cantDePersona"].ToString() + " " +
-                     row["hora"].ToString() + " " +
-                     row["fecha"].ToString() + " " +
-                     row["telefono"].ToString() + " " +
-                     row["numeroDeReserva"].ToString() + " "
-                     , font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
-             }*/
-            PrintDocument doc = new PrintDocument();
-            doc.DefaultPageSettings.Landscape = true;
-            doc.PrinterSettings.PrinterName = "pdf";
-
-            PrintPreviewDialog ps = new PrintPreviewDialog { Document = doc };
-            ((Form)ps).WindowState = FormWindowState.Maximized;
-
-            doc.PrintPage += delegate (object ev, PrintPageEventArgs ep)
-            {
-                const int DGV_ALTO = 35;
-                int left = ep.MarginBounds.Left, top = ep.MarginBounds.Top;
-
-                foreach (DataGridViewColumn col in dataGridView1.Columns)
-                {
-                    ep.Graphics.DrawString(col.HeaderText, new Font("Arial", 16, FontStyle.Bold), Brushes.Green, left, top);
-                    //avanzar el margen de la cabeza
-                    left += col.Width;
-
-                    if (col.Index < dataGridView1.Columns.Count - 1)
-
-                        ep.Graphics.DrawLine(Pens.Gray, left - 5, top, left - 5, top + 43 + (dataGridView1.RowCount - 1) * DGV_ALTO);
-
-                }
-                left = ep.MarginBounds.Left;
-                ep.Graphics.FillRectangle(Brushes.Black, left, top + 40, ep.MarginBounds.Right - left, 3);
-                top += 43;
-
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-
-                {
-                    if (row.Index == dataGridView1.Rows.Count - 1) break;
-                    left = ep.MarginBounds.Left;
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        ep.Graphics.DrawString(Convert.ToString(cell.Value), new Font("Arial", 12), Brushes.Black, left, top + 4);
-                        left += cell.OwningColumn.Width;
-                    }
-                    top += DGV_ALTO;
-                    ep.Graphics.DrawLine(Pens.Red, ep.MarginBounds.Left, top, ep.MarginBounds.Right, top);
-                }
-            };
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            string Insum = "";
+            Insum = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["Id"].Value.ToString();   
+            ingresarReserva i = new ingresarReserva();
+            ClaseCompartida.Insum2 = Int32.Parse(Insum);
+            i.ShowDialog();
+            cargarTabla();
         }
     }
 }

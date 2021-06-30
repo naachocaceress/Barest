@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BAREST.Reservas;
 
 namespace BAREST
 {
@@ -19,10 +20,6 @@ namespace BAREST
             InitializeComponent();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void cargarcomboTurno()
         {
             Cone.Open();
@@ -51,43 +48,68 @@ namespace BAREST
             comboMesa.DataSource = tabla1;
             Cone.Close();
         }
-
         private void confirmar_Click(object sender, EventArgs e)
         {
-                // hice una modificacion en numero de reserva pongo seña en lugar de numero de reserva.
-                Cone.Open();
+            if (ClaseCompartida.Insum2 == 0)
+            {
+                if (textNombre.Text == "" || textApellido.Text == "" || textTelefono.Text == "" || textcomensal.Text == "" || textSeña.Text == "" || comboMesa.SelectedIndex.Equals(-1) || comboTurno.SelectedIndex.Equals(-1) || textHora.Text == "" || textPosicion.Text == "")
+                {
+                    MessageBox.Show("Faltan datos para poder guardar la reserva");
+                }
+                else
+                {
+                    // hice una modificacion en numero de reserva pongo seña en lugar de numero de reserva.
+                    Cone.Open();
 
-            string sql = "insert into Cliente (Nombre,telefono,apellido) values (@nCli, @tCLi,@aCli)" +
-                "select @@IDENTITY " +
-                "insert into Reserva(cantDePersona, numeroDeReserva, fecha, idMesa, idTurno, hora, Posicion, idCliente) values(@cant, @seña, @fecha, @idmesa, @idTurno, @hora, @Posicion,@@IDENTITY)";
-            SqlCommand comando = new SqlCommand(sql, Cone);
-            comando.Parameters.Add("@nCli", SqlDbType.VarChar).Value = textNombre.Text;
-            comando.Parameters.Add("@aCli", SqlDbType.VarChar).Value = textApellido.Text;
-            comando.Parameters.Add("@tCli", SqlDbType.VarChar).Value = textTelefono.Text;
-            comando.Parameters.Add("@cant", SqlDbType.VarChar).Value = textcomensal.Text;
-            comando.Parameters.Add("@seña", SqlDbType.Int).Value = textSeña.Text;
-            comando.Parameters.Add("@fecha", SqlDbType.Date).Value = dateTimePicker1.Value;
-            comando.Parameters.Add("@idMesa", SqlDbType.VarChar).Value = comboMesa.SelectedValue.ToString();
-            comando.Parameters.Add("@idTurno", SqlDbType.VarChar).Value = comboTurno.SelectedValue.ToString();
-            comando.Parameters.Add("@hora", SqlDbType.Char).Value = textHora.Text;
-            comando.Parameters.Add("@Posicion", SqlDbType.VarChar).Value = textPosicion.Text;
-            comando.ExecuteNonQuery();
-                MessageBox.Show("Reserva de " + textNombre.Text + "  Está registrado");
-            textNombre.Text = " ";
-            textApellido.Text = " ";
-            textcomensal.Text = " ";
-            textSeña.Text = " ";
-            dateTimePicker1.Value = DateTime.Now;
-            comboMesa.SelectedItem = -1;
-            comboTurno.SelectedItem = -1;
-            textHora.Text = " ";
-            textPosicion.Text = " ";
-                Cone.Close();
-
-
+                    string sql = "insert into Cliente (Nombre,telefono,apellido) values (@nCli, @tCLi,@aCli)" +
+                        "select @@IDENTITY " +
+                        "insert into Reserva(cantDePersona, numeroDeReserva, fecha, idMesa, idTurno, hora, Posicion, idCliente) values(@cant, @seña, @fecha, @idmesa, @idTurno, @hora, @Posicion,@@IDENTITY)";
+                    SqlCommand comando = new SqlCommand(sql, Cone);
+                    comando.Parameters.Add("@nCli", SqlDbType.VarChar).Value = textNombre.Text;
+                    comando.Parameters.Add("@aCli", SqlDbType.VarChar).Value = textApellido.Text;
+                    comando.Parameters.Add("@tCli", SqlDbType.VarChar).Value = textTelefono.Text;
+                    comando.Parameters.Add("@cant", SqlDbType.VarChar).Value = textcomensal.Text;
+                    comando.Parameters.Add("@seña", SqlDbType.Int).Value = textSeña.Text;
+                    comando.Parameters.Add("@fecha", SqlDbType.Date).Value = dateTimePicker1.Value;
+                    comando.Parameters.Add("@idMesa", SqlDbType.VarChar).Value = comboMesa.SelectedValue.ToString();
+                    comando.Parameters.Add("@idTurno", SqlDbType.VarChar).Value = comboTurno.SelectedValue.ToString();
+                    comando.Parameters.Add("@hora", SqlDbType.Char).Value = textHora.Text;
+                    comando.Parameters.Add("@Posicion", SqlDbType.VarChar).Value = textPosicion.Text;
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("La reserva de " + textNombre.Text + " se registro correctamente");
+                    textNombre.Text = " ";
+                    textApellido.Text = " ";
+                    textcomensal.Text = " ";
+                    textSeña.Text = " ";
+                    dateTimePicker1.Value = DateTime.Now;
+                    comboMesa.SelectedItem = -1;
+                    comboTurno.SelectedItem = -1;
+                    textHora.Text = " ";
+                    textPosicion.Text = " ";
+                    Cone.Close();
+                    this.Close();
+                }
             }
+            else
+            {
+                Cone.Open();
+                string sql = "update Reserva set hora=@hora, numeroDeReserva=@seña,fecha=@fecha,cantDePersona=@cantDePersona, Posicion= @posicion where idCliente=@id";
+                SqlCommand comando = new SqlCommand(sql, Cone);
+                comando.Parameters.Add("@id", SqlDbType.VarChar).Value = ClaseCompartida.Insum2;
+                comando.Parameters.Add("@hora", SqlDbType.Char).Value = textHora.Text;
+                comando.Parameters.Add("@seña", SqlDbType.Int).Value = textSeña.Text;
+                comando.Parameters.Add("@fecha", SqlDbType.Date).Value = dateTimePicker1.Value;
+                comando.Parameters.Add("@cantDePersona", SqlDbType.Int).Value = textcomensal.Text;
+                comando.Parameters.Add("@posicion", SqlDbType.VarChar).Value = textPosicion.Text;
+                int cant = comando.ExecuteNonQuery();
+                if (cant != 0)
+                {
+                    MessageBox.Show("Los datos se modificaron correctamente");
+                    this.Close();
+                }
+            }   
 
-
+        }
 
         bool existeNombre()
         {
@@ -105,8 +127,65 @@ namespace BAREST
 
         private void ingresarReserva_Load(object sender, EventArgs e)
         {
-            cargarComboMesa();
-            cargarcomboTurno();
+            if (ClaseCompartida.Insum2 == 0)
+            {
+                cargarComboMesa();
+                cargarcomboTurno();
+            }
+            else
+            {
+                cargarModificacion();
+            }
+        }
+
+        private void cargarModificacion()
+        {
+            Cone.Open();
+            string sql = "select c.nombre,c.apellido,c.telefono,r.hora,m.numero,r.numeroDeReserva,r.fecha,t.nombre AS turno, r.cantDePersona, r.Posicion from Cliente c join Reserva r on r.idCliente =c.id join Turno t on r.idTurno=t.id join Mesa m on m.id= r.idMesa where c.id = @dni";
+            SqlCommand comando = new SqlCommand(sql, Cone);
+            comando.Parameters.Add("@dni", SqlDbType.VarChar).Value = ClaseCompartida.Insum2;
+            SqlDataReader leido = comando.ExecuteReader();
+            if (leido.Read())
+            {
+                textNombre.Text = leido["nombre"].ToString();
+                textApellido.Text = leido["apellido"].ToString();
+                textTelefono.Text = leido["telefono"].ToString();
+                textHora.Text = leido["hora"].ToString();
+                comboMesa.Text = leido["numero"].ToString();
+                textPosicion.Text = leido["Posicion"].ToString();
+                textSeña.Text = leido["numeroDeReserva"].ToString();
+                comboTurno.Text = leido["turno"].ToString();
+                textcomensal.Text = leido["cantDePersona"].ToString();
+
+                //---PARA PODER PONER LA FECHA EN EL DATATIMEPICKER---
+
+                string hola = leido["fecha"].ToString();
+
+                string[] separarFecha = hola.Split('/');
+                string dia = separarFecha[0];
+                string mes = separarFecha[1];
+                string anio = separarFecha[2];
+
+                int dia2 = Int32.Parse(dia);
+                int mes2 = Int32.Parse(mes);
+
+                string[] separardeHora = anio.Split(' ');
+                string ani = separardeHora[0];
+
+                int anio2 = Int32.Parse(ani);
+
+                DateTime dt = new DateTime(anio2, mes2, dia2);
+                dateTimePicker1.Value = dt;
+
+                //--------------------------------------------------
+            }
+            leido.Close();
+            Cone.Close();
+        }
+
+        private void EliminarInsu_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

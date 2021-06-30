@@ -26,7 +26,7 @@ namespace BAREST.turno
         private void pictureBox9_Click(object sender, EventArgs e)
         {
             Mesa1 m = new Mesa1();
-            m.label5.Text = "Penelope";
+            m.label5.Text = "Pedro";
             m.label4.Text = label7.Text;
 
             this.Close();
@@ -84,6 +84,16 @@ namespace BAREST.turno
             m.label4.Text = label7.Text;
             this.Close();
             m.ShowDialog();
+        }
+
+        private void Mozo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
