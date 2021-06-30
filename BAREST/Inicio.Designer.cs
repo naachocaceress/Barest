@@ -129,6 +129,7 @@
             this.J2 = new System.Windows.Forms.Button();
             this.C3 = new System.Windows.Forms.Button();
             this.JA5 = new System.Windows.Forms.Panel();
+            this.ayudaVisualMesas = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -171,6 +172,7 @@
             this.turno = new FontAwesome.Sharp.IconButton();
             this.panelTitulos = new System.Windows.Forms.Panel();
             this.botonHiden = new FontAwesome.Sharp.IconButton();
+            this.panelAyudaVisual = new System.Windows.Forms.Panel();
             this.panelContenedor.SuspendLayout();
             this.panelPlano3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -179,6 +181,7 @@
             this.panelPlano2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.JA5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ayudaVisualMesas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelBotones.SuspendLayout();
             this.panelPersonal.SuspendLayout();
@@ -187,6 +190,7 @@
             this.panelCaja.SuspendLayout();
             this.panelTurno.SuspendLayout();
             this.panelTitulos.SuspendLayout();
+            this.panelAyudaVisual.SuspendLayout();
             this.SuspendLayout();
             // 
             // horafecha
@@ -247,7 +251,7 @@
             this.panelPlano3.Controls.Add(this.JA4);
             this.panelPlano3.Controls.Add(this.button88);
             this.panelPlano3.Controls.Add(this.D4);
-            this.panelPlano3.Location = new System.Drawing.Point(617, 260);
+            this.panelPlano3.Location = new System.Drawing.Point(624, 234);
             this.panelPlano3.Name = "panelPlano3";
             this.panelPlano3.Size = new System.Drawing.Size(517, 426);
             this.panelPlano3.TabIndex = 8;
@@ -1446,11 +1450,23 @@
             this.JA5.Controls.Add(this.label3);
             this.JA5.Controls.Add(this.label1);
             this.JA5.Controls.Add(this.pictureBox3);
+            this.JA5.Controls.Add(this.panelAyudaVisual);
             this.JA5.Dock = System.Windows.Forms.DockStyle.Right;
             this.JA5.Location = new System.Drawing.Point(742, 0);
             this.JA5.Name = "JA5";
             this.JA5.Size = new System.Drawing.Size(286, 640);
             this.JA5.TabIndex = 4;
+            // 
+            // ayudaVisualMesas
+            // 
+            this.ayudaVisualMesas.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ayudaVisualMesas.Image = global::BAREST.Properties.Resources.Ayuda_visual__mesas_colores3;
+            this.ayudaVisualMesas.Location = new System.Drawing.Point(0, 530);
+            this.ayudaVisualMesas.Name = "ayudaVisualMesas";
+            this.ayudaVisualMesas.Size = new System.Drawing.Size(165, 110);
+            this.ayudaVisualMesas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ayudaVisualMesas.TabIndex = 9;
+            this.ayudaVisualMesas.TabStop = false;
             // 
             // label9
             // 
@@ -2093,6 +2109,15 @@
             this.botonHiden.UseVisualStyleBackColor = true;
             this.botonHiden.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
+            // panelAyudaVisual
+            // 
+            this.panelAyudaVisual.Controls.Add(this.ayudaVisualMesas);
+            this.panelAyudaVisual.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelAyudaVisual.Location = new System.Drawing.Point(121, 0);
+            this.panelAyudaVisual.Name = "panelAyudaVisual";
+            this.panelAyudaVisual.Size = new System.Drawing.Size(165, 640);
+            this.panelAyudaVisual.TabIndex = 8;
+            // 
             // inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2119,6 +2144,7 @@
             this.panel2.PerformLayout();
             this.JA5.ResumeLayout(false);
             this.JA5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ayudaVisualMesas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelBotones.ResumeLayout(false);
             this.panelPersonal.ResumeLayout(false);
@@ -2127,6 +2153,7 @@
             this.panelCaja.ResumeLayout(false);
             this.panelTurno.ResumeLayout(false);
             this.panelTitulos.ResumeLayout(false);
+            this.panelAyudaVisual.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2273,5 +2300,7 @@
         private System.Windows.Forms.Button JA4;
         private System.Windows.Forms.Button button88;
         private System.Windows.Forms.Button D4;
+        private System.Windows.Forms.PictureBox ayudaVisualMesas;
+        private System.Windows.Forms.Panel panelAyudaVisual;
     }
 }

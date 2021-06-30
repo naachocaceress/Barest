@@ -63,6 +63,26 @@ namespace BAREST.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Ayuda_visual__mesas_colores {
+            get {
+                object obj = ResourceManager.GetObject("Ayuda visual, mesas colores", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ayuda_visual__mesas_colores3 {
+            get {
+                object obj = ResourceManager.GetObject("Ayuda visual, mesas colores3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Banner_Vidon_2 {
             get {
                 object obj = ResourceManager.GetObject("Banner Vidon 2", resourceCulture);

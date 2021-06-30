@@ -364,6 +364,11 @@
   <ItemGroup>
     <None Include="Resources\imagenmenu2.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Ayuda visual, mesas colores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ayuda visual, mesas colores3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

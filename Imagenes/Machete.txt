@@ -1,0 +1,1 @@
+Button btn = sender as Button; //esto es por si necesitas el boton que lanzo el evento

@@ -151,8 +151,8 @@
   <data name="Banner Vidon 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Banner Vidon 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Candado login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Candado login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="minimizar (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minimizar (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Vidon bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vidon bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,14 +184,17 @@
   <data name="caja" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\caja.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Candado login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Candado login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imagenmenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imagenmenu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="menui" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menui.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Usuario login1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Usuario login1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimizar (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimizar (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BannerVidon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BannerVidon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,7 +202,10 @@
   <data name="lista" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lista.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imagenmenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imagenmenu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Ayuda visual, mesas colores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ayuda visual, mesas colores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ayuda visual, mesas colores3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ayuda visual, mesas colores3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

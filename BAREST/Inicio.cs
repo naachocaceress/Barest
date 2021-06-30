@@ -23,6 +23,7 @@ namespace BAREST
             panelPlano1.Visible = false;
             panelPlano2.Visible = false;
             panelPlano3.Visible = false;
+            panelAyudaVisual.Visible = false;
         }
 
         private void BotonActivo (object senderBtn)
@@ -254,6 +255,7 @@ namespace BAREST
                 panelPlano1.Visible = true;
                 panelPlano2.Visible = true;
                 panelPlano3.Visible = true;
+                panelAyudaVisual.Visible = true;
             }
         }
 
@@ -269,6 +271,7 @@ namespace BAREST
                 panelPlano1.Visible = false;
                 panelPlano2.Visible = false;
                 panelPlano3.Visible = false;
+                panelAyudaVisual.Visible = false;
             }
         }
 
