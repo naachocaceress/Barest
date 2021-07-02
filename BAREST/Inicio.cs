@@ -386,28 +386,36 @@ namespace BAREST
             fechaLabel.Text = DateTime.Now.ToString("g");
         }
 
-        private void panelContenedor_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
         private void mesas_Click(object sender, EventArgs e)
         {
-            Button boton = sender as Button;
-
-            turno.Mozo m = new turno.Mozo();
-            m.label7.Text = boton.Name;
-
-            if(ClaseCompartida.usu==0)
-            m.ShowDialog();
+            if(((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
+            {
+                Button boton = sender as Button;
+                Mesa1 m = new Mesa1();
+                ClaseCompartida.Mesa = boton.Name;
+                ClaseCompartida.mmm = 1;
+                m.ShowDialog();
+            }
             else
             {
-                Mesa1 n = new Mesa1();
-                n.ShowDialog();
+                Button boton = sender as Button;
+
+                turno.Mozo m = new turno.Mozo();
+                m.label7.Text = boton.Name;
+
+                if (ClaseCompartida.usu == 0)
+                    m.ShowDialog();
+                else
+                {
+                    Mesa1 n = new Mesa1();
+                    n.ShowDialog();
+                }
+
+                if (ClaseCompartida.valor == 1)
+                    ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
             }
-            
-            if(ClaseCompartida.valor==1)
-            ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
         }
 
         private void inicio_Load(object sender, EventArgs e)
