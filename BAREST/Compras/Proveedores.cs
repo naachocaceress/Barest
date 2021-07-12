@@ -19,11 +19,6 @@ namespace BAREST.Compras
             InitializeComponent();
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
 
@@ -33,27 +28,27 @@ namespace BAREST.Compras
         {
             if (existeProveedor())
             {
-                MessageBox.Show("Ya existió un Proveedor con este Nombre ingresaste ");
+                MessageBox.Show("Ya existe un proveedor con el nombre ingresado ");
                 return;
             }
             if (textDesc.Text=="")
             {
-                MessageBox.Show("falta ingresar  la Descripcion Del Proveedor ");
+                MessageBox.Show("Falta ingresar la descripcion del proveedor ");
                 return;
             }
             if (textTel.Text == "")
             {
-                MessageBox.Show("falta ingresar el Telefono Del Proveedor ");
+                MessageBox.Show("Falta ingresar el telefono del proveedor ");
                 return;
             }
             if (textcalle.Text == "")
             {
-                MessageBox.Show("falta ingresar la calle Del proveedor ");
+                MessageBox.Show("Falta ingresar la calle del proveedor ");
                 return;
             }
             if (textNro.Text == "")
             {
-                MessageBox.Show("falta ingresar la altura Del proveedor ");
+                MessageBox.Show("Falta ingresar la altura del proveedor ");
                 return;
             }
             else
@@ -72,7 +67,7 @@ namespace BAREST.Compras
                 comando.Parameters.Add("@NomEmp", SqlDbType.VarChar).Value = textDesc.Text;
                 comando.Parameters.Add("@tel", SqlDbType.VarChar).Value = textTel.Text;
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Se ha regitrado el Proveedor " + textNombre.Text + " correctamente");
+                MessageBox.Show("Se ha regitrado el proveedor " + textNombre.Text + " correctamente");
                 textProv.Text = " ";
                 textLocalidad.Text = " ";
                 textCodP.Text = " ";
@@ -94,10 +89,10 @@ namespace BAREST.Compras
             string sql = "select nombre, telefono from Proveedor";
             SqlCommand comando = new SqlCommand(sql, Cone);
             SqlDataReader registros = comando.ExecuteReader();
-            dataGridView1.Rows.Clear();
+            tablaProveedores.Rows.Clear();
             while (registros.Read())
             {
-                dataGridView1.Rows.Add(registros["nombre"].ToString(), registros["telefono"].ToString());
+                tablaProveedores.Rows.Add(registros["nombre"].ToString(), registros["telefono"].ToString());
             }
             registros.Close();
             Cone.Close();
@@ -123,12 +118,45 @@ namespace BAREST.Compras
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog foto = new OpenFileDialog();
+            DialogResult rs = foto.ShowDialog();
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
+            listadoProveedor m = new listadoProveedor();
+            m.ShowDialog();
+        }
 
+        private void EliminarInsu_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("¿Esta seguro que quiere borrar?", "Borrar proveedores", botones, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                string Insum = "";
+                Insum = tablaProveedores.Rows[tablaProveedores.CurrentRow.Index].Cells["Nombre"].Value.ToString();
+                Cone.Open();
+                string sql = "delete from Proveedor where nombre = @nombre";
+                SqlCommand comando = new SqlCommand(sql, Cone);
+                comando.Parameters.AddWithValue("@nombre", Insum);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Se eliminó el Proveedor: " + Insum);
+                Cone.Close();
+                cargarGrilla();
+            }
+        }
+
+        private void modificarInsu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog foto = new OpenFileDialog();
+            DialogResult rs = foto.ShowDialog();
         }
     }
 }

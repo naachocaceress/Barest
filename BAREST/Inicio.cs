@@ -262,7 +262,7 @@ namespace BAREST
         private void cerrar_Click(object sender, EventArgs e)
         {
             esconderMenu();
-
+            ClaseCompartida.comanda = 0;
             MessageBoxButtons botones = MessageBoxButtons.YesNo;
             DialogResult dr = MessageBox.Show("¿Esta seguro que quiere cerrar el turno?", "Cierre de turno", botones, MessageBoxIcon.Question);
 

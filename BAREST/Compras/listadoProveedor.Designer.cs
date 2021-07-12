@@ -31,9 +31,15 @@ namespace BAREST.Compras
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Depto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Piso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,26 +48,34 @@ namespace BAREST.Compras
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
-            this.Apellido,
+            this.empresa,
             this.Telefono,
-            this.Rubro});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.Domicilio,
+            this.Nro,
+            this.Depto,
+            this.Piso,
+            this.CodPostal,
+            this.Localidad,
+            this.Provincia});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(439, 146);
+            this.dataGridView1.Size = new System.Drawing.Size(1028, 450);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 150;
             // 
-            // Apellido
+            // empresa
             // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
+            this.empresa.HeaderText = "Empresa";
+            this.empresa.Name = "empresa";
+            this.empresa.ReadOnly = true;
+            this.empresa.Width = 150;
             // 
             // Telefono
             // 
@@ -69,20 +83,58 @@ namespace BAREST.Compras
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
             // 
-            // Rubro
+            // Domicilio
             // 
-            this.Rubro.HeaderText = "Rubro";
-            this.Rubro.Name = "Rubro";
-            this.Rubro.ReadOnly = true;
+            this.Domicilio.HeaderText = "Domicilio";
+            this.Domicilio.Name = "Domicilio";
+            this.Domicilio.ReadOnly = true;
+            this.Domicilio.Width = 130;
+            // 
+            // Nro
+            // 
+            this.Nro.HeaderText = "Nro";
+            this.Nro.Name = "Nro";
+            this.Nro.Width = 50;
+            // 
+            // Depto
+            // 
+            this.Depto.HeaderText = "Depto";
+            this.Depto.Name = "Depto";
+            this.Depto.Width = 50;
+            // 
+            // Piso
+            // 
+            this.Piso.HeaderText = "Piso";
+            this.Piso.Name = "Piso";
+            // 
+            // CodPostal
+            // 
+            this.CodPostal.HeaderText = "Cod. Postal";
+            this.CodPostal.Name = "CodPostal";
+            this.CodPostal.Width = 50;
+            // 
+            // Localidad
+            // 
+            this.Localidad.HeaderText = "Localidad";
+            this.Localidad.Name = "Localidad";
+            // 
+            // Provincia
+            // 
+            this.Provincia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Provincia.HeaderText = "Provincia";
+            this.Provincia.Name = "Provincia";
             // 
             // listadoProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1028, 450);
             this.Controls.Add(this.dataGridView1);
+            this.MaximizeBox = false;
             this.Name = "listadoProveedor";
-            this.Text = "listadoProveedor";
+            this.ShowIcon = false;
+            this.Text = "Proveedores";
+            this.Load += new System.EventHandler(this.listadoProveedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -92,8 +144,14 @@ namespace BAREST.Compras
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Depto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Piso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodPostal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Localidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Provincia;
     }
 }

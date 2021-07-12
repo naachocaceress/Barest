@@ -34,7 +34,7 @@ namespace BAREST.Compras
             this.EliminarInsu = new FontAwesome.Sharp.IconButton();
             this.modificarInsu = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tablaProveedores = new System.Windows.Forms.DataGridView();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textNombre = new System.Windows.Forms.TextBox();
@@ -63,7 +63,7 @@ namespace BAREST.Compras
             this.textDepto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaProveedores)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,7 +95,7 @@ namespace BAREST.Compras
             this.agregarInsu.Location = new System.Drawing.Point(352, 0);
             this.agregarInsu.Name = "agregarInsu";
             this.agregarInsu.Size = new System.Drawing.Size(100, 50);
-            this.agregarInsu.TabIndex = 7;
+            this.agregarInsu.TabIndex = 14;
             this.agregarInsu.Text = "       Agregar";
             this.agregarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.agregarInsu.UseVisualStyleBackColor = true;
@@ -116,10 +116,11 @@ namespace BAREST.Compras
             this.EliminarInsu.Location = new System.Drawing.Point(452, 0);
             this.EliminarInsu.Name = "EliminarInsu";
             this.EliminarInsu.Size = new System.Drawing.Size(100, 50);
-            this.EliminarInsu.TabIndex = 6;
+            this.EliminarInsu.TabIndex = 15;
             this.EliminarInsu.Text = "       Eliminar";
             this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.EliminarInsu.UseVisualStyleBackColor = true;
+            this.EliminarInsu.Click += new System.EventHandler(this.EliminarInsu_Click);
             // 
             // modificarInsu
             // 
@@ -136,10 +137,11 @@ namespace BAREST.Compras
             this.modificarInsu.Location = new System.Drawing.Point(552, 0);
             this.modificarInsu.Name = "modificarInsu";
             this.modificarInsu.Size = new System.Drawing.Size(110, 50);
-            this.modificarInsu.TabIndex = 5;
+            this.modificarInsu.TabIndex = 16;
             this.modificarInsu.Text = "       Modificar";
             this.modificarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.modificarInsu.UseVisualStyleBackColor = true;
+            this.modificarInsu.Click += new System.EventHandler(this.modificarInsu_Click);
             // 
             // iconButton1
             // 
@@ -156,22 +158,22 @@ namespace BAREST.Compras
             this.iconButton1.Location = new System.Drawing.Point(0, 0);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(140, 50);
-            this.iconButton1.TabIndex = 8;
+            this.iconButton1.TabIndex = 13;
             this.iconButton1.Text = "       Proveedores";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // dataGridView1
+            // tablaProveedores
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tablaProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
             this.Telefono});
-            this.dataGridView1.Location = new System.Drawing.Point(414, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(236, 275);
-            this.dataGridView1.TabIndex = 2;
+            this.tablaProveedores.Location = new System.Drawing.Point(414, 12);
+            this.tablaProveedores.Name = "tablaProveedores";
+            this.tablaProveedores.Size = new System.Drawing.Size(236, 275);
+            this.tablaProveedores.TabIndex = 2;
             // 
             // Nombre
             // 
@@ -189,21 +191,21 @@ namespace BAREST.Compras
             this.textNombre.Location = new System.Drawing.Point(15, 28);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(153, 20);
-            this.textNombre.TabIndex = 3;
+            this.textNombre.TabIndex = 1;
             // 
             // textDesc
             // 
             this.textDesc.Location = new System.Drawing.Point(15, 77);
             this.textDesc.Name = "textDesc";
             this.textDesc.Size = new System.Drawing.Size(153, 20);
-            this.textDesc.TabIndex = 4;
+            this.textDesc.TabIndex = 2;
             // 
             // textTel
             // 
             this.textTel.Location = new System.Drawing.Point(15, 133);
             this.textTel.Name = "textTel";
             this.textTel.Size = new System.Drawing.Size(150, 20);
-            this.textTel.TabIndex = 5;
+            this.textTel.TabIndex = 3;
             // 
             // textcalle
             // 
@@ -214,10 +216,10 @@ namespace BAREST.Compras
             // 
             // textLocalidad
             // 
-            this.textLocalidad.Location = new System.Drawing.Point(64, 148);
+            this.textLocalidad.Location = new System.Drawing.Point(64, 187);
             this.textLocalidad.Name = "textLocalidad";
             this.textLocalidad.Size = new System.Drawing.Size(124, 20);
-            this.textLocalidad.TabIndex = 7;
+            this.textLocalidad.TabIndex = 11;
             // 
             // label1
             // 
@@ -233,9 +235,9 @@ namespace BAREST.Compras
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 13);
+            this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "NombreEmpresa:";
+            this.label2.Text = "Empresa:";
             // 
             // label3
             // 
@@ -258,7 +260,7 @@ namespace BAREST.Compras
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 151);
+            this.label5.Location = new System.Drawing.Point(6, 190);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 12;
@@ -287,16 +289,17 @@ namespace BAREST.Compras
             this.button2.Location = new System.Drawing.Point(46, 189);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 23);
-            this.button2.TabIndex = 16;
+            this.button2.TabIndex = 4;
             this.button2.Text = "Importar imagen";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(46, 253);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(122, 23);
-            this.button3.TabIndex = 17;
+            this.button3.TabIndex = 5;
             this.button3.Text = "Importar Archivo";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -329,14 +332,14 @@ namespace BAREST.Compras
             this.textProv.Location = new System.Drawing.Point(64, 218);
             this.textProv.Name = "textProv";
             this.textProv.Size = new System.Drawing.Size(120, 20);
-            this.textProv.TabIndex = 21;
+            this.textProv.TabIndex = 12;
             // 
             // textCodP
             // 
-            this.textCodP.Location = new System.Drawing.Point(64, 183);
+            this.textCodP.Location = new System.Drawing.Point(64, 152);
             this.textCodP.Name = "textCodP";
             this.textCodP.Size = new System.Drawing.Size(71, 20);
-            this.textCodP.TabIndex = 20;
+            this.textCodP.TabIndex = 10;
             // 
             // label12
             // 
@@ -350,7 +353,7 @@ namespace BAREST.Compras
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 186);
+            this.label11.Location = new System.Drawing.Point(6, 155);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(61, 13);
             this.label11.TabIndex = 18;
@@ -373,21 +376,20 @@ namespace BAREST.Compras
             this.label9.Size = new System.Drawing.Size(30, 13);
             this.label9.TabIndex = 16;
             this.label9.Text = "Piso:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // textNro
             // 
             this.textNro.Location = new System.Drawing.Point(64, 46);
             this.textNro.Name = "textNro";
             this.textNro.Size = new System.Drawing.Size(51, 20);
-            this.textNro.TabIndex = 15;
+            this.textNro.TabIndex = 7;
             // 
             // textPiso
             // 
             this.textPiso.Location = new System.Drawing.Point(64, 110);
             this.textPiso.Name = "textPiso";
             this.textPiso.Size = new System.Drawing.Size(51, 20);
-            this.textPiso.TabIndex = 14;
+            this.textPiso.TabIndex = 9;
             this.textPiso.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // textDepto
@@ -395,7 +397,7 @@ namespace BAREST.Compras
             this.textDepto.Location = new System.Drawing.Point(64, 77);
             this.textDepto.Name = "textDepto";
             this.textDepto.Size = new System.Drawing.Size(51, 20);
-            this.textDepto.TabIndex = 13;
+            this.textDepto.TabIndex = 8;
             // 
             // label8
             // 
@@ -422,7 +424,7 @@ namespace BAREST.Compras
             this.Controls.Add(this.textTel);
             this.Controls.Add(this.textDesc);
             this.Controls.Add(this.textNombre);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tablaProveedores);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -432,7 +434,7 @@ namespace BAREST.Compras
             this.Text = "Proveedores";
             this.Load += new System.EventHandler(this.Proveedores_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaProveedores)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -447,7 +449,7 @@ namespace BAREST.Compras
         private FontAwesome.Sharp.IconButton EliminarInsu;
         private FontAwesome.Sharp.IconButton modificarInsu;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tablaProveedores;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.TextBox textNombre;
