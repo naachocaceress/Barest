@@ -17,11 +17,6 @@ namespace BAREST.Configuracion
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.instagram.com/calebjolicoeur/");

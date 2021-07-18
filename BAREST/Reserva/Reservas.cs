@@ -23,7 +23,6 @@ namespace BAREST
 {
     public partial class Reservas : Form
     {
-        private SqlConnection Cone = new SqlConnection("Data Source=localhost; Initial Catalog=BaseBarest;Integrated Security=True");
         public Reservas()
         {
             InitializeComponent();
@@ -34,25 +33,16 @@ namespace BAREST
             cargarTabla();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void iconButton1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void reservasTitulo_Click(object sender, EventArgs e)
-        {
-
-        }
         public void cargarTabla()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "Select c.id, r.cantDePersona,r.fecha,r.hora,r.numeroDeReserva,c.nombre,c.telefono from Reserva r Join Cliente c on r.idCliente = c.id ";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             dataGridView1.Rows.Clear();
             while (registros.Read())
@@ -60,7 +50,7 @@ namespace BAREST
                 dataGridView1.Rows.Add(registros["id"].ToString(), registros["nombre"].ToString(), registros["cantDePersona"].ToString(), registros["hora"].ToString(), registros["fecha"].ToString(), registros["telefono"].ToString(), registros["numeroDeReserva"].ToString());
             }
             registros.Close();
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
         private void agregarInsu_Click(object sender, EventArgs e)
@@ -68,8 +58,6 @@ namespace BAREST
             ClaseCompartida.Insum2 = 0;
             ingresarReserva i = new ingresarReserva();
             i.ShowDialog();
-            // Reserva.AgregarReserva m = Reserva.AgregarReserva();
-            // m.ShowDialog();
             cargarTabla();
         }
 
@@ -82,22 +70,22 @@ namespace BAREST
             {
                 string Insum = "";
                 Insum = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["Id"].Value.ToString();
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "delete from reserva where idcliente = @descripcion";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.AddWithValue("@descripcion", Insum);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Se eliminó la reserva");
-                Cone.Close();
                 cargarTabla();
+                Conexion.ObtenerConexion().Close();
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "Select r.cantDePersona,r.fecha,r.hora,r.numeroDeReserva,c.nombre,c.telefono from Reserva r Join Cliente c on r.idCliente = c.id ";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             dataGridView1.Rows.Clear();
             while (registros.Read())
@@ -105,14 +93,14 @@ namespace BAREST
                 dataGridView1.Rows.Add(registros["nombre"].ToString(), registros["cantDePersona"].ToString(), registros["hora"].ToString(), registros["fecha"].ToString(), registros["telefono"].ToString(), registros["numeroDeReserva"].ToString());
             }
             registros.Close();
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "Select r.cantDePersona,r.fecha,r.hora,r.numeroDeReserva,c.nombre,c.telefono from Reserva r Join Cliente c on r.idCliente = c.id where fecha  between @d1 and @d2 ";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@d1", SqlDbType.Date).Value = dateTimePicker1.Value;
             comando.Parameters.Add("@d2", SqlDbType.Date).Value = dateTimePicker2.Value;
             SqlDataReader registros = comando.ExecuteReader();
@@ -122,20 +110,21 @@ namespace BAREST
                 dataGridView1.Rows.Add(registros["nombre"].ToString(), registros["cantDePersona"].ToString(), registros["hora"].ToString(), registros["fecha"].ToString(), registros["telefono"].ToString(), registros["numeroDeReserva"].ToString());
             }
             registros.Close();
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
+
         private bool fechaExiste()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select * from Reserva where fecha= @date1";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@date1", SqlDbType.Date).Value = dateTimePicker1.Value;
             bool existe = false;
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
                 existe = true;
-            Cone.Close();
             return existe;
+            Conexion.ObtenerConexion().Close();
         }
 
         private void crearPDF()
@@ -160,11 +149,10 @@ namespace BAREST
                 tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(fontColumnas)));
             }
 
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "Select c.id, r.cantDePersona,r.fecha,r.hora,r.numeroDeReserva,c.nombre,c.telefono from Reserva r Join Cliente c on r.idCliente = c.id ";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
-            //dataGridView1.Rows.Clear();
             while (registros.Read())
             {
                 tabla.AddCell(new Cell().Add(new Paragraph(registros["id"].ToString()).SetFont(fontContenido)));
@@ -176,12 +164,12 @@ namespace BAREST
                 tabla.AddCell(new Cell().Add(new Paragraph(registros["numeroDeReserva"].ToString()).SetFont(fontContenido)));
             }
             registros.Close();
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
 
             documento.Add(tabla);
             documento.Close();
 
-            var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Nacho/OneDrive/Escritorio/Nacho5/ISSD/BAREST/Imagenes/Login/Barest.png")).SetWidth(50);
+            var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Nacho/OneDrive/Escritorio/Nacho6/ISSD/BAREST/Imagenes/Login/Barest.png")).SetWidth(50);
             var PLOGO = new Paragraph("").Add(logo);
             var titulo = new Paragraph("RESERVAS");
             titulo.SetTextAlignment(TextAlignment.CENTER);
@@ -213,14 +201,13 @@ namespace BAREST
         {
             crearPDF();
             MessageBox.Show("Se imprimio correctamente");
-
         }
 
         private void cargarRubro()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select descripcion from Reserva";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             dataGridView1.Rows.Clear();
             while (registros.Read())
@@ -228,7 +215,7 @@ namespace BAREST
                 dataGridView1.Rows.Add(registros["descripcion"].ToString());
             }
             registros.Close();
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
         public static class ClaseCompartida

@@ -19,7 +19,6 @@ namespace BAREST
         {
             InitializeComponent();
             customizeDesign();
-            //panel1.BackColor = Color.FromArgb(0, Color.Black);
             panelPlano1.Visible = false;
             panelPlano2.Visible = false;
             panelPlano3.Visible = false;
@@ -318,11 +317,6 @@ namespace BAREST
             esconderMenu();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void reservas_Click(object sender, EventArgs e)
         {
             esconderMenu();
@@ -386,8 +380,6 @@ namespace BAREST
             fechaLabel.Text = DateTime.Now.ToString("g");
         }
 
-
-
         private void mesas_Click(object sender, EventArgs e)
         {
             if(((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
@@ -416,11 +408,6 @@ namespace BAREST
                 if (ClaseCompartida.valor == 1)
                     ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
             }
-        }
-
-        private void inicio_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

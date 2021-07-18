@@ -14,7 +14,6 @@ namespace BAREST
 {
     public partial class Menu : Form
     {
-        private SqlConnection Cone = new SqlConnection("Data Source=localhost; Initial Catalog=BaseBarest;Integrated Security=True");
         public string arti = "";
 
         public Menu()
@@ -45,32 +44,32 @@ namespace BAREST
             }
             else
             {
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "insert into RubroMenu (descripcionMenu) values (@desRubro)";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.Add("@desRubro", SqlDbType.VarChar).Value = textRubro.Text;
                 comando.ExecuteNonQuery();
                 textRubro.Text = " ";
-                Cone.Close();
                 MessageBox.Show("Rubro registrado");
                 cargarRubroM();
                 cargarcomboRubroMenu();
                 comborubroMenu.SelectedItem = null;
+                Conexion.ObtenerConexion().Close();
             }
 
             //---------------------- Controlar si existe el Rubro -----------------------
 
             bool rubroExist()
             {
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "select * from RubroMenu where descripcionMenu=@desRubro";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.Add("@desRubro", SqlDbType.VarChar).Value = textRubro.Text;
                 bool existe = false;
                 SqlDataReader leido = comando.ExecuteReader();
                 if (leido.Read())
                     existe = true;
-                Cone.Close();
+                Conexion.ObtenerConexion().Close();
                 return existe;
             }
         }
@@ -78,9 +77,9 @@ namespace BAREST
         //----------------------------- Cargar el dataRubro -----------------------------
         void cargarRubroM()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select descripcionMenu from RubroMenu";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             tablaRubro.Rows.Clear();
             while (registros.Read())
@@ -88,14 +87,14 @@ namespace BAREST
                 tablaRubro.Rows.Add(registros["descripcionMenu"].ToString());
             }
             registros.Close();
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
         private void cargarcomboRubroMenu()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = " select id,descripcionMenu from RubroMenu";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataAdapter adaptador1 = new SqlDataAdapter();
             adaptador1.SelectCommand = comando;
             DataTable tabla1 = new DataTable();
@@ -103,15 +102,15 @@ namespace BAREST
             comborubroMenu.DisplayMember = "descripcionMenu";
             comborubroMenu.ValueMember = "id";
             comborubroMenu.DataSource = tabla1;
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
         //----------------------------- Cargar el dataMenu ------------------------------
         private void cargarMenu()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select nombre from Menu";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             tablaArticulos.Rows.Clear();
             while (registros.Read())
@@ -119,20 +118,20 @@ namespace BAREST
                 tablaArticulos.Rows.Add(registros["nombre"].ToString());
             }
             registros.Close();
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
         private bool menuExiste()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select * from Menu where nombre=@desc";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@desc", SqlDbType.Char).Value = textnomM.Text;
             bool existe = false;
             SqlDataReader registro = comando.ExecuteReader();
             if (registro.Read())
                 existe = true;
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
             return existe;
         }
 
@@ -145,16 +144,16 @@ namespace BAREST
             {
                 string Rubrosd = "";
                 Rubrosd = tablaRubro.Rows[tablaRubro.CurrentRow.Index].Cells["Rubros"].Value.ToString();
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "delete from RubroMenu where descripcion = @descripcion";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.AddWithValue("@descripcion", Rubrosd);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Se eliminó el rubro: " + Rubrosd);
-                Cone.Close();
                 cargarRubroM();
                 cargarcomboRubroMenu();
                 comborubroMenu.SelectedItem = null;
+                Conexion.ObtenerConexion().Close();
             }
         }
 
@@ -172,9 +171,9 @@ namespace BAREST
             }
             else
             {
-                    Cone.Open();
+                    Conexion.ObtenerConexion();
                     String sql = "insert into DetalleMenu (descripcion) values (@descD) select @@IDENTITY insert into Menu (nombre, precio, foto, idRubroMenu, idDetalleMenu) values (@nom, @pre, @foto, @idrubM, @@IDENTITY)";
-                    SqlCommand comando = new SqlCommand(sql, Cone);
+                    SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                     comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textnomM.Text;
                     comando.Parameters.Add("@pre", SqlDbType.Float).Value = textPrecioM.Text;
                     MemoryStream ms = new MemoryStream();
@@ -189,8 +188,8 @@ namespace BAREST
                     textDescM.Text = " ";
                     pictureBox1.Image = Properties.Resources.imagenmenu;
                     comborubroMenu.SelectedItem = null;
-                    Cone.Close();
                     cargarMenu();
+                    Conexion.ObtenerConexion().Close();
             }
             
         }
@@ -221,14 +220,14 @@ namespace BAREST
             {
                 string Insum = "";
                 Insum = tablaArticulos.Rows[tablaArticulos.CurrentRow.Index].Cells["Articulos"].Value.ToString();
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "delete from Menu where nombre = @nombre";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.AddWithValue("@nombre", Insum);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Se eliminó el Menu: " + Insum);
-                Cone.Close();
                 cargarMenu();
+                Conexion.ObtenerConexion().Close();
             }
         }
 
@@ -236,9 +235,9 @@ namespace BAREST
         {
             string Insum2 = "";
             Insum2 = tablaArticulos.Rows[tablaArticulos.CurrentRow.Index].Cells["Articulos"].Value.ToString();
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select m.nombre,d.descripcion,r.descripcionMenu,m.precio from menu m inner join DetalleMenu  d on m.IdDetalleMenu=d.id inner join RubroMenu r on r.id=m.idRubroMenu where nombre=@nombre";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.AddWithValue("@nombre", Insum2);
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
@@ -249,10 +248,9 @@ namespace BAREST
                 textPrecioM.Text = leido["precio"].ToString();
 
                 arti = textnomM.Text;
-
             }
-            Cone.Close();
             guardarModifi.Visible = true;
+            Conexion.ObtenerConexion().Close();
         }
 
         //----------- PARA HACER QUE SOLO SE PUEDA PONER NUMEROS EN EL TEXTPRECIO -------------
@@ -275,9 +273,9 @@ namespace BAREST
 
         private void guardarModifi_Click(object sender, EventArgs e)
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "update Menu set nombre=@nombre, precio=@precio where nombre =@arti";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = textnomM.Text;
             //comando.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = textDescM.Text;
             comando.Parameters.Add("@precio", SqlDbType.VarChar).Value = textPrecioM.Text;
@@ -293,9 +291,9 @@ namespace BAREST
                 textDescM.Text = "";
                 comborubroMenu.SelectedItem = null;
             }
-            Cone.Close();
             cargarMenu();
             guardarModifi.Visible = false;
+            Conexion.ObtenerConexion().Close();
         }
     }
 }

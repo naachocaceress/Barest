@@ -13,7 +13,6 @@ namespace BAREST
 {
     public partial class Form1 : Form
     {
-        private SqlConnection Cone = new SqlConnection("Data Source=localhost; Initial Catalog=BaseBarest;Integrated Security=True");
         public Form1()
         {
             InitializeComponent();
@@ -40,9 +39,9 @@ namespace BAREST
         // METODO PARA INCIAR SESION
         private void logiarse()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "SELECT legajo, contraseña, cargo FROM Empleado WHERE legajo = @legajo AND contraseña = @contra AND cargo = 'Administrador'";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@legajo", SqlDbType.VarChar).Value = tboxUsuario.Text;
             comando.Parameters.Add("@contra", SqlDbType.VarChar).Value = tboxContraseña.Text;
             SqlDataReader dr = comando.ExecuteReader();
@@ -62,12 +61,7 @@ namespace BAREST
                 tboxUsuario.Focus();
             }
             dr.Close();
-            Cone.Close();
-        }
-
-        private void tboxUsuario_TextChanged(object sender, EventArgs e)
-        {
-
+            Conexion.ObtenerConexion().Close();
         }
     }
 }

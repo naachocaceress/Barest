@@ -78,10 +78,10 @@ namespace BAREST.Configuracion
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(45, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 43);
+            this.label1.Size = new System.Drawing.Size(161, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "BAREST";
             // 
@@ -105,7 +105,6 @@ namespace BAREST.Configuracion
             this.label3.Size = new System.Drawing.Size(717, 72);
             this.label3.TabIndex = 2;
             this.label3.Text = resources.GetString("label3.Text");
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 

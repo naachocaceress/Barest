@@ -14,7 +14,6 @@ namespace BAREST.Compras
 {
     public partial class Insumos : Form
     {
-        private SqlConnection Cone = new SqlConnection("Data Source=localhost; Initial Catalog=BaseBarest;Integrated Security=True");
         public string arti = "";
         public Insumos()
         {
@@ -41,9 +40,9 @@ namespace BAREST.Compras
             }
             else
             {
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "insert into Insumo(descripcion, unidad, cant,idProveedor,idRubro) values(@des,@uni,@cant, @idProv,@idrub)";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.Add("@des", SqlDbType.VarChar).Value = textDescInsumo.Text;
                 comando.Parameters.Add("@uni", SqlDbType.VarChar).Value = textUnidad.Text;
                 comando.Parameters.Add("@cant", SqlDbType.Float).Value = textCant.Text;
@@ -56,7 +55,7 @@ namespace BAREST.Compras
                 textCant.Text = "";
                 comboRubro.SelectedItem = null;
                 comboProveedor.SelectedItem = null;
-                Cone.Close();
+                Conexion.ObtenerConexion().Close();
                 cargarArticulos();
             }
         }
@@ -75,13 +74,13 @@ namespace BAREST.Compras
             }
             else
             {
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "insert into Rubro (descripcion) values (@desRubro)";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.Add("@desRubro", SqlDbType.VarChar).Value = textRubro.Text;
                 comando.ExecuteNonQuery();
                 textRubro.Text = " ";
-                Cone.Close();
+                Conexion.ObtenerConexion().Close();
                 MessageBox.Show("Rubro Registrado");
                 cargarRubro();
                 cargarComboRubro();
@@ -93,38 +92,38 @@ namespace BAREST.Compras
 
         private bool rubroExiste()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select * from Rubro where descripcion=@desRubro";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@desRubro", SqlDbType.VarChar).Value = textRubro.Text;
             bool existe = false;
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
                 existe = true;
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
             return existe;
         }
 
         private bool articuloExiste()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select * from Insumo where descripcion=@desc";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@desc", SqlDbType.Char).Value = textDescInsumo.Text;
             bool existe = false;
             SqlDataReader registro = comando.ExecuteReader();
             if (registro.Read())
                 existe = true;
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
             return existe;
         }
 
         //-------------------- PARA CARGAR LA GRILLA RUBROS -----------------------------------
         private void cargarRubro()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select descripcion from Rubro";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             tablaRubro.Rows.Clear();
             while (registros.Read())
@@ -132,14 +131,14 @@ namespace BAREST.Compras
                 tablaRubro.Rows.Add(registros["descripcion"].ToString());
             }
             registros.Close();
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
         private void cargarArticulos()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select descripcion from Insumo";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             tablaArticulos.Rows.Clear();
             while (registros.Read())
@@ -147,7 +146,7 @@ namespace BAREST.Compras
                 tablaArticulos.Rows.Add(registros["descripcion"].ToString());
             }
             registros.Close();
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
 
@@ -164,9 +163,9 @@ namespace BAREST.Compras
 
         private void cargarComboRubro()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select id, descripcion from Rubro";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataAdapter adaptador1 = new SqlDataAdapter();
             adaptador1.SelectCommand = comando;
             DataTable tabla1 = new DataTable();
@@ -174,14 +173,14 @@ namespace BAREST.Compras
             comboRubro.DisplayMember = "descripcion";
             comboRubro.ValueMember = "id";
             comboRubro.DataSource = tabla1;
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
         private void cargarcomboProveedor()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select id, nombre from Proveedor";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataAdapter adaptador1 = new SqlDataAdapter();
             adaptador1.SelectCommand = comando;
             DataTable tabla1 = new DataTable();
@@ -189,7 +188,7 @@ namespace BAREST.Compras
             comboProveedor.DisplayMember = "nombre";
             comboProveedor.ValueMember = "id";
             comboProveedor.DataSource = tabla1;
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
         private void eliminarRubro_Click(object sender, EventArgs e)
@@ -201,13 +200,13 @@ namespace BAREST.Compras
             {
                 string Rubrosd = "";
                 Rubrosd = tablaRubro.Rows[tablaRubro.CurrentRow.Index].Cells["Rubros"].Value.ToString();
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "delete from Rubro where descripcion = @descripcion";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.AddWithValue("@descripcion", Rubrosd);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Se eliminó el rubro: " + Rubrosd);
-                Cone.Close();
+                Conexion.ObtenerConexion().Close();
                 cargarRubro();
                 cargarComboRubro();
                 comboRubro.SelectedItem = null;
@@ -224,13 +223,13 @@ namespace BAREST.Compras
             {
                 string Insum = "";
                 Insum = tablaArticulos.Rows[tablaArticulos.CurrentRow.Index].Cells["Articulos"].Value.ToString();
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "delete from Insumo where descripcion = @descripcion";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.AddWithValue("@descripcion", Insum);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Se eliminó el Articulo: " + Insum);
-                Cone.Close();
+                Conexion.ObtenerConexion().Close();
                 cargarArticulos();
             }
         }
@@ -239,9 +238,9 @@ namespace BAREST.Compras
         {
             string Insum2 = "";
             Insum2 = tablaArticulos.Rows[tablaArticulos.CurrentRow.Index].Cells["Articulos"].Value.ToString();
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select descripcion, unidad, cant, idRubro, idProveedor from Insumo where descripcion=@descripcion";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.AddWithValue("@descripcion", Insum2);
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
@@ -255,15 +254,15 @@ namespace BAREST.Compras
                 arti = textDescInsumo.Text;
 
             }
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
             guardarModifi.Visible = true;
         }
 
         private void guardarModifi_Click(object sender, EventArgs e)
         {
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "update Insumo set descripcion=@descripcion, unidad=@unidad, cant=@cant where descripcion =@arti";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = textDescInsumo.Text;
                 comando.Parameters.Add("@unidad", SqlDbType.VarChar).Value = textUnidad.Text;
                 comando.Parameters.Add("@cant", SqlDbType.VarChar).Value = textCant.Text;
@@ -279,8 +278,8 @@ namespace BAREST.Compras
                     textCant.Text = "";
                 comboRubro.SelectedItem = null;
                 comboProveedor.SelectedItem = null;
-            }   
-                Cone.Close();
+            }
+                Conexion.ObtenerConexion().Close();
                 cargarArticulos();
                 guardarModifi.Visible = false;
         }  

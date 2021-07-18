@@ -2130,7 +2130,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barest";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.inicio_Load);
             this.panelContenedor.ResumeLayout(false);
             this.panelPlano3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

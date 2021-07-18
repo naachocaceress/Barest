@@ -62,11 +62,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bauhaus 93", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
             this.label1.Location = new System.Drawing.Point(28, 233);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 36);
+            this.label1.Size = new System.Drawing.Size(275, 37);
             this.label1.TabIndex = 10;
             this.label1.Text = "INICIAR SESION";
             // 
@@ -140,7 +140,6 @@
             this.tboxUsuario.Name = "tboxUsuario";
             this.tboxUsuario.Size = new System.Drawing.Size(204, 25);
             this.tboxUsuario.TabIndex = 1;
-            this.tboxUsuario.TextChanged += new System.EventHandler(this.tboxUsuario_TextChanged);
             // 
             // tboxContraseña
             // 

@@ -14,8 +14,6 @@ namespace BAREST
 {
     public partial class Mesa1 : Form
     {
-        private SqlConnection Cone = new SqlConnection("Data Source=localhost; Initial Catalog=BaseBarest;Integrated Security=True");
-
         public Mesa1()
         {
             InitializeComponent();
@@ -23,19 +21,19 @@ namespace BAREST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             String sql = "insert into provisorio (cantidad, detalles, pUnitario, comensales, mesa, mozo) values (@cant, @det, @puni, @comens, @meza, @mozo)";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@cant", SqlDbType.VarChar).Value = dataGridView1.Rows[0].Cells[0].Value;
             comando.Parameters.Add("@det", SqlDbType.VarChar).Value = dataGridView1.Rows[0].Cells[1].Value;
             comando.Parameters.Add("@puni", SqlDbType.VarChar).Value = dataGridView1.Rows[0].Cells[2].Value;
-
             comando.Parameters.Add("@comens", SqlDbType.VarChar).Value = textBox3.Text.ToString();
             comando.Parameters.Add("@meza", SqlDbType.VarChar).Value = label4.Text;
             comando.Parameters.Add("@mozo", SqlDbType.VarChar).Value = label5.Text;
             comando.ExecuteNonQuery();
-            Cone.Close();
+            Conexion.ObtenerConexion();
             this.Close();
+            Conexion.ObtenerConexion().Close();
 
             ClaseCompartida.comanda++;
 
@@ -98,18 +96,18 @@ namespace BAREST
                 else
                 {
                     cantidad = 1;
-                    Cone.Open();
+                    Conexion.ObtenerConexion();
                     string sql = "select nombre,precio from Menu where nombre=@nom";
-                    SqlCommand comando = new SqlCommand(sql, Cone);
+                    SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                     comando.Parameters.Clear();
                     comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textBox2.Text;
                     SqlDataReader registros = comando.ExecuteReader();
                     if (registros.Read())
                     {
-                        dataGridView1.Rows.Add(new String[] { cantidad.ToString(), registros["nombre"].ToString(), registros["precio"].ToString(), registros["precio"].ToString()});
+                        dataGridView1.Rows.Add(new String[] { cantidad.ToString(), registros["nombre"].ToString(), registros["precio"].ToString()});
                     }
                     registros.Close();
-                    Cone.Close();
+                    Conexion.ObtenerConexion().Close();
                     textBox2.Text = "";
 
                     ClaseCompartida.valor = 1;
@@ -121,9 +119,9 @@ namespace BAREST
             }
             else
             {
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "select nombre,precio from Menu where nombre=@nom";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.Clear();
                 comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textBox2.Text;
                 SqlDataReader registros = comando.ExecuteReader();
@@ -137,12 +135,10 @@ namespace BAREST
                     dataGridView1.Rows.Add(new String[] { cantidad.ToString(), registros["nombre"].ToString(), registros["precio"].ToString(), tt4});
                 }
                 registros.Close();
-                Cone.Close();
+                Conexion.ObtenerConexion().Close();
                 textBox2.Text = "";
 
                 ClaseCompartida.valor = 1;
-
-                sumaT();
 
                 cantidad = 0;
             }
@@ -191,7 +187,6 @@ namespace BAREST
                 e.Handled = false;
                 return;
             }
-
 
             bool IsDec = false;
             int nroDec = 0;
@@ -276,25 +271,27 @@ namespace BAREST
         {
             if(ClaseCompartida.mmm==1)
             {
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "select cantidad, detalles, pUnitario, comensales, mesa, mozo from provisorio where mesa = @nombre";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.AddWithValue("@nombre", ClaseCompartida.Mesa);
                 SqlDataReader leido = comando.ExecuteReader();
                 if (leido.Read())
                 {
-                    dataGridView1.Rows[0].Cells[0].Value = leido["cantidad"].ToString();
+                    llenarTabla();
+                    dataGridView1.Rows.Add(new String[]{leido["cantidad"].ToString(), leido["detalles"].ToString(),
+                                       leido["pUnitario"].ToString(),leido["pUnitario"].ToString() });
+                   /* dataGridView1.Rows[0].Cells[0].Value = leido["cantidad"].ToString();
                     dataGridView1.Rows[0].Cells[1].Value = leido["detalles"].ToString();
-                    dataGridView1.Rows[0].Cells[2].Value = leido["pUnitario"].ToString();
+                    dataGridView1.Rows[0].Cells[2].Value = leido["pUnitario"].ToString();*/
 
                     textBox3.Text = leido["comensales"].ToString();
                     label4.Text = leido["mesa"].ToString();
                     label5.Text = leido["mozo"].ToString();
                 }
-                Cone.Close();
 
                 string dato2 = dataGridView1.Rows[0].Cells["precio"].Value.ToString();
-                string dato3 = dataGridView1.Rows[0].Cells["Cantidad"].Value.ToString();
+                string dato3 = dataGridView1.Rows[0].Cells["cant"].Value.ToString();
 
                 int num2 = Int32.Parse(dato2);
                 int num3 = Int32.Parse(dato3);
@@ -307,6 +304,20 @@ namespace BAREST
                 textBox1.Text = pep2;
 
                 ClaseCompartida.mmm = 0;
+                Conexion.ObtenerConexion().Close();
+            }
+
+             void llenarTabla()
+            {
+                dataGridView1.ColumnCount = 3;
+                dataGridView1.Columns[0].Name = "Cantidad";
+                dataGridView1.Columns[1].Name = "Detalles";
+                dataGridView1.Columns[2].Name = "precio";
+                dataGridView1.Columns[2].Name = "PTotal";
+                dataGridView1.Columns["Cantidad"].HeaderText = "Cantidad";
+                dataGridView1.Columns["Detalles"].HeaderText = "Detalles";
+                dataGridView1.Columns["precio"].HeaderText = "precio";
+                dataGridView1.Columns["PTotal"].HeaderText = "Total";
             }
         }
 
@@ -315,7 +326,6 @@ namespace BAREST
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 agregarMenulista2();
-
             }
         }
 

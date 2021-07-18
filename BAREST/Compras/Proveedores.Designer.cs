@@ -30,15 +30,15 @@ namespace BAREST.Compras
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.agregarInsu = new FontAwesome.Sharp.IconButton();
-            this.EliminarInsu = new FontAwesome.Sharp.IconButton();
-            this.modificarInsu = new FontAwesome.Sharp.IconButton();
+            this.agregarProveedor = new FontAwesome.Sharp.IconButton();
+            this.EliminarProv = new FontAwesome.Sharp.IconButton();
+            this.modificarProveedor = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.tablaProveedores = new System.Windows.Forms.DataGridView();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textNombre = new System.Windows.Forms.TextBox();
-            this.textDesc = new System.Windows.Forms.TextBox();
+            this.textRazon = new System.Windows.Forms.TextBox();
             this.textTel = new System.Windows.Forms.TextBox();
             this.textcalle = new System.Windows.Forms.TextBox();
             this.textLocalidad = new System.Windows.Forms.TextBox();
@@ -58,10 +58,11 @@ namespace BAREST.Compras
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textNro = new System.Windows.Forms.TextBox();
+            this.textAltura = new System.Windows.Forms.TextBox();
             this.textPiso = new System.Windows.Forms.TextBox();
             this.textDepto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.guardarModifi = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaProveedores)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -70,9 +71,9 @@ namespace BAREST.Compras
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
-            this.panel1.Controls.Add(this.agregarInsu);
-            this.panel1.Controls.Add(this.EliminarInsu);
-            this.panel1.Controls.Add(this.modificarInsu);
+            this.panel1.Controls.Add(this.agregarProveedor);
+            this.panel1.Controls.Add(this.EliminarProv);
+            this.panel1.Controls.Add(this.modificarProveedor);
             this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 306);
@@ -80,68 +81,68 @@ namespace BAREST.Compras
             this.panel1.Size = new System.Drawing.Size(662, 50);
             this.panel1.TabIndex = 1;
             // 
-            // agregarInsu
+            // agregarProveedor
             // 
-            this.agregarInsu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.agregarInsu.FlatAppearance.BorderSize = 0;
-            this.agregarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.agregarInsu.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.agregarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.agregarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.agregarInsu.IconSize = 30;
-            this.agregarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarInsu.Location = new System.Drawing.Point(352, 0);
-            this.agregarInsu.Name = "agregarInsu";
-            this.agregarInsu.Size = new System.Drawing.Size(100, 50);
-            this.agregarInsu.TabIndex = 14;
-            this.agregarInsu.Text = "       Agregar";
-            this.agregarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarInsu.UseVisualStyleBackColor = true;
-            this.agregarInsu.Click += new System.EventHandler(this.agregarInsu_Click);
+            this.agregarProveedor.Dock = System.Windows.Forms.DockStyle.Right;
+            this.agregarProveedor.FlatAppearance.BorderSize = 0;
+            this.agregarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregarProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.agregarProveedor.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.agregarProveedor.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.agregarProveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.agregarProveedor.IconSize = 30;
+            this.agregarProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.agregarProveedor.Location = new System.Drawing.Point(352, 0);
+            this.agregarProveedor.Name = "agregarProveedor";
+            this.agregarProveedor.Size = new System.Drawing.Size(100, 50);
+            this.agregarProveedor.TabIndex = 14;
+            this.agregarProveedor.Text = "       Agregar";
+            this.agregarProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.agregarProveedor.UseVisualStyleBackColor = true;
+            this.agregarProveedor.Click += new System.EventHandler(this.agregarInsu_Click);
             // 
-            // EliminarInsu
+            // EliminarProv
             // 
-            this.EliminarInsu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.EliminarInsu.FlatAppearance.BorderSize = 0;
-            this.EliminarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EliminarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.MinusCircle;
-            this.EliminarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EliminarInsu.IconSize = 30;
-            this.EliminarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.Location = new System.Drawing.Point(452, 0);
-            this.EliminarInsu.Name = "EliminarInsu";
-            this.EliminarInsu.Size = new System.Drawing.Size(100, 50);
-            this.EliminarInsu.TabIndex = 15;
-            this.EliminarInsu.Text = "       Eliminar";
-            this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.UseVisualStyleBackColor = true;
-            this.EliminarInsu.Click += new System.EventHandler(this.EliminarInsu_Click);
+            this.EliminarProv.Dock = System.Windows.Forms.DockStyle.Right;
+            this.EliminarProv.FlatAppearance.BorderSize = 0;
+            this.EliminarProv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EliminarProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EliminarProv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.EliminarProv.IconChar = FontAwesome.Sharp.IconChar.MinusCircle;
+            this.EliminarProv.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.EliminarProv.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EliminarProv.IconSize = 30;
+            this.EliminarProv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarProv.Location = new System.Drawing.Point(452, 0);
+            this.EliminarProv.Name = "EliminarProv";
+            this.EliminarProv.Size = new System.Drawing.Size(100, 50);
+            this.EliminarProv.TabIndex = 15;
+            this.EliminarProv.Text = "       Eliminar";
+            this.EliminarProv.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarProv.UseVisualStyleBackColor = true;
+            this.EliminarProv.Click += new System.EventHandler(this.EliminarInsu_Click);
             // 
-            // modificarInsu
+            // modificarProveedor
             // 
-            this.modificarInsu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.modificarInsu.FlatAppearance.BorderSize = 0;
-            this.modificarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.modificarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modificarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.modificarInsu.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.modificarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.modificarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.modificarInsu.IconSize = 30;
-            this.modificarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.modificarInsu.Location = new System.Drawing.Point(552, 0);
-            this.modificarInsu.Name = "modificarInsu";
-            this.modificarInsu.Size = new System.Drawing.Size(110, 50);
-            this.modificarInsu.TabIndex = 16;
-            this.modificarInsu.Text = "       Modificar";
-            this.modificarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.modificarInsu.UseVisualStyleBackColor = true;
-            this.modificarInsu.Click += new System.EventHandler(this.modificarInsu_Click);
+            this.modificarProveedor.Dock = System.Windows.Forms.DockStyle.Right;
+            this.modificarProveedor.FlatAppearance.BorderSize = 0;
+            this.modificarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.modificarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modificarProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.modificarProveedor.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.modificarProveedor.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.modificarProveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.modificarProveedor.IconSize = 30;
+            this.modificarProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.modificarProveedor.Location = new System.Drawing.Point(552, 0);
+            this.modificarProveedor.Name = "modificarProveedor";
+            this.modificarProveedor.Size = new System.Drawing.Size(110, 50);
+            this.modificarProveedor.TabIndex = 16;
+            this.modificarProveedor.Text = "       Modificar";
+            this.modificarProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.modificarProveedor.UseVisualStyleBackColor = true;
+            this.modificarProveedor.Click += new System.EventHandler(this.modificarInsu_Click);
             // 
             // iconButton1
             // 
@@ -193,12 +194,12 @@ namespace BAREST.Compras
             this.textNombre.Size = new System.Drawing.Size(153, 20);
             this.textNombre.TabIndex = 1;
             // 
-            // textDesc
+            // textRazon
             // 
-            this.textDesc.Location = new System.Drawing.Point(15, 77);
-            this.textDesc.Name = "textDesc";
-            this.textDesc.Size = new System.Drawing.Size(153, 20);
-            this.textDesc.TabIndex = 2;
+            this.textRazon.Location = new System.Drawing.Point(15, 77);
+            this.textRazon.Name = "textRazon";
+            this.textRazon.Size = new System.Drawing.Size(153, 20);
+            this.textRazon.TabIndex = 2;
             // 
             // textTel
             // 
@@ -312,7 +313,7 @@ namespace BAREST.Compras
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textNro);
+            this.groupBox1.Controls.Add(this.textAltura);
             this.groupBox1.Controls.Add(this.textPiso);
             this.groupBox1.Controls.Add(this.textDepto);
             this.groupBox1.Controls.Add(this.label5);
@@ -377,12 +378,12 @@ namespace BAREST.Compras
             this.label9.TabIndex = 16;
             this.label9.Text = "Piso:";
             // 
-            // textNro
+            // textAltura
             // 
-            this.textNro.Location = new System.Drawing.Point(64, 46);
-            this.textNro.Name = "textNro";
-            this.textNro.Size = new System.Drawing.Size(51, 20);
-            this.textNro.TabIndex = 7;
+            this.textAltura.Location = new System.Drawing.Point(64, 46);
+            this.textAltura.Name = "textAltura";
+            this.textAltura.Size = new System.Drawing.Size(51, 20);
+            this.textAltura.TabIndex = 7;
             // 
             // textPiso
             // 
@@ -408,11 +409,22 @@ namespace BAREST.Compras
             this.label8.TabIndex = 12;
             this.label8.Text = "Depto:";
             // 
+            // guardarModifi
+            // 
+            this.guardarModifi.Location = new System.Drawing.Point(230, 270);
+            this.guardarModifi.Name = "guardarModifi";
+            this.guardarModifi.Size = new System.Drawing.Size(122, 23);
+            this.guardarModifi.TabIndex = 19;
+            this.guardarModifi.Text = "Guardar";
+            this.guardarModifi.UseVisualStyleBackColor = true;
+            this.guardarModifi.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 356);
+            this.Controls.Add(this.guardarModifi);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -422,7 +434,7 @@ namespace BAREST.Compras
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textTel);
-            this.Controls.Add(this.textDesc);
+            this.Controls.Add(this.textRazon);
             this.Controls.Add(this.textNombre);
             this.Controls.Add(this.tablaProveedores);
             this.Controls.Add(this.panel1);
@@ -445,15 +457,15 @@ namespace BAREST.Compras
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private FontAwesome.Sharp.IconButton agregarInsu;
-        private FontAwesome.Sharp.IconButton EliminarInsu;
-        private FontAwesome.Sharp.IconButton modificarInsu;
+        private FontAwesome.Sharp.IconButton agregarProveedor;
+        private FontAwesome.Sharp.IconButton EliminarProv;
+        private FontAwesome.Sharp.IconButton modificarProveedor;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.DataGridView tablaProveedores;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.TextBox textNombre;
-        private System.Windows.Forms.TextBox textDesc;
+        private System.Windows.Forms.TextBox textRazon;
         private System.Windows.Forms.TextBox textTel;
         private System.Windows.Forms.TextBox textcalle;
         private System.Windows.Forms.TextBox textLocalidad;
@@ -468,7 +480,7 @@ namespace BAREST.Compras
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textNro;
+        private System.Windows.Forms.TextBox textAltura;
         private System.Windows.Forms.TextBox textPiso;
         private System.Windows.Forms.TextBox textDepto;
         private System.Windows.Forms.Label label8;
@@ -477,5 +489,6 @@ namespace BAREST.Compras
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button guardarModifi;
     }
 }

@@ -19,7 +19,6 @@ namespace BAREST.turno
 
         private void IngresarMozo_Click(object sender, EventArgs e)
         {
-            //m.label2.Text = tboxUsuario.Text;
             this.Close();          
         }
 
@@ -36,7 +35,6 @@ namespace BAREST.turno
         private void EliminarInsu_Click(object sender, EventArgs e)
         {
             this.Close();
-            //Mesa1.Close();
         }
 
         private void juanfoto_Click(object sender, EventArgs e)
@@ -55,7 +53,6 @@ namespace BAREST.turno
             m.label4.Text = label7.Text;
             this.Close();
             m.ShowDialog();
-
         }
 
         private void nachofoto_Click(object sender, EventArgs e)
@@ -65,7 +62,6 @@ namespace BAREST.turno
             m.label4.Text = label7.Text;
             this.Close();
             m.ShowDialog();
-
         }
 
         private void ianfoto_Click(object sender, EventArgs e)
@@ -84,16 +80,6 @@ namespace BAREST.turno
             m.label4.Text = label7.Text;
             this.Close();
             m.ShowDialog();
-        }
-
-        private void Mozo_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

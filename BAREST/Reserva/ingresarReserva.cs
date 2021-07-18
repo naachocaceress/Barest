@@ -14,7 +14,6 @@ namespace BAREST
 {
     public partial class ingresarReserva : Form
     {
-        private SqlConnection Cone = new SqlConnection("Data Source=localhost; Initial Catalog=BaseBarest;Integrated Security=True");
         public ingresarReserva()
         {
             InitializeComponent();
@@ -22,9 +21,9 @@ namespace BAREST
 
         private void cargarcomboTurno()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select id, nombre from Turno";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataAdapter adaptador1 = new SqlDataAdapter();
             adaptador1.SelectCommand = comando;
             DataTable tabla1 = new DataTable();
@@ -32,13 +31,13 @@ namespace BAREST
             comboTurno.DisplayMember = "nombre";
             comboTurno.ValueMember = "id";
             comboTurno.DataSource = tabla1;
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
         private void cargarComboMesa()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select id, numero from Mesa";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataAdapter adaptador1 = new SqlDataAdapter();
             adaptador1.SelectCommand = comando;
             DataTable tabla1 = new DataTable();
@@ -46,7 +45,7 @@ namespace BAREST
             comboMesa.DisplayMember = "numero";
             comboMesa.ValueMember = "id";
             comboMesa.DataSource = tabla1;
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
         private void confirmar_Click(object sender, EventArgs e)
         {
@@ -59,12 +58,12 @@ namespace BAREST
                 else
                 {
                     // hice una modificacion en numero de reserva pongo seña en lugar de numero de reserva.
-                    Cone.Open();
+                    Conexion.ObtenerConexion();
 
                     string sql = "insert into Cliente (Nombre,telefono,apellido) values (@nCli, @tCLi,@aCli)" +
                         "select @@IDENTITY " +
                         "insert into Reserva(cantDePersona, numeroDeReserva, fecha, idMesa, idTurno, hora, Posicion, idCliente) values(@cant, @seña, @fecha, @idmesa, @idTurno, @hora, @Posicion,@@IDENTITY)";
-                    SqlCommand comando = new SqlCommand(sql, Cone);
+                    SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                     comando.Parameters.Add("@nCli", SqlDbType.VarChar).Value = textNombre.Text;
                     comando.Parameters.Add("@aCli", SqlDbType.VarChar).Value = textApellido.Text;
                     comando.Parameters.Add("@tCli", SqlDbType.VarChar).Value = textTelefono.Text;
@@ -77,6 +76,7 @@ namespace BAREST
                     comando.Parameters.Add("@Posicion", SqlDbType.VarChar).Value = textPosicion.Text;
                     comando.ExecuteNonQuery();
                     MessageBox.Show("La reserva de " + textNombre.Text + " se registro correctamente");
+                    Conexion.ObtenerConexion().Close();
                     textNombre.Text = " ";
                     textApellido.Text = " ";
                     textcomensal.Text = " ";
@@ -86,15 +86,14 @@ namespace BAREST
                     comboTurno.SelectedItem = -1;
                     textHora.Text = " ";
                     textPosicion.Text = " ";
-                    Cone.Close();
                     this.Close();
                 }
             }
             else
             {
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "update Reserva set hora=@hora, numeroDeReserva=@seña,fecha=@fecha,cantDePersona=@cantDePersona, Posicion= @posicion where idCliente=@id";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.Add("@id", SqlDbType.VarChar).Value = ClaseCompartida.Insum2;
                 comando.Parameters.Add("@hora", SqlDbType.Char).Value = textHora.Text;
                 comando.Parameters.Add("@seña", SqlDbType.Int).Value = textSeña.Text;
@@ -107,22 +106,23 @@ namespace BAREST
                     MessageBox.Show("Los datos se modificaron correctamente");
                     this.Close();
                 }
+                Conexion.ObtenerConexion().Close();
             }   
 
         }
 
         bool existeNombre()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select * from Cliente where nombre=@cli";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@cli", SqlDbType.VarChar).Value = textNombre.Text;
             bool existe = false;
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
                 existe = true;
-            Cone.Close();
             return existe;
+            Conexion.ObtenerConexion().Close();
         }
 
         private void ingresarReserva_Load(object sender, EventArgs e)
@@ -140,9 +140,9 @@ namespace BAREST
 
         private void cargarModificacion()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select c.nombre,c.apellido,c.telefono,r.hora,m.numero,r.numeroDeReserva,r.fecha,t.nombre AS turno, r.cantDePersona, r.Posicion from Cliente c join Reserva r on r.idCliente =c.id join Turno t on r.idTurno=t.id join Mesa m on m.id= r.idMesa where c.id = @dni";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@dni", SqlDbType.VarChar).Value = ClaseCompartida.Insum2;
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
@@ -180,7 +180,7 @@ namespace BAREST
                 //--------------------------------------------------
             }
             leido.Close();
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
         private void EliminarInsu_Click(object sender, EventArgs e)

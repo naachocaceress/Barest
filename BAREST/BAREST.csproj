@@ -91,6 +91,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseBarestDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseBarestDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="buscarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,10 +126,11 @@
     <Compile Include="Compras\Proveedores.Designer.cs">
       <DependentUpon>Proveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuracion.cs">
+    <Compile Include="Conexion.cs" />
+    <Compile Include="Configuracion\Configuracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuracion.Designer.cs">
+    <Compile Include="Configuracion\Configuracion.Designer.cs">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuracion\Acerca de.cs">
@@ -133,16 +139,28 @@
     <Compile Include="Configuracion\Acerca de.Designer.cs">
       <DependentUpon>Acerca de.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuracion\Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuracion\Diseño.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Configuracion\Diseño.Designer.cs">
       <DependentUpon>Diseño.cs</DependentUpon>
     </Compile>
-    <Compile Include="ingresarReserva.cs">
+    <Compile Include="Configuracion\listadoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ingresarReserva.Designer.cs">
+    <Compile Include="Configuracion\listadoCliente.Designer.cs">
+      <DependentUpon>listadoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva\ingresarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserva\ingresarReserva.Designer.cs">
       <DependentUpon>ingresarReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\listadoMenu.cs">
@@ -217,16 +235,22 @@
     <EmbeddedResource Include="Compras\Proveedores.resx">
       <DependentUpon>Proveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuracion.resx">
+    <EmbeddedResource Include="Configuracion\Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\Acerca de.resx">
       <DependentUpon>Acerca de.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\Diseño.resx">
       <DependentUpon>Diseño.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ingresarReserva.resx">
+    <EmbeddedResource Include="Configuracion\listadoCliente.resx">
+      <DependentUpon>listadoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserva\ingresarReserva.resx">
       <DependentUpon>ingresarReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\listadoMenu.resx">
@@ -266,6 +290,17 @@
     <EmbeddedResource Include="Turno\Mozo.resx">
       <DependentUpon>Mozo.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="BaseBarestDataSet.xsc">
+      <DependentUpon>BaseBarestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BaseBarestDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BaseBarestDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BaseBarestDataSet.xss">
+      <DependentUpon>BaseBarestDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

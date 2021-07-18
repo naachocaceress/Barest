@@ -109,6 +109,7 @@ namespace BAREST
             this.cajaTitulo.TabIndex = 6;
             this.cajaTitulo.Text = "Caja";
             this.cajaTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cajaTitulo.Click += new System.EventHandler(this.cajaTitulo_Click);
             // 
             // Caja
             // 

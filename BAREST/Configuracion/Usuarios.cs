@@ -13,7 +13,6 @@ namespace BAREST
 {
     public partial class Usuarios: Form
     {
-        private SqlConnection Cone = new SqlConnection("Data Source=localhost; Initial Catalog=BaseBarest;Integrated Security=True");
         public string usuario = "";
         public string docu = "";
 
@@ -36,9 +35,9 @@ namespace BAREST
             }
             else
             {
-                    Cone.Open();
+                    Conexion.ObtenerConexion();
                     string sql = "insert into Persona (nombre, apellido, telefono, fechaNacimiento, cuil) values(@n,@ap,@tel,@fecha,@cuil) select @@IDENTITY insert into Empleado(idPersona, legajo, contraseña, cargo) values(@@IDENTITY,@usuario,@cont,@cargo) ";
-                    SqlCommand comando = new SqlCommand(sql, Cone);
+                    SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                     comando.Parameters.Add("@n", SqlDbType.VarChar).Value = textNombre.Text;
                     comando.Parameters.Add("@ap", SqlDbType.VarChar).Value = textApellido.Text;
                     comando.Parameters.Add("@tel", SqlDbType.VarChar).Value = textTelefono.Text;
@@ -48,7 +47,6 @@ namespace BAREST
                     comando.Parameters.Add("@cont", SqlDbType.VarChar).Value = textContraseña.Text;
                     comando.Parameters.Add("@cargo", SqlDbType.VarChar).Value = comboCargo.SelectedItem.ToString();
                     comando.ExecuteNonQuery();
-                    Cone.Close();
 
                     MessageBox.Show("Se ha regitrado el usuario " + textUsuario.Text + " correctamente");
                     textNombre.Text = "";
@@ -60,6 +58,7 @@ namespace BAREST
                     comboCargo.SelectedIndex = -1;
                     dateTimePicker1.Value = DateTime.Now;
                     CargarGrilla();
+                    Conexion.ObtenerConexion().Close();
             }
 
         }
@@ -68,24 +67,24 @@ namespace BAREST
 
         private bool Inscripto()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select * from Persona where cuil=@cuil";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@cuil", SqlDbType.Char).Value = textDocumento.Text;
             bool existe = false;
             SqlDataReader registro = comando.ExecuteReader();
             if (registro.Read())
                 existe = true;
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
             return existe;
         }
 
         // A MODIFICAR EL UPDATE
         private void button3_Click(object sender, EventArgs e)
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "update Persona set nombre =@nombre, apellido =@apellido, telefono =@tel, fechaNacimiento =@fecha, cuil =@cuil where cuil =@docu";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = textNombre.Text;
             comando.Parameters.Add("@apellido", SqlDbType.VarChar).Value = textApellido.Text;
             comando.Parameters.Add("@tel", SqlDbType.VarChar).Value = textTelefono.Text;
@@ -101,15 +100,15 @@ namespace BAREST
             }
             else
                 MessageBox.Show("Buscar por el 'documento' el usuario a modificar");
-            Cone.Close();
             CargarGrilla();
+            Conexion.ObtenerConexion().Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select p.nombre,p.apellido,p.telefono,p.fechaNacimiento,p.cuil,e.legajo,e.contraseña,e.cargo from Persona p Join Empleado e on e.idPersona = p.id where p.cuil= @dni";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@dni", SqlDbType.VarChar).Value =textDocumento.Text;
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
@@ -151,7 +150,7 @@ namespace BAREST
                 MessageBox.Show("No hay un usuario con ese 'documento'");
             }
                 leido.Close();
-                Cone.Close();
+                Conexion.ObtenerConexion().Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -167,14 +166,14 @@ namespace BAREST
 
                 if (dr == DialogResult.Yes)
                 {
-                    Cone.Open();
+                    Conexion.ObtenerConexion();
                     string sql = "delete from Persona where cuil= @doc";
-                    SqlCommand comando = new SqlCommand(sql, Cone);
+                    SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                     comando.Parameters.Add("@doc", SqlDbType.VarChar).Value = textDocumento.Text;
                     int cant = comando.ExecuteNonQuery();
                     MessageBox.Show("Se eliminó el usuario: " + textUsuario.Text);
-                    Cone.Close();
                     CargarGrilla();
+                    Conexion.ObtenerConexion().Close();
                     textNombre.Text = "";
                     textApellido.Text = "";
                     textTelefono.Text = "";
@@ -193,9 +192,9 @@ namespace BAREST
 
         private void CargarGrilla()
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select p.nombre, p.cuil, e.cargo from Persona p inner join Empleado e on e.idPersona = p.id";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             dataGridView1.Rows.Clear();
             while (registros.Read())
@@ -203,7 +202,7 @@ namespace BAREST
                 dataGridView1.Rows.Add(registros["nombre"].ToString(), registros["cargo"].ToString(), registros["cuil"].ToString());
             }
             registros.Close();
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -214,9 +213,9 @@ namespace BAREST
             }
             else
             {
-                Cone.Open();
+                Conexion.ObtenerConexion();
                 string sql = "update Empleado set legajo=@usuario,contraseña=@cont,cargo=@cargo where legajo=@usu";
-                SqlCommand comando = new SqlCommand(sql, Cone);
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.Add("@usuario", SqlDbType.VarChar).Value = textUsuario.Text;
                 comando.Parameters.Add("@cont", SqlDbType.VarChar).Value = textContraseña.Text;
                 comando.Parameters.Add("@cargo", SqlDbType.VarChar).Value = comboCargo.SelectedItem.ToString();
@@ -229,9 +228,15 @@ namespace BAREST
                 }
                 else
                     MessageBox.Show("Buscar por el 'documento' el usuario a modificar");
-                Cone.Close();
                 CargarGrilla();
+                Conexion.ObtenerConexion().Close();
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Configuracion.Clientes m = new Configuracion.Clientes();
+            m.ShowDialog();
         }
     }
 }

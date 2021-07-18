@@ -42,7 +42,6 @@ namespace BAREST
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "IngreseNombre :";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textNombre2
             // 
