@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BAREST.Turno;
 using FontAwesome.Sharp;
 using static BAREST.Mesa1;
 
@@ -382,31 +383,121 @@ namespace BAREST
 
         private void mesas_Click(object sender, EventArgs e)
         {
-            if(((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
+            if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114))
             {
-                Button boton = sender as Button;
-                Mesa1 m = new Mesa1();
-                ClaseCompartida.Mesa = boton.Name;
-                ClaseCompartida.mmm = 1;
-                m.ShowDialog();
+                if (((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
+                {
+                    Button boton = sender as Button;
+                    Mesa1 m = new Mesa1();
+                    ClaseCompartida.Mesa = boton.Name;
+                    ClaseCompartida.mmm = 1;
+                    m.ShowDialog();
+                }
+                else
+                {
+                    Button boton = sender as Button;
+
+                    turno.Mozo m = new turno.Mozo();
+                    m.label7.Text = boton.Name;
+
+                    if (ClaseCompartida.usu == 0)
+                        m.ShowDialog();
+                    else
+                    {
+                        Mesa1 n = new Mesa1();
+                        n.ShowDialog();
+                    }
+
+                    if (ClaseCompartida.valor == 1)
+                        ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
+                }
             }
             else
             {
-                Button boton = sender as Button;
+                ModoEditor n = new ModoEditor();
+                n.ShowDialog();
+            }
+        }
 
-                turno.Mozo m = new turno.Mozo();
-                m.label7.Text = boton.Name;
+        //MENU CONTEXTUAL --------------------------------------------------------------------------
 
-                if (ClaseCompartida.usu == 0)
-                    m.ShowDialog();
+        private void menuContextualPanel()
+        {
+            ContextMenu cm = new ContextMenu();
+
+            MenuItem mi1 = new MenuItem("Agregar Mesa");
+            mi1.Click += AgregarMesa;
+            MenuItem mi2 = new MenuItem("Modo editor");
+            mi2.Click += ModoEditor;
+
+            cm.MenuItems.Add(mi1);
+            cm.MenuItems.Add(mi2);
+
+            panelPlano2.ContextMenu = cm;
+        }
+
+        private void menuContextualPanel2()
+        {
+            ContextMenu cm = new ContextMenu();
+
+            MenuItem mi1 = new MenuItem("Salir de modo editor");
+            mi1.Click += SalirMEditor;
+
+            cm.MenuItems.Add(mi1);
+
+            panelPlano2.ContextMenu = cm;
+        }
+
+        private void SalirMEditor(object sender, EventArgs e)
+        {
+            panelPlano2.BackColor = Color.FromArgb(27, 111, 114);
+        }
+
+        private void ModoEditor(object sender, EventArgs e)
+        {
+            panelPlano2.BackColor = Color.Black;
+        }
+
+        private void AgregarMesa(object sender, EventArgs e)
+        {
+            AgregarMesa n = new AgregarMesa();
+            n.ShowDialog();
+
+            Button temp = new Button();
+
+            temp.Height = 40;
+            temp.Width = 40;
+            temp.Location = new Point(LocationX - 220, LocationY - 80);
+            temp.BackColor = Color.FromArgb(116, 199, 132);
+            temp.Text = ClaseCompartida2.nombre;
+            temp.Name = ClaseCompartida2.nombre;
+            temp.FlatStyle = FlatStyle.Flat;
+            temp.Click += mesas_Click; //DARLE EL METODO MESAS_CLICK
+
+            panelPlano2.Controls.Add(temp);
+        }
+
+        public static class ClaseCompartida2
+        {
+            public static string nombre = "";
+        }
+
+        public int LocationX = 0, LocationY = 0;
+
+        private void panelPlano2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114))
+                {
+                    LocationX = Cursor.Position.X;
+                    LocationY = Cursor.Position.Y;
+                    menuContextualPanel();
+                }
                 else
                 {
-                    Mesa1 n = new Mesa1();
-                    n.ShowDialog();
+                    menuContextualPanel2();
                 }
-
-                if (ClaseCompartida.valor == 1)
-                    ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
             }
         }
     }

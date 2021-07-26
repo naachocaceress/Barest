@@ -50,10 +50,10 @@ namespace BAREST.Configuracion
             this.EliminarCliente = new FontAwesome.Sharp.IconButton();
             this.modificarCliente = new FontAwesome.Sharp.IconButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textAltura = new System.Windows.Forms.TextBox();
             this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TELEFONO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textAltura = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -61,10 +61,10 @@ namespace BAREST.Configuracion
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(94, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 21);
+            this.label1.Size = new System.Drawing.Size(171, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registro De Cliente";
             // 
@@ -288,6 +288,16 @@ namespace BAREST.Configuracion
             this.dataGridView1.Size = new System.Drawing.Size(212, 287);
             this.dataGridView1.TabIndex = 16;
             // 
+            // NOMBRE
+            // 
+            this.NOMBRE.HeaderText = "NOMBRE";
+            this.NOMBRE.Name = "NOMBRE";
+            // 
+            // TELEFONO
+            // 
+            this.TELEFONO.HeaderText = "TELEFONO";
+            this.TELEFONO.Name = "TELEFONO";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -303,16 +313,6 @@ namespace BAREST.Configuracion
             this.textAltura.Name = "textAltura";
             this.textAltura.Size = new System.Drawing.Size(86, 20);
             this.textAltura.TabIndex = 18;
-            // 
-            // NOMBRE
-            // 
-            this.NOMBRE.HeaderText = "NOMBRE";
-            this.NOMBRE.Name = "NOMBRE";
-            // 
-            // TELEFONO
-            // 
-            this.TELEFONO.HeaderText = "TELEFONO";
-            this.TELEFONO.Name = "TELEFONO";
             // 
             // Clientes
             // 

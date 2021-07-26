@@ -117,14 +117,7 @@
             this.C6 = new System.Windows.Forms.Button();
             this.C1 = new System.Windows.Forms.Button();
             this.C2 = new System.Windows.Forms.Button();
-            this.LL2 = new System.Windows.Forms.Button();
-            this.E3 = new System.Windows.Forms.Button();
-            this.E1 = new System.Windows.Forms.Button();
-            this.E2 = new System.Windows.Forms.Button();
             this.J8 = new System.Windows.Forms.Button();
-            this.CH2 = new System.Windows.Forms.Button();
-            this.CH1 = new System.Windows.Forms.Button();
-            this.LL1 = new System.Windows.Forms.Button();
             this.J5 = new System.Windows.Forms.Button();
             this.J2 = new System.Windows.Forms.Button();
             this.C3 = new System.Windows.Forms.Button();
@@ -1002,14 +995,7 @@
             this.panelPlano2.Controls.Add(this.C6);
             this.panelPlano2.Controls.Add(this.C1);
             this.panelPlano2.Controls.Add(this.C2);
-            this.panelPlano2.Controls.Add(this.LL2);
-            this.panelPlano2.Controls.Add(this.E3);
-            this.panelPlano2.Controls.Add(this.E1);
-            this.panelPlano2.Controls.Add(this.E2);
             this.panelPlano2.Controls.Add(this.J8);
-            this.panelPlano2.Controls.Add(this.CH2);
-            this.panelPlano2.Controls.Add(this.CH1);
-            this.panelPlano2.Controls.Add(this.LL1);
             this.panelPlano2.Controls.Add(this.J5);
             this.panelPlano2.Controls.Add(this.J2);
             this.panelPlano2.Controls.Add(this.C3);
@@ -1017,6 +1003,7 @@
             this.panelPlano2.Name = "panelPlano2";
             this.panelPlano2.Size = new System.Drawing.Size(394, 380);
             this.panelPlano2.TabIndex = 7;
+            this.panelPlano2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelPlano2_MouseClick);
             // 
             // panel2
             // 
@@ -1303,54 +1290,6 @@
             this.C2.UseVisualStyleBackColor = false;
             this.C2.Click += new System.EventHandler(this.mesas_Click);
             // 
-            // LL2
-            // 
-            this.LL2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(199)))), ((int)(((byte)(132)))));
-            this.LL2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LL2.Location = new System.Drawing.Point(327, 280);
-            this.LL2.Name = "LL2";
-            this.LL2.Size = new System.Drawing.Size(40, 40);
-            this.LL2.TabIndex = 28;
-            this.LL2.Text = "LL2";
-            this.LL2.UseVisualStyleBackColor = false;
-            this.LL2.Click += new System.EventHandler(this.mesas_Click);
-            // 
-            // E3
-            // 
-            this.E3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(199)))), ((int)(((byte)(132)))));
-            this.E3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E3.Location = new System.Drawing.Point(202, 262);
-            this.E3.Name = "E3";
-            this.E3.Size = new System.Drawing.Size(40, 40);
-            this.E3.TabIndex = 27;
-            this.E3.Text = "E3";
-            this.E3.UseVisualStyleBackColor = false;
-            this.E3.Click += new System.EventHandler(this.mesas_Click);
-            // 
-            // E1
-            // 
-            this.E1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(199)))), ((int)(((byte)(132)))));
-            this.E1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E1.Location = new System.Drawing.Point(168, 326);
-            this.E1.Name = "E1";
-            this.E1.Size = new System.Drawing.Size(40, 40);
-            this.E1.TabIndex = 26;
-            this.E1.Text = "E1";
-            this.E1.UseVisualStyleBackColor = false;
-            this.E1.Click += new System.EventHandler(this.mesas_Click);
-            // 
-            // E2
-            // 
-            this.E2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(199)))), ((int)(((byte)(132)))));
-            this.E2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E2.Location = new System.Drawing.Point(140, 262);
-            this.E2.Name = "E2";
-            this.E2.Size = new System.Drawing.Size(40, 40);
-            this.E2.TabIndex = 25;
-            this.E2.Text = "E2";
-            this.E2.UseVisualStyleBackColor = false;
-            this.E2.Click += new System.EventHandler(this.mesas_Click);
-            // 
             // J8
             // 
             this.J8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(199)))), ((int)(((byte)(132)))));
@@ -1362,42 +1301,6 @@
             this.J8.Text = "J8";
             this.J8.UseVisualStyleBackColor = false;
             this.J8.Click += new System.EventHandler(this.mesas_Click);
-            // 
-            // CH2
-            // 
-            this.CH2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(199)))), ((int)(((byte)(132)))));
-            this.CH2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CH2.Location = new System.Drawing.Point(327, 326);
-            this.CH2.Name = "CH2";
-            this.CH2.Size = new System.Drawing.Size(40, 40);
-            this.CH2.TabIndex = 23;
-            this.CH2.Text = "CH2";
-            this.CH2.UseVisualStyleBackColor = false;
-            this.CH2.Click += new System.EventHandler(this.mesas_Click);
-            // 
-            // CH1
-            // 
-            this.CH1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(199)))), ((int)(((byte)(132)))));
-            this.CH1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CH1.Location = new System.Drawing.Point(281, 326);
-            this.CH1.Name = "CH1";
-            this.CH1.Size = new System.Drawing.Size(40, 40);
-            this.CH1.TabIndex = 22;
-            this.CH1.Text = "CH1";
-            this.CH1.UseVisualStyleBackColor = false;
-            this.CH1.Click += new System.EventHandler(this.mesas_Click);
-            // 
-            // LL1
-            // 
-            this.LL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(199)))), ((int)(((byte)(132)))));
-            this.LL1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LL1.Location = new System.Drawing.Point(281, 280);
-            this.LL1.Name = "LL1";
-            this.LL1.Size = new System.Drawing.Size(40, 40);
-            this.LL1.TabIndex = 21;
-            this.LL1.Text = "LL1";
-            this.LL1.UseVisualStyleBackColor = false;
-            this.LL1.Click += new System.EventHandler(this.mesas_Click);
             // 
             // J5
             // 
@@ -2169,7 +2072,6 @@
         private FontAwesome.Sharp.IconButton compras;
         private FontAwesome.Sharp.IconButton config;
         private FontAwesome.Sharp.IconButton salir;
-        private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.Panel panelCaja;
         private System.Windows.Forms.Button caja2;
         private System.Windows.Forms.Button caja1;
@@ -2225,7 +2127,6 @@
         private System.Windows.Forms.Button P4;
         private System.Windows.Forms.Button P7;
         private System.Windows.Forms.Button G1;
-        private System.Windows.Forms.Panel panelPlano2;
         private System.Windows.Forms.Button AF1;
         private System.Windows.Forms.Button AF3;
         private System.Windows.Forms.Button AF4;
@@ -2248,14 +2149,7 @@
         private System.Windows.Forms.Button C6;
         private System.Windows.Forms.Button C1;
         private System.Windows.Forms.Button C2;
-        private System.Windows.Forms.Button LL2;
-        private System.Windows.Forms.Button E3;
-        private System.Windows.Forms.Button E1;
-        private System.Windows.Forms.Button E2;
         private System.Windows.Forms.Button J8;
-        private System.Windows.Forms.Button CH2;
-        private System.Windows.Forms.Button CH1;
-        private System.Windows.Forms.Button LL1;
         private System.Windows.Forms.Button J5;
         private System.Windows.Forms.Button J2;
         private System.Windows.Forms.Button C3;
@@ -2300,5 +2194,7 @@
         private System.Windows.Forms.Button D4;
         private System.Windows.Forms.PictureBox ayudaVisualMesas;
         private System.Windows.Forms.Panel panelAyudaVisual;
+        public System.Windows.Forms.Panel panelPlano2;
+        public System.Windows.Forms.Panel panelContenedor;
     }
 }

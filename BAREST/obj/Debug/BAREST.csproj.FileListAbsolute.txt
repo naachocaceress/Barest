@@ -402,3 +402,5 @@ C:\Users\Nacho\OneDrive\Escritorio\Nacho6\ISSD\BAREST\BAREST\obj\Debug\BAREST.cs
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\ISSD\BAREST\BAREST\obj\Debug\BAREST.csproj.CopyComplete
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\ISSD\BAREST\BAREST\obj\Debug\BAREST.exe
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\ISSD\BAREST\BAREST\obj\Debug\BAREST.pdb
+C:\Users\Nacho\OneDrive\Escritorio\Nacho6\ISSD\BAREST\BAREST\obj\Debug\BAREST.Turno.AgregarMesa.resources
+C:\Users\Nacho\OneDrive\Escritorio\Nacho6\ISSD\BAREST\BAREST\obj\Debug\BAREST.Turno.ModoEditor.resources
