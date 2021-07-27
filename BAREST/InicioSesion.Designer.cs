@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tboxUsuario = new System.Windows.Forms.TextBox();
             this.tboxContraseña = new System.Windows.Forms.TextBox();
+            this.panelMovimiento = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -155,6 +156,15 @@
             this.tboxContraseña.TabIndex = 2;
             this.tboxContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxContraseña_KeyPress);
             // 
+            // panelMovimiento
+            // 
+            this.panelMovimiento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMovimiento.Location = new System.Drawing.Point(0, 0);
+            this.panelMovimiento.Name = "panelMovimiento";
+            this.panelMovimiento.Size = new System.Drawing.Size(308, 20);
+            this.panelMovimiento.TabIndex = 15;
+            this.panelMovimiento.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMovimiento_MouseMove);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,6 +172,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(308, 494);
+            this.Controls.Add(this.panelMovimiento);
             this.Controls.Add(this.tboxContraseña);
             this.Controls.Add(this.tboxUsuario);
             this.Controls.Add(this.label2);
@@ -199,6 +210,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tboxUsuario;
         private System.Windows.Forms.TextBox tboxContraseña;
+        private System.Windows.Forms.Panel panelMovimiento;
     }
 }
 

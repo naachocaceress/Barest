@@ -93,6 +93,10 @@
             this.P7 = new System.Windows.Forms.Button();
             this.G1 = new System.Windows.Forms.Button();
             this.panelPlano2 = new System.Windows.Forms.Panel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modoEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirDelModoEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarMesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.AF1 = new System.Windows.Forms.Button();
@@ -172,6 +176,7 @@
             this.panelPlano1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelPlano2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.JA5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -210,6 +215,7 @@
             // panelPlano3
             // 
             this.panelPlano3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(111)))), ((int)(((byte)(114)))));
+            this.panelPlano3.ContextMenuStrip = this.contextMenuStrip1;
             this.panelPlano3.Controls.Add(this.D10);
             this.panelPlano3.Controls.Add(this.D11);
             this.panelPlano3.Controls.Add(this.D12);
@@ -656,6 +662,7 @@
             // panelPlano1
             // 
             this.panelPlano1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(111)))), ((int)(((byte)(114)))));
+            this.panelPlano1.ContextMenuStrip = this.contextMenuStrip1;
             this.panelPlano1.Controls.Add(this.panel3);
             this.panelPlano1.Controls.Add(this.BA1);
             this.panelPlano1.Controls.Add(this.BA2);
@@ -972,6 +979,7 @@
             // panelPlano2
             // 
             this.panelPlano2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(111)))), ((int)(((byte)(114)))));
+            this.panelPlano2.ContextMenuStrip = this.contextMenuStrip1;
             this.panelPlano2.Controls.Add(this.panel2);
             this.panelPlano2.Controls.Add(this.AF1);
             this.panelPlano2.Controls.Add(this.AF3);
@@ -1003,7 +1011,37 @@
             this.panelPlano2.Name = "panelPlano2";
             this.panelPlano2.Size = new System.Drawing.Size(394, 380);
             this.panelPlano2.TabIndex = 7;
-            this.panelPlano2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelPlano2_MouseClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modoEditorToolStripMenuItem,
+            this.salirDelModoEditorToolStripMenuItem,
+            this.agregarMesaToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 70);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // modoEditorToolStripMenuItem
+            // 
+            this.modoEditorToolStripMenuItem.Name = "modoEditorToolStripMenuItem";
+            this.modoEditorToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.modoEditorToolStripMenuItem.Text = "Modo editor";
+            this.modoEditorToolStripMenuItem.Click += new System.EventHandler(this.modoEditorToolStripMenuItem_Click);
+            // 
+            // salirDelModoEditorToolStripMenuItem
+            // 
+            this.salirDelModoEditorToolStripMenuItem.Name = "salirDelModoEditorToolStripMenuItem";
+            this.salirDelModoEditorToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.salirDelModoEditorToolStripMenuItem.Text = "Salir del modo editor";
+            this.salirDelModoEditorToolStripMenuItem.Click += new System.EventHandler(this.salirDelModoEditorToolStripMenuItem_Click);
+            // 
+            // agregarMesaToolStripMenuItem
+            // 
+            this.agregarMesaToolStripMenuItem.Name = "agregarMesaToolStripMenuItem";
+            this.agregarMesaToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.agregarMesaToolStripMenuItem.Text = "Agregar mesa";
+            this.agregarMesaToolStripMenuItem.Click += new System.EventHandler(this.agregarMesaToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -1133,6 +1171,8 @@
             this.J7.Text = "J7";
             this.J7.UseVisualStyleBackColor = false;
             this.J7.Click += new System.EventHandler(this.mesas_Click);
+            this.J7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.J7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // AF5
             // 
@@ -2041,6 +2081,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panelPlano2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.JA5.ResumeLayout(false);
@@ -2196,5 +2237,9 @@
         private System.Windows.Forms.Panel panelAyudaVisual;
         public System.Windows.Forms.Panel panelPlano2;
         public System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem modoEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirDelModoEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarMesaToolStripMenuItem;
     }
 }

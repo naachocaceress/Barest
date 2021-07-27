@@ -26,9 +26,9 @@ namespace BAREST
             panelAyudaVisual.Visible = false;
         }
 
-        private void BotonActivo (object senderBtn)
+        private void BotonActivo(object senderBtn)
         {
-            if(senderBtn != null)
+            if (senderBtn != null)
             {
                 BotonDesactivo();
                 currentBtn = (IconButton)senderBtn;
@@ -37,12 +37,12 @@ namespace BAREST
             }
         }
 
-        private void BotonDesactivo ()
+        private void BotonDesactivo()
         {
-            if(currentBtn != null)
+            if (currentBtn != null)
             {
-                currentBtn.ForeColor = Color.FromArgb(241, 243, 244 );
-                currentBtn.IconColor = Color.FromArgb(241, 243, 244 );
+                currentBtn.ForeColor = Color.FromArgb(241, 243, 244);
+                currentBtn.IconColor = Color.FromArgb(241, 243, 244);
             }
         }
 
@@ -66,17 +66,17 @@ namespace BAREST
             if (panelStock.Visible == true)
                 panelStock.Visible = false;
             if (panelPersonal.Visible == true)
-                panelPersonal.Visible = false;  
+                panelPersonal.Visible = false;
         }
 
-        public void showSubMenu (Panel subMenu)
+        public void showSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
             {
                 hideSubMenu();
                 subMenu.Visible = true;
             }
-             else
+            else
                 subMenu.Visible = false;
         }
 
@@ -414,91 +414,133 @@ namespace BAREST
             }
             else
             {
-                ModoEditor n = new ModoEditor();
-                n.ShowDialog();
+                if (move == false)
+                {
+                    ModoEditor n = new ModoEditor();
+                    Button boton = sender as Button;
+
+                    ClaseCompartida2.nombreM = boton.Name;
+                    n.ShowDialog();
+
+                    if (ClaseCompartida2.cancel == true)
+                    {
+                        ClaseCompartida2.cancel = false;
+                        return;
+                    }
+
+                    if (ClaseCompartida2.check == true)
+                    {
+                        panelPlano2.Controls.Remove((Button)sender);
+                        ClaseCompartida2.check = false;
+                    }
+                    else
+                    {
+                        boton.Name = ClaseCompartida2.nombreM2;
+                        boton.Text = ClaseCompartida2.nombreM2;
+                    }
+                }
+                move = false;
+                ClaseCompartida2.cancel = false;
             }
         }
 
         //MENU CONTEXTUAL --------------------------------------------------------------------------
 
-        private void menuContextualPanel()
+        private Point MouseDownLocation;
+
+        private void MesasEditor_MouseDown(object sender, MouseEventArgs e)
         {
-            ContextMenu cm = new ContextMenu();
-
-            MenuItem mi1 = new MenuItem("Agregar Mesa");
-            mi1.Click += AgregarMesa;
-            MenuItem mi2 = new MenuItem("Modo editor");
-            mi2.Click += ModoEditor;
-
-            cm.MenuItems.Add(mi1);
-            cm.MenuItems.Add(mi2);
-
-            panelPlano2.ContextMenu = cm;
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                MouseDownLocation = e.Location;
+            }
         }
 
-        private void menuContextualPanel2()
+        bool move = false;
+        private void MesasEditor_MouseMove(object sender, MouseEventArgs e)
         {
-            ContextMenu cm = new ContextMenu();
-
-            MenuItem mi1 = new MenuItem("Salir de modo editor");
-            mi1.Click += SalirMEditor;
-
-            cm.MenuItems.Add(mi1);
-
-            panelPlano2.ContextMenu = cm;
-        }
-
-        private void SalirMEditor(object sender, EventArgs e)
-        {
-            panelPlano2.BackColor = Color.FromArgb(27, 111, 114);
-        }
-
-        private void ModoEditor(object sender, EventArgs e)
-        {
-            panelPlano2.BackColor = Color.Black;
-        }
-
-        private void AgregarMesa(object sender, EventArgs e)
-        {
-            AgregarMesa n = new AgregarMesa();
-            n.ShowDialog();
-
-            Button temp = new Button();
-
-            temp.Height = 40;
-            temp.Width = 40;
-            temp.Location = new Point(LocationX - 220, LocationY - 80);
-            temp.BackColor = Color.FromArgb(116, 199, 132);
-            temp.Text = ClaseCompartida2.nombre;
-            temp.Name = ClaseCompartida2.nombre;
-            temp.FlatStyle = FlatStyle.Flat;
-            temp.Click += mesas_Click; //DARLE EL METODO MESAS_CLICK
-
-            panelPlano2.Controls.Add(temp);
+            if (panelPlano2.BackColor == Color.Black)
+            {
+                Button boton = sender as Button;
+                if (e.Button == System.Windows.Forms.MouseButtons.Left)
+                {
+                    boton.Left = e.X + boton.Left - MouseDownLocation.X;
+                    boton.Top = e.Y + boton.Top - MouseDownLocation.Y;
+                    move = true;
+                }
+            }
         }
 
         public static class ClaseCompartida2
         {
             public static string nombre = "";
+            public static bool check = false, cancel = false, cancel2 = false;
+            public static string nombreM = "", nombreM2 = "";
         }
 
         public int LocationX = 0, LocationY = 0;
 
-        private void panelPlano2_MouseClick(object sender, MouseEventArgs e)
+        private void modoEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            panelPlano2.BackColor = Color.Black;
+            label10.Text = "PLANO ADELANTE (MODO EDITOR)";
+        }
+
+        private void salirDelModoEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelPlano2.BackColor = Color.FromArgb(27, 111, 114);
+            label10.Text = "PLANO ADELANTE";
+        }
+
+        private void agregarMesaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Add();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114))
             {
-                if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114))
-                {
-                    LocationX = Cursor.Position.X;
-                    LocationY = Cursor.Position.Y;
-                    menuContextualPanel();
-                }
-                else
-                {
-                    menuContextualPanel2();
-                }
+                modoEditorToolStripMenuItem.Visible = true;
+                salirDelModoEditorToolStripMenuItem.Visible = false;
+                agregarMesaToolStripMenuItem.Visible = false;
             }
+            else
+            {
+                salirDelModoEditorToolStripMenuItem.Visible = true;
+                agregarMesaToolStripMenuItem.Visible = true;
+                modoEditorToolStripMenuItem.Visible = false;
+            }
+
+            LocationX = Cursor.Position.X;
+            LocationY = Cursor.Position.Y;
+        }
+
+        private void Add()
+        {
+            AgregarMesa n = new AgregarMesa();
+            n.ShowDialog();
+
+            if (ClaseCompartida2.cancel == true)
+            {
+                ClaseCompartida2.cancel = false;
+                return;
+            }
+
+            Button temp = new Button();
+
+            temp.Height = 40;
+            temp.Width = 40;
+            temp.Location = new Point(LocationX - 197, LocationY - 52);
+            temp.BackColor = Color.FromArgb(116, 199, 132);
+            temp.Text = ClaseCompartida2.nombre;
+            temp.Name = ClaseCompartida2.nombre;
+            temp.FlatStyle = FlatStyle.Flat;
+            temp.Click += mesas_Click; //DARLE EL METODO MESAS_CLICK
+            temp.MouseDown += MesasEditor_MouseDown;
+            temp.MouseMove += MesasEditor_MouseMove;
+
+            panelPlano2.Controls.Add(temp);
         }
     }
 }

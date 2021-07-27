@@ -63,5 +63,21 @@ namespace BAREST
             dr.Close();
             Conexion.ObtenerConexion().Close();
         }
+
+        int posY = 0, posX = 0;
+
+        private void panelMovimiento_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
+        }
     }
 }

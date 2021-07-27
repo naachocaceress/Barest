@@ -91,6 +91,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseBarestDataSet.cs">
+      <DependentUpon>BaseBarestDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BaseBarestDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
