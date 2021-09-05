@@ -186,7 +186,7 @@ namespace BAREST
                     textnomM.Text = " ";
                     textPrecioM.Text = " ";
                     textDescM.Text = " ";
-                    pictureBox1.Image = Properties.Resources.imagenmenu;
+                    pictureBox1.Image = Properties.Resources.Barest;
                     comborubroMenu.SelectedItem = null;
                     cargarMenu();
                     Conexion.ObtenerConexion().Close();

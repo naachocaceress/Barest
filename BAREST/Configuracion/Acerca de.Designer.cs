@@ -67,7 +67,7 @@ namespace BAREST.Configuracion
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BAREST.Properties.Resources.Barest;
+            this.pictureBox1.Image = global::BAREST.Properties.Resources.Barest__NUEVO_COLOR_1;
             this.pictureBox1.Location = new System.Drawing.Point(625, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(116, 64);
@@ -93,8 +93,8 @@ namespace BAREST.Configuracion
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(223, 72);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Barest 2021\r\nVersion Beta 1.5\r\n© 2021 Grupo Barest.\r\nTodos los derechos reservado" +
-    "s.";
+            this.label2.Text = "Barest 2021\r\nVersion Beta 1.6.4\r\n© 2021 Grupo Barest.\r\nTodos los derechos reserva" +
+    "dos.";
             // 
             // label3
             // 

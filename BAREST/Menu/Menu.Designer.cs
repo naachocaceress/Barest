@@ -62,7 +62,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.agregarInsu);
             this.panel1.Controls.Add(this.EliminarInsu);
@@ -300,7 +300,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::BAREST.Properties.Resources.imagenmenu;
+            this.pictureBox1.Image = global::BAREST.Properties.Resources.imagenmenu1;
             this.pictureBox1.Location = new System.Drawing.Point(188, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(115, 128);

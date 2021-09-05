@@ -160,6 +160,11 @@
     <Compile Include="Configuracion\listadoCliente.Designer.cs">
       <DependentUpon>listadoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Reserva\ingresarReserva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,7 +183,6 @@
     <Compile Include="Menu\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reserva\registrta.cs" />
     <Compile Include="Turno\AgregarMesa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,14 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Configuracion\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -340,76 +339,10 @@
     <None Include="Resources\Barest.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dbc57b7afeed83e858137b975af91b3f.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\caja.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\compras.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ventas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\menui.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reportes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\estadisticas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\usuarios.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\configuracion.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Usuario login.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Usuario login1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Candado login.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lista.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cerrar %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minimizar %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minimizar %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\restaurar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Vidon bar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\descarga.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\El lugar de la buena vida.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Vidon Barest Marca de agua.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BannerVidon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Banner Vidon 2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Banner Vidon 3.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\instagram.png" />
@@ -418,13 +351,22 @@
     <None Include="Resources\linkediln.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\imagenmenu2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ayuda visual, mesas colores.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Ayuda visual, mesas colores3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuario login2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Candado login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Banner Vidon 31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barest %28NUEVO COLOR%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barest Marca de agua año.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

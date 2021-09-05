@@ -482,13 +482,17 @@ namespace BAREST
 
         private void modoEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            panelPlano1.BackColor = Color.Black;
             panelPlano2.BackColor = Color.Black;
+            panelPlano3.BackColor = Color.Black;
             label10.Text = "PLANO ADELANTE (MODO EDITOR)";
         }
 
         private void salirDelModoEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            panelPlano1.BackColor = Color.FromArgb(27, 111, 114);
             panelPlano2.BackColor = Color.FromArgb(27, 111, 114);
+            panelPlano3.BackColor = Color.FromArgb(27, 111, 114);
             label10.Text = "PLANO ADELANTE";
         }
 
@@ -499,7 +503,7 @@ namespace BAREST
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
-            if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114))
+            if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114) && panelPlano1.BackColor == Color.FromArgb(27, 111, 114) && panelPlano3.BackColor == Color.FromArgb(27, 111, 114))
             {
                 modoEditorToolStripMenuItem.Visible = true;
                 salirDelModoEditorToolStripMenuItem.Visible = false;
@@ -527,20 +531,59 @@ namespace BAREST
                 return;
             }
 
-            Button temp = new Button();
+            if (panelPlano1.BackColor == Color.Black)
+            {
+                Button temp = new Button();
 
-            temp.Height = 40;
-            temp.Width = 40;
-            temp.Location = new Point(LocationX - 197, LocationY - 52);
-            temp.BackColor = Color.FromArgb(116, 199, 132);
-            temp.Text = ClaseCompartida2.nombre;
-            temp.Name = ClaseCompartida2.nombre;
-            temp.FlatStyle = FlatStyle.Flat;
-            temp.Click += mesas_Click; //DARLE EL METODO MESAS_CLICK
-            temp.MouseDown += MesasEditor_MouseDown;
-            temp.MouseMove += MesasEditor_MouseMove;
+                temp.Height = 40;
+                temp.Width = 40;
+                temp.Location = new Point(LocationX - 233, LocationY - 490);
+                temp.BackColor = Color.FromArgb(116, 199, 132);
+                temp.Text = ClaseCompartida2.nombre;
+                temp.Name = ClaseCompartida2.nombre;
+                temp.FlatStyle = FlatStyle.Flat;
+                temp.Click += mesas_Click; //DARLE EL METODO MESAS_CLICK
+                temp.MouseDown += MesasEditor_MouseDown;
+                temp.MouseMove += MesasEditor_MouseMove;
 
-            panelPlano2.Controls.Add(temp);
+                panelPlano1.Controls.Add(temp);
+            }
+            else
+            if (panelPlano2.BackColor == Color.Black)
+            {
+                Button temp = new Button();
+
+                temp.Height = 40;
+                temp.Width = 40;
+                temp.Location = new Point(LocationX - 197, LocationY - 52);
+                temp.BackColor = Color.FromArgb(116, 199, 132);
+                temp.Text = ClaseCompartida2.nombre;
+                temp.Name = ClaseCompartida2.nombre;
+                temp.FlatStyle = FlatStyle.Flat;
+                temp.Click += mesas_Click; //DARLE EL METODO MESAS_CLICK
+                temp.MouseDown += MesasEditor_MouseDown;
+                temp.MouseMove += MesasEditor_MouseMove;
+
+                panelPlano2.Controls.Add(temp);
+            }
+            else
+                if (panelPlano3.BackColor == Color.Black)
+            {
+                Button temp = new Button();
+
+                temp.Height = 40;
+                temp.Width = 40;
+                temp.Location = new Point(LocationX - 652, LocationY - 337);
+                temp.BackColor = Color.FromArgb(116, 199, 132);
+                temp.Text = ClaseCompartida2.nombre;
+                temp.Name = ClaseCompartida2.nombre;
+                temp.FlatStyle = FlatStyle.Flat;
+                temp.Click += mesas_Click; //DARLE EL METODO MESAS_CLICK
+                temp.MouseDown += MesasEditor_MouseDown;
+                temp.MouseMove += MesasEditor_MouseMove;
+
+                panelPlano3.Controls.Add(temp);
+            }
         }
     }
 }

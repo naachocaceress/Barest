@@ -1,4 +1,7 @@
+Duente de letra: AlexandriaFLF
+
 Color verde : 12; 132; 68
+Color verde (Nuevo?): 0; 128; 105; 255
 Color blanco : 241; 243; 244 
 Color dorado: 214; 155; 60
 

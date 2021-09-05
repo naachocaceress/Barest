@@ -58,7 +58,7 @@ namespace BAREST.turno
             // juanfoto
             // 
             this.juanfoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.juanfoto.Image = global::BAREST.Properties.Resources.Usuario_login;
+            this.juanfoto.Image = global::BAREST.Properties.Resources.Usuario_login2;
             this.juanfoto.Location = new System.Drawing.Point(12, 13);
             this.juanfoto.Name = "juanfoto";
             this.juanfoto.Size = new System.Drawing.Size(60, 60);
@@ -70,7 +70,7 @@ namespace BAREST.turno
             // calebfoto
             // 
             this.calebfoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.calebfoto.Image = global::BAREST.Properties.Resources.Usuario_login;
+            this.calebfoto.Image = global::BAREST.Properties.Resources.Usuario_login2;
             this.calebfoto.Location = new System.Drawing.Point(88, 13);
             this.calebfoto.Name = "calebfoto";
             this.calebfoto.Size = new System.Drawing.Size(60, 60);
@@ -82,7 +82,7 @@ namespace BAREST.turno
             // nachofoto
             // 
             this.nachofoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.nachofoto.Image = global::BAREST.Properties.Resources.Usuario_login;
+            this.nachofoto.Image = global::BAREST.Properties.Resources.Usuario_login2;
             this.nachofoto.Location = new System.Drawing.Point(163, 13);
             this.nachofoto.Name = "nachofoto";
             this.nachofoto.Size = new System.Drawing.Size(60, 60);
@@ -94,7 +94,7 @@ namespace BAREST.turno
             // ianfoto
             // 
             this.ianfoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ianfoto.Image = global::BAREST.Properties.Resources.Usuario_login;
+            this.ianfoto.Image = global::BAREST.Properties.Resources.Usuario_login2;
             this.ianfoto.Location = new System.Drawing.Point(240, 13);
             this.ianfoto.Name = "ianfoto";
             this.ianfoto.Size = new System.Drawing.Size(60, 60);
@@ -106,7 +106,7 @@ namespace BAREST.turno
             // pepefoto
             // 
             this.pepefoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pepefoto.Image = global::BAREST.Properties.Resources.Usuario_login;
+            this.pepefoto.Image = global::BAREST.Properties.Resources.Usuario_login2;
             this.pepefoto.Location = new System.Drawing.Point(12, 109);
             this.pepefoto.Name = "pepefoto";
             this.pepefoto.Size = new System.Drawing.Size(60, 60);
@@ -118,7 +118,7 @@ namespace BAREST.turno
             // penelopefoto
             // 
             this.penelopefoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.penelopefoto.Image = global::BAREST.Properties.Resources.Usuario_login;
+            this.penelopefoto.Image = global::BAREST.Properties.Resources.Usuario_login2;
             this.penelopefoto.Location = new System.Drawing.Point(88, 109);
             this.penelopefoto.Name = "penelopefoto";
             this.penelopefoto.Size = new System.Drawing.Size(60, 60);
@@ -189,7 +189,7 @@ namespace BAREST.turno
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.panel1.Controls.Add(this.agregarInsu);
             this.panel1.Controls.Add(this.EliminarInsu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;

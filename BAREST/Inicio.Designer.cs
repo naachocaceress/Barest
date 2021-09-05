@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(inicio));
             this.horafecha = new System.Windows.Forms.Timer(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modoEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirDelModoEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarMesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelPlano3 = new System.Windows.Forms.Panel();
             this.D10 = new System.Windows.Forms.Button();
@@ -93,10 +97,6 @@
             this.P7 = new System.Windows.Forms.Button();
             this.G1 = new System.Windows.Forms.Button();
             this.panelPlano2 = new System.Windows.Forms.Panel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.modoEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirDelModoEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarMesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.AF1 = new System.Windows.Forms.Button();
@@ -170,13 +170,13 @@
             this.turno = new FontAwesome.Sharp.IconButton();
             this.panelTitulos = new System.Windows.Forms.Panel();
             this.botonHiden = new FontAwesome.Sharp.IconButton();
+            this.contextMenuStrip1.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             this.panelPlano3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panelPlano1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelPlano2.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.JA5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -196,10 +196,41 @@
             this.horafecha.Enabled = true;
             this.horafecha.Tick += new System.EventHandler(this.horafecha_Tick);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modoEditorToolStripMenuItem,
+            this.salirDelModoEditorToolStripMenuItem,
+            this.agregarMesaToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 70);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // modoEditorToolStripMenuItem
+            // 
+            this.modoEditorToolStripMenuItem.Name = "modoEditorToolStripMenuItem";
+            this.modoEditorToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.modoEditorToolStripMenuItem.Text = "Modo editor";
+            this.modoEditorToolStripMenuItem.Click += new System.EventHandler(this.modoEditorToolStripMenuItem_Click);
+            // 
+            // salirDelModoEditorToolStripMenuItem
+            // 
+            this.salirDelModoEditorToolStripMenuItem.Name = "salirDelModoEditorToolStripMenuItem";
+            this.salirDelModoEditorToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.salirDelModoEditorToolStripMenuItem.Text = "Salir del modo editor";
+            this.salirDelModoEditorToolStripMenuItem.Click += new System.EventHandler(this.salirDelModoEditorToolStripMenuItem_Click);
+            // 
+            // agregarMesaToolStripMenuItem
+            // 
+            this.agregarMesaToolStripMenuItem.Name = "agregarMesaToolStripMenuItem";
+            this.agregarMesaToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.agregarMesaToolStripMenuItem.Text = "Agregar mesa";
+            this.agregarMesaToolStripMenuItem.Click += new System.EventHandler(this.agregarMesaToolStripMenuItem_Click);
+            // 
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.Transparent;
-            this.panelContenedor.BackgroundImage = global::BAREST.Properties.Resources.El_lugar_de_la_buena_vida;
+            this.panelContenedor.BackgroundImage = global::BAREST.Properties.Resources.Barest_Marca_de_agua_año;
             this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelContenedor.Controls.Add(this.panelPlano3);
             this.panelContenedor.Controls.Add(this.panelPlano1);
@@ -249,7 +280,7 @@
             this.panelPlano3.Controls.Add(this.JA4);
             this.panelPlano3.Controls.Add(this.button88);
             this.panelPlano3.Controls.Add(this.D4);
-            this.panelPlano3.Location = new System.Drawing.Point(624, 234);
+            this.panelPlano3.Location = new System.Drawing.Point(635, 291);
             this.panelPlano3.Name = "panelPlano3";
             this.panelPlano3.Size = new System.Drawing.Size(517, 426);
             this.panelPlano3.TabIndex = 8;
@@ -265,6 +296,8 @@
             this.D10.Text = "D10";
             this.D10.UseVisualStyleBackColor = false;
             this.D10.Click += new System.EventHandler(this.mesas_Click);
+            this.D10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D10.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D11
             // 
@@ -277,6 +310,8 @@
             this.D11.Text = "D11";
             this.D11.UseVisualStyleBackColor = false;
             this.D11.Click += new System.EventHandler(this.mesas_Click);
+            this.D11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D11.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D12
             // 
@@ -289,6 +324,8 @@
             this.D12.Text = "D12";
             this.D12.UseVisualStyleBackColor = false;
             this.D12.Click += new System.EventHandler(this.mesas_Click);
+            this.D12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D12.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D9
             // 
@@ -301,10 +338,12 @@
             this.D9.Text = "D9";
             this.D9.UseVisualStyleBackColor = false;
             this.D9.Click += new System.EventHandler(this.mesas_Click);
+            this.D9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.panel5.Controls.Add(this.label12);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
@@ -334,6 +373,8 @@
             this.JA12.Text = "JA12";
             this.JA12.UseVisualStyleBackColor = false;
             this.JA12.Click += new System.EventHandler(this.mesas_Click);
+            this.JA12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.JA12.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // JA11
             // 
@@ -346,6 +387,8 @@
             this.JA11.Text = "JA11";
             this.JA11.UseVisualStyleBackColor = false;
             this.JA11.Click += new System.EventHandler(this.mesas_Click);
+            this.JA11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.JA11.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // JA6
             // 
@@ -358,6 +401,8 @@
             this.JA6.Text = "JA6";
             this.JA6.UseVisualStyleBackColor = false;
             this.JA6.Click += new System.EventHandler(this.mesas_Click);
+            this.JA6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.JA6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D1
             // 
@@ -370,6 +415,8 @@
             this.D1.Text = "D1";
             this.D1.UseVisualStyleBackColor = false;
             this.D1.Click += new System.EventHandler(this.mesas_Click);
+            this.D1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D3
             // 
@@ -382,6 +429,8 @@
             this.D3.Text = "D3";
             this.D3.UseVisualStyleBackColor = false;
             this.D3.Click += new System.EventHandler(this.mesas_Click);
+            this.D3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // JA10
             // 
@@ -394,6 +443,8 @@
             this.JA10.Text = "JA10";
             this.JA10.UseVisualStyleBackColor = false;
             this.JA10.Click += new System.EventHandler(this.mesas_Click);
+            this.JA10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.JA10.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // JA7
             // 
@@ -406,6 +457,8 @@
             this.JA7.Text = "JA7";
             this.JA7.UseVisualStyleBackColor = false;
             this.JA7.Click += new System.EventHandler(this.mesas_Click);
+            this.JA7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.JA7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D2
             // 
@@ -418,6 +471,8 @@
             this.D2.Text = "D2";
             this.D2.UseVisualStyleBackColor = false;
             this.D2.Click += new System.EventHandler(this.mesas_Click);
+            this.D2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // IG5
             // 
@@ -430,6 +485,8 @@
             this.IG5.Text = "IG5";
             this.IG5.UseVisualStyleBackColor = false;
             this.IG5.Click += new System.EventHandler(this.mesas_Click);
+            this.IG5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.IG5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // IG1
             // 
@@ -442,6 +499,8 @@
             this.IG1.Text = "IG1";
             this.IG1.UseVisualStyleBackColor = false;
             this.IG1.Click += new System.EventHandler(this.mesas_Click);
+            this.IG1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.IG1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // IG6
             // 
@@ -454,6 +513,8 @@
             this.IG6.Text = "IG6";
             this.IG6.UseVisualStyleBackColor = false;
             this.IG6.Click += new System.EventHandler(this.mesas_Click);
+            this.IG6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.IG6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // IG2
             // 
@@ -466,6 +527,8 @@
             this.IG2.Text = "IG2";
             this.IG2.UseVisualStyleBackColor = false;
             this.IG2.Click += new System.EventHandler(this.mesas_Click);
+            this.IG2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.IG2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // IG7
             // 
@@ -478,6 +541,8 @@
             this.IG7.Text = "IG7";
             this.IG7.UseVisualStyleBackColor = false;
             this.IG7.Click += new System.EventHandler(this.mesas_Click);
+            this.IG7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.IG7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // IG3
             // 
@@ -490,6 +555,8 @@
             this.IG3.Text = "IG3";
             this.IG3.UseVisualStyleBackColor = false;
             this.IG3.Click += new System.EventHandler(this.mesas_Click);
+            this.IG3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.IG3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D6
             // 
@@ -502,6 +569,8 @@
             this.D6.Text = "D6";
             this.D6.UseVisualStyleBackColor = false;
             this.D6.Click += new System.EventHandler(this.mesas_Click);
+            this.D6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // IG8
             // 
@@ -514,6 +583,8 @@
             this.IG8.Text = "IG8";
             this.IG8.UseVisualStyleBackColor = false;
             this.IG8.Click += new System.EventHandler(this.mesas_Click);
+            this.IG8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.IG8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // IG4
             // 
@@ -526,6 +597,8 @@
             this.IG4.Text = "IG4";
             this.IG4.UseVisualStyleBackColor = false;
             this.IG4.Click += new System.EventHandler(this.mesas_Click);
+            this.IG4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.IG4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D5
             // 
@@ -538,6 +611,8 @@
             this.D5.Text = "D5";
             this.D5.UseVisualStyleBackColor = false;
             this.D5.Click += new System.EventHandler(this.mesas_Click);
+            this.D5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // JA9
             // 
@@ -550,6 +625,8 @@
             this.JA9.Text = "JA9";
             this.JA9.UseVisualStyleBackColor = false;
             this.JA9.Click += new System.EventHandler(this.mesas_Click);
+            this.JA9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.JA9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // JA8
             // 
@@ -562,6 +639,8 @@
             this.JA8.Text = "JA8";
             this.JA8.UseVisualStyleBackColor = false;
             this.JA8.Click += new System.EventHandler(this.mesas_Click);
+            this.JA8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.JA8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D8
             // 
@@ -574,6 +653,8 @@
             this.D8.Text = "D8";
             this.D8.UseVisualStyleBackColor = false;
             this.D8.Click += new System.EventHandler(this.mesas_Click);
+            this.D8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // JA3
             // 
@@ -586,6 +667,8 @@
             this.JA3.Text = "JA3";
             this.JA3.UseVisualStyleBackColor = false;
             this.JA3.Click += new System.EventHandler(this.mesas_Click);
+            this.JA3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.JA3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D7
             // 
@@ -598,6 +681,8 @@
             this.D7.Text = "D7";
             this.D7.UseVisualStyleBackColor = false;
             this.D7.Click += new System.EventHandler(this.mesas_Click);
+            this.D7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // JA1
             // 
@@ -610,6 +695,8 @@
             this.JA1.Text = "JA1";
             this.JA1.UseVisualStyleBackColor = false;
             this.JA1.Click += new System.EventHandler(this.mesas_Click);
+            this.JA1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.JA1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // JA2
             // 
@@ -622,6 +709,8 @@
             this.JA2.Text = "JA2";
             this.JA2.UseVisualStyleBackColor = false;
             this.JA2.Click += new System.EventHandler(this.mesas_Click);
+            this.JA2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.JA2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // JA4
             // 
@@ -634,6 +723,8 @@
             this.JA4.Text = "JA4";
             this.JA4.UseVisualStyleBackColor = false;
             this.JA4.Click += new System.EventHandler(this.mesas_Click);
+            this.JA4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.JA4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // button88
             // 
@@ -646,6 +737,8 @@
             this.button88.Text = "JA5";
             this.button88.UseVisualStyleBackColor = false;
             this.button88.Click += new System.EventHandler(this.mesas_Click);
+            this.button88.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.button88.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D4
             // 
@@ -658,6 +751,8 @@
             this.D4.Text = "D4";
             this.D4.UseVisualStyleBackColor = false;
             this.D4.Click += new System.EventHandler(this.mesas_Click);
+            this.D4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.D4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // panelPlano1
             // 
@@ -686,14 +781,14 @@
             this.panelPlano1.Controls.Add(this.P4);
             this.panelPlano1.Controls.Add(this.P7);
             this.panelPlano1.Controls.Add(this.G1);
-            this.panelPlano1.Location = new System.Drawing.Point(215, 435);
+            this.panelPlano1.Location = new System.Drawing.Point(215, 448);
             this.panelPlano1.Name = "panelPlano1";
             this.panelPlano1.Size = new System.Drawing.Size(257, 342);
             this.panelPlano1.TabIndex = 6;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.panel3.Controls.Add(this.label11);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -723,6 +818,8 @@
             this.BA1.Text = "BA1";
             this.BA1.UseVisualStyleBackColor = false;
             this.BA1.Click += new System.EventHandler(this.mesas_Click);
+            this.BA1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.BA1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // BA2
             // 
@@ -735,6 +832,8 @@
             this.BA2.Text = "BA2";
             this.BA2.UseVisualStyleBackColor = false;
             this.BA2.Click += new System.EventHandler(this.mesas_Click);
+            this.BA2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.BA2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // BA3
             // 
@@ -747,6 +846,8 @@
             this.BA3.Text = "BA3";
             this.BA3.UseVisualStyleBackColor = false;
             this.BA3.Click += new System.EventHandler(this.mesas_Click);
+            this.BA3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.BA3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // G2
             // 
@@ -759,6 +860,8 @@
             this.G2.Text = "G2";
             this.G2.UseVisualStyleBackColor = false;
             this.G2.Click += new System.EventHandler(this.mesas_Click);
+            this.G2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.G2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // G3
             // 
@@ -771,6 +874,8 @@
             this.G3.Text = "G3";
             this.G3.UseVisualStyleBackColor = false;
             this.G3.Click += new System.EventHandler(this.mesas_Click);
+            this.G3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.G3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // G4
             // 
@@ -783,6 +888,8 @@
             this.G4.Text = "G4";
             this.G4.UseVisualStyleBackColor = false;
             this.G4.Click += new System.EventHandler(this.mesas_Click);
+            this.G4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.G4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // G5
             // 
@@ -795,6 +902,8 @@
             this.G5.Text = "G5";
             this.G5.UseVisualStyleBackColor = false;
             this.G5.Click += new System.EventHandler(this.mesas_Click);
+            this.G5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.G5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // P3
             // 
@@ -807,6 +916,8 @@
             this.P3.Text = "P3";
             this.P3.UseVisualStyleBackColor = false;
             this.P3.Click += new System.EventHandler(this.mesas_Click);
+            this.P3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.P3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // P6
             // 
@@ -819,6 +930,8 @@
             this.P6.Text = "P6";
             this.P6.UseVisualStyleBackColor = false;
             this.P6.Click += new System.EventHandler(this.mesas_Click);
+            this.P6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.P6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // P9
             // 
@@ -831,6 +944,8 @@
             this.P9.Text = "P9";
             this.P9.UseVisualStyleBackColor = false;
             this.P9.Click += new System.EventHandler(this.mesas_Click);
+            this.P9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.P9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // P2
             // 
@@ -843,6 +958,8 @@
             this.P2.Text = "P2";
             this.P2.UseVisualStyleBackColor = false;
             this.P2.Click += new System.EventHandler(this.mesas_Click);
+            this.P2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.P2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // B5
             // 
@@ -855,6 +972,8 @@
             this.B5.Text = "B5";
             this.B5.UseVisualStyleBackColor = false;
             this.B5.Click += new System.EventHandler(this.mesas_Click);
+            this.B5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.B5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // B4
             // 
@@ -867,6 +986,8 @@
             this.B4.Text = "B4";
             this.B4.UseVisualStyleBackColor = false;
             this.B4.Click += new System.EventHandler(this.mesas_Click);
+            this.B4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.B4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // B3
             // 
@@ -879,6 +1000,8 @@
             this.B3.Text = "B3";
             this.B3.UseVisualStyleBackColor = false;
             this.B3.Click += new System.EventHandler(this.mesas_Click);
+            this.B3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.B3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // B2
             // 
@@ -891,6 +1014,8 @@
             this.B2.Text = "B2";
             this.B2.UseVisualStyleBackColor = false;
             this.B2.Click += new System.EventHandler(this.mesas_Click);
+            this.B2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.B2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // B1
             // 
@@ -903,6 +1028,8 @@
             this.B1.Text = "B1";
             this.B1.UseVisualStyleBackColor = false;
             this.B1.Click += new System.EventHandler(this.mesas_Click);
+            this.B1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.B1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // P8
             // 
@@ -915,6 +1042,8 @@
             this.P8.Text = "P8";
             this.P8.UseVisualStyleBackColor = false;
             this.P8.Click += new System.EventHandler(this.mesas_Click);
+            this.P8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.P8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // P5
             // 
@@ -927,6 +1056,8 @@
             this.P5.Text = "P5";
             this.P5.UseVisualStyleBackColor = false;
             this.P5.Click += new System.EventHandler(this.mesas_Click);
+            this.P5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.P5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // P1
             // 
@@ -939,6 +1070,8 @@
             this.P1.Text = "P1";
             this.P1.UseVisualStyleBackColor = false;
             this.P1.Click += new System.EventHandler(this.mesas_Click);
+            this.P1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.P1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // P4
             // 
@@ -951,6 +1084,8 @@
             this.P4.Text = "P4";
             this.P4.UseVisualStyleBackColor = false;
             this.P4.Click += new System.EventHandler(this.mesas_Click);
+            this.P4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.P4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // P7
             // 
@@ -963,6 +1098,8 @@
             this.P7.Text = "P7";
             this.P7.UseVisualStyleBackColor = false;
             this.P7.Click += new System.EventHandler(this.mesas_Click);
+            this.P7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.P7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // G1
             // 
@@ -975,6 +1112,8 @@
             this.G1.Text = "G1";
             this.G1.UseVisualStyleBackColor = false;
             this.G1.Click += new System.EventHandler(this.mesas_Click);
+            this.G1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.G1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // panelPlano2
             // 
@@ -1012,40 +1151,9 @@
             this.panelPlano2.Size = new System.Drawing.Size(394, 380);
             this.panelPlano2.TabIndex = 7;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modoEditorToolStripMenuItem,
-            this.salirDelModoEditorToolStripMenuItem,
-            this.agregarMesaToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 70);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
-            // 
-            // modoEditorToolStripMenuItem
-            // 
-            this.modoEditorToolStripMenuItem.Name = "modoEditorToolStripMenuItem";
-            this.modoEditorToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.modoEditorToolStripMenuItem.Text = "Modo editor";
-            this.modoEditorToolStripMenuItem.Click += new System.EventHandler(this.modoEditorToolStripMenuItem_Click);
-            // 
-            // salirDelModoEditorToolStripMenuItem
-            // 
-            this.salirDelModoEditorToolStripMenuItem.Name = "salirDelModoEditorToolStripMenuItem";
-            this.salirDelModoEditorToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.salirDelModoEditorToolStripMenuItem.Text = "Salir del modo editor";
-            this.salirDelModoEditorToolStripMenuItem.Click += new System.EventHandler(this.salirDelModoEditorToolStripMenuItem_Click);
-            // 
-            // agregarMesaToolStripMenuItem
-            // 
-            this.agregarMesaToolStripMenuItem.Name = "agregarMesaToolStripMenuItem";
-            this.agregarMesaToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.agregarMesaToolStripMenuItem.Text = "Agregar mesa";
-            this.agregarMesaToolStripMenuItem.Click += new System.EventHandler(this.agregarMesaToolStripMenuItem_Click);
-            // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.panel2.Controls.Add(this.label10);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -1075,6 +1183,8 @@
             this.AF1.Text = "AF1";
             this.AF1.UseVisualStyleBackColor = false;
             this.AF1.Click += new System.EventHandler(this.mesas_Click);
+            this.AF1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.AF1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // AF3
             // 
@@ -1087,6 +1197,8 @@
             this.AF3.Text = "AF3";
             this.AF3.UseVisualStyleBackColor = false;
             this.AF3.Click += new System.EventHandler(this.mesas_Click);
+            this.AF3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.AF3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // AF4
             // 
@@ -1099,6 +1211,8 @@
             this.AF4.Text = "AF4";
             this.AF4.UseVisualStyleBackColor = false;
             this.AF4.Click += new System.EventHandler(this.mesas_Click);
+            this.AF4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.AF4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // J1
             // 
@@ -1111,6 +1225,8 @@
             this.J1.Text = "J1";
             this.J1.UseVisualStyleBackColor = false;
             this.J1.Click += new System.EventHandler(this.mesas_Click);
+            this.J1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.J1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // J4
             // 
@@ -1123,6 +1239,8 @@
             this.J4.Text = "J4";
             this.J4.UseVisualStyleBackColor = false;
             this.J4.Click += new System.EventHandler(this.mesas_Click);
+            this.J4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.J4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // J3
             // 
@@ -1135,6 +1253,8 @@
             this.J3.Text = "J3";
             this.J3.UseVisualStyleBackColor = false;
             this.J3.Click += new System.EventHandler(this.mesas_Click);
+            this.J3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.J3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // J6
             // 
@@ -1147,6 +1267,8 @@
             this.J6.Text = "J6";
             this.J6.UseVisualStyleBackColor = false;
             this.J6.Click += new System.EventHandler(this.mesas_Click);
+            this.J6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.J6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // J9
             // 
@@ -1159,6 +1281,8 @@
             this.J9.Text = "J9";
             this.J9.UseVisualStyleBackColor = false;
             this.J9.Click += new System.EventHandler(this.mesas_Click);
+            this.J9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.J9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // J7
             // 
@@ -1185,6 +1309,8 @@
             this.AF5.Text = "AF5";
             this.AF5.UseVisualStyleBackColor = false;
             this.AF5.Click += new System.EventHandler(this.mesas_Click);
+            this.AF5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.AF5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // AF2
             // 
@@ -1197,6 +1323,8 @@
             this.AF2.Text = "AF2";
             this.AF2.UseVisualStyleBackColor = false;
             this.AF2.Click += new System.EventHandler(this.mesas_Click);
+            this.AF2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.AF2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C11
             // 
@@ -1209,6 +1337,8 @@
             this.C11.Text = "C11";
             this.C11.UseVisualStyleBackColor = false;
             this.C11.Click += new System.EventHandler(this.mesas_Click);
+            this.C11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C11.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C12
             // 
@@ -1221,6 +1351,8 @@
             this.C12.Text = "C12";
             this.C12.UseVisualStyleBackColor = false;
             this.C12.Click += new System.EventHandler(this.mesas_Click);
+            this.C12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C12.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C9
             // 
@@ -1233,6 +1365,8 @@
             this.C9.Text = "C9";
             this.C9.UseVisualStyleBackColor = false;
             this.C9.Click += new System.EventHandler(this.mesas_Click);
+            this.C9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C10
             // 
@@ -1245,6 +1379,8 @@
             this.C10.Text = "C10";
             this.C10.UseVisualStyleBackColor = false;
             this.C10.Click += new System.EventHandler(this.mesas_Click);
+            this.C10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C10.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C7
             // 
@@ -1257,6 +1393,8 @@
             this.C7.Text = "C7";
             this.C7.UseVisualStyleBackColor = false;
             this.C7.Click += new System.EventHandler(this.mesas_Click);
+            this.C7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C8
             // 
@@ -1269,6 +1407,8 @@
             this.C8.Text = "C8";
             this.C8.UseVisualStyleBackColor = false;
             this.C8.Click += new System.EventHandler(this.mesas_Click);
+            this.C8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C4
             // 
@@ -1281,6 +1421,8 @@
             this.C4.Text = "C4";
             this.C4.UseVisualStyleBackColor = false;
             this.C4.Click += new System.EventHandler(this.mesas_Click);
+            this.C4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C5
             // 
@@ -1293,6 +1435,8 @@
             this.C5.Text = "C5";
             this.C5.UseVisualStyleBackColor = false;
             this.C5.Click += new System.EventHandler(this.mesas_Click);
+            this.C5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C6
             // 
@@ -1305,6 +1449,8 @@
             this.C6.Text = "C6";
             this.C6.UseVisualStyleBackColor = false;
             this.C6.Click += new System.EventHandler(this.mesas_Click);
+            this.C6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C1
             // 
@@ -1317,6 +1463,8 @@
             this.C1.Text = "C1";
             this.C1.UseVisualStyleBackColor = false;
             this.C1.Click += new System.EventHandler(this.mesas_Click);
+            this.C1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C2
             // 
@@ -1329,6 +1477,8 @@
             this.C2.Text = "C2";
             this.C2.UseVisualStyleBackColor = false;
             this.C2.Click += new System.EventHandler(this.mesas_Click);
+            this.C2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // J8
             // 
@@ -1341,6 +1491,8 @@
             this.J8.Text = "J8";
             this.J8.UseVisualStyleBackColor = false;
             this.J8.Click += new System.EventHandler(this.mesas_Click);
+            this.J8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.J8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // J5
             // 
@@ -1353,6 +1505,8 @@
             this.J5.Text = "J5";
             this.J5.UseVisualStyleBackColor = false;
             this.J5.Click += new System.EventHandler(this.mesas_Click);
+            this.J5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.J5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // J2
             // 
@@ -1365,6 +1519,8 @@
             this.J2.Text = "J2";
             this.J2.UseVisualStyleBackColor = false;
             this.J2.Click += new System.EventHandler(this.mesas_Click);
+            this.J2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.J2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // C3
             // 
@@ -1377,6 +1533,8 @@
             this.C3.Text = "C3";
             this.C3.UseVisualStyleBackColor = false;
             this.C3.Click += new System.EventHandler(this.mesas_Click);
+            this.C3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
+            this.C3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // JA5
             // 
@@ -1402,7 +1560,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.label9.Location = new System.Drawing.Point(103, 29);
@@ -1414,7 +1572,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(155)))), ((int)(((byte)(60)))));
             this.label8.Location = new System.Drawing.Point(80, 43);
             this.label8.Name = "label8";
@@ -1425,7 +1583,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(155)))), ((int)(((byte)(60)))));
             this.label7.Location = new System.Drawing.Point(80, 29);
             this.label7.Name = "label7";
@@ -1436,7 +1594,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(155)))), ((int)(((byte)(60)))));
             this.label6.Location = new System.Drawing.Point(80, 16);
             this.label6.Name = "label6";
@@ -1447,7 +1605,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.label5.Location = new System.Drawing.Point(29, 43);
             this.label5.Name = "label5";
@@ -1458,7 +1616,7 @@
             // fechaLabel
             // 
             this.fechaLabel.AutoSize = true;
-            this.fechaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.fechaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.fechaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.fechaLabel.Location = new System.Drawing.Point(118, 37);
             this.fechaLabel.Name = "fechaLabel";
@@ -1469,7 +1627,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.label4.Location = new System.Drawing.Point(22, 29);
             this.label4.Name = "label4";
@@ -1480,7 +1638,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(155)))), ((int)(((byte)(60)))));
             this.label2.Location = new System.Drawing.Point(165, 20);
             this.label2.Name = "label2";
@@ -1490,7 +1648,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.label3.Location = new System.Drawing.Point(26, 15);
             this.label3.Name = "label3";
@@ -1501,7 +1659,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.label1.Location = new System.Drawing.Point(118, 20);
             this.label1.Name = "label1";
@@ -1511,7 +1669,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::BAREST.Properties.Resources.Banner_Vidon_3;
+            this.pictureBox3.Image = global::BAREST.Properties.Resources.Banner_Vidon_31;
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(286, 70);
@@ -1542,7 +1700,7 @@
             // panelBotones
             // 
             this.panelBotones.AutoScroll = true;
-            this.panelBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.panelBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.panelBotones.Controls.Add(this.config);
             this.panelBotones.Controls.Add(this.informes);
             this.panelBotones.Controls.Add(this.panelPersonal);
@@ -1568,6 +1726,7 @@
             // 
             // config
             // 
+            this.config.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.config.Dock = System.Windows.Forms.DockStyle.Top;
             this.config.FlatAppearance.BorderSize = 0;
             this.config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1584,11 +1743,12 @@
             this.config.TabIndex = 23;
             this.config.Text = "       Configuracion";
             this.config.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.config.UseVisualStyleBackColor = true;
+            this.config.UseVisualStyleBackColor = false;
             this.config.Click += new System.EventHandler(this.iconButton6_Click);
             // 
             // informes
             // 
+            this.informes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.informes.Dock = System.Windows.Forms.DockStyle.Top;
             this.informes.FlatAppearance.BorderSize = 0;
             this.informes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1605,7 +1765,7 @@
             this.informes.TabIndex = 22;
             this.informes.Text = "       Informes";
             this.informes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.informes.UseVisualStyleBackColor = true;
+            this.informes.UseVisualStyleBackColor = false;
             this.informes.Click += new System.EventHandler(this.informes_Click);
             // 
             // panelPersonal
@@ -1620,6 +1780,7 @@
             // 
             // categorias
             // 
+            this.categorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.categorias.Dock = System.Windows.Forms.DockStyle.Top;
             this.categorias.FlatAppearance.BorderSize = 0;
             this.categorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1630,11 +1791,12 @@
             this.categorias.TabIndex = 21;
             this.categorias.Text = "       Categorias";
             this.categorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.categorias.UseVisualStyleBackColor = true;
+            this.categorias.UseVisualStyleBackColor = false;
             this.categorias.Click += new System.EventHandler(this.categorias_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.button2.Dock = System.Windows.Forms.DockStyle.Top;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1645,11 +1807,12 @@
             this.button2.TabIndex = 20;
             this.button2.Text = "       Empleados";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // personal
             // 
+            this.personal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.personal.Dock = System.Windows.Forms.DockStyle.Top;
             this.personal.FlatAppearance.BorderSize = 0;
             this.personal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1666,7 +1829,7 @@
             this.personal.TabIndex = 19;
             this.personal.Text = "       Personal";
             this.personal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personal.UseVisualStyleBackColor = true;
+            this.personal.UseVisualStyleBackColor = false;
             this.personal.Click += new System.EventHandler(this.personal_Click);
             // 
             // panelStock
@@ -1681,6 +1844,7 @@
             // 
             // inventariosStock
             // 
+            this.inventariosStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.inventariosStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.inventariosStock.FlatAppearance.BorderSize = 0;
             this.inventariosStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1691,11 +1855,12 @@
             this.inventariosStock.TabIndex = 18;
             this.inventariosStock.Text = "       Inventarios";
             this.inventariosStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.inventariosStock.UseVisualStyleBackColor = true;
+            this.inventariosStock.UseVisualStyleBackColor = false;
             this.inventariosStock.Click += new System.EventHandler(this.inventariosStock_Click);
             // 
             // manejoStock
             // 
+            this.manejoStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.manejoStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.manejoStock.FlatAppearance.BorderSize = 0;
             this.manejoStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1706,11 +1871,12 @@
             this.manejoStock.TabIndex = 17;
             this.manejoStock.Text = "       Manejo de Stock";
             this.manejoStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.manejoStock.UseVisualStyleBackColor = true;
+            this.manejoStock.UseVisualStyleBackColor = false;
             this.manejoStock.Click += new System.EventHandler(this.manejoStock_Click);
             // 
             // stock
             // 
+            this.stock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.stock.Dock = System.Windows.Forms.DockStyle.Top;
             this.stock.FlatAppearance.BorderSize = 0;
             this.stock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1727,7 +1893,7 @@
             this.stock.TabIndex = 16;
             this.stock.Text = "       Stock";
             this.stock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.stock.UseVisualStyleBackColor = true;
+            this.stock.UseVisualStyleBackColor = false;
             this.stock.Click += new System.EventHandler(this.Stock_Click);
             // 
             // panelCompras
@@ -1743,6 +1909,7 @@
             // 
             // estadoCompras
             // 
+            this.estadoCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.estadoCompras.Dock = System.Windows.Forms.DockStyle.Top;
             this.estadoCompras.FlatAppearance.BorderSize = 0;
             this.estadoCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1753,11 +1920,12 @@
             this.estadoCompras.TabIndex = 15;
             this.estadoCompras.Text = "       Estado ";
             this.estadoCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.estadoCompras.UseVisualStyleBackColor = true;
+            this.estadoCompras.UseVisualStyleBackColor = false;
             this.estadoCompras.Click += new System.EventHandler(this.estadoCompras_Click);
             // 
             // button21
             // 
+            this.button21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.button21.Dock = System.Windows.Forms.DockStyle.Top;
             this.button21.FlatAppearance.BorderSize = 0;
             this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1768,11 +1936,12 @@
             this.button21.TabIndex = 14;
             this.button21.Text = "       Insumos";
             this.button21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button21.UseVisualStyleBackColor = true;
+            this.button21.UseVisualStyleBackColor = false;
             this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // proveedores
             // 
+            this.proveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.proveedores.Dock = System.Windows.Forms.DockStyle.Top;
             this.proveedores.FlatAppearance.BorderSize = 0;
             this.proveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1783,11 +1952,12 @@
             this.proveedores.TabIndex = 13;
             this.proveedores.Text = "       Proveedores";
             this.proveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.proveedores.UseVisualStyleBackColor = true;
+            this.proveedores.UseVisualStyleBackColor = false;
             this.proveedores.Click += new System.EventHandler(this.proveedores_Click);
             // 
             // compras
             // 
+            this.compras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.compras.Dock = System.Windows.Forms.DockStyle.Top;
             this.compras.FlatAppearance.BorderSize = 0;
             this.compras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1804,11 +1974,12 @@
             this.compras.TabIndex = 12;
             this.compras.Text = "       Compras";
             this.compras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.compras.UseVisualStyleBackColor = true;
+            this.compras.UseVisualStyleBackColor = false;
             this.compras.Click += new System.EventHandler(this.compras_Click_1);
             // 
             // ventas
             // 
+            this.ventas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.ventas.Dock = System.Windows.Forms.DockStyle.Top;
             this.ventas.FlatAppearance.BorderSize = 0;
             this.ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1825,11 +1996,12 @@
             this.ventas.TabIndex = 11;
             this.ventas.Text = "       Ventas";
             this.ventas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ventas.UseVisualStyleBackColor = true;
+            this.ventas.UseVisualStyleBackColor = false;
             this.ventas.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // menu
             // 
+            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.menu.Dock = System.Windows.Forms.DockStyle.Top;
             this.menu.FlatAppearance.BorderSize = 0;
             this.menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1846,7 +2018,7 @@
             this.menu.TabIndex = 10;
             this.menu.Text = "       Menu";
             this.menu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menu.UseVisualStyleBackColor = true;
+            this.menu.UseVisualStyleBackColor = false;
             this.menu.Click += new System.EventHandler(this.menu_Click);
             // 
             // panelCaja
@@ -1862,6 +2034,7 @@
             // 
             // cajaSocios
             // 
+            this.cajaSocios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.cajaSocios.Dock = System.Windows.Forms.DockStyle.Top;
             this.cajaSocios.FlatAppearance.BorderSize = 0;
             this.cajaSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1872,11 +2045,12 @@
             this.cajaSocios.TabIndex = 9;
             this.cajaSocios.Text = "       Caja Socios";
             this.cajaSocios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cajaSocios.UseVisualStyleBackColor = true;
+            this.cajaSocios.UseVisualStyleBackColor = false;
             this.cajaSocios.Click += new System.EventHandler(this.button1_Click);
             // 
             // caja2
             // 
+            this.caja2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.caja2.Dock = System.Windows.Forms.DockStyle.Top;
             this.caja2.FlatAppearance.BorderSize = 0;
             this.caja2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1887,11 +2061,12 @@
             this.caja2.TabIndex = 8;
             this.caja2.Text = "       Caja Mayor";
             this.caja2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.caja2.UseVisualStyleBackColor = true;
+            this.caja2.UseVisualStyleBackColor = false;
             this.caja2.Click += new System.EventHandler(this.caja2_Click);
             // 
             // caja1
             // 
+            this.caja1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.caja1.Dock = System.Windows.Forms.DockStyle.Top;
             this.caja1.FlatAppearance.BorderSize = 0;
             this.caja1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1902,11 +2077,12 @@
             this.caja1.TabIndex = 7;
             this.caja1.Text = "       Caja Chica";
             this.caja1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.caja1.UseVisualStyleBackColor = true;
+            this.caja1.UseVisualStyleBackColor = false;
             this.caja1.Click += new System.EventHandler(this.caja1_Click);
             // 
             // caja
             // 
+            this.caja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.caja.Dock = System.Windows.Forms.DockStyle.Top;
             this.caja.FlatAppearance.BorderSize = 0;
             this.caja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1923,11 +2099,12 @@
             this.caja.TabIndex = 6;
             this.caja.Text = "       Caja";
             this.caja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.caja.UseVisualStyleBackColor = true;
+            this.caja.UseVisualStyleBackColor = false;
             this.caja.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // reservas
             // 
+            this.reservas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.reservas.Dock = System.Windows.Forms.DockStyle.Top;
             this.reservas.FlatAppearance.BorderSize = 0;
             this.reservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1944,7 +2121,7 @@
             this.reservas.TabIndex = 5;
             this.reservas.Text = "       Reservas";
             this.reservas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reservas.UseVisualStyleBackColor = true;
+            this.reservas.UseVisualStyleBackColor = false;
             this.reservas.Click += new System.EventHandler(this.reservas_Click);
             // 
             // panelTurno
@@ -1959,6 +2136,7 @@
             // 
             // cerrar
             // 
+            this.cerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.cerrar.Dock = System.Windows.Forms.DockStyle.Top;
             this.cerrar.FlatAppearance.BorderSize = 0;
             this.cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1969,11 +2147,12 @@
             this.cerrar.TabIndex = 4;
             this.cerrar.Text = "       Cerrar Turno";
             this.cerrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cerrar.UseVisualStyleBackColor = true;
+            this.cerrar.UseVisualStyleBackColor = false;
             this.cerrar.Click += new System.EventHandler(this.cerrar_Click);
             // 
             // iniciar
             // 
+            this.iniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.iniciar.Dock = System.Windows.Forms.DockStyle.Top;
             this.iniciar.FlatAppearance.BorderSize = 0;
             this.iniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1984,11 +2163,12 @@
             this.iniciar.TabIndex = 3;
             this.iniciar.Text = "       Iniciar Turno";
             this.iniciar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iniciar.UseVisualStyleBackColor = true;
+            this.iniciar.UseVisualStyleBackColor = false;
             this.iniciar.Click += new System.EventHandler(this.iniciar_Click);
             // 
             // salir
             // 
+            this.salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.salir.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.salir.FlatAppearance.BorderSize = 0;
             this.salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2005,11 +2185,12 @@
             this.salir.TabIndex = 24;
             this.salir.Text = "       Salir";
             this.salir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salir.UseVisualStyleBackColor = true;
+            this.salir.UseVisualStyleBackColor = false;
             this.salir.Click += new System.EventHandler(this.salir_Click);
             // 
             // turno
             // 
+            this.turno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.turno.Dock = System.Windows.Forms.DockStyle.Top;
             this.turno.FlatAppearance.BorderSize = 0;
             this.turno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2026,7 +2207,7 @@
             this.turno.TabIndex = 2;
             this.turno.Text = "       Turno";
             this.turno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.turno.UseVisualStyleBackColor = true;
+            this.turno.UseVisualStyleBackColor = false;
             this.turno.Click += new System.EventHandler(this.inicioTurno_Click);
             // 
             // panelTitulos
@@ -2042,6 +2223,7 @@
             // 
             // botonHiden
             // 
+            this.botonHiden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.botonHiden.Dock = System.Windows.Forms.DockStyle.Top;
             this.botonHiden.FlatAppearance.BorderSize = 0;
             this.botonHiden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2057,7 +2239,7 @@
             this.botonHiden.Size = new System.Drawing.Size(120, 47);
             this.botonHiden.TabIndex = 1;
             this.botonHiden.Text = "       BAREST";
-            this.botonHiden.UseVisualStyleBackColor = true;
+            this.botonHiden.UseVisualStyleBackColor = false;
             this.botonHiden.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
             // inicio
@@ -2067,12 +2249,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(1028, 640);
             this.Controls.Add(this.panelContenedor);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barest";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
             this.panelPlano3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -2081,7 +2263,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panelPlano2.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.JA5.ResumeLayout(false);
