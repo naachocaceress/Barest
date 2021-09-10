@@ -26,5 +26,10 @@ namespace BAREST
         {
             this.Close();
         }
+
+        private void cajaTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

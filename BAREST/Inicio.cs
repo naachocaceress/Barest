@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BAREST.Turno;
 using FontAwesome.Sharp;
+using static BAREST.Mesa1;
 
 namespace BAREST
 {
@@ -18,11 +20,15 @@ namespace BAREST
         {
             InitializeComponent();
             customizeDesign();
-        } 
+            panelPlano1.Visible = false;
+            panelPlano2.Visible = false;
+            panelPlano3.Visible = false;
+            panelAyudaVisual.Visible = false;
+        }
 
-        private void BotonActivo (object senderBtn)
+        private void BotonActivo(object senderBtn)
         {
-            if(senderBtn != null)
+            if (senderBtn != null)
             {
                 BotonDesactivo();
                 currentBtn = (IconButton)senderBtn;
@@ -31,12 +37,12 @@ namespace BAREST
             }
         }
 
-        private void BotonDesactivo ()
+        private void BotonDesactivo()
         {
-            if(currentBtn != null)
+            if (currentBtn != null)
             {
-                currentBtn.ForeColor = Color.FromArgb(241, 243, 244 );
-                currentBtn.IconColor = Color.FromArgb(241, 243, 244 );
+                currentBtn.ForeColor = Color.FromArgb(241, 243, 244);
+                currentBtn.IconColor = Color.FromArgb(241, 243, 244);
             }
         }
 
@@ -60,17 +66,17 @@ namespace BAREST
             if (panelStock.Visible == true)
                 panelStock.Visible = false;
             if (panelPersonal.Visible == true)
-                panelPersonal.Visible = false;  
+                panelPersonal.Visible = false;
         }
 
-        public void showSubMenu (Panel subMenu)
+        public void showSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
             {
                 hideSubMenu();
                 subMenu.Visible = true;
             }
-             else
+            else
                 subMenu.Visible = false;
         }
 
@@ -155,13 +161,19 @@ namespace BAREST
             esconderMenu();
             BotonActivo(sender);
             configuracion m = new configuracion();
-            m.ShowDialog();
+            m.Show();
         }
 
         private void salir_Click(object sender, EventArgs e)
         {
-            this.Close();
-            BotonActivo(sender);
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("¿Esta seguro que quiere salir?", "Salir", botones, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                this.Close();
+                BotonActivo(sender);
+            }
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
@@ -191,7 +203,7 @@ namespace BAREST
         {
             esconderMenu();
             Compras.Insumos m = new Compras.Insumos();
-            m.ShowDialog();
+            m.Show();
         }
 
         private Form activeForm = null;
@@ -234,11 +246,33 @@ namespace BAREST
         private void iniciar_Click(object sender, EventArgs e)
         {
             esconderMenu();
+
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("¿Esta seguro que quiere iniciar turno?", "Inicio de turno", botones, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                panelPlano1.Visible = true;
+                panelPlano2.Visible = true;
+                panelPlano3.Visible = true;
+                panelAyudaVisual.Visible = true;
+            }
         }
 
         private void cerrar_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            ClaseCompartida.comanda = 0;
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("¿Esta seguro que quiere cerrar el turno?", "Cierre de turno", botones, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                panelPlano1.Visible = false;
+                panelPlano2.Visible = false;
+                panelPlano3.Visible = false;
+                panelAyudaVisual.Visible = false;
+            }
         }
 
         private void caja1_Click(object sender, EventArgs e)
@@ -255,6 +289,8 @@ namespace BAREST
         private void proveedores_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            Compras.Proveedores m = new Compras.Proveedores();
+            m.Show();
         }
 
         private void estadoCompras_Click(object sender, EventArgs e)
@@ -275,18 +311,11 @@ namespace BAREST
         private void button2_Click(object sender, EventArgs e)
         {
             esconderMenu();
-            Empleado em = new Empleado();
-            em.ShowDialog();
         }
 
         private void categorias_Click(object sender, EventArgs e)
         {
             esconderMenu();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void reservas_Click(object sender, EventArgs e)
@@ -295,7 +324,7 @@ namespace BAREST
             //openChilForm(new Reservas());
             BotonActivo(sender);
             Reservas m = new Reservas();
-            m.ShowDialog();
+            m.Show();
         }
 
         private void menu_Click(object sender, EventArgs e)
@@ -304,17 +333,7 @@ namespace BAREST
             BotonActivo(sender);
             // openChilForm(new Menu());
             Menu m = new Menu();
-            m.ShowDialog();
-        }
-
-        private void configuracion_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usuarioText_Click(object sender, EventArgs e)
-        {
-
+            m.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -362,9 +381,209 @@ namespace BAREST
             fechaLabel.Text = DateTime.Now.ToString("g");
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void mesas_Click(object sender, EventArgs e)
         {
+            if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114))
+            {
+                if (((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
+                {
+                    Button boton = sender as Button;
+                    Mesa1 m = new Mesa1();
+                    ClaseCompartida.Mesa = boton.Name;
+                    ClaseCompartida.mmm = 1;
+                    m.ShowDialog();
+                }
+                else
+                {
+                    Button boton = sender as Button;
 
+                    turno.Mozo m = new turno.Mozo();
+                    m.label7.Text = boton.Name;
+
+                    if (ClaseCompartida.usu == 0)
+                        m.ShowDialog();
+                    else
+                    {
+                        Mesa1 n = new Mesa1();
+                        n.ShowDialog();
+                    }
+
+                    if (ClaseCompartida.valor == 1)
+                        ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
+                }
+            }
+            else
+            {
+                if (move == false)
+                {
+                    ModoEditor n = new ModoEditor();
+                    Button boton = sender as Button;
+
+                    ClaseCompartida2.nombreM = boton.Name;
+                    n.ShowDialog();
+
+                    if (ClaseCompartida2.cancel == true)
+                    {
+                        ClaseCompartida2.cancel = false;
+                        return;
+                    }
+
+                    if (ClaseCompartida2.check == true)
+                    {
+                        panelPlano2.Controls.Remove((Button)sender);
+                        ClaseCompartida2.check = false;
+                    }
+                    else
+                    {
+                        boton.Name = ClaseCompartida2.nombreM2;
+                        boton.Text = ClaseCompartida2.nombreM2;
+                    }
+                }
+                move = false;
+                ClaseCompartida2.cancel = false;
+            }
+        }
+
+        //MENU CONTEXTUAL --------------------------------------------------------------------------
+
+        private Point MouseDownLocation;
+
+        private void MesasEditor_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                MouseDownLocation = e.Location;
+            }
+        }
+
+        bool move = false;
+        private void MesasEditor_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (panelPlano2.BackColor == Color.Black)
+            {
+                Button boton = sender as Button;
+                if (e.Button == System.Windows.Forms.MouseButtons.Left)
+                {
+                    boton.Left = e.X + boton.Left - MouseDownLocation.X;
+                    boton.Top = e.Y + boton.Top - MouseDownLocation.Y;
+                    move = true;
+                }
+            }
+        }
+
+        public static class ClaseCompartida2
+        {
+            public static string nombre = "";
+            public static bool check = false, cancel = false, cancel2 = false;
+            public static string nombreM = "", nombreM2 = "";
+        }
+
+        public int LocationX = 0, LocationY = 0;
+
+        private void modoEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelPlano1.BackColor = Color.Black;
+            panelPlano2.BackColor = Color.Black;
+            panelPlano3.BackColor = Color.Black;
+            label10.Text = "PLANO ADELANTE (MODO EDITOR)";
+        }
+
+        private void salirDelModoEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelPlano1.BackColor = Color.FromArgb(27, 111, 114);
+            panelPlano2.BackColor = Color.FromArgb(27, 111, 114);
+            panelPlano3.BackColor = Color.FromArgb(27, 111, 114);
+            label10.Text = "PLANO ADELANTE";
+        }
+
+        private void agregarMesaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Add();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114) && panelPlano1.BackColor == Color.FromArgb(27, 111, 114) && panelPlano3.BackColor == Color.FromArgb(27, 111, 114))
+            {
+                modoEditorToolStripMenuItem.Visible = true;
+                salirDelModoEditorToolStripMenuItem.Visible = false;
+                agregarMesaToolStripMenuItem.Visible = false;
+            }
+            else
+            {
+                salirDelModoEditorToolStripMenuItem.Visible = true;
+                agregarMesaToolStripMenuItem.Visible = true;
+                modoEditorToolStripMenuItem.Visible = false;
+            }
+
+            LocationX = Cursor.Position.X;
+            LocationY = Cursor.Position.Y;
+        }
+
+        private void Add()
+        {
+            AgregarMesa n = new AgregarMesa();
+            n.ShowDialog();
+
+            if (ClaseCompartida2.cancel == true)
+            {
+                ClaseCompartida2.cancel = false;
+                return;
+            }
+
+            if (panelPlano1.BackColor == Color.Black)
+            {
+                Button temp = new Button();
+
+                temp.Height = 40;
+                temp.Width = 40;
+                temp.Location = new Point(LocationX - 233, LocationY - 490);
+                temp.BackColor = Color.FromArgb(116, 199, 132);
+                temp.Text = ClaseCompartida2.nombre;
+                temp.Name = ClaseCompartida2.nombre;
+                temp.FlatStyle = FlatStyle.Flat;
+                temp.Click += mesas_Click; //DARLE EL METODO MESAS_CLICK
+                temp.MouseDown += MesasEditor_MouseDown;
+                temp.MouseMove += MesasEditor_MouseMove;
+
+                panelPlano1.Controls.Add(temp);
+            }
+            else
+            if (panelPlano2.BackColor == Color.Black)
+            {
+                Button temp = new Button();
+
+                temp.Height = 40;
+                temp.Width = 40;
+                temp.Location = new Point(LocationX - 197, LocationY - 52);
+                temp.BackColor = Color.FromArgb(116, 199, 132);
+                temp.Text = ClaseCompartida2.nombre;
+                temp.Name = ClaseCompartida2.nombre;
+                temp.FlatStyle = FlatStyle.Flat;
+                temp.Click += mesas_Click; //DARLE EL METODO MESAS_CLICK
+                temp.MouseDown += MesasEditor_MouseDown;
+                temp.MouseMove += MesasEditor_MouseMove;
+
+                panelPlano2.Controls.Add(temp);
+            }
+            else
+                if (panelPlano3.BackColor == Color.Black)
+            {
+                Button temp = new Button();
+
+                temp.Height = 40;
+                temp.Width = 40;
+                temp.Location = new Point(LocationX - 652, LocationY - 337);
+                temp.BackColor = Color.FromArgb(116, 199, 132);
+                temp.Text = ClaseCompartida2.nombre;
+                temp.Name = ClaseCompartida2.nombre;
+                temp.FlatStyle = FlatStyle.Flat;
+                temp.Click += mesas_Click; //DARLE EL METODO MESAS_CLICK
+                temp.MouseDown += MesasEditor_MouseDown;
+                temp.MouseMove += MesasEditor_MouseMove;
+
+                panelPlano3.Controls.Add(temp);
+            }
         }
     }
 }

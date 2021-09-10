@@ -1,0 +1,13 @@
+Duente de letra: AlexandriaFLF
+
+Color verde : 12; 132; 68
+Color verde (Nuevo?): 0; 128; 105; 255
+Color blanco : 241; 243; 244 
+Color dorado: 214; 155; 60
+
+Color Verde Plano: 27; 111; 114
+Color Verde Mesas: 116; 199; 132
+Color Rojo Mesas Ocupadas: 217; 96; 78
+
+
+

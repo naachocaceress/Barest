@@ -13,29 +13,23 @@ namespace BAREST
 {
     public partial class buscarUsuario : Form
     {
-        private SqlConnection Cone = new SqlConnection("Data Source=localhost; Initial Catalog=BaseBarest;Integrated Security=True");
         public buscarUsuario()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            Cone.Open();
+            Conexion.ObtenerConexion();
             string sql = "select p.nombre,p.apellido,p.telefono,p.fechaNacimiento,p.cuil,e.legajo,e.contraseña,e.cargo from Persona p Join Empleado e on e.idPersona = p.id where p.cuil= @nombre2";
-            SqlCommand comando = new SqlCommand(sql, Cone);
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@nombre2", SqlDbType.VarChar).Value = textNombre2.Text;
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
             {
                 
             }
-            Cone.Close();
+            Conexion.ObtenerConexion().Close();
         }
     }
 }

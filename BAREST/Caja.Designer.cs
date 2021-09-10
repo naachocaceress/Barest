@@ -30,18 +30,12 @@ namespace BAREST
         private void InitializeComponent()
         {
             this.upReservas = new System.Windows.Forms.Panel();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.cajaTitulo = new System.Windows.Forms.Label();
             this.upReservas.SuspendLayout();
             this.SuspendLayout();
             // 
             // upReservas
             // 
-            this.upReservas.Controls.Add(this.iconButton3);
-            this.upReservas.Controls.Add(this.iconButton2);
-            this.upReservas.Controls.Add(this.iconButton1);
             this.upReservas.Controls.Add(this.cajaTitulo);
             this.upReservas.Dock = System.Windows.Forms.DockStyle.Top;
             this.upReservas.Location = new System.Drawing.Point(0, 0);
@@ -49,55 +43,6 @@ namespace BAREST
             this.upReservas.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.upReservas.Size = new System.Drawing.Size(947, 26);
             this.upReservas.TabIndex = 7;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 24;
-            this.iconButton3.Location = new System.Drawing.Point(52, 0);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(26, 26);
-            this.iconButton3.TabIndex = 5;
-            this.iconButton3.UseVisualStyleBackColor = true;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(26, 0);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(26, 26);
-            this.iconButton2.TabIndex = 4;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 24;
-            this.iconButton1.Location = new System.Drawing.Point(0, 0);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(26, 26);
-            this.iconButton1.TabIndex = 3;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // cajaTitulo
             // 
@@ -109,6 +54,7 @@ namespace BAREST
             this.cajaTitulo.TabIndex = 6;
             this.cajaTitulo.Text = "Caja";
             this.cajaTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cajaTitulo.Click += new System.EventHandler(this.cajaTitulo_Click);
             // 
             // Caja
             // 
@@ -129,9 +75,6 @@ namespace BAREST
         #endregion
 
         private System.Windows.Forms.Panel upReservas;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label cajaTitulo;
     }
 }

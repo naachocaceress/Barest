@@ -33,12 +33,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelSalir = new System.Windows.Forms.Label();
+            this.tboxUsuario = new System.Windows.Forms.TextBox();
+            this.tboxContraseña = new System.Windows.Forms.TextBox();
+            this.panelMovimiento = new System.Windows.Forms.Panel();
+            this.labelOpciones = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tboxUsuario = new System.Windows.Forms.TextBox();
-            this.tboxContraseña = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,11 +48,11 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(34, 408);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(236, 33);
@@ -62,17 +64,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bauhaus 93", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
-            this.label1.Location = new System.Drawing.Point(28, 233);
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.label1.Location = new System.Drawing.Point(30, 233);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 36);
+            this.label1.Size = new System.Drawing.Size(248, 39);
             this.label1.TabIndex = 10;
             this.label1.Text = "INICIAR SESION";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.panel1.Location = new System.Drawing.Point(34, 321);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(236, 1);
@@ -80,15 +82,75 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.panel2.Location = new System.Drawing.Point(34, 380);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(236, 1);
             this.panel2.TabIndex = 14;
             // 
+            // labelSalir
+            // 
+            this.labelSalir.AutoSize = true;
+            this.labelSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.labelSalir.Location = new System.Drawing.Point(133, 481);
+            this.labelSalir.Name = "labelSalir";
+            this.labelSalir.Size = new System.Drawing.Size(40, 16);
+            this.labelSalir.TabIndex = 4;
+            this.labelSalir.Text = "Salir";
+            this.labelSalir.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // tboxUsuario
+            // 
+            this.tboxUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.tboxUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tboxUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tboxUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.tboxUsuario.Location = new System.Drawing.Point(66, 293);
+            this.tboxUsuario.Multiline = true;
+            this.tboxUsuario.Name = "tboxUsuario";
+            this.tboxUsuario.Size = new System.Drawing.Size(204, 25);
+            this.tboxUsuario.TabIndex = 1;
+            // 
+            // tboxContraseña
+            // 
+            this.tboxContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.tboxContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tboxContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tboxContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.tboxContraseña.Location = new System.Drawing.Point(65, 355);
+            this.tboxContraseña.Multiline = true;
+            this.tboxContraseña.Name = "tboxContraseña";
+            this.tboxContraseña.PasswordChar = '*';
+            this.tboxContraseña.Size = new System.Drawing.Size(204, 25);
+            this.tboxContraseña.TabIndex = 2;
+            this.tboxContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxContraseña_KeyPress);
+            // 
+            // panelMovimiento
+            // 
+            this.panelMovimiento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMovimiento.Location = new System.Drawing.Point(0, 0);
+            this.panelMovimiento.Name = "panelMovimiento";
+            this.panelMovimiento.Size = new System.Drawing.Size(308, 28);
+            this.panelMovimiento.TabIndex = 15;
+            this.panelMovimiento.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMovimiento_MouseMove);
+            // 
+            // labelOpciones
+            // 
+            this.labelOpciones.AutoSize = true;
+            this.labelOpciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelOpciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOpciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.labelOpciones.Location = new System.Drawing.Point(115, 454);
+            this.labelOpciones.Name = "labelOpciones";
+            this.labelOpciones.Size = new System.Drawing.Size(74, 16);
+            this.labelOpciones.TabIndex = 16;
+            this.labelOpciones.Text = "Opciones";
+            // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::BAREST.Properties.Resources.Candado_login;
+            this.pictureBox3.Image = global::BAREST.Properties.Resources.Candado_login1;
             this.pictureBox3.Location = new System.Drawing.Point(34, 349);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(25, 25);
@@ -98,7 +160,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::BAREST.Properties.Resources.Usuario_login1;
+            this.pictureBox2.Image = global::BAREST.Properties.Resources.Usuario_login2;
             this.pictureBox2.Location = new System.Drawing.Point(34, 290);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(25, 25);
@@ -108,7 +170,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BAREST.Properties.Resources.Barest;
+            this.pictureBox1.Image = global::BAREST.Properties.Resources.Barest__NUEVO_COLOR_1;
             this.pictureBox1.Location = new System.Drawing.Point(48, 22);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(211, 208);
@@ -116,56 +178,18 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
-            this.label2.Location = new System.Drawing.Point(131, 461);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 16);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Salir";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // tboxUsuario
-            // 
-            this.tboxUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.tboxUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tboxUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tboxUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
-            this.tboxUsuario.Location = new System.Drawing.Point(66, 293);
-            this.tboxUsuario.Multiline = true;
-            this.tboxUsuario.Name = "tboxUsuario";
-            this.tboxUsuario.Size = new System.Drawing.Size(204, 25);
-            this.tboxUsuario.TabIndex = 1;
-            this.tboxUsuario.TextChanged += new System.EventHandler(this.tboxUsuario_TextChanged);
-            // 
-            // tboxContraseña
-            // 
-            this.tboxContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.tboxContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tboxContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tboxContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(132)))), ((int)(((byte)(68)))));
-            this.tboxContraseña.Location = new System.Drawing.Point(65, 355);
-            this.tboxContraseña.Multiline = true;
-            this.tboxContraseña.Name = "tboxContraseña";
-            this.tboxContraseña.PasswordChar = '*';
-            this.tboxContraseña.Size = new System.Drawing.Size(204, 25);
-            this.tboxContraseña.TabIndex = 2;
-            this.tboxContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxContraseña_KeyPress);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(308, 494);
+            this.ClientSize = new System.Drawing.Size(308, 506);
+            this.Controls.Add(this.labelOpciones);
+            this.Controls.Add(this.panelMovimiento);
             this.Controls.Add(this.tboxContraseña);
             this.Controls.Add(this.tboxUsuario);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelSalir);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel1);
@@ -197,9 +221,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelSalir;
         private System.Windows.Forms.TextBox tboxUsuario;
         private System.Windows.Forms.TextBox tboxContraseña;
+        private System.Windows.Forms.Panel panelMovimiento;
+        private System.Windows.Forms.Label labelOpciones;
     }
 }
 

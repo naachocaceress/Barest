@@ -67,7 +67,7 @@ namespace BAREST.Configuracion
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BAREST.Properties.Resources.Barest;
+            this.pictureBox1.Image = global::BAREST.Properties.Resources.Barest__NUEVO_COLOR_1;
             this.pictureBox1.Location = new System.Drawing.Point(625, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(116, 64);
@@ -78,10 +78,10 @@ namespace BAREST.Configuracion
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(45, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 43);
+            this.label1.Size = new System.Drawing.Size(161, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "BAREST";
             // 
@@ -93,8 +93,8 @@ namespace BAREST.Configuracion
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(223, 72);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Barest 2021\r\nVersion Beta 0.8\r\n© 2021 Grupo Barest.\r\nTodos los derechos reservado" +
-    "s.";
+            this.label2.Text = "Barest 2021\r\nVersion Beta 1.6.4\r\n© 2021 Grupo Barest.\r\nTodos los derechos reserva" +
+    "dos.";
             // 
             // label3
             // 
@@ -105,7 +105,6 @@ namespace BAREST.Configuracion
             this.label3.Size = new System.Drawing.Size(717, 72);
             this.label3.TabIndex = 2;
             this.label3.Text = resources.GetString("label3.Text");
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 

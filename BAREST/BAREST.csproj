@@ -33,11 +33,47 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\..\..\..\..\Documents\Visual Studio 2019\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.svg.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -55,6 +91,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseBarestDataSet.cs">
+      <DependentUpon>BaseBarestDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BaseBarestDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseBarestDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="buscarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,10 +117,23 @@
     <Compile Include="Compras\Insumos.Designer.cs">
       <DependentUpon>Insumos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuracion.cs">
+    <Compile Include="Compras\listadoProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuracion.Designer.cs">
+    <Compile Include="Compras\listadoProveedor.Designer.cs">
+      <DependentUpon>listadoProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\Proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\Proveedores.Designer.cs">
+      <DependentUpon>Proveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conexion.cs" />
+    <Compile Include="Configuracion\Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Configuracion.Designer.cs">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuracion\Acerca de.cs">
@@ -85,28 +142,69 @@
     <Compile Include="Configuracion\Acerca de.Designer.cs">
       <DependentUpon>Acerca de.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuracion\Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuracion\Diseño.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Configuracion\Diseño.Designer.cs">
       <DependentUpon>Diseño.cs</DependentUpon>
     </Compile>
-    <Compile Include="Empleado.cs">
+    <Compile Include="Configuracion\listadoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Empleado.Designer.cs">
-      <DependentUpon>Empleado.cs</DependentUpon>
+    <Compile Include="Configuracion\listadoCliente.Designer.cs">
+      <DependentUpon>listadoCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva\ingresarReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="Reserva\ingresarReserva.Designer.cs">
+      <DependentUpon>ingresarReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\listadoMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\listadoMenu.Designer.cs">
+      <DependentUpon>listadoMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reservas.cs">
+    <Compile Include="Turno\AgregarMesa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reservas.Designer.cs">
+    <Compile Include="Turno\AgregarMesa.Designer.cs">
+      <DependentUpon>AgregarMesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Turno\ModoEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turno\ModoEditor.Designer.cs">
+      <DependentUpon>ModoEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Turno\Mesa1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turno\Mesa1.Designer.cs">
+      <DependentUpon>Mesa1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva\Reservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserva\Reservas.Designer.cs">
       <DependentUpon>Reservas.cs</DependentUpon>
     </Compile>
     <Compile Include="Caja.cs">
@@ -135,6 +233,12 @@
     <Compile Include="Configuracion\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Turno\Mozo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turno\Mozo.Designer.cs">
+      <DependentUpon>Mozo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="buscarUsuario.resx">
       <DependentUpon>buscarUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,22 +248,43 @@
     <EmbeddedResource Include="Compras\Insumos.resx">
       <DependentUpon>Insumos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuracion.resx">
+    <EmbeddedResource Include="Compras\listadoProveedor.resx">
+      <DependentUpon>listadoProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\Proveedores.resx">
+      <DependentUpon>Proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\Acerca de.resx">
       <DependentUpon>Acerca de.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\Diseño.resx">
       <DependentUpon>Diseño.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Empleado.resx">
-      <DependentUpon>Empleado.cs</DependentUpon>
+    <EmbeddedResource Include="Configuracion\listadoCliente.resx">
+      <DependentUpon>listadoCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="Reserva\ingresarReserva.resx">
+      <DependentUpon>ingresarReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\listadoMenu.resx">
+      <DependentUpon>listadoMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reservas.resx">
+    <EmbeddedResource Include="Turno\AgregarMesa.resx">
+      <DependentUpon>AgregarMesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turno\Mesa1.resx">
+      <DependentUpon>Mesa1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserva\Reservas.resx">
       <DependentUpon>Reservas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Caja.resx">
@@ -173,17 +298,29 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Configuracion\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Turno\ModoEditor.resx">
+      <DependentUpon>ModoEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turno\Mozo.resx">
+      <DependentUpon>Mozo.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="BaseBarestDataSet.xsc">
+      <DependentUpon>BaseBarestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BaseBarestDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BaseBarestDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BaseBarestDataSet.xss">
+      <DependentUpon>BaseBarestDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -202,82 +339,34 @@
     <None Include="Resources\Barest.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dbc57b7afeed83e858137b975af91b3f.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\caja.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\compras.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ventas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\menui.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reportes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\estadisticas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\usuarios.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\configuracion.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Usuario login.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Usuario login1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Candado login.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lista.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cerrar %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minimizar %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minimizar %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\restaurar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Vidon bar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\descarga.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\El lugar de la buena vida.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Vidon Barest Marca de agua.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BannerVidon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Banner Vidon 2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Banner Vidon 3.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\instagram.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\linkediln.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ayuda visual, mesas colores3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuario login2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Candado login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Banner Vidon 31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barest %28NUEVO COLOR%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barest Marca de agua año.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
