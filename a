@@ -1,0 +1,29 @@
+[33mcommit d3a7d4c825c559116b90c198b9d1ce78a372a466[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Nacho <naachocaceress@gmail.com>
+Date:   Tue May 11 02:08:45 2021 -0300
+
+    Beta 0.5 - Interfaz de Configuracion/Usuarios lista
+
+[33mcommit cc9f002c53f8ee7def5310019caa45187957d1b5[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Nacho <naachocaceress@gmail.com>
+Date:   Fri Apr 30 04:44:19 2021 -0300
+
+    Beta 0.4 - Mejorado interfaz Menu y Submenu / Inicio interfaz Reservas
+
+[33mcommit 4cf59453ef1937041b582f6494194dc9d16df4f9[m
+Author: Nacho <naachocaceress@gmail.com>
+Date:   Wed Apr 28 03:19:52 2021 -0300
+
+    Beta 0.3 - Terminado interfaz de Menu y SubMenu
+
+[33mcommit 2c3c37208f8c9fd55cbc7f1ac696ccb8cdf5db8d[m
+Author: Nacho <naachocaceress@gmail.com>
+Date:   Tue Apr 27 06:03:56 2021 -0300
+
+    V 0.2 - Terminado la interfaz del Login y la primera parte del Inicio
+
+[33mcommit 78a4ba933d9de962b29fa9ba3f0b294fefbecb7c[m
+Author: Nacho <naachocaceress@gmail.com>
+Date:   Mon Apr 26 20:52:00 2021 -0300
+
+    V1 - Login
