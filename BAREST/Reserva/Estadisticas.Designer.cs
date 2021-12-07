@@ -42,13 +42,14 @@ namespace BAREST.Reserva
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(13, 13);
+            this.chart1.Location = new System.Drawing.Point(13, 12);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(775, 425);
+            this.chart1.Size = new System.Drawing.Size(641, 426);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -60,6 +61,7 @@ namespace BAREST.Reserva
             this.Controls.Add(this.chart1);
             this.Name = "Estadisticas";
             this.Text = "Estadisticas";
+            this.Load += new System.EventHandler(this.Estadisticas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 

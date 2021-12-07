@@ -1,4 +1,5 @@
-﻿using iText.IO.Font.Constants;
+﻿using BAREST.Reserva;
+using iText.IO.Font.Constants;
 using iText.IO.Image;
 using iText.Kernel.Font;
 using iText.Kernel.Geom;
@@ -302,7 +303,8 @@ namespace BAREST
 
         private void btnEstadisticas_Click(object sender, EventArgs e)
         {
-
+            Estadisticas i = new Estadisticas();
+            i.ShowDialog();
         }
     }
 }
