@@ -79,5 +79,11 @@ namespace BAREST
             ActivateButton(sender, Color.FromArgb(214, 155, 60));
             openChilForm(new Acerca_de());
         }
+
+        private void Reservas_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(214, 155, 60));
+            openChilForm(new ReservasConfig());
+        }
     }
 }

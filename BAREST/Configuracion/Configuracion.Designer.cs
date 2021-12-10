@@ -35,6 +35,7 @@ namespace BAREST
             this.usuariosBtn = new FontAwesome.Sharp.IconButton();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Reservas = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,6 +47,7 @@ namespace BAREST
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMenu.Controls.Add(this.acercaDe);
             this.panelMenu.Controls.Add(this.disenioBtn);
+            this.panelMenu.Controls.Add(this.Reservas);
             this.panelMenu.Controls.Add(this.usuariosBtn);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -66,7 +68,7 @@ namespace BAREST
             this.acercaDe.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.acercaDe.IconSize = 1;
             this.acercaDe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.acercaDe.Location = new System.Drawing.Point(0, 96);
+            this.acercaDe.Location = new System.Drawing.Point(0, 144);
             this.acercaDe.Name = "acercaDe";
             this.acercaDe.Size = new System.Drawing.Size(170, 48);
             this.acercaDe.TabIndex = 10;
@@ -88,7 +90,7 @@ namespace BAREST
             this.disenioBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.disenioBtn.IconSize = 1;
             this.disenioBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.disenioBtn.Location = new System.Drawing.Point(0, 48);
+            this.disenioBtn.Location = new System.Drawing.Point(0, 96);
             this.disenioBtn.Name = "disenioBtn";
             this.disenioBtn.Size = new System.Drawing.Size(170, 48);
             this.disenioBtn.TabIndex = 9;
@@ -139,6 +141,28 @@ namespace BAREST
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // Reservas
+            // 
+            this.Reservas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.Reservas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Reservas.FlatAppearance.BorderSize = 0;
+            this.Reservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Reservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Reservas.ForeColor = System.Drawing.Color.Black;
+            this.Reservas.IconChar = FontAwesome.Sharp.IconChar._500Px;
+            this.Reservas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Reservas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Reservas.IconSize = 1;
+            this.Reservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Reservas.Location = new System.Drawing.Point(0, 48);
+            this.Reservas.Name = "Reservas";
+            this.Reservas.Size = new System.Drawing.Size(170, 48);
+            this.Reservas.TabIndex = 11;
+            this.Reservas.Text = "       Reservas              >";
+            this.Reservas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Reservas.UseVisualStyleBackColor = false;
+            this.Reservas.Click += new System.EventHandler(this.Reservas_Click);
+            // 
             // configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,5 +191,6 @@ namespace BAREST
         private FontAwesome.Sharp.IconButton acercaDe;
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton Reservas;
     }
 }

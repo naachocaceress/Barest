@@ -90,6 +90,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Transitions, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\dot-net-transitions.1.2.1.0\lib\net40-full\Transitions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBarestDataSet.cs">
@@ -166,6 +169,12 @@
     </Compile>
     <Compile Include="Configuracion\listadoCliente.Designer.cs">
       <DependentUpon>listadoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\ReservasConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\ReservasConfig.Designer.cs">
+      <DependentUpon>ReservasConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -302,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\listadoCliente.resx">
       <DependentUpon>listadoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\ReservasConfig.resx">
+      <DependentUpon>ReservasConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reserva\Estadisticas.resx">
       <DependentUpon>Estadisticas.cs</DependentUpon>

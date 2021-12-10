@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+using Transitions;
 using static BAREST.Reservas;
 
 namespace BAREST
@@ -82,6 +78,7 @@ namespace BAREST
 
         private void ingresarReserva_Load(object sender, EventArgs e)
         {
+            notificacion.Visible = false;
             if (ClaseCompartida.Insum3 == "")
             {
              //   cargarComboMesa();
@@ -140,6 +137,31 @@ namespace BAREST
         private void EliminarInsu_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cerrarLbl_Click(object sender, EventArgs e)
+        {
+            notificacion.Visible = false;
+        }
+
+        private void textPosicion_TextChanged(object sender, EventArgs e)
+        {
+            if (textPosicion.Text == "Jardin")
+            {
+                notiLbl.Text = "Ya hay reservas en Jardin";
+                notificacion.Visible = true;
+
+                Transition t = new Transition(new TransitionType_Acceleration(0700));
+                t.add(notificacion, "Top", 222);
+                t.run();
+            }
+            else
+            {
+                Transition t = new Transition(new TransitionType_Acceleration(0100));
+                t.add(notificacion, "Top", 232);
+                t.run();
+                notificacion.Visible = false;
+            }
         }
     }
 }

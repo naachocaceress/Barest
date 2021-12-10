@@ -50,7 +50,6 @@ namespace BAREST
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.fechaLabel = new System.Windows.Forms.Label();
-            this.hoyEs = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnAnteriorMes = new System.Windows.Forms.Button();
             this.btnActualMes = new System.Windows.Forms.Button();
@@ -61,6 +60,7 @@ namespace BAREST
             this.btnEliminarRes = new FontAwesome.Sharp.IconButton();
             this.btnModificar = new FontAwesome.Sharp.IconButton();
             this.btnAnuRecu = new FontAwesome.Sharp.IconButton();
+            this.limiteReservas = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaReservas)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -76,7 +76,7 @@ namespace BAREST
             this.panel1.Controls.Add(this.btnModificar);
             this.panel1.Controls.Add(this.btnAnuRecu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 447);
+            this.panel1.Location = new System.Drawing.Point(0, 463);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(942, 50);
             this.panel1.TabIndex = 1;
@@ -96,7 +96,7 @@ namespace BAREST
             this.NumeroTel,
             this.Comentarios,
             this.Estado});
-            this.tablaReservas.Location = new System.Drawing.Point(12, 192);
+            this.tablaReservas.Location = new System.Drawing.Point(12, 208);
             this.tablaReservas.Name = "tablaReservas";
             this.tablaReservas.ReadOnly = true;
             this.tablaReservas.Size = new System.Drawing.Size(924, 249);
@@ -164,13 +164,14 @@ namespace BAREST
             // monthCalendar1
             // 
             this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(2, 1);
-            this.monthCalendar1.Location = new System.Drawing.Point(436, 9);
+            this.monthCalendar1.Location = new System.Drawing.Point(436, 34);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
+            this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(104, 97);
+            this.btnBuscar.Location = new System.Drawing.Point(104, 99);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 4;
@@ -187,7 +188,7 @@ namespace BAREST
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(53, 60);
+            this.dateTimePicker2.Location = new System.Drawing.Point(53, 62);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(215, 20);
             this.dateTimePicker2.TabIndex = 8;
@@ -204,7 +205,7 @@ namespace BAREST
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 66);
+            this.label2.Location = new System.Drawing.Point(6, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 10;
@@ -217,9 +218,9 @@ namespace BAREST
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Location = new System.Drawing.Point(15, 35);
+            this.groupBox1.Location = new System.Drawing.Point(15, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(278, 130);
+            this.groupBox1.Size = new System.Drawing.Size(278, 134);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda";
@@ -228,23 +229,13 @@ namespace BAREST
             // 
             this.fechaLabel.AutoSize = true;
             this.fechaLabel.BackColor = System.Drawing.Color.Transparent;
-            this.fechaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaLabel.ForeColor = System.Drawing.Color.Black;
-            this.fechaLabel.Location = new System.Drawing.Point(75, 9);
+            this.fechaLabel.Location = new System.Drawing.Point(12, 9);
             this.fechaLabel.Name = "fechaLabel";
-            this.fechaLabel.Size = new System.Drawing.Size(76, 16);
+            this.fechaLabel.Size = new System.Drawing.Size(86, 16);
             this.fechaLabel.TabIndex = 12;
             this.fechaLabel.Text = "aa/bb/cccc";
-            // 
-            // hoyEs
-            // 
-            this.hoyEs.AutoSize = true;
-            this.hoyEs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hoyEs.Location = new System.Drawing.Point(12, 9);
-            this.hoyEs.Name = "hoyEs";
-            this.hoyEs.Size = new System.Drawing.Size(57, 16);
-            this.hoyEs.TabIndex = 13;
-            this.hoyEs.Text = "Hoy es: ";
             // 
             // timer1
             // 
@@ -252,7 +243,7 @@ namespace BAREST
             // 
             // btnAnteriorMes
             // 
-            this.btnAnteriorMes.Location = new System.Drawing.Point(325, 51);
+            this.btnAnteriorMes.Location = new System.Drawing.Point(325, 63);
             this.btnAnteriorMes.Name = "btnAnteriorMes";
             this.btnAnteriorMes.Size = new System.Drawing.Size(83, 23);
             this.btnAnteriorMes.TabIndex = 14;
@@ -262,7 +253,7 @@ namespace BAREST
             // 
             // btnActualMes
             // 
-            this.btnActualMes.Location = new System.Drawing.Point(325, 91);
+            this.btnActualMes.Location = new System.Drawing.Point(325, 103);
             this.btnActualMes.Name = "btnActualMes";
             this.btnActualMes.Size = new System.Drawing.Size(83, 23);
             this.btnActualMes.TabIndex = 15;
@@ -272,7 +263,7 @@ namespace BAREST
             // 
             // btnHoy
             // 
-            this.btnHoy.Location = new System.Drawing.Point(325, 132);
+            this.btnHoy.Location = new System.Drawing.Point(325, 144);
             this.btnHoy.Name = "btnHoy";
             this.btnHoy.Size = new System.Drawing.Size(83, 23);
             this.btnHoy.TabIndex = 16;
@@ -406,16 +397,28 @@ namespace BAREST
             this.btnAnuRecu.UseVisualStyleBackColor = true;
             this.btnAnuRecu.Click += new System.EventHandler(this.btnAnuRecu_Click);
             // 
+            // limiteReservas
+            // 
+            this.limiteReservas.AutoSize = true;
+            this.limiteReservas.BackColor = System.Drawing.Color.Transparent;
+            this.limiteReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.limiteReservas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.limiteReservas.Location = new System.Drawing.Point(749, 9);
+            this.limiteReservas.Name = "limiteReservas";
+            this.limiteReservas.Size = new System.Drawing.Size(187, 16);
+            this.limiteReservas.TabIndex = 17;
+            this.limiteReservas.Text = "Limite de reservas de hoy\r\n";
+            // 
             // Reservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(942, 497);
+            this.ClientSize = new System.Drawing.Size(942, 513);
+            this.Controls.Add(this.limiteReservas);
             this.Controls.Add(this.btnHoy);
             this.Controls.Add(this.btnActualMes);
             this.Controls.Add(this.btnAnteriorMes);
-            this.Controls.Add(this.hoyEs);
             this.Controls.Add(this.fechaLabel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.monthCalendar1);
@@ -453,7 +456,6 @@ namespace BAREST
         private FontAwesome.Sharp.IconButton btnModificar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label fechaLabel;
-        private System.Windows.Forms.Label hoyEs;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnAnteriorMes;
         private System.Windows.Forms.Button btnActualMes;
@@ -469,5 +471,6 @@ namespace BAREST
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private FontAwesome.Sharp.IconButton btnEstadisticas;
         private FontAwesome.Sharp.IconButton btnEliminarRes;
+        private System.Windows.Forms.Label limiteReservas;
     }
 }

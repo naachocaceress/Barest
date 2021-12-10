@@ -38,7 +38,7 @@ namespace BAREST.Compras
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textNombre = new System.Windows.Forms.TextBox();
-            this.textRazon = new System.Windows.Forms.TextBox();
+            this.textEmpresa = new System.Windows.Forms.TextBox();
             this.textTel = new System.Windows.Forms.TextBox();
             this.textcalle = new System.Windows.Forms.TextBox();
             this.textLocalidad = new System.Windows.Forms.TextBox();
@@ -58,7 +58,7 @@ namespace BAREST.Compras
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textAltura = new System.Windows.Forms.TextBox();
+            this.textNro = new System.Windows.Forms.TextBox();
             this.textPiso = new System.Windows.Forms.TextBox();
             this.textDepto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -194,12 +194,12 @@ namespace BAREST.Compras
             this.textNombre.Size = new System.Drawing.Size(153, 20);
             this.textNombre.TabIndex = 1;
             // 
-            // textRazon
+            // textEmpresa
             // 
-            this.textRazon.Location = new System.Drawing.Point(15, 77);
-            this.textRazon.Name = "textRazon";
-            this.textRazon.Size = new System.Drawing.Size(153, 20);
-            this.textRazon.TabIndex = 2;
+            this.textEmpresa.Location = new System.Drawing.Point(15, 77);
+            this.textEmpresa.Name = "textEmpresa";
+            this.textEmpresa.Size = new System.Drawing.Size(153, 20);
+            this.textEmpresa.TabIndex = 2;
             // 
             // textTel
             // 
@@ -313,7 +313,7 @@ namespace BAREST.Compras
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textAltura);
+            this.groupBox1.Controls.Add(this.textNro);
             this.groupBox1.Controls.Add(this.textPiso);
             this.groupBox1.Controls.Add(this.textDepto);
             this.groupBox1.Controls.Add(this.label5);
@@ -378,12 +378,12 @@ namespace BAREST.Compras
             this.label9.TabIndex = 16;
             this.label9.Text = "Piso:";
             // 
-            // textAltura
+            // textNro
             // 
-            this.textAltura.Location = new System.Drawing.Point(64, 46);
-            this.textAltura.Name = "textAltura";
-            this.textAltura.Size = new System.Drawing.Size(51, 20);
-            this.textAltura.TabIndex = 7;
+            this.textNro.Location = new System.Drawing.Point(64, 46);
+            this.textNro.Name = "textNro";
+            this.textNro.Size = new System.Drawing.Size(51, 20);
+            this.textNro.TabIndex = 7;
             // 
             // textPiso
             // 
@@ -434,7 +434,7 @@ namespace BAREST.Compras
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textTel);
-            this.Controls.Add(this.textRazon);
+            this.Controls.Add(this.textEmpresa);
             this.Controls.Add(this.textNombre);
             this.Controls.Add(this.tablaProveedores);
             this.Controls.Add(this.panel1);
@@ -465,7 +465,7 @@ namespace BAREST.Compras
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.TextBox textNombre;
-        private System.Windows.Forms.TextBox textRazon;
+        private System.Windows.Forms.TextBox textEmpresa;
         private System.Windows.Forms.TextBox textTel;
         private System.Windows.Forms.TextBox textcalle;
         private System.Windows.Forms.TextBox textLocalidad;
@@ -480,7 +480,7 @@ namespace BAREST.Compras
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textAltura;
+        private System.Windows.Forms.TextBox textNro;
         private System.Windows.Forms.TextBox textPiso;
         private System.Windows.Forms.TextBox textDepto;
         private System.Windows.Forms.Label label8;

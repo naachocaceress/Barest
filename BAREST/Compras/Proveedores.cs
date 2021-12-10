@@ -30,7 +30,7 @@ namespace BAREST.Compras
                 MessageBox.Show("Ya existe un proveedor con el nombre ingresado ");
                 return;
             }
-            if (textRazon.Text=="")
+            if (textEmpresa.Text=="")
             {
                 MessageBox.Show("Falta ingresar la descripcion del proveedor ");
                 return;
@@ -45,7 +45,7 @@ namespace BAREST.Compras
                 MessageBox.Show("Falta ingresar la calle del proveedor ");
                 return;
             }
-            if (textAltura.Text == "")
+            if (textNro.Text == "")
             {
                 MessageBox.Show("Falta ingresar la altura del proveedor ");
                 return;
@@ -53,16 +53,16 @@ namespace BAREST.Compras
             else
             {
                 Conexion.ObtenerConexion();
-                string sql = " insert into Proveedor (NombreProveedor,Razon,telefono,domicilio,altura,depto,piso,codPostal,localidad,Provincia) values (@nomProv,@razon,@tel,@dom,@altura,@dept,@piso, @codpost, @localidad, @provi) ";
+                string sql = " insert into Proveedor(nombre,empresa,telefono,calle,nro,depto,piso,codPostal,localidad,provincia) values (@nom, @empresa, @tel, @calle, @nro, @dept, @piso, @codpost, @localidad, @provi) ";
                 SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                comando.Parameters.Add("@NomProv", SqlDbType.VarChar).Value = textNombre.Text;
-                comando.Parameters.Add("@razon", SqlDbType.VarChar).Value = textRazon.Text;
-                comando.Parameters.Add("@tel", SqlDbType.NChar).Value = textTel.Text;
-                comando.Parameters.Add("@dom", SqlDbType.NChar).Value = textcalle.Text;
-                comando.Parameters.Add("@altura", SqlDbType.NChar).Value = textAltura.Text;
-                comando.Parameters.Add("@dept", SqlDbType.NChar).Value = textDepto.Text;
-                comando.Parameters.Add("@piso", SqlDbType.NChar).Value = textPiso.Text;
-                comando.Parameters.Add("@codpost", SqlDbType.NChar).Value = textCodP.Text;
+                comando.Parameters.Add("@Nom", SqlDbType.VarChar).Value = textNombre.Text;
+                comando.Parameters.Add("@empresa", SqlDbType.VarChar).Value = textEmpresa.Text;
+                comando.Parameters.Add("@tel", SqlDbType.VarChar).Value = textTel.Text;
+                comando.Parameters.Add("@calle", SqlDbType.VarChar).Value = textcalle.Text;
+                comando.Parameters.Add("@nro", SqlDbType.VarChar).Value = textNro.Text;
+                comando.Parameters.Add("@dept", SqlDbType.VarChar).Value = textDepto.Text;
+                comando.Parameters.Add("@piso", SqlDbType.VarChar).Value = textPiso.Text;
+                comando.Parameters.Add("@codpost", SqlDbType.VarChar).Value = textCodP.Text;
                 comando.Parameters.Add("@localidad", SqlDbType.VarChar).Value = textLocalidad.Text;
                 comando.Parameters.Add("@provi", SqlDbType.VarChar).Value = textProv.Text;
                 comando.ExecuteNonQuery();
@@ -72,10 +72,10 @@ namespace BAREST.Compras
                 textCodP.Text = " ";
                 textcalle.Text = " ";
                 textDepto.Text = " ";
-                textAltura.Text = " ";
+                textNro.Text = " ";
                 textPiso.Text = " ";
                 textNombre.Text = " ";
-                textRazon.Text = " ";
+                textEmpresa.Text = " ";
                 textTel.Text = " ";
                 Conexion.ObtenerConexion().Close();
                 cargarGrilla();
@@ -85,13 +85,13 @@ namespace BAREST.Compras
         private void cargarGrilla()
         {
             Conexion.ObtenerConexion();
-            string sql = "select NombreProveedor,telefono from Proveedor";
+            string sql = "select nombre,telefono from Proveedor";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             tablaProveedores.Rows.Clear();
             while (registros.Read())
             {
-                tablaProveedores.Rows.Add(registros["NombreProveedor"].ToString(), registros["telefono"].ToString());
+                tablaProveedores.Rows.Add(registros["nombre"].ToString(), registros["telefono"].ToString());
             }
             registros.Close();
             Conexion.ObtenerConexion().Close();
@@ -99,7 +99,7 @@ namespace BAREST.Compras
         bool existeProveedor()
         {
             Conexion.ObtenerConexion();
-            String sql = " select * from Proveedor where NombreProveedor= @nom";
+            String sql = " select * from Proveedor where nombre= @nom";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@nom", SqlDbType.Char).Value = textNombre.Text;
             bool existe = false;
@@ -138,7 +138,7 @@ namespace BAREST.Compras
                 string Insum = "";
                 Insum = tablaProveedores.Rows[tablaProveedores.CurrentRow.Index].Cells["Nombre"].Value.ToString();
                 Conexion.ObtenerConexion();
-                string sql = "delete  from Proveedores where NombreProveedor = @nombre";
+                string sql = "delete  from Proveedor where nombre = @nombre";
                 SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.AddWithValue("@nombre", Insum);
                 comando.ExecuteNonQuery();
@@ -153,17 +153,17 @@ namespace BAREST.Compras
             String ProvSelect = " ";
             ProvSelect = tablaProveedores.Rows[tablaProveedores.CurrentRow.Index].Cells["Nombre"].Value.ToString();
             Conexion.ObtenerConexion();
-            string sql = "select NombreProveedor,Razon,telefono,domicilio,altura,depto,piso,codPostal,localidad,Provincia from Proveedores where NombreProveedor =@nombre";
+            string sql = "select nombre,empresa,telefono,calle,nro,depto,piso,codPostal,localidad,provincia from Proveedor where nombre =@nombre";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.AddWithValue("@nombre", ProvSelect);
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
             {
-                textNombre.Text = leido["NombreProveedor"].ToString();
-                textRazon.Text = leido["Razon"].ToString();
+                textNombre.Text = leido["nombre"].ToString();
+                textEmpresa.Text = leido["empresa"].ToString();
                 textTel.Text = leido["telefono"].ToString();
-                textcalle.Text = leido["domicilio"].ToString();
-                textAltura.Text = leido["altura"].ToString();
+                textcalle.Text = leido["calle"].ToString();
+                textNro.Text = leido["nro"].ToString();
                 textDepto.Text = leido["depto"].ToString();
                 textPiso.Text = leido["piso"].ToString();
                 textCodP.Text = leido["codPostal"].ToString();
@@ -178,30 +178,30 @@ namespace BAREST.Compras
         void modificarProveedores()
         {
             Conexion.ObtenerConexion();
-            String sql = "update Proveedores set NombreProveedor = @nomPro, Razon = @razon, telefono = @tel, domicilio = @dom, altura = @altura, depto = @depto, piso = @piso, codPostal = @codPost, localidad = @localidad, Provincia = @Prov ";
+            String sql = "update Proveedor set nombre= @nom, empresa= @empresa, telefono= @tel, calle= @calle, nro= @nro, depto= @depto, piso= @piso, codPostal= @codPost, localidad= @localidad, provincia= @Prov where nombre=@nom ";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            comando.Parameters.Add("@NomProv", SqlDbType.VarChar).Value = textNombre.Text;
-            comando.Parameters.Add("@NomEmp", SqlDbType.VarChar).Value = textRazon.Text;
-            comando.Parameters.Add("@tel", SqlDbType.NChar).Value = textTel.Text;
-            comando.Parameters.Add("@dom", SqlDbType.NChar).Value = textcalle.Text;
-            comando.Parameters.Add("@altura", SqlDbType.NChar).Value = textAltura.Text;
-            comando.Parameters.Add("@dept", SqlDbType.NChar).Value = textDepto.Text;
-            comando.Parameters.Add("@piso", SqlDbType.NChar).Value = textPiso.Text;
-            comando.Parameters.Add("@codpost", SqlDbType.NChar).Value = textCodP.Text;
+            comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textNombre.Text;
+            comando.Parameters.Add("@empresa", SqlDbType.VarChar).Value = textEmpresa.Text;
+            comando.Parameters.Add("@tel", SqlDbType.VarChar).Value = textTel.Text;
+            comando.Parameters.Add("@calle", SqlDbType.VarChar).Value = textcalle.Text;
+            comando.Parameters.Add("@nro", SqlDbType.VarChar).Value = textNro.Text;
+            comando.Parameters.Add("@dept", SqlDbType.VarChar).Value = textDepto.Text;
+            comando.Parameters.Add("@piso", SqlDbType.VarChar).Value = textPiso.Text;
+            comando.Parameters.Add("@codpost", SqlDbType.VarChar).Value = textCodP.Text;
             comando.Parameters.Add("@localidad", SqlDbType.VarChar).Value = textLocalidad.Text;
             comando.Parameters.Add("@provi", SqlDbType.VarChar).Value = textProv.Text;
 
-            Conexion.ObtenerConexion().Close();
+
             MessageBox.Show("Se cambiaron los datos el proveedor " + textNombre.Text + " correctamente");
             textProv.Text = " ";
             textLocalidad.Text = " ";
             textCodP.Text = " ";
             textcalle.Text = " ";
             textDepto.Text = " ";
-            textAltura.Text = " ";
+            textNro.Text = " ";
             textPiso.Text = " ";
             textNombre.Text = " ";
-            textRazon.Text = " ";
+            textEmpresa.Text = " ";
             textTel.Text = " ";
             Conexion.ObtenerConexion().Close();
             cargarGrilla();
