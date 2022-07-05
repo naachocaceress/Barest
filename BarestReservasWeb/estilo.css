@@ -1,0 +1,13 @@
+﻿.padre {
+    display: flex;
+    justify-content: center;
+}
+
+.hijo {
+    padding: 10px;
+    margin: 10px;
+}
+
+.mGrid {
+
+}
