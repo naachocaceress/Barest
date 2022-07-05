@@ -31,6 +31,12 @@ namespace BAREST
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEstadisticas = new FontAwesome.Sharp.IconButton();
+            this.btnImprimir = new FontAwesome.Sharp.IconButton();
+            this.btnAgregarRes = new FontAwesome.Sharp.IconButton();
+            this.btnEliminarRes = new FontAwesome.Sharp.IconButton();
+            this.btnModificar = new FontAwesome.Sharp.IconButton();
+            this.btnAnuRecu = new FontAwesome.Sharp.IconButton();
             this.tablaReservas = new System.Windows.Forms.DataGridView();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,12 +60,6 @@ namespace BAREST
             this.btnAnteriorMes = new System.Windows.Forms.Button();
             this.btnActualMes = new System.Windows.Forms.Button();
             this.btnHoy = new System.Windows.Forms.Button();
-            this.btnEstadisticas = new FontAwesome.Sharp.IconButton();
-            this.btnImprimir = new FontAwesome.Sharp.IconButton();
-            this.btnAgregarRes = new FontAwesome.Sharp.IconButton();
-            this.btnEliminarRes = new FontAwesome.Sharp.IconButton();
-            this.btnModificar = new FontAwesome.Sharp.IconButton();
-            this.btnAnuRecu = new FontAwesome.Sharp.IconButton();
             this.limiteReservas = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaReservas)).BeginInit();
@@ -80,6 +80,132 @@ namespace BAREST
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(942, 50);
             this.panel1.TabIndex = 1;
+            // 
+            // btnEstadisticas
+            // 
+            this.btnEstadisticas.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.btnEstadisticas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnEstadisticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEstadisticas.IconSize = 30;
+            this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstadisticas.Location = new System.Drawing.Point(100, 0);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Size = new System.Drawing.Size(121, 50);
+            this.btnEstadisticas.TabIndex = 5;
+            this.btnEstadisticas.Text = "       Estadisticas";
+            this.btnEstadisticas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstadisticas.UseVisualStyleBackColor = true;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
+            this.btnImprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnImprimir.IconSize = 30;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point(0, 0);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(100, 50);
+            this.btnImprimir.TabIndex = 1;
+            this.btnImprimir.Text = "       Imprimir";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnAgregarRes
+            // 
+            this.btnAgregarRes.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAgregarRes.FlatAppearance.BorderSize = 0;
+            this.btnAgregarRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnAgregarRes.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnAgregarRes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnAgregarRes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregarRes.IconSize = 30;
+            this.btnAgregarRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarRes.Location = new System.Drawing.Point(510, 0);
+            this.btnAgregarRes.Name = "btnAgregarRes";
+            this.btnAgregarRes.Size = new System.Drawing.Size(100, 50);
+            this.btnAgregarRes.TabIndex = 2;
+            this.btnAgregarRes.Text = "       Agregar";
+            this.btnAgregarRes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarRes.UseVisualStyleBackColor = true;
+            this.btnAgregarRes.Click += new System.EventHandler(this.btnAgregarRes_Click);
+            // 
+            // btnEliminarRes
+            // 
+            this.btnEliminarRes.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEliminarRes.FlatAppearance.BorderSize = 0;
+            this.btnEliminarRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnEliminarRes.IconChar = FontAwesome.Sharp.IconChar.MinusCircle;
+            this.btnEliminarRes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnEliminarRes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEliminarRes.IconSize = 30;
+            this.btnEliminarRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarRes.Location = new System.Drawing.Point(610, 0);
+            this.btnEliminarRes.Name = "btnEliminarRes";
+            this.btnEliminarRes.Size = new System.Drawing.Size(100, 50);
+            this.btnEliminarRes.TabIndex = 7;
+            this.btnEliminarRes.Text = "       Eliminar";
+            this.btnEliminarRes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarRes.UseVisualStyleBackColor = true;
+            this.btnEliminarRes.Click += new System.EventHandler(this.btnEliminarRes_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnModificar.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnModificar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnModificar.IconSize = 30;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(710, 0);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(110, 50);
+            this.btnModificar.TabIndex = 3;
+            this.btnModificar.Text = "       Modificar";
+            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnAnuRecu
+            // 
+            this.btnAnuRecu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAnuRecu.FlatAppearance.BorderSize = 0;
+            this.btnAnuRecu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnuRecu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnuRecu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnAnuRecu.IconChar = FontAwesome.Sharp.IconChar.Retweet;
+            this.btnAnuRecu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnAnuRecu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAnuRecu.IconSize = 30;
+            this.btnAnuRecu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnuRecu.Location = new System.Drawing.Point(820, 0);
+            this.btnAnuRecu.Name = "btnAnuRecu";
+            this.btnAnuRecu.Size = new System.Drawing.Size(122, 50);
+            this.btnAnuRecu.TabIndex = 4;
+            this.btnAnuRecu.Text = "       Anular o      \r\n       Recuperar";
+            this.btnAnuRecu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnuRecu.UseVisualStyleBackColor = true;
+            this.btnAnuRecu.Click += new System.EventHandler(this.btnAnuRecu_Click);
             // 
             // tablaReservas
             // 
@@ -270,132 +396,6 @@ namespace BAREST
             this.btnHoy.Text = "HOY";
             this.btnHoy.UseVisualStyleBackColor = true;
             this.btnHoy.Click += new System.EventHandler(this.btnHoy_Click);
-            // 
-            // btnEstadisticas
-            // 
-            this.btnEstadisticas.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
-            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadisticas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
-            this.btnEstadisticas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEstadisticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEstadisticas.IconSize = 30;
-            this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticas.Location = new System.Drawing.Point(100, 0);
-            this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(121, 50);
-            this.btnEstadisticas.TabIndex = 5;
-            this.btnEstadisticas.Text = "       Estadisticas";
-            this.btnEstadisticas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticas.UseVisualStyleBackColor = true;
-            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
-            this.btnImprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnImprimir.IconSize = 30;
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(0, 0);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(100, 50);
-            this.btnImprimir.TabIndex = 1;
-            this.btnImprimir.Text = "       Imprimir";
-            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // btnAgregarRes
-            // 
-            this.btnAgregarRes.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAgregarRes.FlatAppearance.BorderSize = 0;
-            this.btnAgregarRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnAgregarRes.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnAgregarRes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnAgregarRes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgregarRes.IconSize = 30;
-            this.btnAgregarRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarRes.Location = new System.Drawing.Point(510, 0);
-            this.btnAgregarRes.Name = "btnAgregarRes";
-            this.btnAgregarRes.Size = new System.Drawing.Size(100, 50);
-            this.btnAgregarRes.TabIndex = 2;
-            this.btnAgregarRes.Text = "       Agregar";
-            this.btnAgregarRes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarRes.UseVisualStyleBackColor = true;
-            this.btnAgregarRes.Click += new System.EventHandler(this.btnAgregarRes_Click);
-            // 
-            // btnEliminarRes
-            // 
-            this.btnEliminarRes.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEliminarRes.FlatAppearance.BorderSize = 0;
-            this.btnEliminarRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEliminarRes.IconChar = FontAwesome.Sharp.IconChar.MinusCircle;
-            this.btnEliminarRes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEliminarRes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminarRes.IconSize = 30;
-            this.btnEliminarRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarRes.Location = new System.Drawing.Point(610, 0);
-            this.btnEliminarRes.Name = "btnEliminarRes";
-            this.btnEliminarRes.Size = new System.Drawing.Size(100, 50);
-            this.btnEliminarRes.TabIndex = 7;
-            this.btnEliminarRes.Text = "       Eliminar";
-            this.btnEliminarRes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarRes.UseVisualStyleBackColor = true;
-            this.btnEliminarRes.Click += new System.EventHandler(this.btnEliminarRes_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnModificar.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.btnModificar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnModificar.IconSize = 30;
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(710, 0);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(110, 50);
-            this.btnModificar.TabIndex = 3;
-            this.btnModificar.Text = "       Modificar";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnAnuRecu
-            // 
-            this.btnAnuRecu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAnuRecu.FlatAppearance.BorderSize = 0;
-            this.btnAnuRecu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnuRecu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnuRecu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnAnuRecu.IconChar = FontAwesome.Sharp.IconChar.Retweet;
-            this.btnAnuRecu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnAnuRecu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAnuRecu.IconSize = 30;
-            this.btnAnuRecu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnuRecu.Location = new System.Drawing.Point(820, 0);
-            this.btnAnuRecu.Name = "btnAnuRecu";
-            this.btnAnuRecu.Size = new System.Drawing.Size(122, 50);
-            this.btnAnuRecu.TabIndex = 4;
-            this.btnAnuRecu.Text = "       Anular o      \r\n       Recuperar";
-            this.btnAnuRecu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnuRecu.UseVisualStyleBackColor = true;
-            this.btnAnuRecu.Click += new System.EventHandler(this.btnAnuRecu_Click);
             // 
             // limiteReservas
             // 

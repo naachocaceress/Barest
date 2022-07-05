@@ -127,3 +127,4 @@ C:\Users\Nacho\OneDrive\Escritorio\Nacho6\ISSD\BAREST\BAREST\obj\Debug\BAREST.Re
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\ISSD\BAREST\BAREST\obj\Debug\BAREST.Configuracion.ReservasConfig.resources
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\ISSD\BAREST\BAREST\bin\Debug\Transitions.dll
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\ISSD\BAREST\BAREST\bin\Debug\Transitions.pdb
+C:\Users\Nacho\OneDrive\Escritorio\Nacho6\ISSD\BAREST\BAREST\obj\Debug\BAREST.csproj.SuggestedBindingRedirects.cache

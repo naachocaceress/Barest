@@ -27,7 +27,7 @@ namespace BAREST
                 if (ClaseCompartida.Insum3 == "")
                 {
                     Conexion.ObtenerConexion();
-                    string sql = "insert into Reserva (nombre,telefono,apellido,fechaReserva,posicion,cantComensales,hora,comentarios,estado) values (@nombre, @telefono,@apellido,@fecha,@posicion,@cant,@hora,@com, 'DISPONIBLE')";
+                    string sql = "insert into Reserva (nombre,telefono,apellido,fechaReserva,posicion,cantComensales,hora,comentarios,estado,sucursal) values (@nombre, @telefono,@apellido,@fecha,@posicion,@cant,@hora,@com,'DISPONIBLE','Alta Cordoba')";
                     SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                     comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = textNombre.Text;
                     comando.Parameters.Add("@apellido", SqlDbType.VarChar).Value = textApellido.Text;

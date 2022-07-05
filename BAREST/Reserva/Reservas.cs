@@ -57,25 +57,33 @@ namespace BAREST
             cantPAXHoy();
         }
 
-        public void cantPAXHoy ()
+        public void cantPAXHoy()
         {
-            Conexion.ObtenerConexion();
-            string sql = "SELECT sum (cantComensales) from Reserva where datepart(dd, fechaReserva) = datepart(dd, getdate()) and estado = 'DISPONIBLE'";
-            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            SqlDataReader registros = comando.ExecuteReader();
-            while (registros.Read())
+            if (ScantReservasHoy == "0")
             {
-                int num = (registros.GetInt32(0));
-                ScantPAXHoy = num.ToString();
+                ScantPAXHoy = "0";
+                //MessageBox.Show("Hoy no hay reservas");
             }
-            registros.Close();
-            Conexion.ObtenerConexion().Close();
+            else
+            {
+                Conexion.ObtenerConexion();
+                string sql = "SELECT sum (cantComensales) from Reserva where datepart(dd, fechaReserva) = datepart(dd, getdate()) and estado = 'DISPONIBLE'";
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                SqlDataReader registros = comando.ExecuteReader();
+                while (registros.Read())
+                {
+                        int num = (registros.GetInt32(0));
+                        ScantPAXHoy = num.ToString();
+                }
+                registros.Close();
+                Conexion.ObtenerConexion().Close();
+            }
         }
         
         public void cargarTabla()
         {
             Conexion.ObtenerConexion();
-            string sql = "select nombre,apellido,cantComensales,hora,fechaReserva,posicion,telefono,comentarios, estado from Reserva" +
+            string sql = "select nombre,apellido,cantComensales,hora,fechaReserva,posicion,telefono,comentarios, estado from Reserva WHERE sucursal='Alta Cordoba'" +
                 " group by fechaReserva,apellido,telefono,nombre,comentarios,cantComensales,posicion, hora, estado";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
