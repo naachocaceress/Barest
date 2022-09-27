@@ -212,9 +212,9 @@
             this.panelNuevo.Controls.Add(this.pictureBox4);
             this.panelNuevo.Controls.Add(this.textCorreo);
             this.panelNuevo.Controls.Add(this.panel4);
-            this.panelNuevo.Controls.Add(this.textUsuario);
             this.panelNuevo.Controls.Add(this.pictureBox5);
             this.panelNuevo.Controls.Add(this.panel5);
+            this.panelNuevo.Controls.Add(this.textUsuario);
             this.panelNuevo.Location = new System.Drawing.Point(12, 226);
             this.panelNuevo.Name = "panelNuevo";
             this.panelNuevo.Size = new System.Drawing.Size(284, 225);
@@ -250,6 +250,8 @@
             this.textContra.PasswordChar = '*';
             this.textContra.Size = new System.Drawing.Size(204, 25);
             this.textContra.TabIndex = 2;
+            this.textContra.Enter += new System.EventHandler(this.textContra_Enter);
+            this.textContra.Leave += new System.EventHandler(this.textContra_Leave);
             // 
             // label2
             // 
@@ -299,6 +301,8 @@
             this.textCorreo.Size = new System.Drawing.Size(204, 25);
             this.textCorreo.TabIndex = 3;
             this.textCorreo.UseSystemPasswordChar = true;
+            this.textCorreo.Enter += new System.EventHandler(this.textCorreo_Enter);
+            this.textCorreo.Leave += new System.EventHandler(this.textCorreo_Leave);
             // 
             // panel4
             // 
@@ -319,6 +323,8 @@
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(204, 25);
             this.textUsuario.TabIndex = 1;
+            this.textUsuario.Enter += new System.EventHandler(this.textUsuario_Enter);
+            this.textUsuario.Leave += new System.EventHandler(this.textUsuario_Leave);
             // 
             // pictureBox5
             // 
@@ -369,6 +375,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barest";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panelInicio.ResumeLayout(false);
             this.panelInicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

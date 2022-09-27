@@ -34,6 +34,7 @@ namespace BAREST
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Foto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,42 +48,55 @@ namespace BAREST
             this.Nombre,
             this.Descripcion,
             this.Rubro,
-            this.Precio});
+            this.Precio,
+            this.Foto});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(621, 343);
+            this.dataGridView1.Size = new System.Drawing.Size(719, 343);
             this.dataGridView1.TabIndex = 0;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             this.Nombre.Width = 150;
             // 
             // Descripcion
             // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 200;
             // 
             // Rubro
             // 
             this.Rubro.HeaderText = "Rubro";
             this.Rubro.Name = "Rubro";
+            this.Rubro.ReadOnly = true;
+            this.Rubro.Width = 150;
             // 
             // Precio
             // 
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
-            this.Precio.Width = 75;
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 80;
+            // 
+            // Foto
+            // 
+            this.Foto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Foto.HeaderText = "Foto";
+            this.Foto.Name = "Foto";
+            this.Foto.ReadOnly = true;
             // 
             // listadoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 343);
+            this.ClientSize = new System.Drawing.Size(719, 343);
             this.Controls.Add(this.dataGridView1);
             this.Name = "listadoMenu";
             this.ShowIcon = false;
@@ -101,5 +115,6 @@ namespace BAREST
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Foto;
     }
 }

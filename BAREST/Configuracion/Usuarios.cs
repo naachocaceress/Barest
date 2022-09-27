@@ -110,48 +110,55 @@ namespace BAREST
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string BuscarUsu =  tablaUsua.Rows[tablaUsua.CurrentRow.Index].Cells["dni"].Value.ToString();
-
-            Conexion.ObtenerConexion();
-            string sql = "select dni, nombrePersona,apellidoPersona,telefonoPersona,fechaDeNacimiento from Persona where dni= @dni";
-            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            comando.Parameters.AddWithValue("@dni", BuscarUsu);
-            SqlDataReader leido = comando.ExecuteReader();
-            if (leido.Read())
+            if (textDocumento.Text == "")
             {
-                textDocumento.Text = leido["dni"].ToString();
-                textNombre.Text = leido["nombrePersona"].ToString();
-                textApellido.Text = leido["apellidoPersona"].ToString();
-                textTelefono.Text = leido["telefonoPersona"].ToString();
-                
-                //---PARA PODER PONER LA FECHA EN EL DATATIMEPICKER---
-
-                string hola = leido["fechaDeNacimiento"].ToString();
-
-                string[] separarFecha = hola.Split('/');
-                string dia = separarFecha[0];
-                string mes = separarFecha[1];
-                string anio = separarFecha[2];
-
-                int dia2 = Int32.Parse(dia);
-                int mes2 = Int32.Parse(mes);
-
-                string[] separardeHora = anio.Split(' ');
-                string ani = separardeHora[0];
-
-                int anio2 = Int32.Parse(ani);
-
-                DateTime dt = new DateTime(anio2, mes2, dia2);
-                dateTimePicker1.Value = dt;
-
-                //--------------------------------------------------
+                MessageBox.Show("Es necesario insertar el DNI para buscar");
             }
             else
             {
-                MessageBox.Show("No hay un usuario con ese 'documento'");
-            }
+                string BuscarUsu = tablaUsua.Rows[tablaUsua.CurrentRow.Index].Cells["dni"].Value.ToString();
+
+                Conexion.ObtenerConexion();
+                string sql = "select dni, nombrePersona,apellidoPersona,telefonoPersona,fechaDeNacimiento from Persona where dni= @dni";
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                comando.Parameters.AddWithValue("@dni", BuscarUsu);
+                SqlDataReader leido = comando.ExecuteReader();
+                if (leido.Read())
+                {
+                    textDocumento.Text = leido["dni"].ToString();
+                    textNombre.Text = leido["nombrePersona"].ToString();
+                    textApellido.Text = leido["apellidoPersona"].ToString();
+                    textTelefono.Text = leido["telefonoPersona"].ToString();
+
+                    //---PARA PODER PONER LA FECHA EN EL DATATIMEPICKER---
+
+                    string hola = leido["fechaDeNacimiento"].ToString();
+
+                    string[] separarFecha = hola.Split('/');
+                    string dia = separarFecha[0];
+                    string mes = separarFecha[1];
+                    string anio = separarFecha[2];
+
+                    int dia2 = Int32.Parse(dia);
+                    int mes2 = Int32.Parse(mes);
+
+                    string[] separardeHora = anio.Split(' ');
+                    string ani = separardeHora[0];
+
+                    int anio2 = Int32.Parse(ani);
+
+                    DateTime dt = new DateTime(anio2, mes2, dia2);
+                    dateTimePicker1.Value = dt;
+
+                    //--------------------------------------------------
+                }
+                else
+                {
+                    MessageBox.Show("No hay un usuario con ese 'documento'");
+                }
                 leido.Close();
                 Conexion.ObtenerConexion().Close();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -192,21 +199,26 @@ namespace BAREST
         private void CargarGrilla()
         {
             Conexion.ObtenerConexion();
-            string sql = "select dni, nombrePersona,apellidoPersona,telefonoPersona from Persona";
+            string sql = "select documento, email ,nombre,apellido,fechaNacimiento,telefono,idsucursal,idcargo from Usuario";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             tablaUsua.Rows.Clear();
             while (registros.Read())
             {
-                tablaUsua.Rows.Add(registros["dni"].ToString(), registros["nombrePersona"].ToString(), registros["apellidoPersona"].ToString(), registros["telefonoPersona"].ToString());
+                tablaUsua.Rows.Add(
+                    registros["documento"].ToString(),
+                    registros["email"].ToString(),
+                    registros["nombre"].ToString(),
+                    registros["apellido"].ToString(),
+                    registros["fechaNacimiento"].ToString(),
+                    registros["telefono"].ToString(),
+                    registros["idsucursal"].ToString(),
+                    registros["idcargo"].ToString()
+
+                    );
             }
             registros.Close();
             Conexion.ObtenerConexion().Close();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

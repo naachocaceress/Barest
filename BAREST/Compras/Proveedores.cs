@@ -61,19 +61,11 @@ namespace BAREST.Compras
                 comando.Parameters.Add("@calle", SqlDbType.VarChar).Value = textcalle.Text;
                 comando.Parameters.Add("@nro", SqlDbType.VarChar).Value = textNro.Text;
                 comando.Parameters.Add("@dept", SqlDbType.VarChar).Value = textDepto.Text;
-                comando.Parameters.Add("@piso", SqlDbType.VarChar).Value = textPiso.Text;
-                comando.Parameters.Add("@codpost", SqlDbType.VarChar).Value = textCodP.Text;
-                comando.Parameters.Add("@localidad", SqlDbType.VarChar).Value = textLocalidad.Text;
-                comando.Parameters.Add("@provi", SqlDbType.VarChar).Value = textProv.Text;
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Se ha regitrado el proveedor " + textNombre.Text + " correctamente");
-                textProv.Text = " ";
-                textLocalidad.Text = " ";
-                textCodP.Text = " ";
                 textcalle.Text = " ";
                 textDepto.Text = " ";
                 textNro.Text = " ";
-                textPiso.Text = " ";
                 textNombre.Text = " ";
                 textEmpresa.Text = " ";
                 textTel.Text = " ";
@@ -165,10 +157,6 @@ namespace BAREST.Compras
                 textcalle.Text = leido["calle"].ToString();
                 textNro.Text = leido["nro"].ToString();
                 textDepto.Text = leido["depto"].ToString();
-                textPiso.Text = leido["piso"].ToString();
-                textCodP.Text = leido["codPostal"].ToString();
-                textLocalidad.Text = leido["localidad"].ToString();
-                textProv.Text = leido["Provincia"].ToString();
 
             }
             Conexion.ObtenerConexion().Close();
@@ -186,20 +174,12 @@ namespace BAREST.Compras
             comando.Parameters.Add("@calle", SqlDbType.VarChar).Value = textcalle.Text;
             comando.Parameters.Add("@nro", SqlDbType.VarChar).Value = textNro.Text;
             comando.Parameters.Add("@dept", SqlDbType.VarChar).Value = textDepto.Text;
-            comando.Parameters.Add("@piso", SqlDbType.VarChar).Value = textPiso.Text;
-            comando.Parameters.Add("@codpost", SqlDbType.VarChar).Value = textCodP.Text;
-            comando.Parameters.Add("@localidad", SqlDbType.VarChar).Value = textLocalidad.Text;
-            comando.Parameters.Add("@provi", SqlDbType.VarChar).Value = textProv.Text;
 
 
             MessageBox.Show("Se cambiaron los datos el proveedor " + textNombre.Text + " correctamente");
-            textProv.Text = " ";
-            textLocalidad.Text = " ";
-            textCodP.Text = " ";
             textcalle.Text = " ";
             textDepto.Text = " ";
             textNro.Text = " ";
-            textPiso.Text = " ";
             textNombre.Text = " ";
             textEmpresa.Text = " ";
             textTel.Text = " ";

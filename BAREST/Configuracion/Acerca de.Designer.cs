@@ -62,7 +62,7 @@ namespace BAREST.Configuracion
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(781, 100);
+            this.panel1.Size = new System.Drawing.Size(784, 100);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox1
@@ -93,14 +93,14 @@ namespace BAREST.Configuracion
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(223, 72);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Barest 2022\r\nVersion Beta 1.8.1\r\n© 2022 Grupo Barest.\r\nTodos los derechos reserva" +
+            this.label2.Text = "Barest 2022\r\nVersion Beta 1.8.7\r\n© 2022 Grupo Barest.\r\nTodos los derechos reserva" +
     "dos.";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(24, 445);
+            this.label3.Location = new System.Drawing.Point(24, 414);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(717, 72);
             this.label3.TabIndex = 2;
@@ -110,7 +110,7 @@ namespace BAREST.Configuracion
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(49, 314);
+            this.label4.Location = new System.Drawing.Point(49, 289);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(318, 72);
             this.label4.TabIndex = 3;
@@ -214,7 +214,7 @@ namespace BAREST.Configuracion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(781, 548);
+            this.ClientSize = new System.Drawing.Size(784, 513);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);

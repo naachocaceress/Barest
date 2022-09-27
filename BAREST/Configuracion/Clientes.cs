@@ -28,20 +28,12 @@ namespace BAREST.Configuracion
             comando.Parameters.Add("@ape", SqlDbType.VarChar).Value = textApe.Text;
             comando.Parameters.Add("@tel", SqlDbType.VarChar).Value = textTel.Text;
             comando.Parameters.Add("@dni", SqlDbType.VarChar).Value = textdni.Text;
-            comando.Parameters.Add("@dom", SqlDbType.VarChar).Value = textdom.Text;
-            comando.Parameters.Add("@altura", SqlDbType.VarChar).Value = textAltura.Text;
-            comando.Parameters.Add("@depto", SqlDbType.VarChar).Value = textdepto.Text;
-            comando.Parameters.Add("@piso", SqlDbType.VarChar).Value = textpiso.Text;
             Conexion.ObtenerConexion().Close();
             MessageBox.Show(" se  ha registrado un nuevo cliente");
             textNombre.Text = " ";
             textApe.Text = " ";
             textTel.Text = " ";
             textdni.Text = " ";
-            textdom.Text = " ";
-            textAltura.Text = " ";
-            textdepto.Text = " ";
-            textpiso.Text = " ";
             cargarGrilla();
         }
 
@@ -55,11 +47,6 @@ namespace BAREST.Configuracion
             comando.Parameters.Add("@ape", SqlDbType.VarChar).Value = textApe.Text;
             comando.Parameters.Add("@tel", SqlDbType.VarChar).Value = textTel.Text;
             comando.Parameters.Add("@dni", SqlDbType.NChar).Value = textdni.Text;
-            comando.Parameters.Add("@dom", SqlDbType.NChar).Value = textdom.Text;
-            comando.Parameters.Add("@depto", SqlDbType.NChar).Value = textdepto.Text;
-            comando.Parameters.Add("@altura", SqlDbType.NChar).Value = textAltura.Text;
-            comando.Parameters.Add("@depto", SqlDbType.NChar).Value = textdepto.Text;
-            comando.Parameters.Add("@piso", SqlDbType.NChar).Value = textpiso.Text;
             Conexion.ObtenerConexion().Close();
             cargarGrilla();
 
@@ -78,10 +65,6 @@ namespace BAREST.Configuracion
             textApe.Text = " ";
             textTel.Text = " ";
             textdni.Text = " ";
-            textdom.Text = " ";
-            textAltura.Text = " ";
-            textdepto.Text = " ";
-            textpiso.Text = " ";
             cargarGrilla();
 
         }

@@ -68,7 +68,7 @@
             this.panel1.Controls.Add(this.EliminarInsu);
             this.panel1.Controls.Add(this.modificarInsu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 295);
+            this.panel1.Location = new System.Drawing.Point(0, 281);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(715, 50);
             this.panel1.TabIndex = 1;
@@ -122,7 +122,7 @@
             this.EliminarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EliminarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.MinusCircle;
+            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.CircleMinus;
             this.EliminarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.EliminarInsu.IconSize = 30;
@@ -143,7 +143,7 @@
             this.modificarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modificarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modificarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.modificarInsu.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.modificarInsu.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
             this.modificarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.modificarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.modificarInsu.IconSize = 30;
@@ -164,9 +164,9 @@
             this.groupBox1.Controls.Add(this.agregarRubro);
             this.groupBox1.Controls.Add(this.textRubro);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(490, 12);
+            this.groupBox1.Location = new System.Drawing.Point(490, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 275);
+            this.groupBox1.Size = new System.Drawing.Size(213, 262);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rubros";
@@ -178,7 +178,7 @@
             this.tablaRubro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaRubro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Rubros});
-            this.tablaRubro.Location = new System.Drawing.Point(31, 81);
+            this.tablaRubro.Location = new System.Drawing.Point(31, 75);
             this.tablaRubro.Name = "tablaRubro";
             this.tablaRubro.ReadOnly = true;
             this.tablaRubro.Size = new System.Drawing.Size(151, 148);
@@ -193,7 +193,7 @@
             // 
             // eliminarRubro
             // 
-            this.eliminarRubro.Location = new System.Drawing.Point(122, 243);
+            this.eliminarRubro.Location = new System.Drawing.Point(122, 234);
             this.eliminarRubro.Name = "eliminarRubro";
             this.eliminarRubro.Size = new System.Drawing.Size(75, 23);
             this.eliminarRubro.TabIndex = 8;
@@ -203,7 +203,7 @@
             // 
             // agregarRubro
             // 
-            this.agregarRubro.Location = new System.Drawing.Point(17, 243);
+            this.agregarRubro.Location = new System.Drawing.Point(17, 234);
             this.agregarRubro.Name = "agregarRubro";
             this.agregarRubro.Size = new System.Drawing.Size(75, 23);
             this.agregarRubro.TabIndex = 7;
@@ -213,7 +213,7 @@
             // 
             // textRubro
             // 
-            this.textRubro.Location = new System.Drawing.Point(31, 46);
+            this.textRubro.Location = new System.Drawing.Point(31, 41);
             this.textRubro.Name = "textRubro";
             this.textRubro.Size = new System.Drawing.Size(151, 20);
             this.textRubro.TabIndex = 6;
@@ -221,7 +221,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 21);
+            this.label1.Location = new System.Drawing.Point(28, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 1;
@@ -250,7 +250,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 24);
+            this.label2.Location = new System.Drawing.Point(12, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 13;
@@ -258,7 +258,7 @@
             // 
             // textnomM
             // 
-            this.textnomM.Location = new System.Drawing.Point(15, 40);
+            this.textnomM.Location = new System.Drawing.Point(15, 33);
             this.textnomM.Name = "textnomM";
             this.textnomM.Size = new System.Drawing.Size(147, 20);
             this.textnomM.TabIndex = 1;
@@ -275,7 +275,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 205);
+            this.label6.Location = new System.Drawing.Point(12, 199);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 21;
@@ -283,7 +283,7 @@
             // 
             // textPrecioM
             // 
-            this.textPrecioM.Location = new System.Drawing.Point(15, 221);
+            this.textPrecioM.Location = new System.Drawing.Point(15, 215);
             this.textPrecioM.Name = "textPrecioM";
             this.textPrecioM.Size = new System.Drawing.Size(93, 20);
             this.textPrecioM.TabIndex = 4;
@@ -301,7 +301,7 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::BAREST.Properties.Resources.imagenmenu1;
-            this.pictureBox1.Location = new System.Drawing.Point(188, 40);
+            this.pictureBox1.Location = new System.Drawing.Point(188, 34);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(115, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -310,7 +310,7 @@
             // 
             // bfoto
             // 
-            this.bfoto.Location = new System.Drawing.Point(188, 174);
+            this.bfoto.Location = new System.Drawing.Point(188, 168);
             this.bfoto.Name = "bfoto";
             this.bfoto.Size = new System.Drawing.Size(115, 22);
             this.bfoto.TabIndex = 5;
@@ -322,7 +322,7 @@
             // 
             this.comborubroMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comborubroMenu.FormattingEnabled = true;
-            this.comborubroMenu.Location = new System.Drawing.Point(15, 158);
+            this.comborubroMenu.Location = new System.Drawing.Point(15, 154);
             this.comborubroMenu.Name = "comborubroMenu";
             this.comborubroMenu.Size = new System.Drawing.Size(147, 21);
             this.comborubroMenu.TabIndex = 3;
@@ -330,7 +330,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 142);
+            this.label4.Location = new System.Drawing.Point(12, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 27;
@@ -338,9 +338,9 @@
             // 
             // guardarModifi
             // 
-            this.guardarModifi.Location = new System.Drawing.Point(120, 255);
+            this.guardarModifi.Location = new System.Drawing.Point(121, 244);
             this.guardarModifi.Name = "guardarModifi";
-            this.guardarModifi.Size = new System.Drawing.Size(75, 23);
+            this.guardarModifi.Size = new System.Drawing.Size(122, 23);
             this.guardarModifi.TabIndex = 28;
             this.guardarModifi.Text = "Guardar";
             this.guardarModifi.UseVisualStyleBackColor = true;
@@ -350,7 +350,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 345);
+            this.ClientSize = new System.Drawing.Size(715, 331);
             this.Controls.Add(this.guardarModifi);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comborubroMenu);
