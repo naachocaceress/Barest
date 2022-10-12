@@ -17,9 +17,37 @@ namespace BarestReservasWeb
 
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        
 
+        protected void GridView_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            GridViewRow row = GridView1.SelectedRow;
+
+            String codigo = row.Cells[0].Text;
+
+            SqlReservas1.UpdateParameters["codigo"].DefaultValue = codigo;
+            SqlReservas1.Update();
+
+            Response.Redirect("ConsultarReservas.aspx");
+        }
+
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = GridView2.SelectedRow;
+
+            String codigo = row.Cells[0].Text;
+
+            SqlReservas2.UpdateParameters["codigo"].DefaultValue = codigo;
+            SqlReservas2.Update();
+
+            Response.Redirect("ConsultarReservas.aspx");
         }
     }
 }

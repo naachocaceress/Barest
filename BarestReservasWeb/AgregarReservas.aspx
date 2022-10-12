@@ -38,15 +38,9 @@
             <div class="hijo">
                 Sucursal: 
                 <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="descripcion" DataValueField="descripcion">
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem>Alta Cordoba</asp:ListItem>
-                    <asp:ListItem>Nueva Cordoba</asp:ListItem>
-                    <asp:ListItem>Cerro</asp:ListItem>
-                    <asp:ListItem>Barrio Jardin</asp:ListItem>
-                    <asp:ListItem>Rondeou</asp:ListItem>
                 </asp:DropDownList>
 
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:BARESTNEWConnectionString1 %>" SelectCommand="SELECT * FROM [Sucursal]" OnSelecting="SqlDataSource2_Selecting"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:BARESTNEWConnectionString1 %>" SelectCommand="SELECT * FROM [Sucursal]"></asp:SqlDataSource>
 
                 <br />
 
