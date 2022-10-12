@@ -53,7 +53,7 @@
                         <td align="center">
                             <br />
                             Sucursales disponibles<br />
-                            <asp:ListBox ID="ListBox1" runat="server" Height="107px" Width="138px" DataSourceID="SqlDataSource1" DataTextField="nombre" DataValueField="codigo">
+                            <asp:ListBox ID="ListBox1" runat="server" Height="107px" Width="138px" DataSourceID="SqlDataSource1" DataTextField="descripcion" DataValueField="id">
                                 <asp:ListItem>Alta Cordoba</asp:ListItem>
                                 <asp:ListItem>Nueva Cordoba</asp:ListItem>
                                 <asp:ListItem>Cerro</asp:ListItem>
@@ -61,8 +61,8 @@
                                 <asp:ListItem>Rondeou</asp:ListItem>
                             </asp:ListBox>
 
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BARESTNEWConnectionString1 %>" SelectCommand="SELECT * FROM [Sucursales]"></asp:SqlDataSource>
-                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:BARESTNEWConnectionString1 %>" InsertCommand="insert into Sucursales (nombre) values (@nombre)" SelectCommand="SELECT * FROM [Sucursales]">
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BARESTNEWConnectionString1 %>" SelectCommand="SELECT * FROM [Sucursal]" OnSelecting="SqlDataSource1_Selecting"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:BARESTNEWConnectionString1 %>" InsertCommand="insert into Sucursal (descripcion) values (@nombre)" SelectCommand="SELECT * FROM [Sucursales]">
                                 <InsertParameters>
                                     <asp:Parameter Name="nombre" />
                                 </InsertParameters>
@@ -80,8 +80,8 @@
 
         <div id="Final">
     <br /><hr align="center" id="re" /><br />
-    <a href="https://www.instagram.com/naachocaceres/"> <img src="Imagenes/Neptune.png" /> </a>
-	<p>Desarollado por <b>NachoCaceres</b></p>
+    <a href="https://bares.atlassian.net/jira/software/projects/BAR/boards/1"> <img src="Imagenes/Barest (NUEVO COLOR).png" /> </a>
+	<p>Desarollado por <b>Grupo Barest</b></p>
 	</div>
 
     </form>

@@ -42,8 +42,8 @@
 
         <div id="Final">
     <br /><hr align="center" id="re" /><br />
-    <a href="https://www.instagram.com/naachocaceres/"> <img src="Imagenes/Neptune.png" /> </a>
-	<p>Desarollado por <b>NachoCaceres</b></p>
+    <a href="https://bares.atlassian.net/jira/software/projects/BAR/boards/1"> <img src="Imagenes/Barest (NUEVO COLOR).png" /> </a>
+	<p>Desarollado por <b>Grupo Barest</b></p>
 	</div>
 
     </form>

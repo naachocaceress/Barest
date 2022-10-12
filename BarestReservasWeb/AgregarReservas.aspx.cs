@@ -71,5 +71,10 @@ namespace BarestReservasWeb
             Label2.Text = ".";
             DropDownList1.SelectedValue = "";
         }
+
+        protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
+        }
     }
 }
