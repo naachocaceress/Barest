@@ -30,7 +30,7 @@
 
         <div align="center">
             <p>Barest 2022
-            Version Web 1.2
+            Version Web 1.3
             © 2022 Grupo Barest.
             Todos los derechos reservados.</p>
             <br />

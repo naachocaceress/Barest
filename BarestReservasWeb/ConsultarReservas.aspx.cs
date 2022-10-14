@@ -11,7 +11,6 @@ namespace BarestReservasWeb
 {
     public partial class ConsultarReservas : System.Web.UI.Page
     {
-        //public SqlConnection cn = new SqlConnection("Data Source=NACHO-PC/SQLEXPRESS;Initial Catalog=BARESTNEW;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -32,12 +31,6 @@ namespace BarestReservasWeb
         }
 
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            
-
-        }
-
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = GridView2.SelectedRow;
@@ -47,6 +40,31 @@ namespace BarestReservasWeb
             SqlReservas2.UpdateParameters["codigo"].DefaultValue = codigo;
             SqlReservas2.Update();
 
+            Response.Redirect("ConsultarReservas.aspx");
+        }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            GridView1.DataSourceID = "SqlSucursal";
+            GridView2.DataSourceID = "SqlSucursal0";
+
+            SqlSucursal.SelectParameters["sucursal"].DefaultValue = DropDownList1.Text;
+            SqlSucursal0.SelectParameters["sucursal"].DefaultValue = DropDownList1.Text;
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            GridView1.DataSourceID = "SqlxFecha";
+            GridView2.DataSourceID = "SqlxFecha0";
+
+            SqlxFecha.SelectParameters["fecha"].DefaultValue = Calendar2.SelectedDate.ToShortDateString();
+            SqlxFecha.SelectParameters["sucursal"].DefaultValue = DropDownList1.Text;
+            SqlxFecha0.SelectParameters["fecha"].DefaultValue = Calendar2.SelectedDate.ToShortDateString();
+            SqlxFecha.SelectParameters["sucursal"].DefaultValue = DropDownList1.Text;
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
             Response.Redirect("ConsultarReservas.aspx");
         }
     }

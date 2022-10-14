@@ -46,13 +46,13 @@
             <div class="hijo">
             <table class="table">
                 <tr>
-                    <td style="text-align:center">Buscar por fecha</td>
+                    <td style="text-align:center">Ingrese fecha</td>
                     <td>&nbsp;</td>
-                    <td style="text-align:center">Buscar por sucursal</td>
+                    <td style="text-align:center">Ingrese sucursal</td>
                 </tr>
                 <tr>
                     <td style="text-align:center"> 
-                        <asp:Calendar ID="Calendar2" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="120px" Width="214px">
+                        <asp:Calendar ID="Calendar2" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="120px" Width="214px" SelectedDate="10/13/2022 22:12:41">
                             <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
                             <NextPrevStyle VerticalAlign="Bottom" />
                             <OtherMonthDayStyle ForeColor="#808080" />
@@ -62,6 +62,19 @@
                             <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
                             <WeekendDayStyle BackColor="#FFFFCC" />
                         </asp:Calendar>
+                        <br />
+                        <asp:SqlDataSource ID="SqlxFecha" runat="server" ConnectionString="<%$ ConnectionStrings:BARESTNEWConnectionString1 %>" SelectCommand="SELECT codigo, nombre, apellido, telefono, fechaReserva, posicion, cantComensales, hora, comentarios, estado, sucursal FROM Reserva WHERE (estado = 'DISPONIBLE'and fechaReserva=@fecha and sucursal=@sucursal)">
+                            <SelectParameters>
+                                <asp:Parameter Name="fecha" />
+                                <asp:Parameter Name="sucursal" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlxFecha0" runat="server" ConnectionString="<%$ ConnectionStrings:BARESTNEWConnectionString1 %>" SelectCommand="SELECT codigo, nombre, apellido, telefono, fechaReserva, posicion, cantComensales, hora, comentarios, estado, sucursal FROM Reserva WHERE (estado = 'ANULADO' and fechaReserva=@fecha and sucursal=@sucursal)">
+                            <SelectParameters>
+                                <asp:Parameter Name="fecha" />
+                                <asp:Parameter Name="sucursal" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                     </td>
                     <td>&nbsp;</td>
                     <td style="text-align:center">
@@ -69,10 +82,26 @@
                         <br />
                         <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="descripcion" DataValueField="descripcion">
                         </asp:DropDownList>
-                        <br />
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BARESTNEWConnectionString1 %>" SelectCommand="SELECT [descripcion] FROM [Sucursal]"></asp:SqlDataSource>
                         <br />
-                        <asp:Button ID="Button1" runat="server" Text="Buscar" />
+                        <br />
+                        <br />
+                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Buscar por fecha y sucursal" />
+                        <br />
+                        <br />
+                        <asp:Button ID="Button1" runat="server" Text="Buscar por sucursal" OnClick="Button1_Click1" />
+
+                        <asp:SqlDataSource ID="SqlSucursal" runat="server" ConnectionString="<%$ ConnectionStrings:BARESTNEWConnectionString1 %>" SelectCommand="SELECT codigo, nombre, apellido, telefono, fechaReserva, posicion, cantComensales, hora, comentarios, estado, sucursal FROM Reserva WHERE (estado = 'DISPONIBLE') AND (sucursal = @sucursal)">
+                            <SelectParameters>
+                                <asp:Parameter Name="sucursal" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+
+                        <asp:SqlDataSource ID="SqlSucursal0" runat="server" ConnectionString="<%$ ConnectionStrings:BARESTNEWConnectionString1 %>" SelectCommand="SELECT codigo, nombre, apellido, telefono, fechaReserva, posicion, cantComensales, hora, comentarios, estado, sucursal FROM Reserva WHERE (estado = 'ANULADO') AND (sucursal = @sucursal)">
+                            <SelectParameters>
+                                <asp:Parameter Name="sucursal" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
 
                     </td>
                 </tr>
@@ -80,6 +109,8 @@
 
                 </div>
          </div>
+            <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Mostrar todo" />
+            <br />
             <br />
 
             <asp:SqlDataSource ID="SqlReservas" runat="server"
@@ -145,7 +176,7 @@
                     <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
                     <asp:BoundField DataField="apellido" HeaderText="Apellido" SortExpression="apellido" />
                     <asp:BoundField DataField="telefono" HeaderText="Telefono" SortExpression="telefono" />
-                    <asp:BoundField DataField="fechaReserva" HeaderText="Fecha" SortExpression="fechaReserva" />
+                    <asp:BoundField DataField="fechaReserva" HeaderText="Fecha" SortExpression="fechaReserva" DataFormatString="{0:d}"  />
                     <asp:BoundField DataField="posicion" HeaderText="Posicion" SortExpression="posicion" />
                     <asp:BoundField DataField="cantComensales" HeaderText="PAX" SortExpression="cantComensales" />
                     <asp:BoundField DataField="hora" HeaderText="Hora" SortExpression="hora" />
@@ -177,7 +208,7 @@
                     <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
                     <asp:BoundField DataField="apellido" HeaderText="Apellido" SortExpression="apellido" />
                     <asp:BoundField DataField="telefono" HeaderText="Telefono" SortExpression="telefono" />
-                    <asp:BoundField DataField="fechaReserva" HeaderText="Fecha" SortExpression="fechaReserva" />
+                    <asp:BoundField DataField="fechaReserva" HeaderText="Fecha" SortExpression="fechaReserva" DataFormatString="{0:d}"  />
                     <asp:BoundField DataField="posicion" HeaderText="Posicion" SortExpression="posicion" />
                     <asp:BoundField DataField="cantComensales" HeaderText="PAX" SortExpression="cantComensales" />
                     <asp:BoundField DataField="hora" HeaderText="Hora" SortExpression="hora" />
