@@ -26,22 +26,19 @@ namespace BAREST.Compras
         void listaproveedor()
         {
             Conexion.ObtenerConexion();
-            string sql = "select nombre,empresa, telefono,calle,nro,depto,piso,codPostal,localidad,provincia from Proveedor ";
+            string sql = "select cuit,empresa, telefono,direccion,altura,deptopiso,archivo from Proveedor ";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             dataGridView1.Rows.Clear();
             while (registros.Read())
             {
-                dataGridView1.Rows.Add(registros["nombre"].ToString(),
+                dataGridView1.Rows.Add(registros["cuit"].ToString(),
                                        registros["empresa"].ToString(),
                                        registros["telefono"].ToString(),
-                                       registros["calle"].ToString(),
-                                       registros["nro"].ToString(),
-                                       registros["depto"].ToString(),
-                                       registros["piso"].ToString(),
-                                       registros["codPostal"].ToString(),
-                                       registros["localidad"].ToString(),
-                                       registros["provincia"].ToString()
+                                       registros["direccion"].ToString(),
+                                       registros["altura"].ToString(),
+                                       registros["deptopiso"].ToString(),
+                                       registros["archivo"].ToString()
                                        );
             }
             registros.Close();

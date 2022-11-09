@@ -35,7 +35,9 @@ namespace BAREST.Compras
             this.modificarProveedor = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.tablaProveedores = new System.Windows.Forms.DataGridView();
-            this.textNombre = new System.Windows.Forms.TextBox();
+            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textcuit = new System.Windows.Forms.TextBox();
             this.textEmpresa = new System.Windows.Forms.TextBox();
             this.textTel = new System.Windows.Forms.TextBox();
             this.textcalle = new System.Windows.Forms.TextBox();
@@ -51,8 +53,6 @@ namespace BAREST.Compras
             this.textDepto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.guardarModifi = new System.Windows.Forms.Button();
-            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaProveedores)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -166,12 +166,23 @@ namespace BAREST.Compras
             this.tablaProveedores.Size = new System.Drawing.Size(236, 207);
             this.tablaProveedores.TabIndex = 2;
             // 
-            // textNombre
+            // Empresa
             // 
-            this.textNombre.Location = new System.Drawing.Point(15, 28);
-            this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(153, 20);
-            this.textNombre.TabIndex = 1;
+            this.Empresa.HeaderText = "Empresa";
+            this.Empresa.Name = "Empresa";
+            // 
+            // Telefono
+            // 
+            this.Telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            // 
+            // textcuit
+            // 
+            this.textcuit.Location = new System.Drawing.Point(15, 28);
+            this.textcuit.Name = "textcuit";
+            this.textcuit.Size = new System.Drawing.Size(153, 20);
+            this.textcuit.TabIndex = 1;
             // 
             // textEmpresa
             // 
@@ -241,7 +252,7 @@ namespace BAREST.Compras
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(46, 196);
+            this.button3.Location = new System.Drawing.Point(29, 196);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(122, 23);
             this.button3.TabIndex = 5;
@@ -306,17 +317,6 @@ namespace BAREST.Compras
             this.guardarModifi.UseVisualStyleBackColor = true;
             this.guardarModifi.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Empresa
-            // 
-            this.Empresa.HeaderText = "Empresa";
-            this.Empresa.Name = "Empresa";
-            // 
-            // Telefono
-            // 
-            this.Telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            // 
             // Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,7 +331,7 @@ namespace BAREST.Compras
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textTel);
             this.Controls.Add(this.textEmpresa);
-            this.Controls.Add(this.textNombre);
+            this.Controls.Add(this.textcuit);
             this.Controls.Add(this.tablaProveedores);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -358,7 +358,7 @@ namespace BAREST.Compras
         private FontAwesome.Sharp.IconButton modificarProveedor;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.DataGridView tablaProveedores;
-        private System.Windows.Forms.TextBox textNombre;
+        private System.Windows.Forms.TextBox textcuit;
         private System.Windows.Forms.TextBox textEmpresa;
         private System.Windows.Forms.TextBox textTel;
         private System.Windows.Forms.TextBox textcalle;

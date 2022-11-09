@@ -114,17 +114,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BaseBarestDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="buscarUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="buscarUsuario.Designer.cs">
-      <DependentUpon>buscarUsuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Cajas\CajaCh.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cajas\CajaCh.Designer.cs">
       <DependentUpon>CajaCh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\ingresarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\ingresarCliente.Designer.cs">
+      <DependentUpon>ingresarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\Compras.cs">
       <SubType>Form</SubType>
@@ -169,10 +169,10 @@
     <Compile Include="Configuracion\Acerca de.Designer.cs">
       <DependentUpon>Acerca de.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuracion\Clientes.cs">
+    <Compile Include="Cliente\Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuracion\Clientes.Designer.cs">
+    <Compile Include="Cliente\Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuracion\Diseño.cs">
@@ -181,10 +181,10 @@
     <Compile Include="Configuracion\Diseño.Designer.cs">
       <DependentUpon>Diseño.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuracion\listadoCliente.cs">
+    <Compile Include="Cliente\listadoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuracion\listadoCliente.Designer.cs">
+    <Compile Include="Cliente\listadoCliente.Designer.cs">
       <DependentUpon>listadoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuracion\ReservasConfig.cs">
@@ -234,6 +234,12 @@
     <Compile Include="Turno\AgregarMesa.Designer.cs">
       <DependentUpon>AgregarMesa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Turno\Cobro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turno\Cobro.Designer.cs">
+      <DependentUpon>Cobro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Turno\DeliveryMesa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,10 +276,10 @@
     <Compile Include="Caja.Designer.cs">
       <DependentUpon>Caja.cs</DependentUpon>
     </Compile>
-    <Compile Include="InicioSesion.cs">
+    <Compile Include="Login\InicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InicioSesion.Designer.cs">
+    <Compile Include="Login\InicioSesion.Designer.cs">
       <DependentUpon>InicioSesion.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
@@ -296,11 +302,11 @@
     <Compile Include="Turno\Mozo.Designer.cs">
       <DependentUpon>Mozo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="buscarUsuario.resx">
-      <DependentUpon>buscarUsuario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Cajas\CajaCh.resx">
       <DependentUpon>CajaCh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\ingresarCliente.resx">
+      <DependentUpon>ingresarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\Compras.resx">
       <DependentUpon>Compras.cs</DependentUpon>
@@ -323,13 +329,13 @@
     <EmbeddedResource Include="Configuracion\Acerca de.resx">
       <DependentUpon>Acerca de.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuracion\Clientes.resx">
+    <EmbeddedResource Include="Cliente\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\Diseño.resx">
       <DependentUpon>Diseño.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuracion\listadoCliente.resx">
+    <EmbeddedResource Include="Cliente\listadoCliente.resx">
       <DependentUpon>listadoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\ReservasConfig.resx">
@@ -353,6 +359,9 @@
     <EmbeddedResource Include="Turno\AgregarMesa.resx">
       <DependentUpon>AgregarMesa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Turno\Cobro.resx">
+      <DependentUpon>Cobro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Turno\DeliveryMesa.resx">
       <DependentUpon>DeliveryMesa.cs</DependentUpon>
     </EmbeddedResource>
@@ -368,7 +377,7 @@
     <EmbeddedResource Include="Caja.resx">
       <DependentUpon>Caja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InicioSesion.resx">
+    <EmbeddedResource Include="Login\InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">

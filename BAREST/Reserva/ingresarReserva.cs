@@ -98,7 +98,8 @@ namespace BAREST
             comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = ClaseCompartida.Insum3;
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
-            {
+            { 
+                
                 textNombre.Text = leido["nombre"].ToString();
                 textApellido.Text = leido["apellido"].ToString();
                 textTelefono.Text = leido["telefono"].ToString();

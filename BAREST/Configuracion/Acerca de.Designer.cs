@@ -93,7 +93,7 @@ namespace BAREST.Configuracion
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(223, 72);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Barest 2022\r\nVersion Beta 1.8.7\r\n© 2022 Grupo Barest.\r\nTodos los derechos reserva" +
+            this.label2.Text = "Barest 2022\r\nVersion Beta 1.8.9\r\n© 2022 Grupo Barest.\r\nTodos los derechos reserva" +
     "dos.";
             // 
             // label3

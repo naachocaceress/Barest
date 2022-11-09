@@ -21,7 +21,7 @@ namespace BAREST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Conexion.ObtenerConexion();
+          /*  Conexion.ObtenerConexion();
             String sql = "insert into provisorio (cantidad, detalles, pUnitario, comensales, mesa, mozo) values (@cant, @det, @puni, @comens, @meza, @mozo)";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@cant", SqlDbType.VarChar).Value = dataGridView1.Rows[0].Cells[0].Value;
@@ -33,7 +33,7 @@ namespace BAREST
             comando.ExecuteNonQuery();
             Conexion.ObtenerConexion();
             this.Close();
-            Conexion.ObtenerConexion().Close();
+            Conexion.ObtenerConexion().Close();*/
 
             ClaseCompartida.comanda++;
 
@@ -84,65 +84,74 @@ namespace BAREST
 
         private void agregarMenulista2()
         {
-            
-            if (cantidad == 0) 
+            try
             {
-                if (textBox2.Text.All(char.IsDigit) && textBox2.Text.Length != 0)
+                if (cantidad == 0)
                 {
-                    int cantN = Int32.Parse(textBox2.Text);
-                    cantidad = cantN;
-                    textBox2.Text = "";
+                    if (textBox2.Text.All(char.IsDigit) && textBox2.Text.Length != 0)
+                    {
+                        int cantN = Int32.Parse(textBox2.Text);
+                        cantidad = cantN;
+                        textBox2.Text = "";
+                    }
+                    else
+                    {
+                        IngresarMenu();
+                    }
                 }
                 else
                 {
-                    cantidad = 1;
-                    Conexion.ObtenerConexion();
-                    string sql = "select nombre,precio from Menu where nombre=@nom";
-                    SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                    comando.Parameters.Clear();
-                    comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textBox2.Text;
-                    SqlDataReader registros = comando.ExecuteReader();
-                    if (registros.Read())
-                    {
-                        dataGridView1.Rows.Add(new String[] { cantidad.ToString(), registros["nombre"].ToString(), registros["precio"].ToString()});
-                    }
-                    registros.Close();
-                    Conexion.ObtenerConexion().Close();
-                    textBox2.Text = "";
-
-                    ClaseCompartida.valor = 1;
-
-                    sumaT();
-
-                    cantidad = 0;
+                    IngresarMenu();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                Conexion.ObtenerConexion();
-                string sql = "select nombre,precio from Menu where nombre=@nom";
-                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                comando.Parameters.Clear();
-                comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textBox2.Text;
-                SqlDataReader registros = comando.ExecuteReader();
-                if (registros.Read())
-                {
-                    string tt = registros["precio"].ToString();
-                    int tt2 = Int32.Parse(tt);
-                    int tt3 = cantidad * tt2;
-                    string tt4 = tt3.ToString();
 
-                    dataGridView1.Rows.Add(new String[] { cantidad.ToString(), registros["nombre"].ToString(), registros["precio"].ToString(), tt4});
-                }
-                registros.Close();
-                Conexion.ObtenerConexion().Close();
-                textBox2.Text = "";
-
-                ClaseCompartida.valor = 1;
-
-                cantidad = 0;
+                MessageBox.Show(ex.Message, "ERROR EN LA AGREGAR MENU", MessageBoxButtons.OK);
             }
+            
         }
+        // insertar menu ----------------------------------------------------- falta un poco
+
+        private void IngresarMenu()
+        {
+            Conexion.ObtenerConexion();
+            string sql = "SELECT nombre,precio FROM Menu WHERE nombre LIKE @nom OR  id = @id";
+            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+            comando.Parameters.Clear();
+            comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textBox2.Text;
+            comando.Parameters.Add("@id", SqlDbType.Int).Value = textBox2.Text;
+            SqlDataReader registros = comando.ExecuteReader();
+            if (registros.Read())
+            {
+                string tt = registros["precio"].ToString();
+                int tt2 = Int32.Parse(tt);
+                int tt3 = cantidad * tt2;
+                string tt4 = tt3.ToString();
+
+                dataGridView1.Rows.Add(new String[] { cantidad.ToString(), registros["nombre"].ToString(), registros["precio"].ToString(), tt4 });
+            }else
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                   /* if (iconButton1_Click( sender, e)Click )
+                    {
+
+                    }*/
+                }
+            {
+
+            }
+            registros.Close();
+            sumaT();
+            Conexion.ObtenerConexion().Close();
+            textBox2.Text = "";
+
+            ClaseCompartida.valor = 1;
+
+            cantidad = 0;
+        }
+
+        //  suma los precio total--------------- perfecto
 
         private void sumaT()
         {
@@ -155,8 +164,9 @@ namespace BAREST
 
             string hola = sumatorio.ToString();
 
-            textBox1.Text = hola;
+            textTotal.Text = hola;
         }
+        //------------------------------------------------------------------
 
         private void EliminarInsu_Click(object sender, EventArgs e)
         {
@@ -191,9 +201,9 @@ namespace BAREST
             bool IsDec = false;
             int nroDec = 0;
 
-            for (int i = 0; i < textBox1.Text.Length; i++)
+            for (int i = 0; i < textTotal.Text.Length; i++)
             {
-                if (textBox1.Text[i] == '.')
+                if (textTotal.Text[i] == '.')
                     IsDec = true;
 
                 if (IsDec && nroDec++ >= 2)
@@ -211,99 +221,52 @@ namespace BAREST
                 e.Handled = true;
         }
 
-        public int tot;
+        // suma --------------------- perfecto----
         private void iconButton1_Click(object sender, EventArgs e)
         {
+            double suma = 1;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                string dato = "", dato2 = "";
-
-                dato = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["Cantidad"].Value.ToString();
-
-                int num = Int32.Parse(dato);
-                tot = num + 1;
-                string pep = tot.ToString();
-
-                row.Cells[dataGridView1.CurrentRow.Index].Value = pep;
-
-                //----------------------
-
-                dato2 =  dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["precio"].Value.ToString();
-
-                int num2 = Int32.Parse(dato2);
-                int tot2 = num2 * tot;
-                string pep2 = tot2.ToString();
-
-                row.Cells["PTotal"].Value = pep2;
+                suma += Convert.ToDouble(row.Cells["cantidad"].Value);
+                row.Cells["cantidad"].Value = suma;
             }
         }
-
+        //  resta -----------------------perfecto----------------------
         private void iconButton2_Click(object sender, EventArgs e)
         {
+            double resta = 1;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                string dato = "", dato2 = "";
-                dato = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["Cantidad"].Value.ToString();
-                int num = Int32.Parse(dato);
-                int tot = num - 1;
-
-                dato2 = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["precio"].Value.ToString();
-
-                int num2 = Int32.Parse(dato2);
-                int tot2 = num2 * tot;
-
-                if (tot==0)
-                {
-                    eliminar();
-                }
-                else
-                {
-                    string pep = tot.ToString();
-                    row.Cells[dataGridView1.CurrentRow.Index].Value = pep;
-
-                    string pep2 = tot2.ToString();
-                    row.Cells["PTotal"].Value = pep2;
-                }
+                resta =  Convert.ToDouble(row.Cells["cantidad"].Value) -resta;
+                row.Cells["cantidad"].Value = resta;
             }
+            if (resta==0)
+               eliminar();
         }
+        //---------------------------------------------------
 
         private void Mesa1_Load(object sender, EventArgs e)
         {
             if(ClaseCompartida.mmm==1)
             {
                 Conexion.ObtenerConexion();
-                string sql = "select cantidad, detalles, pUnitario, comensales, mesa, mozo from provisorio where mesa = @nombre";
+                string sql = "select dv.cantidad, dv.detalles, dv.pUnitario, dv.precioTotal, dv.comensales, dv.mesa, dv.idmozo ,v.total from DetalleVenta dv inner join Venta v  ON v.id= dv.idventa where dv.mesa = @nombre AND dv.estado ='A'" ;
                 SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.AddWithValue("@nombre", ClaseCompartida.Mesa);
                 SqlDataReader leido = comando.ExecuteReader();
                 if (leido.Read())
                 {
                     llenarTabla();
-                    dataGridView1.Rows.Add(new String[]{leido["cantidad"].ToString(), leido["detalles"].ToString(),
-                                       leido["pUnitario"].ToString(),leido["pUnitario"].ToString() });
-                   /* dataGridView1.Rows[0].Cells[0].Value = leido["cantidad"].ToString();
-                    dataGridView1.Rows[0].Cells[1].Value = leido["detalles"].ToString();
-                    dataGridView1.Rows[0].Cells[2].Value = leido["pUnitario"].ToString();*/
-
+                    dataGridView1.Rows.Add(new String[]{leido["cantidad"].ToString(),
+                                                        leido["detalles"].ToString(),
+                                                        leido["pUnitario"].ToString(),
+                                                        leido["precioTotal"].ToString() });
                     textBox3.Text = leido["comensales"].ToString();
                     label4.Text = leido["mesa"].ToString();
                     label5.Text = leido["mozo"].ToString();
+                    textTotal.Text = leido["total"].ToString();
                 }
-
-                string dato2 = dataGridView1.Rows[0].Cells["precio"].Value.ToString();
-                string dato3 = dataGridView1.Rows[0].Cells["cant"].Value.ToString();
-
-                int num2 = Int32.Parse(dato2);
-                int num3 = Int32.Parse(dato3);
-
-                int tot2 = num2 * num3;
-                string pep2 = tot2.ToString();
-
-                dataGridView1.Rows[0].Cells["PTotal"].Value = pep2;
-
-                textBox1.Text = pep2;
-
-                ClaseCompartida.mmm = 0;
+                 ClaseCompartida.mmm = 0;
                 Conexion.ObtenerConexion().Close();
             }
 
@@ -372,13 +335,43 @@ namespace BAREST
 
             e.Graphics.DrawString("--------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 210, 300, 20));
 
-            e.Graphics.DrawString("                                          Subtotal: $" + textBox1.Text, font21, Brushes.Black, new RectangleF(5, 230, 300, 20));
+            e.Graphics.DrawString("                                          Subtotal: $" + textTotal.Text, font21, Brushes.Black, new RectangleF(5, 230, 300, 20));
             e.Graphics.DrawString("                                      Descuento: ", font21, Brushes.Black, new RectangleF(5, 245, 300, 20));
-            e.Graphics.DrawString("                                                Total: $" + textBox1.Text, font21, Brushes.Black, new RectangleF(5, 260, 300, 20));
+            e.Graphics.DrawString("                                                Total: $" + textTotal.Text, font21, Brushes.Black, new RectangleF(5, 260, 300, 20));
 
             e.Graphics.DrawString("GRACIAS POR ELEGIR VIDON BAR", font21, Brushes.Black, new RectangleF(25, 290, 300, 20));
             e.Graphics.DrawImage(pictureBox1.Image, new Rectangle(130, 320, 50, 50));
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
+        private void guardarVenta()
+        {
+            try
+            {
+                Conexion.ObtenerConexion();
+                using (var comando = new SqlCommand())
+                {
+                    comando.Connection = Conexion.ObtenerConexion();
+                    comando.CommandText = "INSERT INTO[dbo].[Venta]([fecha] ,[total]) VALUES([@fecha],[@total])";
+                    comando.Parameters.AddWithValue("@fecha", DateTime.Now);
+                    comando.Parameters.AddWithValue("@total", SqlDbType.Int).Value = textTotal.Text;
+                    int row = comando.ExecuteNonQuery();
+                    //if (row == 0)
+                    //throw Exception("Error");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
+
     
 }

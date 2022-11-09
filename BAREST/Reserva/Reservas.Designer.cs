@@ -88,7 +88,7 @@ namespace BAREST
             this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstadisticas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.PieChart;
             this.btnEstadisticas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.btnEstadisticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEstadisticas.IconSize = 30;
@@ -151,7 +151,7 @@ namespace BAREST
             this.btnEliminarRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEliminarRes.IconChar = FontAwesome.Sharp.IconChar.MinusCircle;
+            this.btnEliminarRes.IconChar = FontAwesome.Sharp.IconChar.CircleMinus;
             this.btnEliminarRes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.btnEliminarRes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminarRes.IconSize = 30;
@@ -172,7 +172,7 @@ namespace BAREST
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnModificar.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnModificar.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
             this.btnModificar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnModificar.IconSize = 30;
@@ -227,6 +227,7 @@ namespace BAREST
             this.tablaReservas.ReadOnly = true;
             this.tablaReservas.Size = new System.Drawing.Size(924, 249);
             this.tablaReservas.TabIndex = 2;
+            this.tablaReservas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaReservas_CellContentClick);
             // 
             // Nombre
             // 

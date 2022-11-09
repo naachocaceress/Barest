@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-
+//todos los codigos que se encuentra dentro una region es porque  están funcionando perfecto. el nombre es para poder identificarlo bien
 namespace BAREST
 {
     public partial class Reservas : Form
@@ -105,7 +105,7 @@ namespace BAREST
             cargarTabla();
             cantReservasHoy();
         }
-
+        #region  Anulacion y recuperacion de  estado de reserva  disponible o anulado
         private void btnAnuRecu_Click(object sender, EventArgs e)
         {
             string Insum0 = "";
@@ -145,7 +145,8 @@ namespace BAREST
             }
             cantReservasHoy();
         }
-
+        #endregion
+        #region Cambio de cuando el estado de la reserva es anulado
         public void anuladas()
         {
             tablaReservas.Rows.Cast<DataGridViewRow>().
@@ -160,7 +161,7 @@ namespace BAREST
                             }
                         });
         }
-
+        #endregion
         private void crearPDF()
         {
             PdfWriter pdfWriter = new PdfWriter("Reservas.pdf");
@@ -360,6 +361,11 @@ namespace BAREST
             registros.Close();
             Conexion.ObtenerConexion().Close();
             anuladas();
+        }
+
+        private void tablaReservas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void btnEstadisticas_Click(object sender, EventArgs e)

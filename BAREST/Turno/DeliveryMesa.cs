@@ -60,7 +60,7 @@ namespace BAREST.Turno
                 }
                 else
                 {
-                    cantidad = 1;
+                   /* cantidad = 1;
                     Conexion.ObtenerConexion();
                     string sql = "select nombre,precio from Menu where nombre=@nom";
                     SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
@@ -79,12 +79,12 @@ namespace BAREST.Turno
 
                     sumaT();
 
-                    cantidad = 0;
+                    cantidad = 0;*/
                 }
             }
             else
             {
-                Conexion.ObtenerConexion();
+                /*Conexion.ObtenerConexion();
                 string sql = "select nombre,precio from Menu where nombre=@nom";
                 SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                 comando.Parameters.Clear();
@@ -105,7 +105,7 @@ namespace BAREST.Turno
 
                 ClaseCompartida.valor = 1;
 
-                cantidad = 0;
+                cantidad = 0;*/
             }
         }
 

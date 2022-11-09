@@ -48,6 +48,8 @@ namespace BAREST
         }
 
         private Form activeForm = null;
+        internal static object Usuarios;
+
         private void openChilForm(Form childForm)
         {
             if (activeForm != null)
@@ -77,13 +79,20 @@ namespace BAREST
         private void acercaDe_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(214, 155, 60));
-            openChilForm(new Acerca_de());
+            CLIENTE cliente = new CLIENTE();
+            cliente.Show();
         }
 
         private void Reservas_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(214, 155, 60));
             openChilForm(new ReservasConfig());
+        }
+
+        private void acercaDe_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(214, 155, 60));
+            openChilForm(new Acerca_de());
         }
     }
 }

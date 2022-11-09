@@ -74,9 +74,9 @@ namespace BAREST.Compras
 
         private void Compras_Load(object sender, EventArgs e)
         {
-            buscarinsumo();
+            /*buscarinsumo();
             buscarProveedor();
-            buscartipo();
+            buscartipo();*/
         }
     }
 }

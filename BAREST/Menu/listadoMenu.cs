@@ -20,17 +20,29 @@ namespace BAREST
 
         private void listadoMenu_Load(object sender, EventArgs e)
         {
-            Conexion.ObtenerConexion();
-            string sql = "select m.nombre,d.descripcion,r.descripcionMenu,m.precio from menu m inner join DetalleMenu  d on m.IdDetalleMenu=d.id inner join RubroMenu r on r.id=m.idRubroMenu";
-            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            SqlDataReader registros = comando.ExecuteReader();
-            dataGridView1.Rows.Clear();
-            while (registros.Read())
+            try
             {
-                dataGridView1.Rows.Add(registros["nombre"].ToString(), registros["descripcion"].ToString(), registros["descripcionMenu"].ToString(), registros["precio"].ToString());
+                Conexion.ObtenerConexion();
+                using(var comando= new SqlCommand())
+                {
+                    comando.Connection = Conexion.ObtenerConexion();
+                    comando.CommandText= "SELECT m.nombre,m.precio,m.descripcion, r.nombre  as rubro FROM Menu m  INNER JOIN RubroMenu r ON r.id = m.idRubro WHERE m.estado ='A' ORDER BY m.nombre ASC ";
+                    SqlDataReader registros = comando.ExecuteReader();
+                    dataGridView1.Rows.Clear();
+                    while (registros.Read())
+                    {
+                        dataGridView1.Rows.Add(registros["nombre"].ToString(), registros["precio"].ToString(), registros["descripcion"].ToString(), registros["rubro"].ToString());
+                    }
+                    registros.Close();
+                }
             }
-            registros.Close();
-            Conexion.ObtenerConexion().Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR EN BUSQUEDA DE LA LISTA MENÚ");
+            }
+          
         }
+
+     
     }
 }

@@ -31,10 +31,10 @@ namespace BAREST.Compras
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnidadDeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Proveedores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,10 +46,10 @@ namespace BAREST.Compras
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Descripcion,
-            this.UnidadDeMedida,
+            this.unidad,
             this.Cantidad,
-            this.Rubro,
-            this.Proveedores});
+            this.fechaIngreso,
+            this.Rubro});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -65,13 +65,13 @@ namespace BAREST.Compras
             this.Descripcion.ReadOnly = true;
             this.Descripcion.Width = 115;
             // 
-            // UnidadDeMedida
+            // unidad
             // 
-            this.UnidadDeMedida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UnidadDeMedida.FillWeight = 55.49916F;
-            this.UnidadDeMedida.HeaderText = "Un. de Medida";
-            this.UnidadDeMedida.Name = "UnidadDeMedida";
-            this.UnidadDeMedida.ReadOnly = true;
+            this.unidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unidad.FillWeight = 55.49916F;
+            this.unidad.HeaderText = "Unidad";
+            this.unidad.Name = "unidad";
+            this.unidad.ReadOnly = true;
             // 
             // Cantidad
             // 
@@ -81,19 +81,19 @@ namespace BAREST.Compras
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
             // 
+            // fechaIngreso
+            // 
+            this.fechaIngreso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fechaIngreso.HeaderText = "Fecha de ingreso";
+            this.fechaIngreso.Name = "fechaIngreso";
+            this.fechaIngreso.ReadOnly = true;
+            // 
             // Rubro
             // 
             this.Rubro.FillWeight = 55.49916F;
             this.Rubro.HeaderText = "Rubro";
             this.Rubro.Name = "Rubro";
             this.Rubro.ReadOnly = true;
-            // 
-            // Proveedores
-            // 
-            this.Proveedores.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Proveedores.HeaderText = "Proveedores";
-            this.Proveedores.Name = "Proveedores";
-            this.Proveedores.ReadOnly = true;
             // 
             // consultaInsumos
             // 
@@ -114,9 +114,9 @@ namespace BAREST.Compras
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnidadDeMedida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Proveedores;
     }
 }

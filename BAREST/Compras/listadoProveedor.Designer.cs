@@ -33,7 +33,7 @@ namespace BAREST.Compras
             this.CUITCUIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeptoPiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Archivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +47,7 @@ namespace BAREST.Compras
             this.CUITCUIL,
             this.empresa,
             this.Telefono,
-            this.Calle,
+            this.Direccion,
             this.Nro,
             this.DeptoPiso,
             this.Archivo});
@@ -76,12 +76,12 @@ namespace BAREST.Compras
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
             // 
-            // Calle
+            // Direccion
             // 
-            this.Calle.HeaderText = "Calle";
-            this.Calle.Name = "Calle";
-            this.Calle.ReadOnly = true;
-            this.Calle.Width = 200;
+            this.Direccion.HeaderText = "Calle";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 200;
             // 
             // Nro
             // 
@@ -122,7 +122,7 @@ namespace BAREST.Compras
         private System.Windows.Forms.DataGridViewTextBoxColumn CUITCUIL;
         private System.Windows.Forms.DataGridViewTextBoxColumn empresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Calle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nro;
         private System.Windows.Forms.DataGridViewTextBoxColumn DeptoPiso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Archivo;

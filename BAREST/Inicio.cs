@@ -100,23 +100,28 @@ namespace BAREST
             else
             {
                 panelBotones.Width = 137;
-                turno.Text = ("       Iniciar Turno");
-                caja.Text = ("       Caja");
-                ventas.Text = ("       Ventas");
-                compras.Text = ("       Compras");
-                menu.Text = ("       Menu");
-                stock.Text = ("       Stock");
-                informes.Text = ("       Informes");
-                personal.Text = ("       Personal");
-                config.Text = ("       Configuracion");
-                salir.Text = ("       Salir");
+                botonHiden.Text = ("       BAREST");
+                turno.Text = ("          Turno");
+                reservas.Text = ("          Reservas");
+                caja.Text = ("          Caja");
+                ventas.Text = ("          Ventas");
+                compras.Text = ("          Compras");
+                menu.Text = ("          Menu");
+                stock.Text = ("          Stock");
+                informes.Text = ("          Informes");
+                personal.Text = ("          Personal");
+                btnCliente.Text = ("          Cliente");
+                config.Text = ("          Configuracion");
+                salir.Text = ("          Salir");
             }
         }
 
         private void esconderMenu()
         {
             panelBotones.Width = 41;
+            botonHiden.Text = ("");
             turno.Text = ("");
+            reservas.Text = ("");
             caja.Text = ("");
             ventas.Text = ("");
             compras.Text = ("");
@@ -124,6 +129,7 @@ namespace BAREST
             stock.Text = ("");
             informes.Text = ("");
             personal.Text = ("");
+            btnCliente.Text = ("");
             config.Text = ("");
             salir.Text = ("");
             hideSubMenu();
@@ -135,16 +141,19 @@ namespace BAREST
             if (panelBotones.Width == 41)
             {
                 panelBotones.Width = 137;
-                turno.Text = ("       Iniciar Turno");
-                caja.Text = ("       Caja");
-                ventas.Text = ("       Ventas");
-                compras.Text = ("       Compras");
-                menu.Text = ("       Menu");
-                stock.Text = ("       Stock");
-                informes.Text = ("       Informes");
-                personal.Text = ("       Personal");
-                config.Text = ("       Configuracion");
-                salir.Text = ("       Salir");
+                botonHiden.Text = ("       BAREST");
+                turno.Text = ("          Turno");
+                reservas.Text = ("          Reservas");
+                caja.Text = ("          Caja");
+                ventas.Text = ("          Ventas");
+                compras.Text = ("          Compras");
+                menu.Text = ("          Menu");
+                stock.Text = ("          Stock");
+                informes.Text = ("          Informes");
+                personal.Text = ("          Personal");
+                btnCliente.Text = ("          Cliente");
+                config.Text = ("          Configuracion");
+                salir.Text = ("          Salir");
             }
         }
 
@@ -314,6 +323,7 @@ namespace BAREST
         private void button2_Click(object sender, EventArgs e)
         {
             esconderMenu();
+           
         }
 
         private void categorias_Click(object sender, EventArgs e)
@@ -345,7 +355,9 @@ namespace BAREST
             if (panelBotones.Width == 137)
             {
                 panelBotones.Width = 41;
+                botonHiden.Text = ("");
                 turno.Text = ("");
+                reservas.Text = ("");
                 caja.Text = ("");
                 ventas.Text = ("");
                 compras.Text = ("");
@@ -353,24 +365,26 @@ namespace BAREST
                 stock.Text = ("");
                 informes.Text = ("");
                 personal.Text = ("");
+                btnCliente.Text = ("");
                 config.Text = ("");
                 salir.Text = ("");
-                botonHiden.Text = ("");
             }
             else
             {
                 panelBotones.Width = 137;
-                turno.Text = ("       Iniciar Turno");
-                caja.Text = ("       Caja");
-                ventas.Text = ("       Ventas");
-                compras.Text = ("       Compras");
-                menu.Text = ("       Menu");
-                stock.Text = ("       Stock");
-                informes.Text = ("       Informes");
-                personal.Text = ("       Personal");
-                config.Text = ("       Configuracion");
-                salir.Text = ("       Salir");
                 botonHiden.Text = ("       BAREST");
+                turno.Text = ("          Turno");
+                reservas.Text = ("          Reservas");
+                caja.Text = ("          Caja");
+                ventas.Text = ("          Ventas");
+                compras.Text = ("          Compras");
+                menu.Text = ("          Menu");
+                stock.Text = ("          Stock");
+                informes.Text = ("          Informes");
+                personal.Text = ("          Personal");
+                btnCliente.Text = ("          Cliente");
+                config.Text = ("          Configuracion");
+                salir.Text = ("          Salir");
             }
         }
 
@@ -887,6 +901,20 @@ namespace BAREST
             {
                 panel = 3;
             }
+        }
+
+        private void inicio_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void config_Click(object sender, EventArgs e)
+        {
+            esconderMenu();
+            //openChilForm(new Reservas());
+            BotonActivo(sender);
+            configuracion m = new configuracion();
+            m.Show();
         }
 
         private void Add()
