@@ -84,6 +84,7 @@ namespace BAREST
 
         private void agregarMenulista2()
         {
+            dataGridView1.ClearSelection();
             try
             {
                 if (cantidad == 0)
@@ -92,6 +93,14 @@ namespace BAREST
                     {
                         int cantN = Int32.Parse(textBox2.Text);
                         cantidad = cantN;
+
+                        foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                        {
+                            row.Cells["cantidad"].Value = cantidad;
+                        }
+
+                        dataGridView1.Rows.Add(new String[] { cantidad.ToString()});
+
                         textBox2.Text = "";
                     }
                     else
@@ -115,6 +124,7 @@ namespace BAREST
 
         private void IngresarMenu()
         {
+            dataGridView1.Rows.Remove(dataGridView1.Rows[dataGridView1.Rows.Count - 1]);
             Conexion.ObtenerConexion();
             string sql = "SELECT nombre,precio FROM Menu WHERE nombre LIKE @nom OR  id = @id";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
@@ -229,6 +239,15 @@ namespace BAREST
             {
                 suma += Convert.ToDouble(row.Cells["cantidad"].Value);
                 row.Cells["cantidad"].Value = suma;
+
+                int cant = Convert.ToInt32(row.Cells["cantidad"].Value);
+                int puni = Convert.ToInt32(row.Cells["precio"].Value);
+
+                double sum = cant * puni;
+                    
+                row.Cells["PTotal"].Value = sum;
+
+                sumaT();
             }
         }
         //  resta -----------------------perfecto----------------------
@@ -239,9 +258,17 @@ namespace BAREST
             {
                 resta =  Convert.ToDouble(row.Cells["cantidad"].Value) -resta;
                 row.Cells["cantidad"].Value = resta;
+
+                int cant = Convert.ToInt32(row.Cells["cantidad"].Value);
+                int puni = Convert.ToInt32(row.Cells["precio"].Value);
+
+                double sum = cant * puni;
+
+                row.Cells["PTotal"].Value = sum;
             }
             if (resta==0)
                eliminar();
+            sumaT();
         }
         //---------------------------------------------------
 
@@ -343,11 +370,6 @@ namespace BAREST
             e.Graphics.DrawImage(pictureBox1.Image, new Rectangle(130, 320, 50, 50));
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
        
         private void guardarVenta()
         {
@@ -372,6 +394,4 @@ namespace BAREST
             }
         }
     }
-
-    
 }

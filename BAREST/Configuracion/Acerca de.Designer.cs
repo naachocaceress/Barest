@@ -93,8 +93,8 @@ namespace BAREST.Configuracion
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(223, 72);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Barest 2022\r\nVersion Beta 1.8.9\r\n© 2022 Grupo Barest.\r\nTodos los derechos reserva" +
-    "dos.";
+            this.label2.Text = "Barest 2022\r\nVersion Beta 1.8.10\r\n© 2022 Grupo Barest.\r\nTodos los derechos reserv" +
+    "ados.";
             // 
             // label3
             // 
@@ -157,9 +157,9 @@ namespace BAREST.Configuracion
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(494, 154);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 162);
+            this.label6.Size = new System.Drawing.Size(115, 162);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Caleb Jolicoeur\r\n\r\n\r\n\r\nJuan Cruz Calvo\r\n\r\n\r\n\r\nCaceres Ignacio";
+            this.label6.Text = "Caleb Jolicoeur\r\n\r\n\r\n\r\nAranda Leyla\r\n\r\n\r\n\r\nCaceres Ignacio";
             // 
             // pictureBox4
             // 

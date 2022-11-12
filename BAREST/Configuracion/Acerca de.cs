@@ -34,7 +34,7 @@ namespace BAREST.Configuracion
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.instagram.com/juanc_calvo/");
+            System.Diagnostics.Process.Start("https://www.instagram.com/leyaranda92/");
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace BAREST.Configuracion
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.linkedin.com/in/juan-cruz-calvo-21b654188/");
+            System.Diagnostics.Process.Start("");
         }
     }
 }
