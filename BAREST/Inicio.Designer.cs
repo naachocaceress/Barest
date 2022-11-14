@@ -1453,7 +1453,7 @@
             // ayudaVisualMesas
             // 
             this.ayudaVisualMesas.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ayudaVisualMesas.Image = global::BAREST.Properties.Resources.Ayuda_visual__mesas_colores4;
+            this.ayudaVisualMesas.Image = ((System.Drawing.Image)(resources.GetObject("ayudaVisualMesas.Image")));
             this.ayudaVisualMesas.Location = new System.Drawing.Point(0, 821);
             this.ayudaVisualMesas.Name = "ayudaVisualMesas";
             this.ayudaVisualMesas.Size = new System.Drawing.Size(165, 110);
@@ -2038,7 +2038,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barest";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.inicio_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
             this.panelPlano3.ResumeLayout(false);

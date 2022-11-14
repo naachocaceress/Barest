@@ -21,19 +21,42 @@ namespace BAREST
 
         private void button1_Click(object sender, EventArgs e)
         {
-          /*  Conexion.ObtenerConexion();
-            String sql = "insert into provisorio (cantidad, detalles, pUnitario, comensales, mesa, mozo) values (@cant, @det, @puni, @comens, @meza, @mozo)";
-            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            comando.Parameters.Add("@cant", SqlDbType.VarChar).Value = dataGridView1.Rows[0].Cells[0].Value;
-            comando.Parameters.Add("@det", SqlDbType.VarChar).Value = dataGridView1.Rows[0].Cells[1].Value;
-            comando.Parameters.Add("@puni", SqlDbType.VarChar).Value = dataGridView1.Rows[0].Cells[2].Value;
-            comando.Parameters.Add("@comens", SqlDbType.VarChar).Value = textBox3.Text.ToString();
-            comando.Parameters.Add("@meza", SqlDbType.VarChar).Value = label4.Text;
-            comando.Parameters.Add("@mozo", SqlDbType.VarChar).Value = label5.Text;
-            comando.ExecuteNonQuery();
-            Conexion.ObtenerConexion();
-            this.Close();
-            Conexion.ObtenerConexion().Close();*/
+            try
+            {
+                Conexion.ObtenerConexion();
+                using (var comanda = new SqlCommand())
+                {
+                    comanda.Connection = Conexion.ObtenerConexion();
+                    comanda.CommandText = "INSERT INTO Mesa (mesa,mozo,cantidad ,detalles,precioUnitario,precioTotal ,total,comensal) VALUES (@mesa ,@mozo , @cantidad ,@detalles,@precioUnitario ,@precioTotal ,@total ,@comensal)";
+
+                    comanda.Parameters.AddWithValue("@total", SqlDbType.Float).Value = textTotal.Text;
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+
+                        comanda.Parameters.AddWithValue("@mesa", SqlDbType.VarChar).Value = labelmesa.Text;
+                        comanda.Parameters.AddWithValue("@mozo", SqlDbType.VarChar).Value = labelmozo.Text;
+                        comanda.Parameters.AddWithValue("@comensal", SqlDbType.VarChar).Value = textBox3.Text;
+                        comanda.Parameters.AddWithValue("@cantidad", SqlDbType.Int).Value = row.Cells["cant"].Value;
+
+                        comanda.Parameters.AddWithValue("@detalles", SqlDbType.VarChar).Value = row.Cells["Detalles"].Value;
+                        comanda.Parameters.AddWithValue("@precioUnitario", SqlDbType.Float).Value = row.Cells["precio"].Value;
+                        comanda.Parameters.AddWithValue("@precioTotal", SqlDbType.Float).Value = row.Cells["PTotal"].Value;
+
+                    }
+
+
+                    int rowcount = comanda.ExecuteNonQuery();
+                    if (rowcount == 0)
+                        throw new Exception("hubo error en  la insercion");
+                    // comanda.Parameters.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
 
             ClaseCompartida.comanda++;
 
@@ -44,6 +67,7 @@ namespace BAREST
             printDocument1.PrinterSettings = ps;
             printDocument1.PrintPage += Imprimir;
             printDocument1.Print();
+            this.Close();
         }
 
         private void Imprimir(object sender, PrintPageEventArgs e)
@@ -55,19 +79,33 @@ namespace BAREST
 
             e.Graphics.DrawString("COMANDA", font, Brushes.Black, new RectangleF(50,10,120,20));
             e.Graphics.DrawString("Fecha: " + DateTime.Now.ToString("dd-MM-yyyy") + "  Hora: " + DateTime.Now.ToString("HH:mm"), font2, Brushes.Black, new RectangleF(5,40,300,20));
-           
-            e.Graphics.DrawString("Mozo: " + label5.Text, font3, Brushes.Black, new RectangleF(5, 70, 300, 20));
-            e.Graphics.DrawString("Mesa: " + label4.Text, font3, Brushes.Black, new RectangleF(5,90,300,20));
-            e.Graphics.DrawString("N°: " + ClaseCompartida.comanda, font3, Brushes.Black, new RectangleF(150, 80, 300, 20));
 
+
+            e.Graphics.DrawString("Mozo: " + labelmozo.Text, font3, Brushes.Black, new RectangleF(5, 70, 300, 20));
+            e.Graphics.DrawString("Mesa: " + labelmesa.Text, font3, Brushes.Black, new RectangleF(5,90,300,20));
+            e.Graphics.DrawString("N°: " + ClaseCompartida.comanda, font3, Brushes.Black, new RectangleF(150, 80, 300, 20));
             e.Graphics.DrawString("-------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 110, 300, 20));
-            e.Graphics.DrawString(" " + dataGridView1.CurrentRow.Cells[0].Value.ToString() + " " + dataGridView1.CurrentRow.Cells[1].Value.ToString(), font3, Brushes.Black, new RectangleF(15, 130, 300, 20));
-            e.Graphics.DrawString("-------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 155, 300, 20));
+
+            int counta = dataGridView1.Rows.Count;
+
+            if (counta==1)
+            {
+                e.Graphics.DrawString(" " + dataGridView1.Rows[0].Cells[0].Value.ToString() + " " + dataGridView1.Rows[0].Cells[1].Value.ToString(), font3, Brushes.Black, new RectangleF(15, 130, 300, 20));
+                e.Graphics.DrawString("-------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 155, 300, 20));
+            }
+            else
+            {
+                e.Graphics.DrawString(" " + dataGridView1.Rows[0].Cells[0].Value.ToString() + " " + dataGridView1.Rows[0].Cells[1].Value.ToString(), font3, Brushes.Black, new RectangleF(15, 130, 300, 20));
+                e.Graphics.DrawString(" " + dataGridView1.Rows[1].Cells[0].Value.ToString() + " " + dataGridView1.Rows[1].Cells[1].Value.ToString(), font3, Brushes.Black, new RectangleF(15, 155, 300, 20));
+                e.Graphics.DrawString("-------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 175, 300, 20));
+            }
+
+            //e.Graphics.DrawString(" " + dataGridView1.Rows[0].Cells[0].Value.ToString() + " " + dataGridView1.Rows[0].Cells[1].Value.ToString(), font3, Brushes.Black, new RectangleF(15, 130, 300, 20));
         }
 
         public static class ClaseCompartida
         {
-            public static int valor=0;
+            public static int valor = 0;
             public static int usu = 0;
             public static int mmm = 0;
             public static string Mesa = "";
@@ -96,7 +134,7 @@ namespace BAREST
 
                         foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                         {
-                            row.Cells["cantidad"].Value = cantidad;
+                            row.Cells["cant"].Value = cantidad;
                         }
 
                         dataGridView1.Rows.Add(new String[] { cantidad.ToString()});
@@ -237,10 +275,10 @@ namespace BAREST
             double suma = 1;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                suma += Convert.ToDouble(row.Cells["cantidad"].Value);
-                row.Cells["cantidad"].Value = suma;
+                suma += Convert.ToDouble(row.Cells["cant"].Value);
+                row.Cells["cant"].Value = suma;
 
-                int cant = Convert.ToInt32(row.Cells["cantidad"].Value);
+                int cant = Convert.ToInt32(row.Cells["cant"].Value);
                 int puni = Convert.ToInt32(row.Cells["precio"].Value);
 
                 double sum = cant * puni;
@@ -256,10 +294,10 @@ namespace BAREST
             double resta = 1;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                resta =  Convert.ToDouble(row.Cells["cantidad"].Value) -resta;
-                row.Cells["cantidad"].Value = resta;
+                resta =  Convert.ToDouble(row.Cells["cant"].Value) -resta;
+                row.Cells["cant"].Value = resta;
 
-                int cant = Convert.ToInt32(row.Cells["cantidad"].Value);
+                int cant = Convert.ToInt32(row.Cells["cant"].Value);
                 int puni = Convert.ToInt32(row.Cells["precio"].Value);
 
                 double sum = cant * puni;
@@ -274,37 +312,37 @@ namespace BAREST
 
         private void Mesa1_Load(object sender, EventArgs e)
         {
-            if(ClaseCompartida.mmm==1)
+            if (ClaseCompartida.mmm == 1)
             {
                 Conexion.ObtenerConexion();
-                string sql = "select dv.cantidad, dv.detalles, dv.pUnitario, dv.precioTotal, dv.comensales, dv.mesa, dv.idmozo ,v.total from DetalleVenta dv inner join Venta v  ON v.id= dv.idventa where dv.mesa = @nombre AND dv.estado ='A'" ;
+                string sql = "select top (1) cantidad, detalles, precioUnitario, precioTotal, comensal, mesa, mozo ,total from Mesa  where Mesa = @mesa AND estado ='A' order by mesa desc";
                 SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                comando.Parameters.AddWithValue("@nombre", ClaseCompartida.Mesa);
+                comando.Parameters.AddWithValue("@mesa", ClaseCompartida.Mesa);
                 SqlDataReader leido = comando.ExecuteReader();
                 if (leido.Read())
                 {
-                    llenarTabla();
+                    //llenarTabla();
                     dataGridView1.Rows.Add(new String[]{leido["cantidad"].ToString(),
                                                         leido["detalles"].ToString(),
-                                                        leido["pUnitario"].ToString(),
+                                                        leido["precioUnitario"].ToString(),
                                                         leido["precioTotal"].ToString() });
-                    textBox3.Text = leido["comensales"].ToString();
-                    label4.Text = leido["mesa"].ToString();
-                    label5.Text = leido["mozo"].ToString();
+                    textBox3.Text = leido["comensal"].ToString();
+                    labelmesa.Text = leido["mesa"].ToString();
+                    labelmozo.Text = leido["mozo"].ToString();
                     textTotal.Text = leido["total"].ToString();
                 }
-                 ClaseCompartida.mmm = 0;
+                ClaseCompartida.mmm = 0;
                 Conexion.ObtenerConexion().Close();
             }
 
-             void llenarTabla()
+                void llenarTabla()
             {
                 dataGridView1.ColumnCount = 3;
-                dataGridView1.Columns[0].Name = "Cantidad";
+                dataGridView1.Columns[0].Name = "cant";
                 dataGridView1.Columns[1].Name = "Detalles";
                 dataGridView1.Columns[2].Name = "precio";
                 dataGridView1.Columns[2].Name = "PTotal";
-                dataGridView1.Columns["Cantidad"].HeaderText = "Cantidad";
+                dataGridView1.Columns["Cantidad"].HeaderText = "cant";
                 dataGridView1.Columns["Detalles"].HeaderText = "Detalles";
                 dataGridView1.Columns["precio"].HeaderText = "precio";
                 dataGridView1.Columns["PTotal"].HeaderText = "Total";
@@ -328,6 +366,9 @@ namespace BAREST
             printDocument1.PrinterSettings = ps;
             printDocument1.PrintPage += Imprimir2;
             printDocument1.Print();
+
+            ClaseCompartida.valor = 5;
+            this.Close();
         }
         private void Imprimir2(object sender, PrintPageEventArgs e)
         {
@@ -344,12 +385,12 @@ namespace BAREST
             e.Graphics.DrawString("--------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 60, 300, 20));
 
             e.Graphics.DrawString("Control del Pedido", font2, Brushes.Black, new RectangleF(90, 76, 300, 20));
-            e.Graphics.DrawString("Mesa: " + label4.Text, font3, Brushes.Black, new RectangleF(100, 90, 300, 20));
+            e.Graphics.DrawString("Mesa: " + labelmesa.Text, font3, Brushes.Black, new RectangleF(100, 90, 300, 20));
 
             e.Graphics.DrawString("--------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 100, 300, 20));
             
             e.Graphics.DrawString("Fecha: " + DateTime.Now.ToString("dd-MM-yyyy") + "                         Hora: " + DateTime.Now.ToString("HH:mm"), font2, Brushes.Black, new RectangleF(5, 120, 300, 20));
-            e.Graphics.DrawString("Mozo: " + label5.Text, font2, Brushes.Black, new RectangleF(5, 135, 300, 20));
+            e.Graphics.DrawString("Mozo: " + labelmozo.Text, font2, Brushes.Black, new RectangleF(5, 135, 300, 20));
 
             e.Graphics.DrawString("--------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 150, 300, 20));
 

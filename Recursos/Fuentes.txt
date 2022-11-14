@@ -6,8 +6,10 @@ Color blanco : 241; 243; 244
 Color dorado: 214; 155; 60
 
 Color Verde Plano: 27; 111; 114
+
 Color Verde Mesas: 116; 199; 132
 Color Rojo Mesas Ocupadas: 217; 96; 78
+Color Celeste Mesas Cobrar: 0, 255, 255 
 
 BUSQUEDAS DINAMICAS
 

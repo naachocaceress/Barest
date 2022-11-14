@@ -215,6 +215,7 @@ namespace BAREST
         }
 
         private Form activeForm = null;
+
         private void openChilForm(Form childForm)
         {
             if (activeForm != null)
@@ -280,6 +281,8 @@ namespace BAREST
                 panelPlano2.Visible = false;
                 panelPlano3.Visible = false;
                 panelAyudaVisual.Visible = false;
+
+
             }
         }
 
@@ -323,7 +326,6 @@ namespace BAREST
         private void button2_Click(object sender, EventArgs e)
         {
             esconderMenu();
-           
         }
 
         private void categorias_Click(object sender, EventArgs e)
@@ -403,14 +405,18 @@ namespace BAREST
                 {
                     if (((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
                     {
+                        //ClaseCompartida.valor = 0;
                         Button boton = sender as Button;
                         Mesa1 m = new Mesa1();
                         ClaseCompartida.Mesa = boton.Name;
                         ClaseCompartida.mmm = 1;
                         m.ShowDialog();
+                        if (ClaseCompartida.valor == 5)
+                            ((Button)sender).BackColor = Color.FromArgb(0, 255, 255);
                     }
-                    else
+                    else if(((Button)sender).BackColor == Color.FromArgb(116, 199, 132))
                     {
+                        ClaseCompartida.valor = 0;
                         Button boton = sender as Button;
 
                         turno.Mozo m = new turno.Mozo();
@@ -426,6 +432,19 @@ namespace BAREST
 
                         if (ClaseCompartida.valor == 1)
                             ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
+                        else if (ClaseCompartida.valor == 5)
+                            ((Button)sender).BackColor = Color.FromArgb(0, 255, 255);
+                    }
+                    else
+                    {
+                        if (((Button)sender).BackColor == Color.FromArgb(0, 255, 255))
+                        {
+                            Button boton = sender as Button;
+                            Cobro m = new Cobro();
+                            ClaseCompartida.Mesa = boton.Name;
+                            ClaseCompartida.mmm = 1;
+                            m.ShowDialog();
+                        }
                     }
                 }
                 else
@@ -460,6 +479,7 @@ namespace BAREST
                 }
             }
             else
+            //---------------------------------------------------------------------
                 if(panel == 2)
             {
                 if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114))
@@ -472,7 +492,7 @@ namespace BAREST
                         ClaseCompartida.mmm = 1;
                         m.ShowDialog();
                     }
-                    else
+                    else if (((Button)sender).BackColor == Color.FromArgb(116, 199, 132))
                     {
                         Button boton = sender as Button;
 
@@ -489,6 +509,21 @@ namespace BAREST
 
                         if (ClaseCompartida.valor == 1)
                             ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
+                        else if (ClaseCompartida.valor == 5)
+                        {
+                            ((Button)sender).BackColor = Color.FromArgb(0, 255, 255);
+                        }
+                    }
+                    else
+                    {
+                        if (((Button)sender).BackColor == Color.FromArgb(0, 255, 255))
+                        {
+                            Button boton = sender as Button;
+                            Cobro m = new Cobro();
+                            ClaseCompartida.Mesa = boton.Name;
+                            ClaseCompartida.mmm = 1;
+                            m.ShowDialog();
+                        }
                     }
                 }
                 else
@@ -523,7 +558,8 @@ namespace BAREST
                 }
             }
             else
-                if(panel == 3)
+                //---------------------------------------------------------------------
+                if (panel == 3)
             {
                 if (panelPlano3.BackColor == Color.FromArgb(27, 111, 114))
                 {
@@ -535,7 +571,7 @@ namespace BAREST
                         ClaseCompartida.mmm = 1;
                         m.ShowDialog();
                     }
-                    else
+                    else if (((Button)sender).BackColor == Color.FromArgb(116, 199, 132))
                     {
                         Button boton = sender as Button;
 
@@ -552,6 +588,21 @@ namespace BAREST
 
                         if (ClaseCompartida.valor == 1)
                             ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
+                        else if (ClaseCompartida.valor == 5)
+                        {
+                            ((Button)sender).BackColor = Color.FromArgb(0, 255, 255);
+                        }
+                    }
+                    else
+                    {
+                        if (((Button)sender).BackColor == Color.FromArgb(0, 255, 255))
+                        {
+                            Button boton = sender as Button;
+                            Cobro m = new Cobro();
+                            ClaseCompartida.Mesa = boton.Name;
+                            ClaseCompartida.mmm = 1;
+                            m.ShowDialog();
+                        }
                     }
                 }
                 else
@@ -901,11 +952,6 @@ namespace BAREST
             {
                 panel = 3;
             }
-        }
-
-        private void inicio_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void config_Click(object sender, EventArgs e)

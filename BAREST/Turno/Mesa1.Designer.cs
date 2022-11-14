@@ -36,15 +36,11 @@ namespace BAREST
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelmozo = new System.Windows.Forms.Label();
+            this.labelmesa = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Detalles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,6 +50,10 @@ namespace BAREST
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Detalles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -140,8 +140,8 @@ namespace BAREST
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.labelmozo);
+            this.panel2.Controls.Add(this.labelmesa);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -170,25 +170,25 @@ namespace BAREST
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label5
+            // labelmozo
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(60, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(23, 16);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "---";
+            this.labelmozo.AutoSize = true;
+            this.labelmozo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelmozo.Location = new System.Drawing.Point(60, 30);
+            this.labelmozo.Name = "labelmozo";
+            this.labelmozo.Size = new System.Drawing.Size(23, 16);
+            this.labelmozo.TabIndex = 3;
+            this.labelmozo.Text = "---";
             // 
-            // label4
+            // labelmesa
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(60, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "---";
+            this.labelmesa.AutoSize = true;
+            this.labelmesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelmesa.Location = new System.Drawing.Point(60, 9);
+            this.labelmesa.Name = "labelmesa";
+            this.labelmesa.Size = new System.Drawing.Size(23, 16);
+            this.labelmesa.TabIndex = 2;
+            this.labelmesa.Text = "---";
             // 
             // label3
             // 
@@ -213,7 +213,7 @@ namespace BAREST
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cantidad,
+            this.cant,
             this.Detalles,
             this.precio,
             this.PTotal});
@@ -222,30 +222,6 @@ namespace BAREST
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(359, 244);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cant.";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 50;
-            // 
-            // Detalles
-            // 
-            this.Detalles.HeaderText = "Detalles";
-            this.Detalles.Name = "Detalles";
-            this.Detalles.Width = 150;
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "P.Unitario";
-            this.precio.Name = "precio";
-            this.precio.Width = 60;
-            // 
-            // PTotal
-            // 
-            this.PTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PTotal.HeaderText = "P.Total";
-            this.PTotal.Name = "PTotal";
             // 
             // label1
             // 
@@ -325,6 +301,30 @@ namespace BAREST
             this.iconButton2.UseVisualStyleBackColor = true;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
+            // cant
+            // 
+            this.cant.HeaderText = "Cant.";
+            this.cant.Name = "cant";
+            this.cant.Width = 50;
+            // 
+            // Detalles
+            // 
+            this.Detalles.HeaderText = "Detalles";
+            this.Detalles.Name = "Detalles";
+            this.Detalles.Width = 150;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "P.Unitario";
+            this.precio.Name = "precio";
+            this.precio.Width = 60;
+            // 
+            // PTotal
+            // 
+            this.PTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PTotal.HeaderText = "P.Total";
+            this.PTotal.Name = "PTotal";
+            // 
             // Mesa1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,15 +370,11 @@ namespace BAREST
         private System.Windows.Forms.TextBox textTotal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label labelmozo;
+        public System.Windows.Forms.Label labelmesa;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Detalles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PTotal;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox3;
         private FontAwesome.Sharp.IconButton iconButton1;
@@ -386,5 +382,9 @@ namespace BAREST
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Detalles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PTotal;
     }
 }

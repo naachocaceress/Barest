@@ -25,8 +25,8 @@ namespace BAREST.turno
         private void pictureBox9_Click(object sender, EventArgs e)
         {
             Mesa1 m = new Mesa1();
-            m.label5.Text = "Pedro";
-            m.label4.Text = label7.Text;
+            m.labelmozo.Text = "Pedro";
+            m.labelmesa.Text = label7.Text;
 
             this.Close();
             m.ShowDialog();
@@ -40,8 +40,8 @@ namespace BAREST.turno
         private void juanfoto_Click(object sender, EventArgs e)
         {
             Mesa1 m = new Mesa1();
-            m.label5.Text = "Juan";
-            m.label4.Text = label7.Text;
+            m.labelmozo.Text = "Juan";
+            m.labelmesa.Text = label7.Text;
             this.Close();
             m.ShowDialog();
         }
@@ -49,8 +49,8 @@ namespace BAREST.turno
         private void calebfoto_Click(object sender, EventArgs e)
         {
             Mesa1 m = new Mesa1();
-            m.label5.Text = "Caleb";
-            m.label4.Text = label7.Text;
+            m.labelmozo.Text = "Caleb";
+            m.labelmesa.Text = label7.Text;
             this.Close();
             m.ShowDialog();
         }
@@ -58,8 +58,8 @@ namespace BAREST.turno
         private void nachofoto_Click(object sender, EventArgs e)
         {
             Mesa1 m = new Mesa1();
-            m.label5.Text = "Nacho";
-            m.label4.Text = label7.Text;
+            m.labelmozo.Text = "Nacho";
+            m.labelmesa.Text = label7.Text;
             this.Close();
             m.ShowDialog();
         }
@@ -67,8 +67,8 @@ namespace BAREST.turno
         private void ianfoto_Click(object sender, EventArgs e)
         {
             Mesa1 m = new Mesa1();
-            m.label5.Text = "Ian";
-            m.label4.Text = label7.Text;
+            m.labelmozo.Text = "Ian";
+            m.labelmesa.Text = label7.Text;
             this.Close();
             m.ShowDialog();
         }
@@ -76,8 +76,8 @@ namespace BAREST.turno
         private void pepefoto_Click(object sender, EventArgs e)
         {
             Mesa1 m = new Mesa1();
-            m.label5.Text = "Pepe";
-            m.label4.Text = label7.Text;
+            m.labelmozo.Text = "Pepe";
+            m.labelmesa.Text = label7.Text;
             this.Close();
             m.ShowDialog();
         }
