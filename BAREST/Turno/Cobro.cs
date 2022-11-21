@@ -60,17 +60,17 @@ namespace BAREST.Turno
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            radioButton1.Checked = true;
+            //radioButton1.Checked = true;
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            radioButton2.Checked = true;
+            //radioButton2.Checked = true;
         }
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
-            radioButton3.Checked = true;
+            //radioButton3.Checked = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,78 +83,27 @@ namespace BAREST.Turno
             if (iconButton3.Text == "       Cobro multiple")
             {
                 iconButton3.Text = "       Cobro simple";
-                groupBox1.Enabled = true;
+                //groupBox1.Enabled = true;
             }
             else
             {
                 iconButton3.Text = "       Cobro multiple";
-                groupBox1.Enabled = false;
+                //groupBox1.Enabled = false;
             }
         }
 
         private void agregarMenulista_Click(object sender, EventArgs e)
         {
-            if (radioButton1.Checked == false && radioButton2.Checked == false && radioButton3.Checked == false)
-            {
-                MessageBox.Show("Debe seleccionar un medio de cobro");
-            }
-            else
-            {
-                try
-                {
-                    Conexion.ObtenerConexion();
-                    using (var comanda = new SqlCommand())
-                    {
-                        comanda.Connection = Conexion.ObtenerConexion();
-                        comanda.CommandText = "UPDATE Mesa SET mesa = @mesa1 ,mozo = @mozo ,cantidad = @cantidad ,detalles = @detalles ,precioUnitario = @precioUnitario ,precioTotal = @precioTotal,total = @total,comensal = @comensal,efectivo = @efectivo,transferencia = @transferencia,tarjeta = @tarjeta WHERE mesa = @mesa2 and estado ='A'";
+            FormaDeCobro m = new FormaDeCobro();
+            m.valor = textTotal.Text;
+            m.mesa = labelmesa.Text;
+            m.Show();
+            //this.Close();
+        }
 
-                        comanda.Parameters.AddWithValue("@total", SqlDbType.Float).Value = textTotal.Text;
-
-                        foreach (DataGridViewRow row in dataGridView1.Rows)
-                        {
-
-                            comanda.Parameters.Add("@mesa1", SqlDbType.VarChar).Value = labelmesa.Text;
-                            comanda.Parameters.Add("@mozo", SqlDbType.VarChar).Value = labelmozo.Text;
-                            comanda.Parameters.Add("@comensal", SqlDbType.VarChar).Value = textBox3.Text;
-                            comanda.Parameters.Add("@cantidad", SqlDbType.Int).Value = row.Cells["cant"].Value;
-
-                            comanda.Parameters.Add("@detalles", SqlDbType.VarChar).Value = row.Cells["Detalles"].Value;
-                            comanda.Parameters.Add("@precioUnitario", SqlDbType.Float).Value = row.Cells["precio"].Value;
-                            comanda.Parameters.Add("@precioTotal", SqlDbType.Float).Value = row.Cells["PTotal"].Value;
-
-                            if (radioButton1.Checked == true)
-                            {
-                                comanda.Parameters.Add("@tarjeta", SqlDbType.Float).Value = row.Cells["PTotal"].Value;
-                                comanda.Parameters.Add("@efectivo", SqlDbType.Float).Value = 0;
-                                comanda.Parameters.Add("@transferencia", SqlDbType.Float).Value = 0;
-                            }
-                            else if (radioButton2.Checked == true)
-                            {
-                                comanda.Parameters.Add("@tarjeta", SqlDbType.Float).Value = 0;
-                                comanda.Parameters.Add("@efectivo", SqlDbType.Float).Value = row.Cells["PTotal"].Value;
-                                comanda.Parameters.Add("@transferencia", SqlDbType.Float).Value = 0;
-                            }
-                            else if (radioButton3.Checked == true)
-                            {
-                                comanda.Parameters.Add("@tarjeta", SqlDbType.Float).Value = 0;
-                                comanda.Parameters.Add("@efectivo", SqlDbType.Float).Value = 0;
-                                comanda.Parameters.Add("@transferencia", SqlDbType.Float).Value = row.Cells["PTotal"].Value;
-                            }
-                        }
-
-
-                        int rowcount = comanda.ExecuteNonQuery();
-                        if (rowcount == 0)
-                            throw new Exception("hubo error en  la insercion");
-                        // comanda.Parameters.Clear();
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show(ex.Message);
-                }
-            }
+        private void EliminarInsu_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

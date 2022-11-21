@@ -274,3 +274,5 @@ C:\Users\usuario\Source\Repos\naachocaceress\Barest\BAREST\obj\Debug\BAREST.exe
 C:\Users\usuario\Source\Repos\naachocaceress\Barest\BAREST\obj\Debug\BAREST.pdb
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\Proyectos\Proyecto BAREST\BAREST\BAREST\obj\Debug\BAREST.Clientes.ingresarCliente.resources
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\Proyectos\Proyecto BAREST\BAREST\BAREST\obj\Debug\BAREST.Turno.Cobro.resources
+C:\Users\Nacho\OneDrive\Escritorio\Nacho6\Proyectos\Proyecto BAREST\BAREST\BAREST\obj\Debug\BAREST.Turno.FormaDeCobro.resources
+C:\Users\Nacho\OneDrive\Escritorio\Nacho6\Proyectos\Proyecto BAREST\BAREST\BAREST\obj\Debug\BAREST.Ventas.Venta.resources

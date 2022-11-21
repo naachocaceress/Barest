@@ -81,5 +81,10 @@ namespace BAREST.turno
             this.Close();
             m.ShowDialog();
         }
+
+        private void Mozo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

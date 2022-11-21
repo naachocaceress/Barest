@@ -285,6 +285,7 @@ namespace BAREST.turno
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mozos";
+            this.Load += new System.EventHandler(this.Mozo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.juanfoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calebfoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nachofoto)).EndInit();

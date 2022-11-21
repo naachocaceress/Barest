@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BAREST.Turno;
+using BAREST.Ventas;
 using FontAwesome.Sharp;
 using static BAREST.Mesa1;
 
@@ -189,6 +190,8 @@ namespace BAREST
         {
             esconderMenu();
             BotonActivo(sender);
+            Venta m = new Venta();
+            m.Show();
         }
 
         private void compras_Click_1(object sender, EventArgs e)
@@ -444,6 +447,7 @@ namespace BAREST
                             ClaseCompartida.Mesa = boton.Name;
                             ClaseCompartida.mmm = 1;
                             m.ShowDialog();
+                            ((Button)sender).BackColor = Color.FromArgb(116, 199, 132);
                         }
                     }
                 }
@@ -523,6 +527,7 @@ namespace BAREST
                             ClaseCompartida.Mesa = boton.Name;
                             ClaseCompartida.mmm = 1;
                             m.ShowDialog();
+                            ((Button)sender).BackColor = Color.FromArgb(116, 199, 132);
                         }
                     }
                 }
@@ -602,6 +607,7 @@ namespace BAREST
                             ClaseCompartida.Mesa = boton.Name;
                             ClaseCompartida.mmm = 1;
                             m.ShowDialog();
+                            ((Button)sender).BackColor = Color.FromArgb(116, 199, 132);
                         }
                     }
                 }

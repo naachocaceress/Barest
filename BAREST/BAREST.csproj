@@ -252,6 +252,12 @@
     <Compile Include="Turno\DetallesDeli.Designer.cs">
       <DependentUpon>DetallesDeli.cs</DependentUpon>
     </Compile>
+    <Compile Include="Turno\FormaDeCobro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turno\FormaDeCobro.Designer.cs">
+      <DependentUpon>FormaDeCobro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Turno\ModoEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +307,12 @@
     </Compile>
     <Compile Include="Turno\Mozo.Designer.cs">
       <DependentUpon>Mozo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Venta.Designer.cs">
+      <DependentUpon>Venta.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Cajas\CajaCh.resx">
       <DependentUpon>CajaCh.cs</DependentUpon>
@@ -368,6 +380,9 @@
     <EmbeddedResource Include="Turno\DetallesDeli.resx">
       <DependentUpon>DetallesDeli.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Turno\FormaDeCobro.resx">
+      <DependentUpon>FormaDeCobro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Turno\Mesa1.resx">
       <DependentUpon>Mesa1.cs</DependentUpon>
     </EmbeddedResource>
@@ -396,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Turno\Mozo.resx">
       <DependentUpon>Mozo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Venta.resx">
+      <DependentUpon>Venta.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="BaseBarestDataSet.xsc">
       <DependentUpon>BaseBarestDataSet.xsd</DependentUpon>
