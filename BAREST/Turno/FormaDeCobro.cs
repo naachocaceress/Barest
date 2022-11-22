@@ -23,7 +23,6 @@ namespace BAREST.Turno
 
         private void agregarMenulista_Click(object sender, EventArgs e)
         {
-            
             ClaseCompartida.valor = 10;
             if (Convert.ToDouble(textResumen.Text) != 0)
                 MessageBox.Show("Tiene que cobrar todo el monto");
@@ -35,16 +34,17 @@ namespace BAREST.Turno
                     using (var comanda = new SqlCommand())
                     {
                         comanda.Connection = Conexion.ObtenerConexion();
-                        comanda.CommandText = "UPDATE Mesa SET estado = @estado,efectivo = @efectivo,transferencia = @transferencia,tarjeta = @tarjeta WHERE mesa = @mesa";
+                        comanda.CommandText = "UPDATE Mesa SET estado = @estado,efectivo = @efectivo,transferencia = @transferencia,tarjeta = @tarjeta WHERE mesa = @mesa AND total = @total";
 
                         comanda.Parameters.AddWithValue("@estado", SqlDbType.VarChar).Value = "C";
                         comanda.Parameters.AddWithValue("@efectivo", SqlDbType.VarChar).Value = textEfectivo.Text;
                         comanda.Parameters.AddWithValue("@transferencia", SqlDbType.VarChar).Value = textTransf.Text;
                         comanda.Parameters.AddWithValue("@tarjeta", SqlDbType.VarChar).Value = textTarjeta.Text;
                         comanda.Parameters.AddWithValue("@mesa", SqlDbType.VarChar).Value = mesa;
+                        comanda.Parameters.AddWithValue("@total", SqlDbType.VarChar).Value = textTotal.Text;
                         int rowcount = comanda.ExecuteNonQuery();
                         if (rowcount == 0)
-                            throw new Exception("hugo error en  la insercion");
+                            throw new Exception("hubo error en la insercion");
                     }
                 }
                 catch (Exception ex)

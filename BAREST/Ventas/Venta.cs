@@ -35,13 +35,14 @@ namespace BAREST.Ventas
                 using (var comando = new SqlCommand())
                 {
                     comando.Connection = Conexion.ObtenerConexion();
-                    comando.CommandText = " SELECT  mesa ,cantidad ,detalles ,total,efectivo ,transferencia,tarjeta FROM Mesa WHERE mesa like @mesa";
+                    comando.CommandText = " SELECT  mesa ,mozo, cantidad ,detalles ,total,efectivo ,transferencia,tarjeta FROM Mesa WHERE mesa like @mesa";
                     comando.Parameters.AddWithValue("@mesa", SqlDbType.VarChar).Value =textMesa.Text;
                     SqlDataReader leido = comando.ExecuteReader();
                     dataGridView1.Rows.Clear();
                     while (leido.Read())
                     {
                         dataGridView1.Rows.Add(new String[]{leido["mesa"].ToString(),
+                                                        leido["mozo"].ToString(),
                                                         leido["cantidad"].ToString(),
                                                         leido["detalles"].ToString(),
                                                         leido["total"].ToString(),
@@ -142,13 +143,14 @@ namespace BAREST.Ventas
                 using (var comando = new SqlCommand())
                 {
                     comando.Connection = Conexion.ObtenerConexion();
-                    comando.CommandText = " SELECT  mesa ,cantidad ,detalles ,total,efectivo ,transferencia,tarjeta FROM Mesa";
+                    comando.CommandText = " SELECT  mesa , mozo, cantidad ,detalles ,total,efectivo ,transferencia,tarjeta FROM Mesa where estado='A'";
                     comando.Parameters.AddWithValue("@mesa", SqlDbType.VarChar).Value = " ";
                     SqlDataReader leido = comando.ExecuteReader();
                     dataGridView1.Rows.Clear();
                     while (leido.Read())
                     {
                         dataGridView1.Rows.Add(new String[]{leido["mesa"].ToString(),
+                                                        leido["mozo"].ToString(),
                                                         leido["cantidad"].ToString(),
                                                         leido["detalles"].ToString(),
                                                         leido["total"].ToString(),
@@ -236,6 +238,15 @@ namespace BAREST.Ventas
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+            EstadisticasVtas m = new EstadisticasVtas();
+            m.efect = Convert.ToInt32(textEfect.Text);
+            m.tarj = Convert.ToInt32(textTarj.Text);
+            m.transf = Convert.ToInt32(textTransf.Text);
+            m.Show();
         }
     }
 }

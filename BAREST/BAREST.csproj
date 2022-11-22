@@ -308,6 +308,12 @@
     <Compile Include="Turno\Mozo.Designer.cs">
       <DependentUpon>Mozo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventas\EstadisticasVtas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\EstadisticasVtas.Designer.cs">
+      <DependentUpon>EstadisticasVtas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventas\Venta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Turno\Mozo.resx">
       <DependentUpon>Mozo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\EstadisticasVtas.resx">
+      <DependentUpon>EstadisticasVtas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Venta.resx">
       <DependentUpon>Venta.cs</DependentUpon>

@@ -969,6 +969,10 @@ namespace BAREST
             m.Show();
         }
 
+        private void inicio_Load(object sender, EventArgs e)
+        {
+        }
+
         private void Add()
         {
             AgregarMesa n = new AgregarMesa();

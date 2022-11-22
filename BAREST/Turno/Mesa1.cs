@@ -27,7 +27,7 @@ namespace BAREST
                 using (var comanda = new SqlCommand())
                 {
                     comanda.Connection = Conexion.ObtenerConexion();
-                    comanda.CommandText = "INSERT INTO Mesa (mesa,mozo,cantidad ,detalles,precioUnitario,precioTotal ,total,comensal) VALUES (@mesa ,@mozo , @cantidad ,@detalles,@precioUnitario ,@precioTotal ,@total ,@comensal)";
+                    comanda.CommandText = "INSERT INTO Mesa (mesa,mozo,cantidad ,detalles,precioUnitario,precioTotal ,total,comensal, fecha) VALUES (@mesa ,@mozo , @cantidad ,@detalles,@precioUnitario ,@precioTotal ,@total ,@comensal, @fecha)";
 
                     comanda.Parameters.AddWithValue("@total", SqlDbType.Float).Value = textTotal.Text;
 
@@ -42,7 +42,7 @@ namespace BAREST
                         comanda.Parameters.AddWithValue("@detalles", SqlDbType.VarChar).Value = row.Cells["Detalles"].Value;
                         comanda.Parameters.AddWithValue("@precioUnitario", SqlDbType.Float).Value = row.Cells["precio"].Value;
                         comanda.Parameters.AddWithValue("@precioTotal", SqlDbType.Float).Value = row.Cells["PTotal"].Value;
-
+                        comanda.Parameters.AddWithValue("@fecha", SqlDbType.DateTime).Value = DateTime.Now;
                     }
 
 

@@ -30,6 +30,8 @@ namespace BAREST.Turno
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.agregarMenulista = new FontAwesome.Sharp.IconButton();
+            this.EliminarInsu = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,8 +43,6 @@ namespace BAREST.Turno
             this.label5 = new System.Windows.Forms.Label();
             this.textResumen = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.agregarMenulista = new FontAwesome.Sharp.IconButton();
-            this.EliminarInsu = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +57,48 @@ namespace BAREST.Turno
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(223, 50);
             this.panel1.TabIndex = 5;
+            // 
+            // agregarMenulista
+            // 
+            this.agregarMenulista.Dock = System.Windows.Forms.DockStyle.Left;
+            this.agregarMenulista.FlatAppearance.BorderSize = 0;
+            this.agregarMenulista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregarMenulista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregarMenulista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.agregarMenulista.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.agregarMenulista.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.agregarMenulista.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.agregarMenulista.IconSize = 30;
+            this.agregarMenulista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.agregarMenulista.Location = new System.Drawing.Point(0, 0);
+            this.agregarMenulista.Name = "agregarMenulista";
+            this.agregarMenulista.Size = new System.Drawing.Size(100, 50);
+            this.agregarMenulista.TabIndex = 11;
+            this.agregarMenulista.Text = "       Cobrar";
+            this.agregarMenulista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.agregarMenulista.UseVisualStyleBackColor = true;
+            this.agregarMenulista.Click += new System.EventHandler(this.agregarMenulista_Click);
+            // 
+            // EliminarInsu
+            // 
+            this.EliminarInsu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.EliminarInsu.FlatAppearance.BorderSize = 0;
+            this.EliminarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EliminarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EliminarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.Ban;
+            this.EliminarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EliminarInsu.IconSize = 30;
+            this.EliminarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarInsu.Location = new System.Drawing.Point(123, 0);
+            this.EliminarInsu.Name = "EliminarInsu";
+            this.EliminarInsu.Size = new System.Drawing.Size(100, 50);
+            this.EliminarInsu.TabIndex = 12;
+            this.EliminarInsu.Text = "       Cancelar";
+            this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarInsu.UseVisualStyleBackColor = true;
+            this.EliminarInsu.Click += new System.EventHandler(this.EliminarInsu_Click);
             // 
             // label1
             // 
@@ -155,48 +197,6 @@ namespace BAREST.Turno
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Medios de cobro";
-            // 
-            // agregarMenulista
-            // 
-            this.agregarMenulista.Dock = System.Windows.Forms.DockStyle.Right;
-            this.agregarMenulista.FlatAppearance.BorderSize = 0;
-            this.agregarMenulista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarMenulista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarMenulista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.agregarMenulista.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.agregarMenulista.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.agregarMenulista.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.agregarMenulista.IconSize = 30;
-            this.agregarMenulista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarMenulista.Location = new System.Drawing.Point(23, 0);
-            this.agregarMenulista.Name = "agregarMenulista";
-            this.agregarMenulista.Size = new System.Drawing.Size(100, 50);
-            this.agregarMenulista.TabIndex = 11;
-            this.agregarMenulista.Text = "       Cobrar";
-            this.agregarMenulista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarMenulista.UseVisualStyleBackColor = true;
-            this.agregarMenulista.Click += new System.EventHandler(this.agregarMenulista_Click);
-            // 
-            // EliminarInsu
-            // 
-            this.EliminarInsu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.EliminarInsu.FlatAppearance.BorderSize = 0;
-            this.EliminarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EliminarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.Ban;
-            this.EliminarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EliminarInsu.IconSize = 30;
-            this.EliminarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.Location = new System.Drawing.Point(123, 0);
-            this.EliminarInsu.Name = "EliminarInsu";
-            this.EliminarInsu.Size = new System.Drawing.Size(100, 50);
-            this.EliminarInsu.TabIndex = 12;
-            this.EliminarInsu.Text = "       Cancelar";
-            this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.UseVisualStyleBackColor = true;
-            this.EliminarInsu.Click += new System.EventHandler(this.EliminarInsu_Click);
             // 
             // FormaDeCobro
             // 

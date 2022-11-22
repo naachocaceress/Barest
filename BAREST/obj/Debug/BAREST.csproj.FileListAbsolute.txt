@@ -276,3 +276,4 @@ C:\Users\Nacho\OneDrive\Escritorio\Nacho6\Proyectos\Proyecto BAREST\BAREST\BARES
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\Proyectos\Proyecto BAREST\BAREST\BAREST\obj\Debug\BAREST.Turno.Cobro.resources
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\Proyectos\Proyecto BAREST\BAREST\BAREST\obj\Debug\BAREST.Turno.FormaDeCobro.resources
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\Proyectos\Proyecto BAREST\BAREST\BAREST\obj\Debug\BAREST.Ventas.Venta.resources
+C:\Users\Nacho\OneDrive\Escritorio\Nacho6\Proyectos\Proyecto BAREST\BAREST\BAREST\obj\Debug\BAREST.Ventas.EstadisticasVtas.resources

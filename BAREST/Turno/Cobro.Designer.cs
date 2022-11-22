@@ -30,12 +30,16 @@ namespace BAREST.Turno
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.labelmozo = new System.Windows.Forms.Label();
             this.labelmesa = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.agregarMenulista = new FontAwesome.Sharp.IconButton();
+            this.EliminarInsu = new FontAwesome.Sharp.IconButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detalles = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,14 +52,10 @@ namespace BAREST.Turno
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.agregarMenulista = new FontAwesome.Sharp.IconButton();
-            this.EliminarInsu = new FontAwesome.Sharp.IconButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -72,6 +72,16 @@ namespace BAREST.Turno
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(383, 52);
             this.panel2.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BAREST.Properties.Resources.Vidon_bar;
+            this.pictureBox1.Location = new System.Drawing.Point(152, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(79, 52);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
@@ -128,10 +138,74 @@ namespace BAREST.Turno
             this.panel1.Controls.Add(this.agregarMenulista);
             this.panel1.Controls.Add(this.EliminarInsu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 338);
+            this.panel1.Location = new System.Drawing.Point(0, 345);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(383, 50);
             this.panel1.TabIndex = 4;
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.FileInvoiceDollar;
+            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 30;
+            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton3.Location = new System.Drawing.Point(0, 0);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(135, 50);
+            this.iconButton3.TabIndex = 13;
+            this.iconButton3.Text = "       Cobro multiple";
+            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Visible = false;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            // 
+            // agregarMenulista
+            // 
+            this.agregarMenulista.Dock = System.Windows.Forms.DockStyle.Right;
+            this.agregarMenulista.FlatAppearance.BorderSize = 0;
+            this.agregarMenulista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregarMenulista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregarMenulista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.agregarMenulista.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.agregarMenulista.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.agregarMenulista.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.agregarMenulista.IconSize = 30;
+            this.agregarMenulista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.agregarMenulista.Location = new System.Drawing.Point(183, 0);
+            this.agregarMenulista.Name = "agregarMenulista";
+            this.agregarMenulista.Size = new System.Drawing.Size(100, 50);
+            this.agregarMenulista.TabIndex = 11;
+            this.agregarMenulista.Text = "       Cobrar";
+            this.agregarMenulista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.agregarMenulista.UseVisualStyleBackColor = true;
+            this.agregarMenulista.Click += new System.EventHandler(this.agregarMenulista_Click);
+            // 
+            // EliminarInsu
+            // 
+            this.EliminarInsu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.EliminarInsu.FlatAppearance.BorderSize = 0;
+            this.EliminarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EliminarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EliminarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.Ban;
+            this.EliminarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EliminarInsu.IconSize = 30;
+            this.EliminarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarInsu.Location = new System.Drawing.Point(283, 0);
+            this.EliminarInsu.Name = "EliminarInsu";
+            this.EliminarInsu.Size = new System.Drawing.Size(100, 50);
+            this.EliminarInsu.TabIndex = 12;
+            this.EliminarInsu.Text = "       Cancelar";
+            this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarInsu.UseVisualStyleBackColor = true;
+            this.EliminarInsu.Click += new System.EventHandler(this.EliminarInsu_Click);
             // 
             // dataGridView1
             // 
@@ -269,85 +343,11 @@ namespace BAREST.Turno
             this.iconButton1.Visible = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // iconButton3
-            // 
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.FileInvoiceDollar;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 30;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(0, 0);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(135, 50);
-            this.iconButton3.TabIndex = 13;
-            this.iconButton3.Text = "       Cobro multiple";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.UseVisualStyleBackColor = true;
-            this.iconButton3.Visible = false;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
-            // 
-            // agregarMenulista
-            // 
-            this.agregarMenulista.Dock = System.Windows.Forms.DockStyle.Right;
-            this.agregarMenulista.FlatAppearance.BorderSize = 0;
-            this.agregarMenulista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarMenulista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarMenulista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.agregarMenulista.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.agregarMenulista.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.agregarMenulista.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.agregarMenulista.IconSize = 30;
-            this.agregarMenulista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarMenulista.Location = new System.Drawing.Point(183, 0);
-            this.agregarMenulista.Name = "agregarMenulista";
-            this.agregarMenulista.Size = new System.Drawing.Size(100, 50);
-            this.agregarMenulista.TabIndex = 11;
-            this.agregarMenulista.Text = "       Cobrar";
-            this.agregarMenulista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarMenulista.UseVisualStyleBackColor = true;
-            this.agregarMenulista.Click += new System.EventHandler(this.agregarMenulista_Click);
-            // 
-            // EliminarInsu
-            // 
-            this.EliminarInsu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.EliminarInsu.FlatAppearance.BorderSize = 0;
-            this.EliminarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EliminarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.Ban;
-            this.EliminarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EliminarInsu.IconSize = 30;
-            this.EliminarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.Location = new System.Drawing.Point(283, 0);
-            this.EliminarInsu.Name = "EliminarInsu";
-            this.EliminarInsu.Size = new System.Drawing.Size(100, 50);
-            this.EliminarInsu.TabIndex = 12;
-            this.EliminarInsu.Text = "       Cancelar";
-            this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.UseVisualStyleBackColor = true;
-            this.EliminarInsu.Click += new System.EventHandler(this.EliminarInsu_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BAREST.Properties.Resources.Vidon_bar;
-            this.pictureBox1.Location = new System.Drawing.Point(152, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(79, 52);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
             // Cobro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 388);
+            this.ClientSize = new System.Drawing.Size(383, 395);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.iconButton4);
@@ -368,9 +368,9 @@ namespace BAREST.Turno
             this.Load += new System.EventHandler(this.Cobro_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
