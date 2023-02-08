@@ -33,5 +33,15 @@ namespace BAREST.Properties {
                 return ((string)(this["BARESTNEWConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=BARESTNEW;Integrated Security=True")]
+        public string BARESTNEWConnectionString {
+            get {
+                return ((string)(this["BARESTNEWConnectionString"]));
+            }
+        }
     }
 }

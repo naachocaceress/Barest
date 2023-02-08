@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BAREST.Compras
@@ -27,10 +21,10 @@ namespace BAREST.Compras
         {
             if (existeProveedor())
             {
-                MessageBox.Show("Ya existe un proveedor registrado con este Numero CUIL/CUIT: " +textcuit.Text );
+                MessageBox.Show("Ya existe un proveedor registrado con este Numero CUIL/CUIT: " + textcuit.Text);
                 return;
             }
-            if (textEmpresa.Text!="" && textTel.Text!= "" && textcalle.Text!="" && textNro.Text!="" && textcuit.Text!="")
+            if (textEmpresa.Text != "" && textTel.Text != "" && textcalle.Text != "" && textNro.Text != "" && textcuit.Text != "")
             {
                 try
                 {
@@ -54,12 +48,12 @@ namespace BAREST.Compras
                 }
                 limpiarCampo();
                 Conexion.ObtenerConexion().Close();
-                cargarGrilla();  
+                cargarGrilla();
             }
             else
             {
                 MessageBox.Show("Falta ingresar algún Datos ");
-            }   
+            }
         }
         void limpiarCampo()
         {
@@ -89,20 +83,21 @@ namespace BAREST.Compras
         bool existeProveedor()
         {
             bool existe = false;
-            try { 
-              Conexion.ObtenerConexion();
-              String sql = " select cuit from Proveedor where cuit like @cuit";
-              SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-              comando.Parameters.Add("@cuit", SqlDbType.Char).Value = textcuit.Text;
+            try
+            {
+                Conexion.ObtenerConexion();
+                String sql = " select cuit from Proveedor where cuit like @cuit";
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                comando.Parameters.Add("@cuit", SqlDbType.Char).Value = textcuit.Text;
                 SqlDataReader registro = comando.ExecuteReader();
                 if (registro.Read())
                     existe = true;
-     
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                
+
             }
             Conexion.ObtenerConexion().Close();
             return existe;
@@ -168,7 +163,7 @@ namespace BAREST.Compras
                     textcalle.Text = leido["direccion"].ToString();
                     textNro.Text = leido["altura"].ToString();
                     textDepto.Text = leido["deptopiso"].ToString();
-                    
+
 
                 }
             }
@@ -177,7 +172,7 @@ namespace BAREST.Compras
 
                 MessageBox.Show(ex.Message);
             }
-            
+
             Conexion.ObtenerConexion().Close();
             guardarModifi.Visible = true;
         }
@@ -199,7 +194,7 @@ namespace BAREST.Compras
                     //comando.Parameters.AddWithValue("@id", SqlDbType.Int).Value = textid.Text;
                     comando.ExecuteNonQuery();
                     Conexion.ObtenerConexion().Close();
-                    
+
                 }
                 MessageBox.Show("Se cambiaron los datos el proveedor " + textEmpresa.Text + " correctamente");
             }
@@ -207,11 +202,11 @@ namespace BAREST.Compras
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
             limpiarCampo();
             cargarGrilla();
         }
-        
+
 
         private void button2_Click(object sender, EventArgs e)
         {

@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using Transitions;
 using static BAREST.Configuracion.CLIENTE;
 
 namespace BAREST.Clientes
@@ -12,22 +11,23 @@ namespace BAREST.Clientes
         public ingresarCliente()
         {
             InitializeComponent();
+
         }
 
         private void agregarCliente_Click(object sender, EventArgs e)
         {
             try
             {
-                if (textid.Text =="")
+                if (textid.Text == "")
                 {
                     if (existeCLiente())
                     {
-                        MessageBox.Show("Existe este documento en el sistema con el nombre:"+ textNombre.Text + " ");
+                        MessageBox.Show("Existe este documento en el sistema con el nombre:" + textNombre.Text + " ");
                         return;
                     }
-                    if (textApe.Text == "" || textNombre.Text == "" || textdni.Text == "") 
+                    if (textApe.Text == "" || textNombre.Text == "" || textcalle.Text == "" || textNro.Text == "")
                     {
-                        MessageBox.Show("falta ingresar DAtos a algun Campo");
+                        MessageBox.Show("Los campos con * son necesarios");
                         return;
                     }
                     else
@@ -35,6 +35,7 @@ namespace BAREST.Clientes
                         InsercionCLiente();
                         limpiar();
                         return;
+
                     }
                 }
                 else
@@ -49,9 +50,9 @@ namespace BAREST.Clientes
 
                 MessageBox.Show(ex.Message);
             }
-           
-        } 
-        bool  existeCLiente()
+
+        }
+        bool existeCLiente()
         {
             bool existe = false;
             try
@@ -72,7 +73,7 @@ namespace BAREST.Clientes
             }
             Conexion.ObtenerConexion().Close();
             return existe;
-        } 
+        }
         void InsercionCLiente()
         {
             try
@@ -94,21 +95,22 @@ namespace BAREST.Clientes
                     Conexion.ObtenerConexion().Close();
                     MessageBox.Show(" se  ha registrado un nuevo cliente");
                     limpiar();
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                
+
             }
-           
+
         }
 
         private void EditCliente()
         {
             try
             {
-                String sql = "Update [Cliente] SET[nombre]= @nombre, [apellido] = @apellido,  [telefono] = @telefono,  [domicilio] = @domicilio,  [altura] = @altura,  [deptopiso] = @deptopiso, [dni] = @dni WHERE id = @id";
+                String sql = "Update [Cliente] SET[nombre]= @nombre, [apellido] = @apellido,  [telefono] = @telefono,  [domicilio] = @domicilio,  [altura] = @altura,  [deptopiso] = @deptopiso, [dni] = @dni WHERE id = @id ";
                 using (Conexion.ObtenerConexion())
                 {
                     SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
@@ -122,7 +124,7 @@ namespace BAREST.Clientes
                     comando.Parameters.AddWithValue("@id", SqlDbType.VarChar).Value = textid.Text;
                     comando.ExecuteNonQuery();
                     Conexion.ObtenerConexion().Close();
-                    MessageBox.Show(" se  ha Moficado  un  cliente" + textNombre.Text + " Correctamente");
+                    MessageBox.Show("Los datos de " + textNombre.Text + " ha cambiado correctamente");
                 }
             }
             catch (Exception ex)
@@ -130,33 +132,33 @@ namespace BAREST.Clientes
 
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
-        
+
         private void buscarDatos()
         {
             Conexion.ObtenerConexion();
             string sql = "SELECT id,nombre,apellido,telefono,domicilio,altura,deptopiso,dni from Cliente WHERE nombre = @nombre";
-            var comando = new SqlCommand(sql,Conexion.ObtenerConexion());
+            var comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = CLientesshare.selectCliente;
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
             {
                 textid.Text = leido["id"].ToString();
                 textNombre.Text = leido["nombre"].ToString();
-                textApe.Text= leido["apellido"].ToString();
+                textApe.Text = leido["apellido"].ToString();
                 textcalle.Text = leido["domicilio"].ToString();
                 textTel.Text = leido["telefono"].ToString();
                 textNro.Text = leido["altura"].ToString();
                 textDepto.Text = leido["deptopiso"].ToString();
                 textdni.Text = leido["dni"].ToString();
-               
+
             }
             Conexion.ObtenerConexion().Close();
         }
-       
+
         private void ingresarCliente_Load(object sender, EventArgs e)
-        { 
+        {
             if (CLientesshare.selectCliente == "")
             {
 
@@ -176,6 +178,7 @@ namespace BAREST.Clientes
             textcalle.Text = "";
             textNro.Text = "";
             textDepto.Text = "";
+            textid.Text = "";
         }
 
         private void modificarCliente_Click(object sender, EventArgs e)
@@ -184,33 +187,6 @@ namespace BAREST.Clientes
         }
 
 
-        /*int idCliente = 0;
-       public void SeleccionarCliente(string pnombre = null)
-       {//dynamic BuscarUsu = tablaUsua.Rows[tablaUsua.CurrentRow.Index].Cells["documento"].Value.ToString();
-        //   pnombre = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["NOMBRE"].Value.ToString();
-           using (Conexion.ObtenerConexion())
-           {
-               String sql = "Select nombre,apellido,telefono,domicilio,altura,deptopiso,dni,id from Cliente where nombre like '%' " + pnombre + " '%'";
-               var comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-               SqlDataReader reader = comando.ExecuteReader();
-               if (reader.Read())
-               {
-
-                   textNombre.Text = reader.GetString(0);
-                   textApe.Text = reader.GetString(1);
-                   textTel.Text = reader.GetString(2);
-                   textdni.Text = reader.GetString(3);
-                   textcalle.Text = reader.GetString(4);
-                   textNro.Text = reader.GetString(5);
-                   textDepto.Text = reader.GetString(6);
-                   idCliente = reader.GetInt32(7);
-
-               }
-
-           }
-
-       }
-       */
     }
 
 

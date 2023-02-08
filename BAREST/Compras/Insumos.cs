@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BAREST.Compras
@@ -45,8 +39,8 @@ namespace BAREST.Compras
             comando.Parameters.Add("rubro", SqlDbType.Int).Value = comboBox1.SelectedIndex.ToString();
             comando.Parameters.Add("@fechaI", SqlDbType.DateTime).Value = dateTimePicker1.Value;
             comando.ExecuteNonQuery();
-            MessageBox.Show("Se ha Registrado el articulo "+ textDescInsumo +" correctamente");
-            
+            MessageBox.Show("Se ha Registrado el articulo " + textDescInsumo + " correctamente");
+
             Conexion.ObtenerConexion().Close();
 
         }
@@ -141,7 +135,7 @@ namespace BAREST.Compras
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void comboUnidad_SelectedIndexChanged(object sender, EventArgs e)

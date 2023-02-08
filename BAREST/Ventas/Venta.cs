@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BAREST.Ventas
@@ -36,7 +30,7 @@ namespace BAREST.Ventas
                 {
                     comando.Connection = Conexion.ObtenerConexion();
                     comando.CommandText = " SELECT  mesa ,mozo, cantidad ,detalles ,total,efectivo ,transferencia,tarjeta FROM Mesa WHERE mesa like @mesa";
-                    comando.Parameters.AddWithValue("@mesa", SqlDbType.VarChar).Value =textMesa.Text;
+                    comando.Parameters.AddWithValue("@mesa", SqlDbType.VarChar).Value = textMesa.Text;
                     SqlDataReader leido = comando.ExecuteReader();
                     dataGridView1.Rows.Clear();
                     while (leido.Read())
@@ -71,7 +65,7 @@ namespace BAREST.Ventas
                     comando.CommandText = " select SUM(efectivo) AS efect from Mesa";
                     //comando.Parameters.AddWithValue("@efect", SqlDbType.VarChar).Value = " ";
                     SqlDataReader leido = comando.ExecuteReader();
-                    if(leido.Read())
+                    if (leido.Read())
                     {
                         textEfect.Text = leido["efect"].ToString();
                     }

@@ -211,6 +211,7 @@ namespace BAREST
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cant,
@@ -219,6 +220,7 @@ namespace BAREST
             this.PTotal});
             this.dataGridView1.Location = new System.Drawing.Point(12, 109);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(359, 244);
             this.dataGridView1.TabIndex = 3;
@@ -254,6 +256,7 @@ namespace BAREST
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(130, 20);
             this.textBox2.TabIndex = 0;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress_1);
             // 
             // label7
@@ -305,18 +308,21 @@ namespace BAREST
             // 
             this.cant.HeaderText = "Cant.";
             this.cant.Name = "cant";
+            this.cant.ReadOnly = true;
             this.cant.Width = 50;
             // 
             // Detalles
             // 
             this.Detalles.HeaderText = "Detalles";
             this.Detalles.Name = "Detalles";
-            this.Detalles.Width = 150;
+            this.Detalles.ReadOnly = true;
+            this.Detalles.Width = 130;
             // 
             // precio
             // 
             this.precio.HeaderText = "P.Unitario";
             this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
             this.precio.Width = 60;
             // 
             // PTotal
@@ -324,6 +330,7 @@ namespace BAREST
             this.PTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.PTotal.HeaderText = "P.Total";
             this.PTotal.Name = "PTotal";
+            this.PTotal.ReadOnly = true;
             // 
             // Mesa1
             // 

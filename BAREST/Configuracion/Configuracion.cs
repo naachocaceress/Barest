@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BAREST.Configuracion;
+﻿using BAREST.Configuracion;
 using FontAwesome.Sharp;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace BAREST
 {
@@ -18,7 +12,7 @@ namespace BAREST
         private Panel leftBorderBtn;
 
         public configuracion()
-        { 
+        {
             InitializeComponent();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(5, 48);
@@ -27,7 +21,7 @@ namespace BAREST
 
         private void ActivateButton(object senderBtn, Color color)
         {
-            if(senderBtn != null)
+            if (senderBtn != null)
             {
                 DisableButton();
                 currentBtn = (IconButton)senderBtn;
@@ -39,7 +33,7 @@ namespace BAREST
         }
 
         private void DisableButton()
-        { 
+        {
             if (currentBtn != null)
             {
                 leftBorderBtn.BackColor = Color.FromArgb(214, 155, 60);
@@ -48,7 +42,7 @@ namespace BAREST
         }
 
         private Form activeForm = null;
-        internal static object Usuarios;
+        //internal static object Usuarios;
 
         private void openChilForm(Form childForm)
         {
@@ -74,13 +68,6 @@ namespace BAREST
         {
             ActivateButton(sender, Color.FromArgb(214, 155, 60));
             openChilForm(new Diseño());
-        }
-
-        private void acercaDe_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, Color.FromArgb(214, 155, 60));
-            CLIENTE cliente = new CLIENTE();
-            cliente.Show();
         }
 
         private void Reservas_Click(object sender, EventArgs e)

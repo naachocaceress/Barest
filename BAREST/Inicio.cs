@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using BAREST.Configuracion;
 using BAREST.Turno;
 using BAREST.Ventas;
 using FontAwesome.Sharp;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
 using static BAREST.Mesa1;
 
 namespace BAREST
@@ -397,9 +393,9 @@ namespace BAREST
         {
             fechaLabel.Text = DateTime.Now.ToString("g");
         }
-
+        
         //AGREGAR MESAS --------------------------------------------------------------------------
-
+        
         private void mesas_Click(object sender, EventArgs e)
         {
             if (panel == 1)
@@ -417,7 +413,7 @@ namespace BAREST
                         if (ClaseCompartida.valor == 5)
                             ((Button)sender).BackColor = Color.FromArgb(0, 255, 255);
                     }
-                    else if(((Button)sender).BackColor == Color.FromArgb(116, 199, 132))
+                    else if (((Button)sender).BackColor == Color.FromArgb(116, 199, 132))
                     {
                         ClaseCompartida.valor = 0;
                         Button boton = sender as Button;
@@ -484,7 +480,7 @@ namespace BAREST
             }
             else
             //---------------------------------------------------------------------
-                if(panel == 2)
+                if (panel == 2)
             {
                 if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114))
                 {
@@ -875,15 +871,15 @@ namespace BAREST
 
         private void modoEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                if (panel == 1)
+            if (panel == 1)
             {
                 panelPlano1.BackColor = Color.Black;
                 panelPlano2.BackColor = Color.FromArgb(27, 111, 115);
                 panelPlano3.BackColor = Color.FromArgb(27, 111, 115);
                 label11.Text = "PLANO DELIVERY (MODO EDITOR)";
             }
-                else
-            if (panel == 2)
+            else
+        if (panel == 2)
             {
                 panelPlano2.BackColor = Color.Black;
                 panelPlano1.BackColor = Color.FromArgb(27, 111, 115);
@@ -891,7 +887,7 @@ namespace BAREST
                 label10.Text = "PLANO ADELANTE (MODO EDITOR)";
             }
             else
-                if (panel == 3)
+            if (panel == 3)
             {
                 panelPlano3.BackColor = Color.Black;
                 panelPlano1.BackColor = Color.FromArgb(27, 111, 115);
@@ -934,7 +930,7 @@ namespace BAREST
             LocationY = Cursor.Position.Y;
         }
 
-        int panel = 1; 
+        int panel = 1;
 
         private void panelPlano1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -971,6 +967,14 @@ namespace BAREST
 
         private void inicio_Load(object sender, EventArgs e)
         {
+        }
+
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            esconderMenu();
+            BotonActivo(sender);
+            CLIENTE m = new CLIENTE();
+            m.Show();
         }
 
         private void Add()

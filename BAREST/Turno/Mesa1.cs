@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BAREST
@@ -21,53 +18,80 @@ namespace BAREST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Conexion.ObtenerConexion();
-                using (var comanda = new SqlCommand())
-                {
-                    comanda.Connection = Conexion.ObtenerConexion();
-                    comanda.CommandText = "INSERT INTO Mesa (mesa,mozo,cantidad ,detalles,precioUnitario,precioTotal ,total,comensal, fecha) VALUES (@mesa ,@mozo , @cantidad ,@detalles,@precioUnitario ,@precioTotal ,@total ,@comensal, @fecha)";
-
-                    comanda.Parameters.AddWithValue("@total", SqlDbType.Float).Value = textTotal.Text;
-
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-
-                        comanda.Parameters.AddWithValue("@mesa", SqlDbType.VarChar).Value = labelmesa.Text;
-                        comanda.Parameters.AddWithValue("@mozo", SqlDbType.VarChar).Value = labelmozo.Text;
-                        comanda.Parameters.AddWithValue("@comensal", SqlDbType.VarChar).Value = textBox3.Text;
-                        comanda.Parameters.AddWithValue("@cantidad", SqlDbType.Int).Value = row.Cells["cant"].Value;
-
-                        comanda.Parameters.AddWithValue("@detalles", SqlDbType.VarChar).Value = row.Cells["Detalles"].Value;
-                        comanda.Parameters.AddWithValue("@precioUnitario", SqlDbType.Float).Value = row.Cells["precio"].Value;
-                        comanda.Parameters.AddWithValue("@precioTotal", SqlDbType.Float).Value = row.Cells["PTotal"].Value;
-                        comanda.Parameters.AddWithValue("@fecha", SqlDbType.DateTime).Value = DateTime.Now;
-                    }
-
-
-                    int rowcount = comanda.ExecuteNonQuery();
-                    if (rowcount == 0)
-                        throw new Exception("hubo error en  la insercion");
-                    // comanda.Parameters.Clear();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
+            Cobro();
+            Comandas();
             ClaseCompartida.comanda++;
+            //ClaseCompartida.valor = 1;
 
             // IMPRIMIR COMANDA -----------------------------------
 
-            printDocument1 = new PrintDocument();
-            PrinterSettings ps = new PrinterSettings();
-            printDocument1.PrinterSettings = ps;
-            printDocument1.PrintPage += Imprimir;
-            printDocument1.Print();
+            /* printDocument1 = new PrintDocument();
+             PrinterSettings ps = new PrinterSettings();
+             printDocument1.PrinterSettings = ps;
+             printDocument1.PrintPage += Imprimir;
+             printDocument1.Print();*/
             this.Close();
+            
+        }
+
+        private void Comandas()
+        {
+            Conexion.ObtenerConexion();
+            try
+            {
+                using (var comanda = new SqlCommand())
+                {
+                    comanda.Connection = Conexion.ObtenerConexion();
+                    comanda.CommandText = "INSERT INTO Comandas (cantidad,detalles,precioUnitario,precioTotal,idMesa,idMozo) VALUES (@cantidad,@detalles,@precioUnitario,@precioTotal,@mesa,@mozo)";
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        comanda.Parameters.AddWithValue("@mesa", SqlDbType.VarChar).Value = labelmesa.Text;
+                        comanda.Parameters.AddWithValue("@mozo", SqlDbType.VarChar).Value = labelmozo.Text;
+                        comanda.Parameters.AddWithValue("@cantidad", SqlDbType.Int).Value = row.Cells[0].Value;
+                        comanda.Parameters.AddWithValue("@detalles", SqlDbType.VarChar).Value = row.Cells[1].Value;
+                        comanda.Parameters.AddWithValue("@precioUnitario", SqlDbType.Float).Value = row.Cells[2].Value;
+                        comanda.Parameters.AddWithValue("@precioTotal", SqlDbType.Float).Value = row.Cells[3].Value;
+                        comanda.ExecuteNonQuery();
+                        comanda.Parameters.Clear();
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+                throw;
+            }
+        }
+        private void Cobro()
+        {
+            Conexion.ObtenerConexion();
+            try
+
+            {
+                using (var comanda = new SqlCommand())
+                {
+                    comanda.Connection = Conexion.ObtenerConexion();
+                    comanda.CommandText = " INSERT INTO Cobro(idMozo,idMesa,comensal,total,fecha) VALUES (@mozoc,@mesac,@comensal,@total,@fecha)";
+                    comanda.Parameters.AddWithValue("@mesac", SqlDbType.VarChar).Value = labelmesa.Text;
+                    comanda.Parameters.AddWithValue("@mozoc", SqlDbType.VarChar).Value = labelmozo.Text;
+                    comanda.Parameters.AddWithValue("@comensal", SqlDbType.VarChar).Value = textBox3.Text;
+                    comanda.Parameters.AddWithValue("@total", SqlDbType.Float).Value = textTotal.Text;
+                    comanda.Parameters.AddWithValue("@fecha", SqlDbType.DateTime).Value = DateTime.Now;
+                    comanda.ExecuteNonQuery();
+                    comanda.Parameters.Clear();
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
         }
 
         private void Imprimir(object sender, PrintPageEventArgs e)
@@ -77,18 +101,18 @@ namespace BAREST
             Font font3 = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
 
 
-            e.Graphics.DrawString("COMANDA", font, Brushes.Black, new RectangleF(50,10,120,20));
-            e.Graphics.DrawString("Fecha: " + DateTime.Now.ToString("dd-MM-yyyy") + "  Hora: " + DateTime.Now.ToString("HH:mm"), font2, Brushes.Black, new RectangleF(5,40,300,20));
+            e.Graphics.DrawString("COMANDA", font, Brushes.Black, new RectangleF(50, 10, 120, 20));
+            e.Graphics.DrawString("Fecha: " + DateTime.Now.ToString("dd-MM-yyyy") + "  Hora: " + DateTime.Now.ToString("HH:mm"), font2, Brushes.Black, new RectangleF(5, 40, 300, 20));
 
 
             e.Graphics.DrawString("Mozo: " + labelmozo.Text, font3, Brushes.Black, new RectangleF(5, 70, 300, 20));
-            e.Graphics.DrawString("Mesa: " + labelmesa.Text, font3, Brushes.Black, new RectangleF(5,90,300,20));
+            e.Graphics.DrawString("Mesa: " + labelmesa.Text, font3, Brushes.Black, new RectangleF(5, 90, 300, 20));
             e.Graphics.DrawString("N°: " + ClaseCompartida.comanda, font3, Brushes.Black, new RectangleF(150, 80, 300, 20));
             e.Graphics.DrawString("-------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 110, 300, 20));
 
             int counta = dataGridView1.Rows.Count;
 
-            if (counta==1)
+            if (counta == 1)
             {
                 e.Graphics.DrawString(" " + dataGridView1.Rows[0].Cells[0].Value.ToString() + " " + dataGridView1.Rows[0].Cells[1].Value.ToString(), font3, Brushes.Black, new RectangleF(15, 130, 300, 20));
                 e.Graphics.DrawString("-------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 155, 300, 20));
@@ -115,7 +139,7 @@ namespace BAREST
 
         private void agregarMenulista_Click(object sender, EventArgs e)
         {
-            agregarMenulista2();    
+            agregarMenulista2();
         }
 
         public int cantidad = 0;
@@ -131,14 +155,11 @@ namespace BAREST
                     {
                         int cantN = Int32.Parse(textBox2.Text);
                         cantidad = cantN;
-
                         foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                         {
                             row.Cells["cant"].Value = cantidad;
                         }
-
-                        dataGridView1.Rows.Add(new String[] { cantidad.ToString()});
-
+                        dataGridView1.Rows.Add(new String[] { cantidad.ToString() });
                         textBox2.Text = "";
                     }
                     else
@@ -153,52 +174,36 @@ namespace BAREST
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message, "ERROR EN LA AGREGAR MENU", MessageBoxButtons.OK);
             }
-            
         }
-        // insertar menu ----------------------------------------------------- falta un poco
-
+        // insertar menu ------------------------------------------ falta un poco
         private void IngresarMenu()
         {
             dataGridView1.Rows.Remove(dataGridView1.Rows[dataGridView1.Rows.Count - 1]);
             Conexion.ObtenerConexion();
-            string sql = "SELECT nombre,precio FROM Menu WHERE nombre LIKE @nom OR  id = @id";
+            string sql = "SELECT nombre,precio FROM Menu WHERE id = @id";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             comando.Parameters.Clear();
-            comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textBox2.Text;
+            //comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textBox2.Text;
             comando.Parameters.Add("@id", SqlDbType.Int).Value = textBox2.Text;
             SqlDataReader registros = comando.ExecuteReader();
             if (registros.Read())
             {
-                string tt = registros["precio"].ToString();
-                int tt2 = Int32.Parse(tt);
-                int tt3 = cantidad * tt2;
+                float tt2 = float.Parse(registros["precio"].ToString());
+                float tt3 = cantidad * tt2;
                 string tt4 = tt3.ToString();
-
                 dataGridView1.Rows.Add(new String[] { cantidad.ToString(), registros["nombre"].ToString(), registros["precio"].ToString(), tt4 });
-            }else
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                   /* if (iconButton1_Click( sender, e)Click )
-                    {
-
-                    }*/
-                }
-            {
-
             }
+            else
             registros.Close();
             sumaT();
             Conexion.ObtenerConexion().Close();
             textBox2.Text = "";
 
-            ClaseCompartida.valor = 1;
-
+            ClaseCompartida.valor = 1;// color rojo
             cantidad = 0;
         }
-
         //  suma los precio total--------------- perfecto
 
         private void sumaT()
@@ -237,7 +242,6 @@ namespace BAREST
                 agregarMenulista2();
             }
         }
-
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 8)
@@ -245,7 +249,6 @@ namespace BAREST
                 e.Handled = false;
                 return;
             }
-
             bool IsDec = false;
             int nroDec = 0;
 
@@ -282,7 +285,7 @@ namespace BAREST
                 int puni = Convert.ToInt32(row.Cells["precio"].Value);
 
                 double sum = cant * puni;
-                    
+
                 row.Cells["PTotal"].Value = sum;
 
                 sumaT();
@@ -294,59 +297,51 @@ namespace BAREST
             double resta = 1;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                resta =  Convert.ToDouble(row.Cells["cant"].Value) -resta;
+                resta = Convert.ToDouble(row.Cells["cant"].Value) - resta;
                 row.Cells["cant"].Value = resta;
-
                 int cant = Convert.ToInt32(row.Cells["cant"].Value);
                 int puni = Convert.ToInt32(row.Cells["precio"].Value);
-
                 double sum = cant * puni;
-
                 row.Cells["PTotal"].Value = sum;
             }
-            if (resta==0)
-               eliminar();
+            if (resta == 0)
+                eliminar();
             sumaT();
         }
         //---------------------------------------------------
 
         private void Mesa1_Load(object sender, EventArgs e)
         {
-            if (ClaseCompartida.mmm == 1)
-            {
-                Conexion.ObtenerConexion();
-                string sql = "select top (1) cantidad, detalles, precioUnitario, precioTotal, comensal, mesa, mozo ,total from Mesa  where Mesa = @mesa AND estado ='A' order by mesa desc";
-                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                comando.Parameters.AddWithValue("@mesa", ClaseCompartida.Mesa);
-                SqlDataReader leido = comando.ExecuteReader();
-                if (leido.Read())
+                if (ClaseCompartida.mmm == 1)//color rojo
                 {
-                    //llenarTabla();
-                    dataGridView1.Rows.Add(new String[]{leido["cantidad"].ToString(),
-                                                        leido["detalles"].ToString(),
-                                                        leido["precioUnitario"].ToString(),
-                                                        leido["precioTotal"].ToString() });
-                    textBox3.Text = leido["comensal"].ToString();
-                    labelmesa.Text = leido["mesa"].ToString();
-                    labelmozo.Text = leido["mozo"].ToString();
-                    textTotal.Text = leido["total"].ToString();
-                }
-                ClaseCompartida.mmm = 0;
-                Conexion.ObtenerConexion().Close();
-            }
+                    try
+                    {
+                        Conexion.ObtenerConexion();
+                        string sql = "SELECT com.cantidad as canti, com.detalles as deta, com.precioUnitario as puni, com.preciototal as ptot, c.comensal as come, c.total as tota, com.idMesa as idm, com.idMozo as idmo FROM Comandas com INNER JOIN Cobro c ON c.idMesa = com.idMesa AND c.idMozo = com.idMozo where com.idMesa = @mesa AND com.estado ='A' AND c.estado ='A'";
+                        SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                        comando.Parameters.AddWithValue("@mesa", ClaseCompartida.Mesa);
+                        SqlDataReader leido = comando.ExecuteReader();
+                        while (leido.Read())
+                        {
+                            dataGridView1.Rows.Add(new String[]{leido["canti"].ToString(),
+                                                            leido["deta"].ToString(),
+                                                            leido["puni"].ToString(),
+                                                            leido["ptot"].ToString() });
+                            textBox3.Text = leido["come"].ToString();
+                            textTotal.Text = leido["tota"].ToString();
+                            labelmesa.Text = leido["idm"].ToString();
+                            labelmozo.Text = leido["idmo"].ToString();
 
-                void llenarTabla()
-            {
-                dataGridView1.ColumnCount = 3;
-                dataGridView1.Columns[0].Name = "cant";
-                dataGridView1.Columns[1].Name = "Detalles";
-                dataGridView1.Columns[2].Name = "precio";
-                dataGridView1.Columns[2].Name = "PTotal";
-                dataGridView1.Columns["Cantidad"].HeaderText = "cant";
-                dataGridView1.Columns["Detalles"].HeaderText = "Detalles";
-                dataGridView1.Columns["precio"].HeaderText = "precio";
-                dataGridView1.Columns["PTotal"].HeaderText = "Total";
-            }
+                        }
+                         ClaseCompartida.mmm = 0;//color verde
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        throw;
+                    }
+
+                }
         }
 
         private void textBox2_KeyPress_1(object sender, KeyPressEventArgs e)
@@ -367,7 +362,7 @@ namespace BAREST
             printDocument1.PrintPage += Imprimir2;
             printDocument1.Print();
 
-            ClaseCompartida.valor = 5;
+            ClaseCompartida.valor = 5;// color celeste.
             this.Close();
         }
         private void Imprimir2(object sender, PrintPageEventArgs e)
@@ -388,7 +383,7 @@ namespace BAREST
             e.Graphics.DrawString("Mesa: " + labelmesa.Text, font3, Brushes.Black, new RectangleF(100, 90, 300, 20));
 
             e.Graphics.DrawString("--------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 100, 300, 20));
-            
+
             e.Graphics.DrawString("Fecha: " + DateTime.Now.ToString("dd-MM-yyyy") + "                         Hora: " + DateTime.Now.ToString("HH:mm"), font2, Brushes.Black, new RectangleF(5, 120, 300, 20));
             e.Graphics.DrawString("Mozo: " + labelmozo.Text, font2, Brushes.Black, new RectangleF(5, 135, 300, 20));
 
@@ -411,7 +406,7 @@ namespace BAREST
             e.Graphics.DrawImage(pictureBox1.Image, new Rectangle(130, 320, 50, 50));
         }
 
-       
+
         private void guardarVenta()
         {
             try
@@ -433,6 +428,11 @@ namespace BAREST
 
                 throw;
             }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

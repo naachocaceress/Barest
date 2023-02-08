@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static BAREST.Mesa1;
 
@@ -44,18 +37,7 @@ namespace BAREST.Turno
                 Conexion.ObtenerConexion().Close();
             }
 
-            void llenarTabla()
-            {
-                dataGridView1.ColumnCount = 3;
-                dataGridView1.Columns[0].Name = "cant";
-                dataGridView1.Columns[1].Name = "Detalles";
-                dataGridView1.Columns[2].Name = "precio";
-                dataGridView1.Columns[2].Name = "PTotal";
-                dataGridView1.Columns["Cantidad"].HeaderText = "cant";
-                dataGridView1.Columns["Detalles"].HeaderText = "Detalles";
-                dataGridView1.Columns["precio"].HeaderText = "precio";
-                dataGridView1.Columns["PTotal"].HeaderText = "Total";
-            }
+           
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

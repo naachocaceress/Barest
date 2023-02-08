@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BAREST;
-using System.Data.SqlClient;
 
 namespace BAREST.Turno
 {
@@ -25,7 +17,7 @@ namespace BAREST.Turno
             public static int valor = 0;
         }
 
-            public void iconButton3_Click(object sender, EventArgs e)
+        public void iconButton3_Click(object sender, EventArgs e)
         {
             DetallesDeli m = new DetallesDeli();
             if (checkPagado.Checked == true)
@@ -45,7 +37,7 @@ namespace BAREST.Turno
             agregarMenulista2();
         }
 
-            public int cantidad = 0;
+        public int cantidad = 0;
 
         private void agregarMenulista2()
         {
@@ -60,26 +52,26 @@ namespace BAREST.Turno
                 }
                 else
                 {
-                   /* cantidad = 1;
-                    Conexion.ObtenerConexion();
-                    string sql = "select nombre,precio from Menu where nombre=@nom";
-                    SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                    comando.Parameters.Clear();
-                    comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textBox2.Text;
-                    SqlDataReader registros = comando.ExecuteReader();
-                    if (registros.Read())
-                    {
-                        dataGridView1.Rows.Add(new String[] { cantidad.ToString(), registros["nombre"].ToString(), registros["precio"].ToString() });
-                    }
-                    registros.Close();
-                    Conexion.ObtenerConexion().Close();
-                    textBox2.Text = "";
+                    /* cantidad = 1;
+                     Conexion.ObtenerConexion();
+                     string sql = "select nombre,precio from Menu where nombre=@nom";
+                     SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                     comando.Parameters.Clear();
+                     comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textBox2.Text;
+                     SqlDataReader registros = comando.ExecuteReader();
+                     if (registros.Read())
+                     {
+                         dataGridView1.Rows.Add(new String[] { cantidad.ToString(), registros["nombre"].ToString(), registros["precio"].ToString() });
+                     }
+                     registros.Close();
+                     Conexion.ObtenerConexion().Close();
+                     textBox2.Text = "";
 
-                    ClaseCompartida.valor = 1;
+                     ClaseCompartida.valor = 1;
 
-                    sumaT();
+                     sumaT();
 
-                    cantidad = 0;*/
+                     cantidad = 0;*/
                 }
             }
             else

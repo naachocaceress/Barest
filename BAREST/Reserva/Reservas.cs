@@ -28,7 +28,7 @@ namespace BAREST
         {
             cargarTabla();
             cantReservasHoy();
-            timer1.Enabled = true; 
+            timer1.Enabled = true;
         }
 
         string ScantReservasHoy = "", ScantPAXHoy;
@@ -36,12 +36,12 @@ namespace BAREST
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime hoy = DateTime.Now;
-            fechaLabel.Text = "Hoy " + hoy.ToString("M") + " hay un total de " + ScantReservasHoy + " reservas con " + ScantPAXHoy + " PAX en total"; 
+            fechaLabel.Text = "Hoy " + hoy.ToString("M") + " hay un total de " + ScantReservasHoy + " reservas con " + ScantPAXHoy + " PAX en total";
             btnActualMes.Text = DateTime.Now.ToString("MMMM").ToUpper();
-            btnAnteriorMes.Text = DateTime.Now.AddMonths(-1).ToString("MMMM").ToUpper(); 
+            btnAnteriorMes.Text = DateTime.Now.AddMonths(-1).ToString("MMMM").ToUpper();
         }
 
-        public void cantReservasHoy ()
+        public void cantReservasHoy()
         {
             Conexion.ObtenerConexion();
             string sql = "select count (cantComensales) from Reserva where datepart(dd, fechaReserva) = datepart(dd, getdate()) and estado = 'DISPONIBLE'";
@@ -50,7 +50,7 @@ namespace BAREST
             while (registros.Read())
             {
                 int num = (registros.GetInt32(0));
-                ScantReservasHoy = num.ToString(); 
+                ScantReservasHoy = num.ToString();
             }
             registros.Close();
             Conexion.ObtenerConexion().Close();
@@ -72,14 +72,14 @@ namespace BAREST
                 SqlDataReader registros = comando.ExecuteReader();
                 while (registros.Read())
                 {
-                        int num = (registros.GetInt32(0));
-                        ScantPAXHoy = num.ToString();
+                    int num = (registros.GetInt32(0));
+                    ScantPAXHoy = num.ToString();
                 }
                 registros.Close();
                 Conexion.ObtenerConexion().Close();
             }
         }
-        
+
         public void cargarTabla()
         {
             Conexion.ObtenerConexion();
@@ -168,18 +168,18 @@ namespace BAREST
             PdfDocument pdf = new PdfDocument(pdfWriter);
             Document documento = new Document(pdf, PageSize.A4);
 
-            documento.SetMargins(60,20,55,20);
+            documento.SetMargins(60, 20, 55, 20);
 
             PdfFont fontColumnas = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
             PdfFont fontContenido = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
 
-            string[] columnas = { "Nombre", "Apellido", "PAX", "Hora", "Fecha", "Mesa", "Estado"};
+            string[] columnas = { "Nombre", "Apellido", "PAX", "Hora", "Fecha", "Mesa", "Estado" };
 
             float[] tamanios = { 2, 4, 2, 3, 3, 4, 2 };
             Table tabla = new Table(UnitValue.CreatePercentArray(tamanios));
             tabla.SetWidth(UnitValue.CreatePercentValue(100));
 
-            foreach(string columna in columnas)
+            foreach (string columna in columnas)
             {
                 tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(fontColumnas)));
             }
@@ -220,7 +220,7 @@ namespace BAREST
 
             int numero = pdfDoc.GetNumberOfPages();
 
-            for(int i = 1; i<= numero;i++)
+            for (int i = 1; i <= numero; i++)
             {
                 PdfPage pagina = pdfDoc.GetPage(i);
                 float y = (pdfDoc.GetPage(i).GetPageSize().GetTop() - 15);
@@ -228,7 +228,7 @@ namespace BAREST
                 doc.ShowTextAligned(titulo, 150, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
                 doc.ShowTextAligned(fecha, 520, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
 
-                doc.ShowTextAligned(new Paragraph(String.Format("Pagina {0} de {1}", i, numero)), pdfDoc.GetPage(i).GetPageSize().GetWidth() / 2, pdfDoc.GetPage(i).GetPageSize().GetBottom() + 30, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0); 
+                doc.ShowTextAligned(new Paragraph(String.Format("Pagina {0} de {1}", i, numero)), pdfDoc.GetPage(i).GetPageSize().GetWidth() / 2, pdfDoc.GetPage(i).GetPageSize().GetBottom() + 30, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
             }
             doc.Close();
         }

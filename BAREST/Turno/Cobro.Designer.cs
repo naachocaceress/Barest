@@ -138,7 +138,7 @@ namespace BAREST.Turno
             this.panel1.Controls.Add(this.agregarMenulista);
             this.panel1.Controls.Add(this.EliminarInsu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 345);
+            this.panel1.Location = new System.Drawing.Point(0, 402);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(383, 50);
             this.panel1.TabIndex = 4;
@@ -347,7 +347,7 @@ namespace BAREST.Turno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 395);
+            this.ClientSize = new System.Drawing.Size(383, 452);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.iconButton4);

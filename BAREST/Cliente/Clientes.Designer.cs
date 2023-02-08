@@ -52,9 +52,9 @@ namespace BAREST.Configuracion
             this.panel1.Controls.Add(this.EliminarCliente);
             this.panel1.Controls.Add(this.modificarCliente);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 312);
+            this.panel1.Location = new System.Drawing.Point(0, 355);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(444, 50);
+            this.panel1.Size = new System.Drawing.Size(372, 50);
             this.panel1.TabIndex = 15;
             // 
             // iconButton1
@@ -67,14 +67,14 @@ namespace BAREST.Configuracion
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.IconSize = 25;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.iconButton1.Location = new System.Drawing.Point(0, 0);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(110, 50);
+            this.iconButton1.Size = new System.Drawing.Size(90, 50);
             this.iconButton1.TabIndex = 9;
-            this.iconButton1.Text = "       Clientes";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Text = "Lista ";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
@@ -88,14 +88,14 @@ namespace BAREST.Configuracion
             this.agregarCliente.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
             this.agregarCliente.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.agregarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.agregarCliente.IconSize = 30;
-            this.agregarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarCliente.Location = new System.Drawing.Point(134, 0);
+            this.agregarCliente.IconSize = 25;
+            this.agregarCliente.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.agregarCliente.Location = new System.Drawing.Point(102, 0);
             this.agregarCliente.Name = "agregarCliente";
-            this.agregarCliente.Size = new System.Drawing.Size(100, 50);
+            this.agregarCliente.Size = new System.Drawing.Size(90, 50);
             this.agregarCliente.TabIndex = 10;
-            this.agregarCliente.Text = "       Agregar";
-            this.agregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.agregarCliente.Text = "Agregar";
+            this.agregarCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.agregarCliente.UseVisualStyleBackColor = true;
             this.agregarCliente.Click += new System.EventHandler(this.agregarCliente_Click);
             // 
@@ -109,14 +109,14 @@ namespace BAREST.Configuracion
             this.EliminarCliente.IconChar = FontAwesome.Sharp.IconChar.CircleMinus;
             this.EliminarCliente.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.EliminarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EliminarCliente.IconSize = 30;
-            this.EliminarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarCliente.Location = new System.Drawing.Point(234, 0);
+            this.EliminarCliente.IconSize = 25;
+            this.EliminarCliente.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.EliminarCliente.Location = new System.Drawing.Point(192, 0);
             this.EliminarCliente.Name = "EliminarCliente";
-            this.EliminarCliente.Size = new System.Drawing.Size(100, 50);
+            this.EliminarCliente.Size = new System.Drawing.Size(90, 50);
             this.EliminarCliente.TabIndex = 11;
-            this.EliminarCliente.Text = "       Eliminar";
-            this.EliminarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarCliente.Text = "Eliminar";
+            this.EliminarCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.EliminarCliente.UseVisualStyleBackColor = true;
             this.EliminarCliente.Click += new System.EventHandler(this.EliminarCliente_Click);
             // 
@@ -130,32 +130,38 @@ namespace BAREST.Configuracion
             this.modificarCliente.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
             this.modificarCliente.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.modificarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.modificarCliente.IconSize = 30;
-            this.modificarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.modificarCliente.Location = new System.Drawing.Point(334, 0);
+            this.modificarCliente.IconSize = 25;
+            this.modificarCliente.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.modificarCliente.Location = new System.Drawing.Point(282, 0);
             this.modificarCliente.Name = "modificarCliente";
-            this.modificarCliente.Size = new System.Drawing.Size(110, 50);
+            this.modificarCliente.Size = new System.Drawing.Size(90, 50);
             this.modificarCliente.TabIndex = 12;
-            this.modificarCliente.Text = "       Modificar";
-            this.modificarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.modificarCliente.Text = "Modificar";
+            this.modificarCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.modificarCliente.UseVisualStyleBackColor = true;
             this.modificarCliente.Click += new System.EventHandler(this.modificarCliente_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 68);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(575, 240);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(372, 290);
             this.dataGridView1.TabIndex = 16;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.iconPictureBox1);
             this.panel2.Controls.Add(this.textBusqueda);
-            this.panel2.Location = new System.Drawing.Point(3, 22);
+            this.panel2.Location = new System.Drawing.Point(3, 28);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(572, 31);
+            this.panel2.Size = new System.Drawing.Size(369, 27);
             this.panel2.TabIndex = 17;
             // 
             // iconPictureBox1
@@ -164,10 +170,10 @@ namespace BAREST.Configuracion
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 30;
+            this.iconPictureBox1.IconSize = 25;
             this.iconPictureBox1.Location = new System.Drawing.Point(3, 1);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.iconPictureBox1.Size = new System.Drawing.Size(25, 25);
             this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox1.TabIndex = 1;
             this.iconPictureBox1.TabStop = false;
@@ -175,7 +181,7 @@ namespace BAREST.Configuracion
             // 
             // textBusqueda
             // 
-            this.textBusqueda.Location = new System.Drawing.Point(31, 6);
+            this.textBusqueda.Location = new System.Drawing.Point(27, 3);
             this.textBusqueda.Name = "textBusqueda";
             this.textBusqueda.Size = new System.Drawing.Size(202, 20);
             this.textBusqueda.TabIndex = 0;
@@ -184,7 +190,7 @@ namespace BAREST.Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 362);
+            this.ClientSize = new System.Drawing.Size(372, 405);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);

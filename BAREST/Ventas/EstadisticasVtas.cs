@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -23,7 +16,7 @@ namespace BAREST.Ventas
         private void EstadisticasVtas_Load(object sender, EventArgs e)
         {
             string[] series = { "Efectivo", "Transferencia", "Tarjeta" };
-            int[] puntos = {efect,transf,tarj};
+            int[] puntos = { efect, transf, tarj };
 
             chart1.Palette = ChartColorPalette.Pastel;
 

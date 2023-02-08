@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BAREST
 {
     public partial class Form1 : Form
-    { 
+    {
         public Form1()
         {
             InitializeComponent();
@@ -29,7 +24,7 @@ namespace BAREST
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
-        ( 
+        (
             int nLeftRect, // x-coordinate of upper-left corner
             int nTopRect, // y-coordinate of upper-left corner
             int nRightRect, // x-coordinate of lower-right corner
@@ -52,7 +47,7 @@ namespace BAREST
 
         private void tboxContraseña_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar==Convert.ToChar(Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 logiarse();
             }
@@ -131,7 +126,7 @@ namespace BAREST
                 MessageBox.Show("Existe un Usuario el documento  inen el sistema! comunique con el Administrador para recuperar su cuenta");
                 return;
             }
-            if (textUsuario.Text=="Documento" || textContra.Text== "Contraseña" || textCorreo.Text== "Mail")
+            if (textUsuario.Text == "Documento" || textContra.Text == "Contraseña" || textCorreo.Text == "Mail")
             {
                 MessageBox.Show("Faltan ingresar datos, algun campo contiene datos por defecto");
                 return;
@@ -223,13 +218,13 @@ namespace BAREST
 
 
 
-        
+
 
         //-------------------------------------------------------------------
 
         private void panelMovimiento_MouseMove(object sender, MouseEventArgs e)
         {
-            if(e.Button != MouseButtons.Left)
+            if (e.Button != MouseButtons.Left)
             {
                 posX = e.X;
                 posY = e.Y;

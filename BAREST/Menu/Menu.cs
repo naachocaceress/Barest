@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.IO;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
-using System.Globalization;
 
 namespace BAREST
 {
@@ -24,10 +18,10 @@ namespace BAREST
 
         private void Menu_Load(object sender, EventArgs e)
         {
-           cargarRubroM();
-           cargarMenu();
-           cargarcomboRubroMenu();
-           comborubroMenu.SelectedItem = null;
+            cargarRubroM();
+            cargarMenu();
+            cargarcomboRubroMenu();
+            comborubroMenu.SelectedItem = null;
         }
 
         private void agregarRubro_Click(object sender, EventArgs e)
@@ -80,10 +74,10 @@ namespace BAREST
             try
             {
                 Conexion.ObtenerConexion();
-                using(var comando = new SqlCommand())
+                using (var comando = new SqlCommand())
                 {
                     comando.Connection = Conexion.ObtenerConexion();
-                    comando.CommandText= "SELECT nombre FROM RubroMenu ORDER BY Ltrim(nombre) ASC";
+                    comando.CommandText = "SELECT nombre FROM RubroMenu ORDER BY Ltrim(nombre) ASC";
                     SqlDataReader registros = comando.ExecuteReader();
                     tablaRubro.Rows.Clear();
                     while (registros.Read())
@@ -92,14 +86,14 @@ namespace BAREST
                     }
                     registros.Close();
                 }
-                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR EN DATAGRID RUBRO MENU", MessageBoxButtons.OK);
             }
-           
-           
+
+
         }
         //----------------------------------CARGAR COMBO MENU---------------------------------------------------------------
         private void cargarcomboRubroMenu()
@@ -107,10 +101,10 @@ namespace BAREST
             try
             {
                 Conexion.ObtenerConexion();
-                using(var comando= new SqlCommand())
+                using (var comando = new SqlCommand())
                 {
                     comando.Connection = Conexion.ObtenerConexion();
-                    comando.CommandText= " SELECT id, nombre FROM RubroMenu WHERE estado = 'A'";
+                    comando.CommandText = " SELECT id, nombre FROM RubroMenu WHERE estado = 'A'";
                     SqlDataAdapter adaptador1 = new SqlDataAdapter();
                     adaptador1.SelectCommand = comando;
                     DataTable tabla1 = new DataTable();
@@ -125,7 +119,7 @@ namespace BAREST
             {
                 MessageBox.Show(ex.Message, "ERROR EN EL LLENARCOMBOMENU", MessageBoxButtons.OK);
             }
-           
+
         }
 
         //----------------------------- Cargar el dataMenu ------------------------------
@@ -137,7 +131,7 @@ namespace BAREST
                 using (var comando = new SqlCommand())
                 {
                     comando.Connection = Conexion.ObtenerConexion();
-                    comando.CommandText= "SELECT nombre, precio FROM Menu  WHERE estado ='A' ORDER BY Ltrim(nombre) ASC";
+                    comando.CommandText = "SELECT nombre, precio FROM Menu  WHERE estado ='A' ORDER BY Ltrim(nombre) ASC";
                     SqlDataReader registros = comando.ExecuteReader();
                     tablaArticulos.Rows.Clear();
                     tablaArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -145,7 +139,7 @@ namespace BAREST
                     {
                         tablaArticulos.Rows.Add(registros["nombre"].ToString(), registros["precio"].ToString());
                     }
-                   
+
                     registros.Close();
                 }
 
@@ -153,9 +147,9 @@ namespace BAREST
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message," Error en  DatagridMenu", MessageBoxButtons.OK);
+                MessageBox.Show(ex.Message, " Error en  DatagridMenu", MessageBoxButtons.OK);
             }
-           
+
         }
 
         private bool menuExiste()
@@ -184,7 +178,7 @@ namespace BAREST
                 try
                 {
                     Conexion.ObtenerConexion();
-                    using(var comando =new SqlCommand())
+                    using (var comando = new SqlCommand())
                     {
                         comando.Connection = Conexion.ObtenerConexion();
                         comando.CommandText = "UPDATE RubroMenu set estado ='D' where nombre=@nombre";
@@ -220,10 +214,10 @@ namespace BAREST
                 try
                 {
                     Conexion.ObtenerConexion();
-                    using ( var comando = new SqlCommand()) 
+                    using (var comando = new SqlCommand())
                     {
                         comando.Connection = Conexion.ObtenerConexion();
-                        comando.CommandText= "INSERT INTO  Menu (nombre, idRubro, precio, descripcion, foto ) VALUES (@nombre,@idrubro,@precio, @descripcion,@foto)";
+                        comando.CommandText = "INSERT INTO  Menu (nombre, idRubro, precio, descripcion, foto ) VALUES (@nombre,@idrubro,@precio, @descripcion,@foto)";
                         comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = textnomM.Text;
                         comando.Parameters.Add("@idrubro", SqlDbType.Int).Value = comborubroMenu.SelectedValue.ToString();
                         comando.Parameters.Add("@precio", SqlDbType.Float).Value = textPrecioM.Text;
@@ -237,18 +231,18 @@ namespace BAREST
                         cargarMenu();
                     }
                 }
-                catch (Exception ex )
+                catch (Exception ex)
                 {
 
-                    MessageBox.Show(ex.Message ,"ERROR EN LA INSERCION DE MENU",MessageBoxButtons.OK);
+                    MessageBox.Show(ex.Message, "ERROR EN LA INSERCION DE MENU", MessageBoxButtons.OK);
                 }
-                    
-                
+
+
             }
-            
+
         }
         //---------------------------------------------------- UPDATE MENU------------------------------------------------------------------------
-        
+
         private void btnguardar_Click(object sender, EventArgs e)
         {
             try
@@ -262,7 +256,7 @@ namespace BAREST
                     comando.Parameters.Add("@precio", SqlDbType.Float).Value = textPrecioM.Text;
                     comando.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = textDescM.Text;
                     comando.Parameters.Add("@rubro", SqlDbType.Int).Value = comborubroMenu.SelectedValue.ToString();
-                    
+
                     MemoryStream ms = new MemoryStream();
                     pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                     comando.Parameters.Add("@foto", SqlDbType.Image).Value = ms.GetBuffer();
@@ -271,7 +265,7 @@ namespace BAREST
 
                     limpiarTextMenu();
                     cargarMenu();
-                    
+
                     btnguardar.Visible = false;
                     btnInsertar.Visible = true;
                 }
@@ -306,8 +300,8 @@ namespace BAREST
 
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
-           listadoMenu m = new listadoMenu();
-           m.ShowDialog();
+            listadoMenu m = new listadoMenu();
+            m.ShowDialog();
         }
         //----------------------------------------ELIMINACION DE MENU-------------------------------------------------------------------------
         private void EliminarInsu_Click_1(object sender, EventArgs e)
@@ -322,7 +316,7 @@ namespace BAREST
                 try
                 {
                     Conexion.ObtenerConexion();
-                    using (var comando= new SqlCommand())
+                    using (var comando = new SqlCommand())
                     {
                         comando.Connection = Conexion.ObtenerConexion();
                         comando.CommandText = "update Menu set estado ='D' where nombre=@nombre";
@@ -337,12 +331,12 @@ namespace BAREST
 
                     MessageBox.Show(ex.Message, "ERROE EN LA ELIMINACION DEL MENU", MessageBoxButtons.OK);
                 }
-                
-                
-               
+
+
+
             }
         }
-//--------------------------------------------CONSULTAR PARA MODIFICAR MENU----------------------------------------------------------------
+        //--------------------------------------------CONSULTAR PARA MODIFICAR MENU----------------------------------------------------------------
         private void modificarInsu_Click_1(object sender, EventArgs e)
         {
             string Insum2 = "";
@@ -350,7 +344,7 @@ namespace BAREST
             try
             {
                 Conexion.ObtenerConexion();
-                using ( var comando = new SqlCommand())
+                using (var comando = new SqlCommand())
                 {
                     comando.Connection = Conexion.ObtenerConexion();
                     comando.CommandText = "SELECT m.id,m.nombre,m.descripcion,m.precio,r.nombre as rubro FROM Menu m INNER JOIN RubroMenu r on m.idRubro = r.id WHERE m.nombre= @nombre";
@@ -362,11 +356,11 @@ namespace BAREST
                         textDescM.Text = leido["descripcion"].ToString();
                         textPrecioM.Text = leido["precio"].ToString();
                         comborubroMenu.Text = leido["rubro"].ToString();
-                       
+
 
                         arti = textnomM.Text;
                     }
-                    
+
                     btnguardar.Visible = true;
                     btnInsertar.Visible = false;
                 }
@@ -377,7 +371,7 @@ namespace BAREST
 
                 MessageBox.Show(ex.Message, "ERROR EN BOTON DE LA MODIFICACION ", MessageBoxButtons.OK);
             }
-            
+
         }
 
         //----------- PARA HACER QUE SOLO SE PUEDA PONER NUMEROS EN EL TEXTPRECIO -------------
@@ -396,7 +390,7 @@ namespace BAREST
             }
         }
 
-        
+
 
 
 

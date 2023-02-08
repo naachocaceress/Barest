@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BAREST
 {
-    public partial class Usuarios: Form
+    public partial class Usuarios : Form
     {
         public Usuarios()
         {
@@ -25,9 +19,9 @@ namespace BAREST
 
         void capturaUsuario()
         {
-              var SUsuario = tablaUsua.Rows[tablaUsua.CurrentCell.RowIndex].Cells["documento"].Value.ToString();
+            var SUsuario = tablaUsua.Rows[tablaUsua.CurrentCell.RowIndex].Cells["documento"].Value.ToString();
             Nusuario.valorUsuario = SUsuario;
-            if(SUsuario == "")
+            if (SUsuario == "")
             {
 
             }
@@ -44,7 +38,7 @@ namespace BAREST
             {
                 Conexion.ObtenerConexion();
                 SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                comando.Parameters.Add("@documento",SqlDbType.VarChar).Value= Nusuario.valorUsuario;
+                comando.Parameters.Add("@documento", SqlDbType.VarChar).Value = Nusuario.valorUsuario;
                 SqlDataReader leido = comando.ExecuteReader();
                 if (leido.Read())
                 {
@@ -78,7 +72,7 @@ namespace BAREST
                 }
                 else
                 {
-                    
+
 
                 }
                 leido.Close();
@@ -138,20 +132,20 @@ namespace BAREST
             textTelefono.Text = "";
             textDocumento.Text = "";
             dateTimePicker1.Value = DateTime.Now;
-            comboCargo.SelectedIndex= 0;
+            comboCargo.SelectedIndex = 0;
             comboSucursal.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         //-------------------- PARA VERIFICAR SI EXISTE -----------------------------------
-         // yo no es necesario porque  llamamos con dobleclick  un usuario
-       private bool Inscripto() 
-       { 
-        
+        // yo no es necesario porque  llamamos con dobleclick  un usuario
+        private bool Inscripto()
+        {
+
             Conexion.ObtenerConexion();
             string sql = "select * from Usuario where documento=@documento";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
@@ -162,7 +156,7 @@ namespace BAREST
                 existe = true;
             Conexion.ObtenerConexion().Close();
             return existe;
-       }
+        }
 
         //--------------------------------------------------------------------------------
 
@@ -190,7 +184,7 @@ namespace BAREST
                 comando.Parameters.AddWithValue("@fechaNacimiento", SqlDbType.VarChar).Value = dateTimePicker1.Value;
                 comando.Parameters.AddWithValue("@idSucursal", SqlDbType.Int).Value = comboSucursal.SelectedValue.ToString();
                 comando.Parameters.AddWithValue("@IdCargo", SqlDbType.Int).Value = comboCargo.SelectedValue.ToString();
-                
+
                 int cant = comando.ExecuteNonQuery();
                 if (cant != 0)
                 {
@@ -205,111 +199,111 @@ namespace BAREST
         private void button4_Click(object sender, EventArgs e)
         {
             capturaUsuario();
-           /* string resultado = "";
-            string BuscarUsu = tablaUsua.Rows[tablaUsua.CurrentRow.Index].Cells["documento"].Value.ToString();
-            if (textDocumento.Text == " ")
-            {
+            /* string resultado = "";
+             string BuscarUsu = tablaUsua.Rows[tablaUsua.CurrentRow.Index].Cells["documento"].Value.ToString();
+             if (textDocumento.Text == " ")
+             {
 
-                //MessageBox.Show("Ingrese su documento");
-                try
-                {
-                    Conexion.ObtenerConexion();
-                    SqlCommand comando = new SqlCommand(Conexion.ObtenerString());
-                    comando.CommandText = "listaUsuario";
-                    comando.Parameters.AddWithValue("@documento", BuscarUsu);
-                    comando.CommandType = CommandType.StoredProcedure;
-                    SqlDataReader leido = comando.ExecuteReader();
-                    if (leido.Read())
-                    {
-                        resultado = "Exito";
-                        textDocumento.Text = leido["documento"].ToString();
-                        textEmail.Text = leido["email"].ToString();
-                        textNombre.Text = leido["nombre"].ToString();
-                        textApellido.Text = leido["apellido"].ToString();
-                        textTelefono.Text = leido["telefono"].ToString();
-                        dateTimePicker1.Value = DateTime.Today;
-                        comboSucursal.SelectedItem = leido["s.descripcion"].ToString();
-                        comboCargo.SelectedItem = leido["c.descripcion"].ToString();
-
-                        string hola = leido["fechaDeNacimiento"].ToString();
-
-                        string[] separarFecha = hola.Split('/');
-                        string dia = separarFecha[0];
-                        string mes = separarFecha[1];
-                        string anio = separarFecha[2];
-
-                        int dia2 = Int32.Parse(dia);
-                        int mes2 = Int32.Parse(mes);
-
-                        string[] separardeHora = anio.Split(' ');
-                        string ani = separardeHora[0];
-
-                        int anio2 = Int32.Parse(ani);
-
-                        DateTime dt = new DateTime(anio2, mes2, dia2);
-                        dateTimePicker1.Value = dt;
-                    }
-                    else
-                    {
-                        resultado = "Fallo";
-
-                    }
-                    leido.Close();
-                    Conexion.ObtenerConexion().Close();
-                }
-                catch (Exception ex)
-                {
-                    resultado = ex.Message;
-                   
-                }
-            }
-            else
-            {
-                MessageBox.Show("PROBLEMA EN LA BUSQUEDA DE USUARIO");
-
-                /* string BuscarUsu = tablaUsua.Rows[tablaUsua.CurrentRow.Index].Cells["dni"].Value.ToString();
-
-                 Conexion.ObtenerConexion();
-                 string sql = "select dni, nombrePersona,apellidoPersona,telefonoPersona,fechaDeNacimiento from Persona where dni= @dni";
-                 SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                 comando.Parameters.AddWithValue("@dni", BuscarUsu);
-                 SqlDataReader leido = comando.ExecuteReader();
-                 if (leido.Read())
+                 //MessageBox.Show("Ingrese su documento");
+                 try
                  {
-                     textDocumento.Text = leido["dni"].ToString();
-                     textNombre.Text = leido["nombrePersona"].ToString();
-                     textApellido.Text = leido["apellidoPersona"].ToString();
-                     textTelefono.Text = leido["telefonoPersona"].ToString();
+                     Conexion.ObtenerConexion();
+                     SqlCommand comando = new SqlCommand(Conexion.ObtenerString());
+                     comando.CommandText = "listaUsuario";
+                     comando.Parameters.AddWithValue("@documento", BuscarUsu);
+                     comando.CommandType = CommandType.StoredProcedure;
+                     SqlDataReader leido = comando.ExecuteReader();
+                     if (leido.Read())
+                     {
+                         resultado = "Exito";
+                         textDocumento.Text = leido["documento"].ToString();
+                         textEmail.Text = leido["email"].ToString();
+                         textNombre.Text = leido["nombre"].ToString();
+                         textApellido.Text = leido["apellido"].ToString();
+                         textTelefono.Text = leido["telefono"].ToString();
+                         dateTimePicker1.Value = DateTime.Today;
+                         comboSucursal.SelectedItem = leido["s.descripcion"].ToString();
+                         comboCargo.SelectedItem = leido["c.descripcion"].ToString();
 
-                     //---PARA PODER PONER LA FECHA EN EL DATATIMEPICKER---
+                         string hola = leido["fechaDeNacimiento"].ToString();
 
-                     string hola = leido["fechaDeNacimiento"].ToString();
+                         string[] separarFecha = hola.Split('/');
+                         string dia = separarFecha[0];
+                         string mes = separarFecha[1];
+                         string anio = separarFecha[2];
 
-                     string[] separarFecha = hola.Split('/');
-                     string dia = separarFecha[0];
-                     string mes = separarFecha[1];
-                     string anio = separarFecha[2];
+                         int dia2 = Int32.Parse(dia);
+                         int mes2 = Int32.Parse(mes);
 
-                     int dia2 = Int32.Parse(dia);
-                     int mes2 = Int32.Parse(mes);
+                         string[] separardeHora = anio.Split(' ');
+                         string ani = separardeHora[0];
 
-                     string[] separardeHora = anio.Split(' ');
-                     string ani = separardeHora[0];
+                         int anio2 = Int32.Parse(ani);
 
-                     int anio2 = Int32.Parse(ani);
+                         DateTime dt = new DateTime(anio2, mes2, dia2);
+                         dateTimePicker1.Value = dt;
+                     }
+                     else
+                     {
+                         resultado = "Fallo";
 
-                     DateTime dt = new DateTime(anio2, mes2, dia2);
-                     dateTimePicker1.Value = dt;
-
-                     //--------------------------------------------------
+                     }
+                     leido.Close();
+                     Conexion.ObtenerConexion().Close();
                  }
-                 else
+                 catch (Exception ex)
                  {
-                     MessageBox.Show("No hay un usuario con ese 'documento'");
+                     resultado = ex.Message;
+
                  }
-                 leido.Close();
-                 Conexion.ObtenerConexion().Close();
-            }*/
+             }
+             else
+             {
+                 MessageBox.Show("PROBLEMA EN LA BUSQUEDA DE USUARIO");
+
+                 /* string BuscarUsu = tablaUsua.Rows[tablaUsua.CurrentRow.Index].Cells["dni"].Value.ToString();
+
+                  Conexion.ObtenerConexion();
+                  string sql = "select dni, nombrePersona,apellidoPersona,telefonoPersona,fechaDeNacimiento from Persona where dni= @dni";
+                  SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                  comando.Parameters.AddWithValue("@dni", BuscarUsu);
+                  SqlDataReader leido = comando.ExecuteReader();
+                  if (leido.Read())
+                  {
+                      textDocumento.Text = leido["dni"].ToString();
+                      textNombre.Text = leido["nombrePersona"].ToString();
+                      textApellido.Text = leido["apellidoPersona"].ToString();
+                      textTelefono.Text = leido["telefonoPersona"].ToString();
+
+                      //---PARA PODER PONER LA FECHA EN EL DATATIMEPICKER---
+
+                      string hola = leido["fechaDeNacimiento"].ToString();
+
+                      string[] separarFecha = hola.Split('/');
+                      string dia = separarFecha[0];
+                      string mes = separarFecha[1];
+                      string anio = separarFecha[2];
+
+                      int dia2 = Int32.Parse(dia);
+                      int mes2 = Int32.Parse(mes);
+
+                      string[] separardeHora = anio.Split(' ');
+                      string ani = separardeHora[0];
+
+                      int anio2 = Int32.Parse(ani);
+
+                      DateTime dt = new DateTime(anio2, mes2, dia2);
+                      dateTimePicker1.Value = dt;
+
+                      //--------------------------------------------------
+                  }
+                  else
+                  {
+                      MessageBox.Show("No hay un usuario con ese 'documento'");
+                  }
+                  leido.Close();
+                  Conexion.ObtenerConexion().Close();
+             }*/
         }
 
 
@@ -317,9 +311,9 @@ namespace BAREST
         {
             if (textDocumento.Text == "")
             {
-                MessageBox.Show("Es necesario buscar el usuario para eliminarlo"); 
+                MessageBox.Show("Es necesario buscar el usuario para eliminarlo");
             }
-            else 
+            else
             {
                 MessageBoxButtons botones = MessageBoxButtons.YesNo;
                 DialogResult dr = MessageBox.Show("¿Esta seguro que quiere borrar?", "Borrar Usuario", botones, MessageBoxIcon.Question);
@@ -373,7 +367,7 @@ namespace BAREST
             registros.Close();
             Conexion.ObtenerConexion().Close();
         }
-       
+
 
         public void cargarSucursal()
         {
@@ -415,27 +409,23 @@ namespace BAREST
         private void tablaUsua_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             textDocumento.Text = tablaUsua.CurrentRow.Cells[0].Value.ToString();
-            textEmail.Text= tablaUsua.CurrentRow.Cells[1].Value.ToString();
+            textEmail.Text = tablaUsua.CurrentRow.Cells[1].Value.ToString();
             textNombre.Text = tablaUsua.CurrentRow.Cells[2].Value.ToString();
-            textApellido.Text= tablaUsua.CurrentRow.Cells[3].Value.ToString();
-            textTelefono.Text= tablaUsua.CurrentRow.Cells[4].Value.ToString();
+            textApellido.Text = tablaUsua.CurrentRow.Cells[3].Value.ToString();
+            textTelefono.Text = tablaUsua.CurrentRow.Cells[4].Value.ToString();
             object dtablaUsua = tablaUsua.CurrentRow.Cells[5].Value.ToString();
             dateTimePicker1.Value = Convert.ToDateTime(dtablaUsua); // tablaUsua.CurrentRow.Cells[4].Value.ToString()
-            comboSucursal.SelectedItem= tablaUsua.CurrentRow.Cells[6].Value.ToString();
-            comboCargo.SelectedItem= tablaUsua.CurrentRow.Cells[7].Value.ToString();
+            comboSucursal.SelectedItem = tablaUsua.CurrentRow.Cells[6].Value.ToString();
+            comboCargo.SelectedItem = tablaUsua.CurrentRow.Cells[7].Value.ToString();
 
         }
 
-        void buscarUsuarios()
-        {
-            string sql = " select documento,email,nombre,apellido,telefono,fechaNacimiento,s.descripcion,c.descripcion from Usuario inner join Sucursal as s on s.id= idSucursal inner join cargo as c on c.id=idCargo where ";
-
-        }
+        
         public DataTable Usuario()
         {
-           var BuscarUsu = tablaUsua.Rows[tablaUsua.CurrentRow.Index].Cells["documento"].Value.ToString();
+            var BuscarUsu = tablaUsua.Rows[tablaUsua.CurrentRow.Index].Cells["documento"].Value.ToString();
             Conexion.ObtenerConexion();
-            string sql = "select  documento,email,nombre,apellido,telefono,fechaNacimiento,s.descripcion as sucursal,c.descripcion as cargo from Usuario inner join Sucursal as s on s.id= idSucursal inner join cargo as c on c.id=idCargo where documento = "+ BuscarUsu +" ";
+            string sql = "select  documento,email,nombre,apellido,telefono,fechaNacimiento,s.descripcion as sucursal,c.descripcion as cargo from Usuario inner join Sucursal as s on s.id= idSucursal inner join cargo as c on c.id=idCargo where documento = " + BuscarUsu + " ";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             DataTable table = new DataTable();

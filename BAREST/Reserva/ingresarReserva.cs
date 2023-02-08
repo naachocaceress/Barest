@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Threading;
 using System.Windows.Forms;
 using Transitions;
 using static BAREST.Reservas;
@@ -17,7 +16,7 @@ namespace BAREST
 
         private void confirmar_Click(object sender, EventArgs e)
         {
-            if (textNombre.Text=="")
+            if (textNombre.Text == "")
             {
                 MessageBox.Show("Falta agregar un nombre");
             }
@@ -81,8 +80,8 @@ namespace BAREST
             notificacion.Visible = false;
             if (ClaseCompartida.Insum3 == "")
             {
-             //   cargarComboMesa();
-               // cargarcomboTurno();
+                //   cargarComboMesa();
+                // cargarcomboTurno();
             }
             else
             {
@@ -98,8 +97,8 @@ namespace BAREST
             comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = ClaseCompartida.Insum3;
             SqlDataReader leido = comando.ExecuteReader();
             if (leido.Read())
-            { 
-                
+            {
+
                 textNombre.Text = leido["nombre"].ToString();
                 textApellido.Text = leido["apellido"].ToString();
                 textTelefono.Text = leido["telefono"].ToString();

@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using BAREST.Properties;
-using System.Data;
-using System.Windows.Forms;
-using BAREST;
+﻿using BAREST.Properties;
 using System.Configuration;
+using System.Data.SqlClient;
 
 namespace BAREST
 {
@@ -23,7 +15,8 @@ namespace BAREST
 
         public static SqlConnection ObtenerConexion()
         {
-            SqlConnection Cone = new SqlConnection(ObtenerString());
+            //SqlConnection Cone = new SqlConnection(ConfigurationManager.ConnectionStrings["BARESTNEWConnectionString1"].ConnectionString);
+             SqlConnection Cone = new SqlConnection(ObtenerString());
             Cone.Open();
             return Cone;
         }

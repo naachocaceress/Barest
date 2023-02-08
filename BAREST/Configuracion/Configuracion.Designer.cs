@@ -30,13 +30,12 @@ namespace BAREST
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.cliente = new FontAwesome.Sharp.IconButton();
+            this.acercaDe = new FontAwesome.Sharp.IconButton();
             this.disenioBtn = new FontAwesome.Sharp.IconButton();
-            this.Reservas = new FontAwesome.Sharp.IconButton();
             this.usuariosBtn = new FontAwesome.Sharp.IconButton();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.acercaDe = new FontAwesome.Sharp.IconButton();
+            this.Reservas = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -47,7 +46,6 @@ namespace BAREST
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMenu.Controls.Add(this.acercaDe);
-            this.panelMenu.Controls.Add(this.cliente);
             this.panelMenu.Controls.Add(this.disenioBtn);
             this.panelMenu.Controls.Add(this.Reservas);
             this.panelMenu.Controls.Add(this.usuariosBtn);
@@ -57,27 +55,26 @@ namespace BAREST
             this.panelMenu.Size = new System.Drawing.Size(172, 513);
             this.panelMenu.TabIndex = 8;
             // 
-            // cliente
+            // acercaDe
             // 
-            this.cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.cliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cliente.FlatAppearance.BorderSize = 0;
-            this.cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cliente.ForeColor = System.Drawing.Color.Black;
-            this.cliente.IconChar = FontAwesome.Sharp.IconChar._500Px;
-            this.cliente.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.cliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.cliente.IconSize = 1;
-            this.cliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cliente.Location = new System.Drawing.Point(0, 144);
-            this.cliente.Name = "cliente";
-            this.cliente.Size = new System.Drawing.Size(170, 48);
-            this.cliente.TabIndex = 10;
-            this.cliente.Text = "       Cliente                  >";
-            this.cliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cliente.UseVisualStyleBackColor = false;
-            this.cliente.Click += new System.EventHandler(this.acercaDe_Click);
+            this.acercaDe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.acercaDe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.acercaDe.FlatAppearance.BorderSize = 0;
+            this.acercaDe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.acercaDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acercaDe.ForeColor = System.Drawing.Color.Black;
+            this.acercaDe.IconChar = FontAwesome.Sharp.IconChar._500Px;
+            this.acercaDe.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.acercaDe.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.acercaDe.IconSize = 1;
+            this.acercaDe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.acercaDe.Location = new System.Drawing.Point(0, 144);
+            this.acercaDe.Name = "acercaDe";
+            this.acercaDe.Size = new System.Drawing.Size(170, 48);
+            this.acercaDe.TabIndex = 12;
+            this.acercaDe.Text = "Acerca de                >";
+            this.acercaDe.UseVisualStyleBackColor = false;
+            this.acercaDe.Click += new System.EventHandler(this.acercaDe_Click_1);
             // 
             // disenioBtn
             // 
@@ -96,32 +93,9 @@ namespace BAREST
             this.disenioBtn.Name = "disenioBtn";
             this.disenioBtn.Size = new System.Drawing.Size(170, 48);
             this.disenioBtn.TabIndex = 9;
-            this.disenioBtn.Text = "       Diseño                  >";
-            this.disenioBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.disenioBtn.Text = "Diseño                     >";
             this.disenioBtn.UseVisualStyleBackColor = false;
             this.disenioBtn.Click += new System.EventHandler(this.disenioBtn_Click);
-            // 
-            // Reservas
-            // 
-            this.Reservas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.Reservas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Reservas.FlatAppearance.BorderSize = 0;
-            this.Reservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Reservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reservas.ForeColor = System.Drawing.Color.Black;
-            this.Reservas.IconChar = FontAwesome.Sharp.IconChar._500Px;
-            this.Reservas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Reservas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Reservas.IconSize = 1;
-            this.Reservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reservas.Location = new System.Drawing.Point(0, 48);
-            this.Reservas.Name = "Reservas";
-            this.Reservas.Size = new System.Drawing.Size(170, 48);
-            this.Reservas.TabIndex = 11;
-            this.Reservas.Text = "       Reservas              >";
-            this.Reservas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reservas.UseVisualStyleBackColor = false;
-            this.Reservas.Click += new System.EventHandler(this.Reservas_Click);
             // 
             // usuariosBtn
             // 
@@ -140,8 +114,7 @@ namespace BAREST
             this.usuariosBtn.Name = "usuariosBtn";
             this.usuariosBtn.Size = new System.Drawing.Size(170, 48);
             this.usuariosBtn.TabIndex = 8;
-            this.usuariosBtn.Text = "       Usuarios               >";
-            this.usuariosBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usuariosBtn.Text = "Usuarios                   >";
             this.usuariosBtn.UseVisualStyleBackColor = false;
             this.usuariosBtn.Click += new System.EventHandler(this.usuariosBtn_Click);
             // 
@@ -165,27 +138,26 @@ namespace BAREST
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // acercaDe
+            // Reservas
             // 
-            this.acercaDe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.acercaDe.Dock = System.Windows.Forms.DockStyle.Top;
-            this.acercaDe.FlatAppearance.BorderSize = 0;
-            this.acercaDe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.acercaDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.acercaDe.ForeColor = System.Drawing.Color.Black;
-            this.acercaDe.IconChar = FontAwesome.Sharp.IconChar._500Px;
-            this.acercaDe.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.acercaDe.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.acercaDe.IconSize = 1;
-            this.acercaDe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.acercaDe.Location = new System.Drawing.Point(0, 192);
-            this.acercaDe.Name = "acercaDe";
-            this.acercaDe.Size = new System.Drawing.Size(170, 48);
-            this.acercaDe.TabIndex = 12;
-            this.acercaDe.Text = "       Acerca de             >";
-            this.acercaDe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.acercaDe.UseVisualStyleBackColor = false;
-            this.acercaDe.Click += new System.EventHandler(this.acercaDe_Click_1);
+            this.Reservas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.Reservas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Reservas.FlatAppearance.BorderSize = 0;
+            this.Reservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Reservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Reservas.ForeColor = System.Drawing.Color.Black;
+            this.Reservas.IconChar = FontAwesome.Sharp.IconChar._500Px;
+            this.Reservas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Reservas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Reservas.IconSize = 1;
+            this.Reservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Reservas.Location = new System.Drawing.Point(0, 48);
+            this.Reservas.Name = "Reservas";
+            this.Reservas.Size = new System.Drawing.Size(170, 48);
+            this.Reservas.TabIndex = 11;
+            this.Reservas.Text = "Manual de Usuario   >";
+            this.Reservas.UseVisualStyleBackColor = false;
+            this.Reservas.Click += new System.EventHandler(this.Reservas_Click);
             // 
             // configuracion
             // 
@@ -212,10 +184,9 @@ namespace BAREST
         private System.Windows.Forms.Panel panelMenu;
         private FontAwesome.Sharp.IconButton usuariosBtn;
         private FontAwesome.Sharp.IconButton disenioBtn;
-        private FontAwesome.Sharp.IconButton cliente;
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private FontAwesome.Sharp.IconButton Reservas;
         private FontAwesome.Sharp.IconButton acercaDe;
+        private FontAwesome.Sharp.IconButton Reservas;
     }
 }
