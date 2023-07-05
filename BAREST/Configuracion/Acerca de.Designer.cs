@@ -93,8 +93,8 @@ namespace BAREST.Configuracion
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(223, 72);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Barest 2022\r\nVersion Beta 1.8.10\r\n© 2022 Grupo Barest.\r\nTodos los derechos reserv" +
-    "ados.";
+            this.label2.Text = "Barest 2023\r\nVersion Beta 1.9.1\r\n© 2023 Grupo Barest.\r\nTodos los derechos reserva" +
+    "dos.";
             // 
             // label3
             // 
@@ -115,7 +115,7 @@ namespace BAREST.Configuracion
             this.label4.Size = new System.Drawing.Size(318, 72);
             this.label4.TabIndex = 3;
             this.label4.Text = " Este sistema forma parte de de la Tesis \r\nde Analista en Sistemas de Computacion" +
-    " \r\nrelizado en el Instituto Superior Santo Domingo\r\ndel año 2022.\r\n";
+    " \r\nrelizado en el Instituto Superior Santo Domingo\r\ndel año 2023.\r\n";
             // 
             // pictureBox3
             // 

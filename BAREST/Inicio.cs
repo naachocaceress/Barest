@@ -288,12 +288,15 @@ namespace BAREST
         private void caja1_Click(object sender, EventArgs e)
         {
             esconderMenu();
-            openChilForm(new Caja());
+            Cajas.CajaCh m = new Cajas.CajaCh();
+            m.Show();
         }
 
         private void caja2_Click(object sender, EventArgs e)
         {
             esconderMenu();
+            Cajas.Cajagr m = new Cajas.Cajagr();
+            m.Show();
         }
 
         private void proveedores_Click(object sender, EventArgs e)
@@ -974,6 +977,13 @@ namespace BAREST
             esconderMenu();
             BotonActivo(sender);
             CLIENTE m = new CLIENTE();
+            m.Show();
+        }
+
+        private void cajaSocios_Click(object sender, EventArgs e)
+        {
+            esconderMenu();
+            Cajas.Cajasc m = new Cajas.Cajasc();
             m.Show();
         }
 

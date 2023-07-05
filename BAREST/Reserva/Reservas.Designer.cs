@@ -428,6 +428,7 @@ namespace BAREST
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Reservas";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reservas";
             this.Load += new System.EventHandler(this.Reservas_Load);

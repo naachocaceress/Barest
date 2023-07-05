@@ -117,6 +117,18 @@
     <Compile Include="Cajas\CajaCh.Designer.cs">
       <DependentUpon>CajaCh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cajas\Cajagr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cajas\Cajagr.Designer.cs">
+      <DependentUpon>Cajagr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cajas\Cajasc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cajas\Cajasc.Designer.cs">
+      <DependentUpon>Cajasc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\ingresarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +331,12 @@
     </Compile>
     <EmbeddedResource Include="Cajas\CajaCh.resx">
       <DependentUpon>CajaCh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cajas\Cajagr.resx">
+      <DependentUpon>Cajagr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cajas\Cajasc.resx">
+      <DependentUpon>Cajasc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cliente\ingresarCliente.resx">
       <DependentUpon>ingresarCliente.cs</DependentUpon>

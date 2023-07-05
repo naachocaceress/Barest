@@ -226,7 +226,7 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1204, 931);
+            this.panelContenedor.Size = new System.Drawing.Size(1204, 749);
             this.panelContenedor.TabIndex = 3;
             // 
             // panelPlano3
@@ -1318,7 +1318,7 @@
             this.JA5.Dock = System.Windows.Forms.DockStyle.Right;
             this.JA5.Location = new System.Drawing.Point(918, 0);
             this.JA5.Name = "JA5";
-            this.JA5.Size = new System.Drawing.Size(286, 931);
+            this.JA5.Size = new System.Drawing.Size(286, 749);
             this.JA5.TabIndex = 4;
             // 
             // label9
@@ -1447,14 +1447,14 @@
             this.panelAyudaVisual.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelAyudaVisual.Location = new System.Drawing.Point(121, 0);
             this.panelAyudaVisual.Name = "panelAyudaVisual";
-            this.panelAyudaVisual.Size = new System.Drawing.Size(165, 931);
+            this.panelAyudaVisual.Size = new System.Drawing.Size(165, 749);
             this.panelAyudaVisual.TabIndex = 8;
             // 
             // ayudaVisualMesas
             // 
             this.ayudaVisualMesas.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ayudaVisualMesas.Image = ((System.Drawing.Image)(resources.GetObject("ayudaVisualMesas.Image")));
-            this.ayudaVisualMesas.Location = new System.Drawing.Point(0, 821);
+            this.ayudaVisualMesas.Location = new System.Drawing.Point(0, 639);
             this.ayudaVisualMesas.Name = "ayudaVisualMesas";
             this.ayudaVisualMesas.Size = new System.Drawing.Size(165, 110);
             this.ayudaVisualMesas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1486,7 +1486,7 @@
             this.panelBotones.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelBotones.Location = new System.Drawing.Point(0, 0);
             this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Size = new System.Drawing.Size(137, 931);
+            this.panelBotones.Size = new System.Drawing.Size(137, 749);
             this.panelBotones.TabIndex = 1;
             // 
             // config
@@ -1504,7 +1504,7 @@
             this.config.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.config.Location = new System.Drawing.Point(0, 820);
             this.config.Name = "config";
-            this.config.Size = new System.Drawing.Size(137, 35);
+            this.config.Size = new System.Drawing.Size(120, 35);
             this.config.TabIndex = 28;
             this.config.Text = "          Configuracion";
             this.config.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1526,7 +1526,7 @@
             this.informes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.informes.Location = new System.Drawing.Point(0, 785);
             this.informes.Name = "informes";
-            this.informes.Size = new System.Drawing.Size(137, 35);
+            this.informes.Size = new System.Drawing.Size(120, 35);
             this.informes.TabIndex = 27;
             this.informes.Text = "          Informes";
             this.informes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1547,7 +1547,7 @@
             this.btnCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCliente.Location = new System.Drawing.Point(0, 750);
             this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(137, 35);
+            this.btnCliente.Size = new System.Drawing.Size(120, 35);
             this.btnCliente.TabIndex = 25;
             this.btnCliente.Text = "          Cliente";
             this.btnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1561,7 +1561,7 @@
             this.panelPersonal.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPersonal.Location = new System.Drawing.Point(0, 680);
             this.panelPersonal.Name = "panelPersonal";
-            this.panelPersonal.Size = new System.Drawing.Size(137, 70);
+            this.panelPersonal.Size = new System.Drawing.Size(120, 70);
             this.panelPersonal.TabIndex = 12;
             // 
             // categorias
@@ -1573,7 +1573,7 @@
             this.categorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.categorias.Location = new System.Drawing.Point(0, 35);
             this.categorias.Name = "categorias";
-            this.categorias.Size = new System.Drawing.Size(137, 35);
+            this.categorias.Size = new System.Drawing.Size(120, 35);
             this.categorias.TabIndex = 21;
             this.categorias.Text = "       Categorias";
             this.categorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1589,7 +1589,7 @@
             this.buttonEmpleado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.buttonEmpleado.Location = new System.Drawing.Point(0, 0);
             this.buttonEmpleado.Name = "buttonEmpleado";
-            this.buttonEmpleado.Size = new System.Drawing.Size(137, 35);
+            this.buttonEmpleado.Size = new System.Drawing.Size(120, 35);
             this.buttonEmpleado.TabIndex = 20;
             this.buttonEmpleado.Text = "       Empleado";
             this.buttonEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1611,7 +1611,7 @@
             this.personal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.personal.Location = new System.Drawing.Point(0, 645);
             this.personal.Name = "personal";
-            this.personal.Size = new System.Drawing.Size(137, 35);
+            this.personal.Size = new System.Drawing.Size(120, 35);
             this.personal.TabIndex = 19;
             this.personal.Text = "          Personal";
             this.personal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1625,7 +1625,7 @@
             this.panelStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStock.Location = new System.Drawing.Point(0, 575);
             this.panelStock.Name = "panelStock";
-            this.panelStock.Size = new System.Drawing.Size(137, 70);
+            this.panelStock.Size = new System.Drawing.Size(120, 70);
             this.panelStock.TabIndex = 11;
             // 
             // inventariosStock
@@ -1637,7 +1637,7 @@
             this.inventariosStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.inventariosStock.Location = new System.Drawing.Point(0, 35);
             this.inventariosStock.Name = "inventariosStock";
-            this.inventariosStock.Size = new System.Drawing.Size(137, 35);
+            this.inventariosStock.Size = new System.Drawing.Size(120, 35);
             this.inventariosStock.TabIndex = 18;
             this.inventariosStock.Text = "       Inventarios";
             this.inventariosStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1653,7 +1653,7 @@
             this.manejoStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.manejoStock.Location = new System.Drawing.Point(0, 0);
             this.manejoStock.Name = "manejoStock";
-            this.manejoStock.Size = new System.Drawing.Size(137, 35);
+            this.manejoStock.Size = new System.Drawing.Size(120, 35);
             this.manejoStock.TabIndex = 17;
             this.manejoStock.Text = "       Manejo de Stock";
             this.manejoStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1675,7 +1675,7 @@
             this.stock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.stock.Location = new System.Drawing.Point(0, 540);
             this.stock.Name = "stock";
-            this.stock.Size = new System.Drawing.Size(137, 35);
+            this.stock.Size = new System.Drawing.Size(120, 35);
             this.stock.TabIndex = 16;
             this.stock.Text = "          Stock";
             this.stock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1690,7 +1690,7 @@
             this.panelCompras.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCompras.Location = new System.Drawing.Point(0, 435);
             this.panelCompras.Name = "panelCompras";
-            this.panelCompras.Size = new System.Drawing.Size(137, 105);
+            this.panelCompras.Size = new System.Drawing.Size(120, 105);
             this.panelCompras.TabIndex = 6;
             // 
             // proveedores
@@ -1702,7 +1702,7 @@
             this.proveedores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.proveedores.Location = new System.Drawing.Point(0, 70);
             this.proveedores.Name = "proveedores";
-            this.proveedores.Size = new System.Drawing.Size(137, 35);
+            this.proveedores.Size = new System.Drawing.Size(120, 35);
             this.proveedores.TabIndex = 13;
             this.proveedores.Text = "       Proveedores";
             this.proveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1718,7 +1718,7 @@
             this.button21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.button21.Location = new System.Drawing.Point(0, 35);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(137, 35);
+            this.button21.Size = new System.Drawing.Size(120, 35);
             this.button21.TabIndex = 14;
             this.button21.Text = "       Insumos";
             this.button21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1734,7 +1734,7 @@
             this.estadoCompras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.estadoCompras.Location = new System.Drawing.Point(0, 0);
             this.estadoCompras.Name = "estadoCompras";
-            this.estadoCompras.Size = new System.Drawing.Size(137, 35);
+            this.estadoCompras.Size = new System.Drawing.Size(120, 35);
             this.estadoCompras.TabIndex = 15;
             this.estadoCompras.Text = "       Compras";
             this.estadoCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1756,7 +1756,7 @@
             this.compras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.compras.Location = new System.Drawing.Point(0, 400);
             this.compras.Name = "compras";
-            this.compras.Size = new System.Drawing.Size(137, 35);
+            this.compras.Size = new System.Drawing.Size(120, 35);
             this.compras.TabIndex = 12;
             this.compras.Text = "          Compras";
             this.compras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1778,7 +1778,7 @@
             this.ventas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ventas.Location = new System.Drawing.Point(0, 365);
             this.ventas.Name = "ventas";
-            this.ventas.Size = new System.Drawing.Size(137, 35);
+            this.ventas.Size = new System.Drawing.Size(120, 35);
             this.ventas.TabIndex = 11;
             this.ventas.Text = "          Ventas";
             this.ventas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1800,7 +1800,7 @@
             this.menu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu.Location = new System.Drawing.Point(0, 330);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(137, 35);
+            this.menu.Size = new System.Drawing.Size(120, 35);
             this.menu.TabIndex = 10;
             this.menu.Text = "          Menu";
             this.menu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1815,7 +1815,7 @@
             this.panelCaja.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCaja.Location = new System.Drawing.Point(0, 225);
             this.panelCaja.Name = "panelCaja";
-            this.panelCaja.Size = new System.Drawing.Size(137, 105);
+            this.panelCaja.Size = new System.Drawing.Size(120, 105);
             this.panelCaja.TabIndex = 2;
             // 
             // cajaSocios
@@ -1827,11 +1827,12 @@
             this.cajaSocios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.cajaSocios.Location = new System.Drawing.Point(0, 70);
             this.cajaSocios.Name = "cajaSocios";
-            this.cajaSocios.Size = new System.Drawing.Size(137, 35);
+            this.cajaSocios.Size = new System.Drawing.Size(120, 35);
             this.cajaSocios.TabIndex = 9;
             this.cajaSocios.Text = "       Caja Socios";
             this.cajaSocios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cajaSocios.UseVisualStyleBackColor = false;
+            this.cajaSocios.Click += new System.EventHandler(this.cajaSocios_Click);
             // 
             // caja2
             // 
@@ -1842,7 +1843,7 @@
             this.caja2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.caja2.Location = new System.Drawing.Point(0, 35);
             this.caja2.Name = "caja2";
-            this.caja2.Size = new System.Drawing.Size(137, 35);
+            this.caja2.Size = new System.Drawing.Size(120, 35);
             this.caja2.TabIndex = 8;
             this.caja2.Text = "       Caja Mayor";
             this.caja2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1858,7 +1859,7 @@
             this.caja1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.caja1.Location = new System.Drawing.Point(0, 0);
             this.caja1.Name = "caja1";
-            this.caja1.Size = new System.Drawing.Size(137, 35);
+            this.caja1.Size = new System.Drawing.Size(120, 35);
             this.caja1.TabIndex = 7;
             this.caja1.Text = "       Caja Chica";
             this.caja1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1880,7 +1881,7 @@
             this.caja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.caja.Location = new System.Drawing.Point(0, 190);
             this.caja.Name = "caja";
-            this.caja.Size = new System.Drawing.Size(137, 35);
+            this.caja.Size = new System.Drawing.Size(120, 35);
             this.caja.TabIndex = 6;
             this.caja.Text = "          Caja";
             this.caja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1902,7 +1903,7 @@
             this.reservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reservas.Location = new System.Drawing.Point(0, 155);
             this.reservas.Name = "reservas";
-            this.reservas.Size = new System.Drawing.Size(137, 35);
+            this.reservas.Size = new System.Drawing.Size(120, 35);
             this.reservas.TabIndex = 5;
             this.reservas.Text = "          Reservas";
             this.reservas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1916,7 +1917,7 @@
             this.panelTurno.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTurno.Location = new System.Drawing.Point(0, 85);
             this.panelTurno.Name = "panelTurno";
-            this.panelTurno.Size = new System.Drawing.Size(137, 70);
+            this.panelTurno.Size = new System.Drawing.Size(120, 70);
             this.panelTurno.TabIndex = 3;
             // 
             // cerrar
@@ -1928,7 +1929,7 @@
             this.cerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.cerrar.Location = new System.Drawing.Point(0, 35);
             this.cerrar.Name = "cerrar";
-            this.cerrar.Size = new System.Drawing.Size(137, 35);
+            this.cerrar.Size = new System.Drawing.Size(120, 35);
             this.cerrar.TabIndex = 4;
             this.cerrar.Text = "       Cerrar Turno";
             this.cerrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1944,7 +1945,7 @@
             this.iniciar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.iniciar.Location = new System.Drawing.Point(0, 0);
             this.iniciar.Name = "iniciar";
-            this.iniciar.Size = new System.Drawing.Size(137, 35);
+            this.iniciar.Size = new System.Drawing.Size(120, 35);
             this.iniciar.TabIndex = 3;
             this.iniciar.Text = "       Iniciar Turno";
             this.iniciar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1964,9 +1965,9 @@
             this.salir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.salir.IconSize = 30;
             this.salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salir.Location = new System.Drawing.Point(0, 896);
+            this.salir.Location = new System.Drawing.Point(0, 855);
             this.salir.Name = "salir";
-            this.salir.Size = new System.Drawing.Size(137, 35);
+            this.salir.Size = new System.Drawing.Size(120, 35);
             this.salir.TabIndex = 24;
             this.salir.Text = "          Salir";
             this.salir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1988,7 +1989,7 @@
             this.turno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.turno.Location = new System.Drawing.Point(0, 50);
             this.turno.Name = "turno";
-            this.turno.Size = new System.Drawing.Size(137, 35);
+            this.turno.Size = new System.Drawing.Size(120, 35);
             this.turno.TabIndex = 2;
             this.turno.Text = "          Turno";
             this.turno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2003,7 +2004,7 @@
             this.panelTitulos.Location = new System.Drawing.Point(0, 0);
             this.panelTitulos.Name = "panelTitulos";
             this.panelTitulos.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.panelTitulos.Size = new System.Drawing.Size(137, 50);
+            this.panelTitulos.Size = new System.Drawing.Size(120, 50);
             this.panelTitulos.TabIndex = 0;
             // 
             // botonHiden
@@ -2021,7 +2022,7 @@
             this.botonHiden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.botonHiden.Location = new System.Drawing.Point(0, 3);
             this.botonHiden.Name = "botonHiden";
-            this.botonHiden.Size = new System.Drawing.Size(137, 47);
+            this.botonHiden.Size = new System.Drawing.Size(120, 47);
             this.botonHiden.TabIndex = 1;
             this.botonHiden.Text = "       BAREST";
             this.botonHiden.UseVisualStyleBackColor = false;
@@ -2032,7 +2033,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(1204, 931);
+            this.ClientSize = new System.Drawing.Size(1204, 749);
             this.Controls.Add(this.panelContenedor);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "inicio";
