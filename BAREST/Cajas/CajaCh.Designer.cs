@@ -28,61 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Retiro                            1000");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Farmacia                       2000");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Gastos varios", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Ajustes de caja");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Gastos varios");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Inicio                            3000");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
             treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Inicio                            3000");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Mas inicio                    2000");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Aporte de caja grande", new System.Windows.Forms.TreeNode[] {
             treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Mas inicio                    2000");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Aporte de caja grande", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Total");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Ingreso por ventas", new System.Windows.Forms.TreeNode[] {
             treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Total");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Ingreso por ventas", new System.Windows.Forms.TreeNode[] {
-            treeNode9});
-            this.button1 = new System.Windows.Forms.Button();
+            this.gastosvarios = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Ingreso = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.treeView2 = new System.Windows.Forms.TreeView();
             this.btnEstadisticas = new FontAwesome.Sharp.IconButton();
             this.btnImprimir = new FontAwesome.Sharp.IconButton();
             this.btnAgregarRes = new FontAwesome.Sharp.IconButton();
             this.btnEliminarRes = new FontAwesome.Sharp.IconButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.acajasocios = new System.Windows.Forms.Button();
+            this.ajustedecajaegreso = new System.Windows.Forms.Button();
+            this.acajagrande = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.decajasocios = new System.Windows.Forms.Button();
+            this.decajagrande = new System.Windows.Forms.Button();
+            this.ajustesdecajaingreso = new System.Windows.Forms.Button();
+            this.Ingreso = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.treeView2 = new System.Windows.Forms.TreeView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.Ingreso.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // gastosvarios
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(26, 332);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 28);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Gastos varios";
-            this.button1.UseVisualStyleBackColor = true;
+            this.gastosvarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gastosvarios.Location = new System.Drawing.Point(26, 332);
+            this.gastosvarios.Name = "gastosvarios";
+            this.gastosvarios.Size = new System.Drawing.Size(155, 28);
+            this.gastosvarios.TabIndex = 0;
+            this.gastosvarios.Text = "Gastos varios";
+            this.gastosvarios.UseVisualStyleBackColor = true;
+            this.gastosvarios.Click += new System.EventHandler(this.gastosvarios_Click);
             // 
             // label1
             // 
@@ -106,215 +103,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 50);
             this.panel1.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(400, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(400, 400);
-            this.panel2.TabIndex = 4;
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.button7);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.button6);
-            this.panel3.Controls.Add(this.button5);
-            this.panel3.Controls.Add(this.Ingreso);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(400, 400);
-            this.panel3.TabIndex = 5;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.treeView1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(392, 284);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Egreso";
-            // 
-            // Ingreso
-            // 
-            this.Ingreso.Controls.Add(this.label2);
-            this.Ingreso.Controls.Add(this.textBox3);
-            this.Ingreso.Controls.Add(this.treeView2);
-            this.Ingreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ingreso.Location = new System.Drawing.Point(3, 4);
-            this.Ingreso.Name = "Ingreso";
-            this.Ingreso.Size = new System.Drawing.Size(392, 284);
-            this.Ingreso.TabIndex = 3;
-            this.Ingreso.TabStop = false;
-            this.Ingreso.Text = "Ingreso";
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(217, 332);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 28);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Ajustes de caja";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(26, 366);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 28);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Retiros a caja grande";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(217, 366);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(155, 28);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Retiros a caja socios";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(123, 332);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(155, 28);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Ajustes de caja";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(29, 366);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(155, 28);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Aporte de caja grande";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(216, 366);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(155, 28);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "Aporte de caja socios";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(6, 297);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(285, 14);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(285, 14);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 0;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(243, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Total";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(243, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Total";
-            // 
-            // treeView1
-            // 
-            this.treeView1.BackColor = System.Drawing.SystemColors.Control;
-            this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView1.Location = new System.Drawing.Point(6, 21);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Nodo3";
-            treeNode1.Text = "Retiro                            1000";
-            treeNode2.Name = "Nodo0";
-            treeNode2.Text = "Ajustes de caja";
-            treeNode3.Name = "Farmacia";
-            treeNode3.Text = "Farmacia                       2000";
-            treeNode4.Name = "Nodo1";
-            treeNode4.Text = "Gastos varios";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4});
-            this.treeView1.Size = new System.Drawing.Size(379, 257);
-            this.treeView1.TabIndex = 2;
-            // 
-            // treeView2
-            // 
-            this.treeView2.BackColor = System.Drawing.SystemColors.Control;
-            this.treeView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView2.Location = new System.Drawing.Point(6, 21);
-            this.treeView2.Name = "treeView2";
-            treeNode5.Name = "Nodo3";
-            treeNode5.Text = "Inicio                            3000";
-            treeNode6.Name = "Nodo0";
-            treeNode6.Text = "Ajustes de caja";
-            treeNode7.Name = "Farmacia";
-            treeNode7.Text = "Mas inicio                    2000";
-            treeNode8.Name = "Nodo1";
-            treeNode8.Text = "Aporte de caja grande";
-            treeNode9.Name = "Nodo1";
-            treeNode9.Text = "Total";
-            treeNode10.Name = "Nodo0";
-            treeNode10.Text = "Ingreso por ventas";
-            this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode8,
-            treeNode10});
-            this.treeView2.Size = new System.Drawing.Size(379, 257);
-            this.treeView2.TabIndex = 3;
             // 
             // btnEstadisticas
             // 
@@ -375,6 +163,7 @@
             this.btnAgregarRes.Text = "        Caja Grande";
             this.btnAgregarRes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregarRes.UseVisualStyleBackColor = true;
+            this.btnAgregarRes.Click += new System.EventHandler(this.btnAgregarRes_Click);
             // 
             // btnEliminarRes
             // 
@@ -395,6 +184,218 @@
             this.btnEliminarRes.Text = "        Caja Socios";
             this.btnEliminarRes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminarRes.UseVisualStyleBackColor = true;
+            this.btnEliminarRes.Click += new System.EventHandler(this.btnEliminarRes_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.gastosvarios);
+            this.panel2.Controls.Add(this.acajasocios);
+            this.panel2.Controls.Add(this.ajustedecajaegreso);
+            this.panel2.Controls.Add(this.acajagrande);
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(400, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(400, 400);
+            this.panel2.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(6, 297);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // acajasocios
+            // 
+            this.acajasocios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acajasocios.Location = new System.Drawing.Point(217, 366);
+            this.acajasocios.Name = "acajasocios";
+            this.acajasocios.Size = new System.Drawing.Size(155, 28);
+            this.acajasocios.TabIndex = 3;
+            this.acajasocios.Text = "Retiros a caja socios";
+            this.acajasocios.UseVisualStyleBackColor = true;
+            this.acajasocios.Click += new System.EventHandler(this.acajasocios_Click);
+            // 
+            // ajustedecajaegreso
+            // 
+            this.ajustedecajaegreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ajustedecajaegreso.Location = new System.Drawing.Point(217, 332);
+            this.ajustedecajaegreso.Name = "ajustedecajaegreso";
+            this.ajustedecajaegreso.Size = new System.Drawing.Size(155, 28);
+            this.ajustedecajaegreso.TabIndex = 1;
+            this.ajustedecajaegreso.Text = "Ajustes de caja";
+            this.ajustedecajaegreso.UseVisualStyleBackColor = true;
+            this.ajustedecajaegreso.Click += new System.EventHandler(this.ajustesdecaja_Click);
+            // 
+            // acajagrande
+            // 
+            this.acajagrande.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acajagrande.Location = new System.Drawing.Point(26, 366);
+            this.acajagrande.Name = "acajagrande";
+            this.acajagrande.Size = new System.Drawing.Size(155, 28);
+            this.acajagrande.TabIndex = 2;
+            this.acajagrande.Text = "Retiros a caja grande";
+            this.acajagrande.UseVisualStyleBackColor = true;
+            this.acajagrande.Click += new System.EventHandler(this.acajagrande_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtTotal);
+            this.groupBox1.Controls.Add(this.treeView1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(3, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(392, 284);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Egreso";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(243, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Total";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(285, 14);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtTotal.TabIndex = 0;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // treeView1
+            // 
+            this.treeView1.BackColor = System.Drawing.SystemColors.Control;
+            this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.Location = new System.Drawing.Point(6, 21);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "Nodo0";
+            treeNode1.Text = "Ajustes de caja";
+            treeNode2.Name = "Nodo1";
+            treeNode2.Text = "Gastos varios";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            this.treeView1.Size = new System.Drawing.Size(379, 257);
+            this.treeView1.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.decajasocios);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.decajagrande);
+            this.panel3.Controls.Add(this.ajustesdecajaingreso);
+            this.panel3.Controls.Add(this.Ingreso);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(400, 400);
+            this.panel3.TabIndex = 5;
+            // 
+            // decajasocios
+            // 
+            this.decajasocios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decajasocios.Location = new System.Drawing.Point(216, 366);
+            this.decajasocios.Name = "decajasocios";
+            this.decajasocios.Size = new System.Drawing.Size(155, 28);
+            this.decajasocios.TabIndex = 4;
+            this.decajasocios.Text = "Aporte de caja socios";
+            this.decajasocios.UseVisualStyleBackColor = true;
+            this.decajasocios.Click += new System.EventHandler(this.decajasocios_Click);
+            // 
+            // decajagrande
+            // 
+            this.decajagrande.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decajagrande.Location = new System.Drawing.Point(29, 366);
+            this.decajagrande.Name = "decajagrande";
+            this.decajagrande.Size = new System.Drawing.Size(155, 28);
+            this.decajagrande.TabIndex = 5;
+            this.decajagrande.Text = "Aporte de caja grande";
+            this.decajagrande.UseVisualStyleBackColor = true;
+            this.decajagrande.Click += new System.EventHandler(this.decajagrande_Click);
+            // 
+            // ajustesdecajaingreso
+            // 
+            this.ajustesdecajaingreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ajustesdecajaingreso.Location = new System.Drawing.Point(123, 332);
+            this.ajustesdecajaingreso.Name = "ajustesdecajaingreso";
+            this.ajustesdecajaingreso.Size = new System.Drawing.Size(155, 28);
+            this.ajustesdecajaingreso.TabIndex = 4;
+            this.ajustesdecajaingreso.Text = "Ajustes de caja";
+            this.ajustesdecajaingreso.UseVisualStyleBackColor = true;
+            this.ajustesdecajaingreso.Click += new System.EventHandler(this.ajustesdecajaingreso_Click);
+            // 
+            // Ingreso
+            // 
+            this.Ingreso.Controls.Add(this.label2);
+            this.Ingreso.Controls.Add(this.textBox3);
+            this.Ingreso.Controls.Add(this.treeView2);
+            this.Ingreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ingreso.Location = new System.Drawing.Point(3, 4);
+            this.Ingreso.Name = "Ingreso";
+            this.Ingreso.Size = new System.Drawing.Size(392, 284);
+            this.Ingreso.TabIndex = 3;
+            this.Ingreso.TabStop = false;
+            this.Ingreso.Text = "Ingreso";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(243, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Total";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(285, 14);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 0;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // treeView2
+            // 
+            this.treeView2.BackColor = System.Drawing.SystemColors.Control;
+            this.treeView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView2.Location = new System.Drawing.Point(6, 21);
+            this.treeView2.Name = "treeView2";
+            treeNode3.Name = "Nodo3";
+            treeNode3.Text = "Inicio                            3000";
+            treeNode4.Name = "Nodo0";
+            treeNode4.Text = "Ajustes de caja";
+            treeNode5.Name = "Farmacia";
+            treeNode5.Text = "Mas inicio                    2000";
+            treeNode6.Name = "Nodo1";
+            treeNode6.Text = "Aporte de caja grande";
+            treeNode7.Name = "Nodo1";
+            treeNode7.Text = "Total";
+            treeNode8.Name = "Nodo0";
+            treeNode8.Text = "Ingreso por ventas";
+            this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode6,
+            treeNode8});
+            this.treeView2.Size = new System.Drawing.Size(379, 257);
+            this.treeView2.TabIndex = 3;
             // 
             // CajaCh
             // 
@@ -413,10 +414,10 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.Ingreso.ResumeLayout(false);
             this.Ingreso.PerformLayout();
             this.ResumeLayout(false);
@@ -425,7 +426,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button gastosvarios;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnEstadisticas;
@@ -434,20 +435,20 @@
         private FontAwesome.Sharp.IconButton btnEliminarRes;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button acajasocios;
+        private System.Windows.Forms.Button ajustedecajaegreso;
+        private System.Windows.Forms.Button acajagrande;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button decajasocios;
+        private System.Windows.Forms.Button decajagrande;
+        private System.Windows.Forms.Button ajustesdecajaingreso;
         private System.Windows.Forms.GroupBox Ingreso;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TreeView treeView2;
+        public System.Windows.Forms.TreeView treeView1;
     }
 }

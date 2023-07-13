@@ -129,6 +129,12 @@
     <Compile Include="Cajas\Cajasc.Designer.cs">
       <DependentUpon>Cajasc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cajas\IngresarMonto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cajas\IngresarMonto.Designer.cs">
+      <DependentUpon>IngresarMonto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\ingresarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cajas\Cajasc.resx">
       <DependentUpon>Cajasc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cajas\IngresarMonto.resx">
+      <DependentUpon>IngresarMonto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cliente\ingresarCliente.resx">
       <DependentUpon>ingresarCliente.cs</DependentUpon>

@@ -1845,7 +1845,7 @@
             this.caja2.Name = "caja2";
             this.caja2.Size = new System.Drawing.Size(120, 35);
             this.caja2.TabIndex = 8;
-            this.caja2.Text = "       Caja Mayor";
+            this.caja2.Text = "       Caja Grande";
             this.caja2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.caja2.UseVisualStyleBackColor = false;
             this.caja2.Click += new System.EventHandler(this.caja2_Click);
