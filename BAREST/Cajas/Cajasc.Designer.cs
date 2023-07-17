@@ -29,19 +29,23 @@ namespace BAREST.Cajas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Inicio                            3000");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
-            treeNode49});
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Mas inicio                    2000");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Aporte de caja grande", new System.Windows.Forms.TreeNode[] {
-            treeNode51});
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Retiro                            1000");
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
-            treeNode53});
-            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Farmacia                       2000");
-            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Gastos varios", new System.Windows.Forms.TreeNode[] {
-            treeNode55});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Inicio                            3000");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Mas inicio                    2000");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Aporte de caja grande", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Retiro                            1000");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Farmacia                       2000");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Gastos varios", new System.Windows.Forms.TreeNode[] {
+            treeNode7});
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEstadisticas = new FontAwesome.Sharp.IconButton();
+            this.btnImprimir = new FontAwesome.Sharp.IconButton();
+            this.btnAgregarRes = new FontAwesome.Sharp.IconButton();
+            this.btnEliminarRes = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.decajachica = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,10 +65,6 @@ namespace BAREST.Cajas
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.btnEstadisticas = new FontAwesome.Sharp.IconButton();
-            this.btnImprimir = new FontAwesome.Sharp.IconButton();
-            this.btnAgregarRes = new FontAwesome.Sharp.IconButton();
-            this.btnEliminarRes = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.Ingreso.SuspendLayout();
@@ -84,6 +84,88 @@ namespace BAREST.Cajas
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 50);
             this.panel1.TabIndex = 4;
+            // 
+            // btnEstadisticas
+            // 
+            this.btnEstadisticas.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.btnEstadisticas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnEstadisticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEstadisticas.IconSize = 30;
+            this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstadisticas.Location = new System.Drawing.Point(100, 0);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Size = new System.Drawing.Size(121, 50);
+            this.btnEstadisticas.TabIndex = 5;
+            this.btnEstadisticas.Text = "       Estadisticas";
+            this.btnEstadisticas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstadisticas.UseVisualStyleBackColor = true;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileText;
+            this.btnImprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnImprimir.IconSize = 30;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point(0, 0);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(100, 50);
+            this.btnImprimir.TabIndex = 1;
+            this.btnImprimir.Text = "       Imprimir";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarRes
+            // 
+            this.btnAgregarRes.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAgregarRes.FlatAppearance.BorderSize = 0;
+            this.btnAgregarRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnAgregarRes.IconChar = FontAwesome.Sharp.IconChar.Vault;
+            this.btnAgregarRes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnAgregarRes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregarRes.IconSize = 30;
+            this.btnAgregarRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarRes.Location = new System.Drawing.Point(546, 0);
+            this.btnAgregarRes.Name = "btnAgregarRes";
+            this.btnAgregarRes.Size = new System.Drawing.Size(129, 50);
+            this.btnAgregarRes.TabIndex = 2;
+            this.btnAgregarRes.Text = "        Caja Grande";
+            this.btnAgregarRes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarRes.UseVisualStyleBackColor = true;
+            this.btnAgregarRes.Click += new System.EventHandler(this.btnAgregarRes_Click);
+            // 
+            // btnEliminarRes
+            // 
+            this.btnEliminarRes.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEliminarRes.FlatAppearance.BorderSize = 0;
+            this.btnEliminarRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnEliminarRes.IconChar = FontAwesome.Sharp.IconChar.Vault;
+            this.btnEliminarRes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnEliminarRes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEliminarRes.IconSize = 30;
+            this.btnEliminarRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarRes.Location = new System.Drawing.Point(675, 0);
+            this.btnEliminarRes.Name = "btnEliminarRes";
+            this.btnEliminarRes.Size = new System.Drawing.Size(125, 50);
+            this.btnEliminarRes.TabIndex = 7;
+            this.btnEliminarRes.Text = "        Caja Chica";
+            this.btnEliminarRes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarRes.UseVisualStyleBackColor = true;
+            this.btnEliminarRes.Click += new System.EventHandler(this.btnEliminarRes_Click);
             // 
             // panel3
             // 
@@ -171,6 +253,7 @@ namespace BAREST.Cajas
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(285, 14);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 0;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -179,22 +262,23 @@ namespace BAREST.Cajas
             // 
             this.treeView2.BackColor = System.Drawing.SystemColors.ControlDark;
             this.treeView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView2.Location = new System.Drawing.Point(6, 21);
             this.treeView2.Name = "treeView2";
-            treeNode49.Name = "Nodo3";
-            treeNode49.Text = "Inicio                            3000";
-            treeNode50.Name = "Nodo0";
-            treeNode50.Text = "Ajustes de caja";
-            treeNode51.Name = "Farmacia";
-            treeNode51.Text = "Mas inicio                    2000";
-            treeNode52.Name = "Nodo1";
-            treeNode52.Text = "Aporte de caja grande";
+            treeNode1.Name = "Nodo3";
+            treeNode1.Text = "Inicio                            3000";
+            treeNode2.Name = "Nodo0";
+            treeNode2.Text = "Ajustes de caja";
+            treeNode3.Name = "Farmacia";
+            treeNode3.Text = "Mas inicio                    2000";
+            treeNode4.Name = "Nodo1";
+            treeNode4.Text = "Aporte de caja grande";
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode50,
-            treeNode52});
+            treeNode2,
+            treeNode4});
             this.treeView2.Size = new System.Drawing.Size(379, 257);
             this.treeView2.TabIndex = 3;
+            this.treeView2.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView2_AfterSelect);
             // 
             // panel2
             // 
@@ -217,6 +301,7 @@ namespace BAREST.Cajas
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(6, 297);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 4;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -293,6 +378,7 @@ namespace BAREST.Cajas
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(285, 14);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 0;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -301,104 +387,22 @@ namespace BAREST.Cajas
             // 
             this.treeView1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(6, 21);
             this.treeView1.Name = "treeView1";
-            treeNode53.Name = "Nodo3";
-            treeNode53.Text = "Retiro                            1000";
-            treeNode54.Name = "Nodo0";
-            treeNode54.Text = "Ajustes de caja";
-            treeNode55.Name = "Farmacia";
-            treeNode55.Text = "Farmacia                       2000";
-            treeNode56.Name = "Nodo1";
-            treeNode56.Text = "Gastos varios";
+            treeNode5.Name = "Nodo3";
+            treeNode5.Text = "Retiro                            1000";
+            treeNode6.Name = "Nodo0";
+            treeNode6.Text = "Ajustes de caja";
+            treeNode7.Name = "Farmacia";
+            treeNode7.Text = "Farmacia                       2000";
+            treeNode8.Name = "Nodo1";
+            treeNode8.Text = "Gastos varios";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode54,
-            treeNode56});
+            treeNode6,
+            treeNode8});
             this.treeView1.Size = new System.Drawing.Size(379, 257);
             this.treeView1.TabIndex = 2;
-            // 
-            // btnEstadisticas
-            // 
-            this.btnEstadisticas.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
-            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadisticas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.PieChart;
-            this.btnEstadisticas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEstadisticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEstadisticas.IconSize = 30;
-            this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticas.Location = new System.Drawing.Point(100, 0);
-            this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(121, 50);
-            this.btnEstadisticas.TabIndex = 5;
-            this.btnEstadisticas.Text = "       Estadisticas";
-            this.btnEstadisticas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticas.UseVisualStyleBackColor = true;
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
-            this.btnImprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnImprimir.IconSize = 30;
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(0, 0);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(100, 50);
-            this.btnImprimir.TabIndex = 1;
-            this.btnImprimir.Text = "       Imprimir";
-            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarRes
-            // 
-            this.btnAgregarRes.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAgregarRes.FlatAppearance.BorderSize = 0;
-            this.btnAgregarRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnAgregarRes.IconChar = FontAwesome.Sharp.IconChar.Vault;
-            this.btnAgregarRes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnAgregarRes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgregarRes.IconSize = 30;
-            this.btnAgregarRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarRes.Location = new System.Drawing.Point(546, 0);
-            this.btnAgregarRes.Name = "btnAgregarRes";
-            this.btnAgregarRes.Size = new System.Drawing.Size(129, 50);
-            this.btnAgregarRes.TabIndex = 2;
-            this.btnAgregarRes.Text = "        Caja Grande";
-            this.btnAgregarRes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarRes.UseVisualStyleBackColor = true;
-            this.btnAgregarRes.Click += new System.EventHandler(this.btnAgregarRes_Click);
-            // 
-            // btnEliminarRes
-            // 
-            this.btnEliminarRes.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEliminarRes.FlatAppearance.BorderSize = 0;
-            this.btnEliminarRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEliminarRes.IconChar = FontAwesome.Sharp.IconChar.Vault;
-            this.btnEliminarRes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEliminarRes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminarRes.IconSize = 30;
-            this.btnEliminarRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarRes.Location = new System.Drawing.Point(675, 0);
-            this.btnEliminarRes.Name = "btnEliminarRes";
-            this.btnEliminarRes.Size = new System.Drawing.Size(125, 50);
-            this.btnEliminarRes.TabIndex = 7;
-            this.btnEliminarRes.Text = "        Caja Chica";
-            this.btnEliminarRes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarRes.UseVisualStyleBackColor = true;
-            this.btnEliminarRes.Click += new System.EventHandler(this.btnEliminarRes_Click);
             // 
             // Cajasc
             // 

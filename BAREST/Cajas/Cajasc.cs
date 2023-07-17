@@ -83,5 +83,10 @@ namespace BAREST.Cajas
             m.label1.Text = "Aporte de caja chica";
             m.Show();
         }
+
+        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }

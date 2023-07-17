@@ -29,18 +29,18 @@ namespace BAREST.Cajas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Inicio                            3000");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
-            treeNode49});
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Mas inicio                    2000");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Aporte de caja chica", new System.Windows.Forms.TreeNode[] {
-            treeNode51});
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Retiro                            1000");
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
-            treeNode53});
-            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Farmacia                       2000");
-            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Gastos varios", new System.Windows.Forms.TreeNode[] {
-            treeNode55});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Inicio                            3000");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Mas inicio                    2000");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Aporte de caja chica", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Retiro                            1000");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Farmacia                       2000");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Gastos varios", new System.Windows.Forms.TreeNode[] {
+            treeNode7});
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEstadisticas = new FontAwesome.Sharp.IconButton();
             this.btnImprimir = new FontAwesome.Sharp.IconButton();
@@ -92,7 +92,7 @@ namespace BAREST.Cajas
             this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstadisticas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.PieChart;
+            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
             this.btnEstadisticas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.btnEstadisticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEstadisticas.IconSize = 30;
@@ -112,7 +112,7 @@ namespace BAREST.Cajas
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
+            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileText;
             this.btnImprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnImprimir.IconSize = 30;
@@ -255,6 +255,7 @@ namespace BAREST.Cajas
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(285, 14);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 0;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -263,20 +264,20 @@ namespace BAREST.Cajas
             // 
             this.treeView2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.treeView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView2.Location = new System.Drawing.Point(6, 21);
             this.treeView2.Name = "treeView2";
-            treeNode49.Name = "Nodo3";
-            treeNode49.Text = "Inicio                            3000";
-            treeNode50.Name = "Nodo0";
-            treeNode50.Text = "Ajustes de caja";
-            treeNode51.Name = "Farmacia";
-            treeNode51.Text = "Mas inicio                    2000";
-            treeNode52.Name = "Nodo1";
-            treeNode52.Text = "Aporte de caja chica";
+            treeNode1.Name = "Nodo3";
+            treeNode1.Text = "Inicio                            3000";
+            treeNode2.Name = "Nodo0";
+            treeNode2.Text = "Ajustes de caja";
+            treeNode3.Name = "Farmacia";
+            treeNode3.Text = "Mas inicio                    2000";
+            treeNode4.Name = "Nodo1";
+            treeNode4.Text = "Aporte de caja chica";
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode50,
-            treeNode52});
+            treeNode2,
+            treeNode4});
             this.treeView2.Size = new System.Drawing.Size(379, 257);
             this.treeView2.TabIndex = 3;
             // 
@@ -301,6 +302,7 @@ namespace BAREST.Cajas
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(6, 297);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 4;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -377,6 +379,7 @@ namespace BAREST.Cajas
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(285, 14);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 0;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -385,20 +388,20 @@ namespace BAREST.Cajas
             // 
             this.treeView1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(6, 21);
             this.treeView1.Name = "treeView1";
-            treeNode53.Name = "Nodo3";
-            treeNode53.Text = "Retiro                            1000";
-            treeNode54.Name = "Nodo0";
-            treeNode54.Text = "Ajustes de caja";
-            treeNode55.Name = "Farmacia";
-            treeNode55.Text = "Farmacia                       2000";
-            treeNode56.Name = "Nodo1";
-            treeNode56.Text = "Gastos varios";
+            treeNode5.Name = "Nodo3";
+            treeNode5.Text = "Retiro                            1000";
+            treeNode6.Name = "Nodo0";
+            treeNode6.Text = "Ajustes de caja";
+            treeNode7.Name = "Farmacia";
+            treeNode7.Text = "Farmacia                       2000";
+            treeNode8.Name = "Nodo1";
+            treeNode8.Text = "Gastos varios";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode54,
-            treeNode56});
+            treeNode6,
+            treeNode8});
             this.treeView1.Size = new System.Drawing.Size(379, 257);
             this.treeView1.TabIndex = 2;
             // 

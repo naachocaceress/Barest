@@ -28,17 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Ajustes de caja");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Gastos varios");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Inicio                            3000");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Mas inicio                    2000");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Aporte de caja grande", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Total");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Ingreso por ventas", new System.Windows.Forms.TreeNode[] {
-            treeNode7});
             this.gastosvarios = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -111,7 +100,7 @@
             this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstadisticas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.PieChart;
+            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
             this.btnEstadisticas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.btnEstadisticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEstadisticas.IconSize = 30;
@@ -131,7 +120,7 @@
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
+            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileText;
             this.btnImprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnImprimir.IconSize = 30;
@@ -206,6 +195,7 @@
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(6, 297);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 4;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -271,6 +261,7 @@
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(285, 14);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
             this.txtTotal.TabIndex = 0;
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -279,16 +270,9 @@
             // 
             this.treeView1.BackColor = System.Drawing.SystemColors.Control;
             this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(6, 21);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Nodo0";
-            treeNode1.Text = "Ajustes de caja";
-            treeNode2.Name = "Nodo1";
-            treeNode2.Text = "Gastos varios";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(379, 257);
             this.treeView1.TabIndex = 2;
             // 
@@ -367,6 +351,7 @@
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(285, 14);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 0;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -375,25 +360,9 @@
             // 
             this.treeView2.BackColor = System.Drawing.SystemColors.Control;
             this.treeView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView2.Location = new System.Drawing.Point(6, 21);
             this.treeView2.Name = "treeView2";
-            treeNode3.Name = "Nodo3";
-            treeNode3.Text = "Inicio                            3000";
-            treeNode4.Name = "Nodo0";
-            treeNode4.Text = "Ajustes de caja";
-            treeNode5.Name = "Farmacia";
-            treeNode5.Text = "Mas inicio                    2000";
-            treeNode6.Name = "Nodo1";
-            treeNode6.Text = "Aporte de caja grande";
-            treeNode7.Name = "Nodo1";
-            treeNode7.Text = "Total";
-            treeNode8.Name = "Nodo0";
-            treeNode8.Text = "Ingreso por ventas";
-            this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode6,
-            treeNode8});
             this.treeView2.Size = new System.Drawing.Size(379, 257);
             this.treeView2.TabIndex = 3;
             // 
@@ -410,7 +379,9 @@
             this.MaximizeBox = false;
             this.Name = "CajaCh";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Caja chica";
+            this.Load += new System.EventHandler(this.CajaCh_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -445,10 +416,10 @@
         private System.Windows.Forms.Button ajustesdecajaingreso;
         private System.Windows.Forms.GroupBox Ingreso;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TreeView treeView2;
         public System.Windows.Forms.TreeView treeView1;
+        public System.Windows.Forms.TextBox txtTotal;
     }
 }

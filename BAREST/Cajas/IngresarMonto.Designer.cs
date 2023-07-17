@@ -99,7 +99,7 @@ namespace BAREST.Cajas
             this.EliminarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EliminarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.Ban;
+            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.Cancel;
             this.EliminarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.EliminarInsu.IconSize = 30;
@@ -166,8 +166,8 @@ namespace BAREST.Cajas
             this.MaximizeBox = false;
             this.Name = "IngresarMonto";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingresar";
-            this.Load += new System.EventHandler(this.IngresarMonto_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
