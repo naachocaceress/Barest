@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace BAREST.Cajas
@@ -150,6 +152,52 @@ namespace BAREST.Cajas
             txtTotal.Text = "0,00";
             textBox1.Text = "0,00";
             textBox3.Text = "0,00";
+        }
+
+
+
+        private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Node != null && e.Node.Nodes.Count == 0) // Verifica que el nodo no tenga hijos
+            {
+                // Obtén el texto completo del nodo
+                string nodeText = e.Node.Text;
+
+                // Obtiene el índice del nodo
+                int nodeIndex = e.Node.Index;
+
+                // Busca el índice del signo peso en el texto
+                int pesoIndex = nodeText.IndexOf('$');
+
+                if (pesoIndex != -1)
+                {
+                    // Extrae el concepto y el monto separadamente
+                    string concepto = nodeText.Substring(0, pesoIndex);
+                    string montoStr = nodeText.Substring(pesoIndex + 1).Trim(); // Elimina los espacios iniciales y finales
+
+                    // Elimina el signo de peso del monto
+                    montoStr = montoStr.Replace("$", string.Empty);
+
+                    // Crea una instancia del formulario IngresarMonto
+                    IngresarMonto ingresoMonto = new IngresarMonto(this, concepto, montoStr);
+
+                    ingresoMonto.NodoIndex = nodeIndex;
+                    ingresoMonto.TreeViewDestino = treeView1;
+                    // Muestra el formulario IngresarMonto
+                    ingresoMonto.ShowDialog();
+
+                    // Actualiza el nodo con los nuevos valores si se confirmó la operación
+                    if (ingresoMonto.Confirmado)
+                    {
+                        // Actualiza los campos de concepto y monto del nodo
+                        string updatedText = ingresoMonto.Concepto + " $" + ingresoMonto.Monto;
+                        e.Node.Text = updatedText.Trim(); // Elimina los espacios iniciales y finales
+
+                        // Refresca el TreeView para mostrar el cambio
+                        treeView1.Refresh();
+                    }
+                }
+            }
         }
     }
 }

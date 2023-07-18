@@ -38,9 +38,6 @@ namespace BAREST.Cajas
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Retiro                            1000");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Ajustes de caja", new System.Windows.Forms.TreeNode[] {
             treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Farmacia                       2000");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Gastos varios", new System.Windows.Forms.TreeNode[] {
-            treeNode7});
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEstadisticas = new FontAwesome.Sharp.IconButton();
             this.btnImprimir = new FontAwesome.Sharp.IconButton();
@@ -57,7 +54,6 @@ namespace BAREST.Cajas
             this.treeView2 = new System.Windows.Forms.TreeView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.gastosvarios = new System.Windows.Forms.Button();
             this.acajachica = new System.Windows.Forms.Button();
             this.ajustedecajaengreso = new System.Windows.Forms.Button();
             this.acajagrande = new System.Windows.Forms.Button();
@@ -285,7 +281,6 @@ namespace BAREST.Cajas
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.gastosvarios);
             this.panel2.Controls.Add(this.acajachica);
             this.panel2.Controls.Add(this.ajustedecajaengreso);
             this.panel2.Controls.Add(this.acajagrande);
@@ -306,17 +301,6 @@ namespace BAREST.Cajas
             this.textBox1.TabIndex = 4;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // gastosvarios
-            // 
-            this.gastosvarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gastosvarios.Location = new System.Drawing.Point(26, 332);
-            this.gastosvarios.Name = "gastosvarios";
-            this.gastosvarios.Size = new System.Drawing.Size(155, 28);
-            this.gastosvarios.TabIndex = 0;
-            this.gastosvarios.Text = "Gastos varios";
-            this.gastosvarios.UseVisualStyleBackColor = true;
-            this.gastosvarios.Click += new System.EventHandler(this.gastosvarios_Click);
-            // 
             // acajachica
             // 
             this.acajachica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -331,7 +315,7 @@ namespace BAREST.Cajas
             // ajustedecajaengreso
             // 
             this.ajustedecajaengreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ajustedecajaengreso.Location = new System.Drawing.Point(217, 332);
+            this.ajustedecajaengreso.Location = new System.Drawing.Point(122, 332);
             this.ajustedecajaengreso.Name = "ajustedecajaengreso";
             this.ajustedecajaengreso.Size = new System.Drawing.Size(155, 28);
             this.ajustedecajaengreso.TabIndex = 1;
@@ -394,13 +378,8 @@ namespace BAREST.Cajas
             treeNode5.Text = "Retiro                            1000";
             treeNode6.Name = "Nodo0";
             treeNode6.Text = "Ajustes de caja";
-            treeNode7.Name = "Farmacia";
-            treeNode7.Text = "Farmacia                       2000";
-            treeNode8.Name = "Nodo1";
-            treeNode8.Text = "Gastos varios";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode8});
+            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(379, 257);
             this.treeView1.TabIndex = 2;
             // 
@@ -448,7 +427,6 @@ namespace BAREST.Cajas
         private System.Windows.Forms.TreeView treeView2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button gastosvarios;
         private System.Windows.Forms.Button acajachica;
         private System.Windows.Forms.Button ajustedecajaengreso;
         private System.Windows.Forms.Button acajagrande;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Ventas totales");
             this.gastosvarios = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -275,6 +276,7 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(379, 257);
             this.treeView1.TabIndex = 2;
+            this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             // 
             // panel3
             // 
@@ -363,6 +365,10 @@
             this.treeView2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView2.Location = new System.Drawing.Point(6, 21);
             this.treeView2.Name = "treeView2";
+            treeNode4.Name = "Nodo0";
+            treeNode4.Text = "Ventas totales";
+            this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode4});
             this.treeView2.Size = new System.Drawing.Size(379, 257);
             this.treeView2.TabIndex = 3;
             // 
