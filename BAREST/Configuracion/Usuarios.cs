@@ -70,13 +70,7 @@ namespace BAREST
                     DateTime dt = new DateTime(anio2, mes2, dia2);
                     dateTimePicker1.Value = dt;
                 }
-                else
-                {
-
-
                 }
-                leido.Close();
-                Conexion.ObtenerConexion().Close();
             }
             catch (Exception ex)
             {
@@ -84,6 +78,9 @@ namespace BAREST
 
             }
         }
+
+
+
         private void modificarUsuario()
         {
             /*string resultado = "";
