@@ -2,7 +2,9 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace BAREST
@@ -18,253 +20,283 @@ namespace BAREST
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            cargarRubroM();
-            cargarMenu();
-            cargarcomboRubroMenu();
+            CargarRubroM();
+            CargarMenu();
+            CargarcomboRubroMenu();
             comborubroMenu.SelectedItem = null;
         }
 
+        // Método para verificar si el rubro ya existe
+        /// <summary>
+        /// rubro exist
+        /// </summary>
+        /// <param name="rubro"></param>
+        /// <returns></returns>
+        private bool RubroExist(string rubro)
+        {
+            try
+            {
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                {
+                    string sql = "SELECT COUNT(*) FROM RubroMenu WHERE nombre = @desRubro";
+                    SqlCommand comando = new SqlCommand(sql, conexion);
+                    comando.Parameters.AddWithValue("@desRubro", rubro);
+
+                    int count = (int)comando.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar el rubro:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // Retornar false en caso de error.
+            }
+        }
+
+        // Evento para agregar un nuevo rubro
         private void agregarRubro_Click(object sender, EventArgs e)
         {
-            if (rubroExist())
+            string rubro = textRubro.Text.Trim();
+
+            if (string.IsNullOrEmpty(rubro))
             {
-                MessageBox.Show("Ya existe un rubro con este Nombre ");
+                MessageBox.Show("Falta agregar el nombre del rubro", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textRubro.Text))
+            if (RubroExist(rubro))
             {
-                MessageBox.Show("Falta agregar nombre del rubro");
-            }
-            else
-            {
-                Conexion.ObtenerConexion();
-                string sql = "insert into RubroMenu (nombre) values (@desRubro)";
-                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                comando.Parameters.Add("@desRubro", SqlDbType.VarChar).Value = textRubro.Text;
-                comando.ExecuteNonQuery();
-                textRubro.Text = " ";
-                MessageBox.Show("Rubro registrado");
-                cargarRubroM();
-                cargarcomboRubroMenu();
-                comborubroMenu.SelectedItem = null;
-                Conexion.ObtenerConexion().Close();
+                MessageBox.Show("Ya existe un rubro con este nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            //---------------------- Controlar si existe el Rubro -----------------------
-
-            bool rubroExist()
+            try
             {
-                Conexion.ObtenerConexion();
-                string sql = "select * from RubroMenu where nombre=@desRubro";
-                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                comando.Parameters.Add("@desRubro", SqlDbType.VarChar).Value = textRubro.Text;
-                bool existe = false;
-                SqlDataReader leido = comando.ExecuteReader();
-                if (leido.Read())
-                    existe = true;
-                Conexion.ObtenerConexion().Close();
-                return existe;
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                {
+                    string sql = "INSERT INTO RubroMenu (nombre) VALUES (@desRubro)";
+                    SqlCommand comando = new SqlCommand(sql, conexion);
+                    comando.Parameters.AddWithValue("@desRubro", rubro);
+                    comando.ExecuteNonQuery();
+
+                    MessageBox.Show("Rubro registrado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    textRubro.Text = "";
+                    CargarRubroM();
+                    CargarcomboRubroMenu();
+                    comborubroMenu.SelectedItem = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar el rubro:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         //----------------------------- Cargar el dataRubro -----------------------------
-        void cargarRubroM()
+
+        void CargarRubroM()
         {
             try
             {
-                Conexion.ObtenerConexion();
-                using (var comando = new SqlCommand())
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (SqlCommand comando = new SqlCommand("SELECT nombre FROM RubroMenu WHERE estado='A' ORDER BY nombre ASC", conexion))
                 {
-                    comando.Connection = Conexion.ObtenerConexion();
-                    comando.CommandText = "SELECT nombre FROM RubroMenu ORDER BY Ltrim(nombre) ASC";
-                    SqlDataReader registros = comando.ExecuteReader();
                     tablaRubro.Rows.Clear();
-                    while (registros.Read())
+                    using (SqlDataReader registros = comando.ExecuteReader())
                     {
-                        tablaRubro.Rows.Add(registros["nombre"].ToString());
+                        while (registros.Read())
+                        {
+                            tablaRubro.Rows.Add(registros["nombre"].ToString());
+                        }
                     }
-                    registros.Close();
                 }
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "ERROR EN DATAGRID RUBRO MENU", MessageBoxButtons.OK);
+                MessageBox.Show("Error al cargar los datos del RubroMenu:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
         //----------------------------------CARGAR COMBO MENU---------------------------------------------------------------
-        private void cargarcomboRubroMenu()
+        private void CargarcomboRubroMenu()     
         {
             try
             {
-                Conexion.ObtenerConexion();
-                using (var comando = new SqlCommand())
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (SqlCommand comando = new SqlCommand("SELECT idRubroMenu, nombre FROM RubroMenu WHERE estado = 'A'", conexion))
                 {
-                    comando.Connection = Conexion.ObtenerConexion();
-                    comando.CommandText = " SELECT id, nombre FROM RubroMenu WHERE estado = 'A'";
                     SqlDataAdapter adaptador1 = new SqlDataAdapter();
                     adaptador1.SelectCommand = comando;
                     DataTable tabla1 = new DataTable();
                     adaptador1.Fill(tabla1);
                     comborubroMenu.DisplayMember = "nombre";
-                    comborubroMenu.ValueMember = "id";
+                    comborubroMenu.ValueMember = "idRubroMenu"; 
                     comborubroMenu.DataSource = tabla1;
                 }
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "ERROR EN EL LLENARCOMBOMENU", MessageBoxButtons.OK);
+                MessageBox.Show("Error al cargar los datos del RubroMenu en el combobox:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         //----------------------------- Cargar el dataMenu ------------------------------
-        private void cargarMenu()
+        private void CargarMenu()
         {
             try
             {
-                Conexion.ObtenerConexion();
-                using (var comando = new SqlCommand())
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (SqlCommand comando = new SqlCommand("SELECT nombre, precio FROM Menu WHERE estado ='A' ORDER BY LTRIM(nombre) ASC", conexion))
                 {
-                    comando.Connection = Conexion.ObtenerConexion();
-                    comando.CommandText = "SELECT nombre, precio FROM Menu  WHERE estado ='A' ORDER BY Ltrim(nombre) ASC";
                     SqlDataReader registros = comando.ExecuteReader();
-                    tablaArticulos.Rows.Clear();
-                    tablaArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    tablaMenu.Rows.Clear();
+                    tablaMenu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
                     while (registros.Read())
                     {
-                        tablaArticulos.Rows.Add(registros["nombre"].ToString(), registros["precio"].ToString());
+                        string nombre = registros["nombre"].ToString();
+                        decimal precio = Convert.ToDecimal(registros["precio"]); // Asegúrate de que el precio sea de tipo numérico en la base de datos
+                        tablaMenu.Rows.Add(nombre, precio);
                     }
 
                     registros.Close();
                 }
-
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.Message, " Error en  DatagridMenu", MessageBoxButtons.OK);
+                MessageBox.Show("Error al cargar los datos del menú en el DataGridView:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
-        private bool menuExiste()
+        private bool MenuExiste()
         {
-            Conexion.ObtenerConexion();
-            string sql = "SELECT * FROM Menu WHERE nombre=@desc";
-            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            comando.Parameters.Add("@desc", SqlDbType.Char).Value = textnomM.Text;
-            bool existe = false;
-            SqlDataReader registro = comando.ExecuteReader();
-            if (registro.Read())
-                existe = true;
-            Conexion.ObtenerConexion().Close();
-            return existe;
+            try
+            {
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (SqlCommand comando = new SqlCommand("SELECT COUNT(*) FROM Menu WHERE nombre = @desc", conexion))
+                {
+                    comando.Parameters.AddWithValue("@desc", textnomM.Text);
+
+                    int count = (int)comando.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar si el menú existe:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // Retornar false en caso de error.
+            }
         }
         //-----------------------------ELIMINACION RUBROMENU------------------------------------------------------------------------
         private void eliminarRubro_Click(object sender, EventArgs e)
         {
             MessageBoxButtons botones = MessageBoxButtons.YesNo;
-            DialogResult dr = MessageBox.Show("¿Esta seguro que quiere borrar?", "Borrar Rubros", botones, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("¿Está seguro que quiere borrar?", "Borrar Rubros", botones, MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
             {
-                string Rubrosd = "";
-                Rubrosd = tablaRubro.Rows[tablaRubro.CurrentRow.Index].Cells["Rubros"].Value.ToString();
+                string nombreRubro = tablaRubro.Rows[tablaRubro.CurrentRow.Index].Cells["Rubros"].Value.ToString();
+
                 try
                 {
-                    Conexion.ObtenerConexion();
-                    using (var comando = new SqlCommand())
+                    using (SqlConnection conexion = Conexion.ObtenerConexion())
+                    using (var comando = new SqlCommand("UPDATE RubroMenu SET estado = 'D' WHERE nombre = @nombreRubro", conexion))
                     {
-                        comando.Connection = Conexion.ObtenerConexion();
-                        comando.CommandText = "UPDATE RubroMenu set estado ='D' where nombre=@nombre";
-                        comando.Parameters.AddWithValue("@nombre", Rubrosd);
+                        comando.Parameters.AddWithValue("@nombreRubro", nombreRubro);
                         comando.ExecuteNonQuery();
-                        MessageBox.Show("Se eliminó el rubro: " + Rubrosd);
-                        cargarRubroM();
-                        cargarcomboRubroMenu();
-                        comborubroMenu.SelectedItem = null;
                     }
+
+                    MessageBox.Show("Se eliminó el rubro: " + nombreRubro);
+                    CargarRubroM();
+                    CargarcomboRubroMenu();
+                    comborubroMenu.SelectedItem = null;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "ERROR EN LA ELIMINACION DE RUBROMENU", MessageBoxButtons.OK);
+                    MessageBox.Show("Error al eliminar el rubro:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
+
         //------------------------------------------------------Insert Menu---------------------------------------------------------------
         private void agregarInsu_Click(object sender, EventArgs e)
         {
-            if (menuExiste())
+            if (MenuExiste())
             {
-                MessageBox.Show("Exite  un Menu registrado con este nombre");
+                MessageBox.Show("Ya existe un menú registrado con este nombre");
                 return;
             }
 
-            if (textnomM.Text == "" || textPrecioM.Text == "" || comborubroMenu.SelectedIndex.Equals(-1))
+            if (string.IsNullOrWhiteSpace(textnomM.Text) || string.IsNullOrWhiteSpace(textPrecioM.Text) || comborubroMenu.SelectedIndex == -1)
             {
-                MessageBox.Show("Falta completar algun campo");
+                MessageBox.Show("Falta completar algún campo");
             }
             else
             {
                 try
                 {
-                    Conexion.ObtenerConexion();
-                    using (var comando = new SqlCommand())
+                    using (SqlConnection conexion = Conexion.ObtenerConexion())
+                    using (var comando = new SqlCommand("INSERT INTO Menu (nombre, idRubroMenu, precio, descripcion, foto) VALUES (@nombre, @idRubroMenu, @precio, @descripcion, @foto)", conexion))
                     {
-                        comando.Connection = Conexion.ObtenerConexion();
-                        comando.CommandText = "INSERT INTO  Menu (nombre, idRubro, precio, descripcion, foto ) VALUES (@nombre,@idrubro,@precio, @descripcion,@foto)";
-                        comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = textnomM.Text;
-                        comando.Parameters.Add("@idrubro", SqlDbType.Int).Value = comborubroMenu.SelectedValue.ToString();
-                        comando.Parameters.Add("@precio", SqlDbType.Float).Value = textPrecioM.Text;
+                        comando.Parameters.AddWithValue("@nombre",  textnomM.Text);
+                        comando.Parameters.Add("@idRubroMenu", SqlDbType.Int).Value = comborubroMenu.SelectedValue;
+                        comando.Parameters.Add("@precio", SqlDbType.Float).Value = float.Parse(textPrecioM.Text);
                         comando.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = textDescM.Text;
-                        MemoryStream ms = new MemoryStream();
-                        pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        comando.Parameters.Add("@foto", SqlDbType.Image).Value = ms.GetBuffer();
+
+                        // Guardar imagen en formato de byte array
+                        byte[] fotoBytes;
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            fotoBytes = ms.ToArray();
+                        }
+                        comando.Parameters.Add("@foto", SqlDbType.Image).Value = fotoBytes;
+
                         comando.ExecuteNonQuery();
 
                         limpiarTextMenu();
-                        cargarMenu();
+                        CargarMenu();
                     }
                 }
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show(ex.Message, "ERROR EN LA INSERCION DE MENU", MessageBoxButtons.OK);
+                    MessageBox.Show("Error al insertar el menú:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
             }
-
         }
         //---------------------------------------------------- UPDATE MENU------------------------------------------------------------------------
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(textnomM.Text) || string.IsNullOrWhiteSpace(textPrecioM.Text) || comborubroMenu.SelectedIndex == -1)
+            {
+                MessageBox.Show("Falta completar algún campo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try
             {
-                Conexion.ObtenerConexion();
-                using (var comando = new SqlCommand())
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (var comando = new SqlCommand(" UPDATE Menu SET nombre=@nombre, precio=@precio, descripcion=@descripcion, idRubroMenu=@idRubroMenu, foto=@foto WHERE idMenu = @idMenu", conexion))
                 {
-                    comando.Connection = Conexion.ObtenerConexion();
-                    comando.CommandText = "update Menu set nombre=@nombre, precio=@precio, descripcion = @descripcion , idrubro=@rubro ,foto=@foto where id =@id";
-                    comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = textnomM.Text;
-                    comando.Parameters.Add("@precio", SqlDbType.Float).Value = textPrecioM.Text;
-                    comando.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = textDescM.Text;
-                    comando.Parameters.Add("@rubro", SqlDbType.Int).Value = comborubroMenu.SelectedValue.ToString();
+                    comando.Parameters.AddWithValue("@nombre", textnomM.Text);
+                    comando.Parameters.AddWithValue("@precio", float.Parse(textPrecioM.Text));
+                    comando.Parameters.AddWithValue("@descripcion", textDescM.Text);
+                    comando.Parameters.AddWithValue("@idRubroMenu", comborubroMenu.SelectedValue);
 
-                    MemoryStream ms = new MemoryStream();
-                    pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    comando.Parameters.Add("@foto", SqlDbType.Image).Value = ms.GetBuffer();
-                    comando.Parameters.Add("id", SqlDbType.Int).Value = textId.Text;
+                    byte[] fotoBytes;
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        fotoBytes = ms.ToArray();
+                    }
+                    comando.Parameters.Add("@foto", SqlDbType.Image).Value = fotoBytes;
+                    comando.Parameters.AddWithValue("@idMenu", textId.Text);
                     comando.ExecuteNonQuery();
 
                     limpiarTextMenu();
-                    cargarMenu();
+                    CargarMenu();
 
                     btnguardar.Visible = false;
                     btnInsertar.Visible = true;
@@ -272,20 +304,19 @@ namespace BAREST
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.Message, "ERROR EN LA MODIFICACION DEL MENU", MessageBoxButtons.OK);
+                MessageBox.Show("Error al modificar el menú:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void limpiarTextMenu()
         {
-            textnomM.Text = " ";
-            textPrecioM.Text = " ";
-            textDescM.Text = " ";
-            pictureBox1.Image = Properties.Resources.Barest;
+            textnomM.Text = "";
+            textPrecioM.Text = "";
+            textDescM.Text = "";
+            pictureBox1.Image = null;
             comborubroMenu.SelectedIndex = -1;
-            cargarMenu();
         }
+
         //----------------------------------------------------------------------------------------------------------------------------------------
         //------------------------ Insercion de imagen ----------------------------
         private void bfoto_Click(object sender, EventArgs e)
@@ -307,47 +338,37 @@ namespace BAREST
         private void EliminarInsu_Click_1(object sender, EventArgs e)
         {
             MessageBoxButtons botones = MessageBoxButtons.YesNo;
-            DialogResult dr = MessageBox.Show("¿Esta seguro que quiere borrar?", "Borrar Menu", botones, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("¿Está seguro que quiere borrar?", "Borrar Menú", botones, MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
             {
-                string Insum = "";
-                Insum = tablaArticulos.Rows[tablaArticulos.CurrentRow.Index].Cells["Articulos"].Value.ToString();
+                string Insum = tablaMenu.Rows[tablaMenu.CurrentRow.Index].Cells["Articulos"].Value.ToString();
                 try
                 {
-                    Conexion.ObtenerConexion();
-                    using (var comando = new SqlCommand())
+                    using (SqlConnection conexion = Conexion.ObtenerConexion())
+                    using (var comando = new SqlCommand("UPDATE Menu SET estado='D' WHERE nombre=@nombre", conexion))
                     {
-                        comando.Connection = Conexion.ObtenerConexion();
-                        comando.CommandText = "update Menu set estado ='D' where nombre=@nombre";
                         comando.Parameters.AddWithValue("@nombre", Insum);
                         comando.ExecuteNonQuery();
-                        MessageBox.Show("Se eliminó el Menu: " + Insum);
-                        cargarMenu();
+                        MessageBox.Show("Se eliminó el Menú: " + Insum);
+                        CargarMenu();
                     }
                 }
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show(ex.Message, "ERROE EN LA ELIMINACION DEL MENU", MessageBoxButtons.OK);
+                    MessageBox.Show("Error al eliminar el menú:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
-
             }
         }
         //--------------------------------------------CONSULTAR PARA MODIFICAR MENU----------------------------------------------------------------
         private void modificarInsu_Click_1(object sender, EventArgs e)
         {
-            string Insum2 = "";
-            Insum2 = tablaArticulos.Rows[tablaArticulos.CurrentRow.Index].Cells["Articulos"].Value.ToString();
+            string Insum2 = tablaMenu.Rows[tablaMenu.CurrentRow.Index].Cells["Articulos"].Value.ToString();
             try
             {
-                Conexion.ObtenerConexion();
-                using (var comando = new SqlCommand())
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (var comando = new SqlCommand("SELECT Menu.idMenu, Menu.nombre, Menu.descripcion, Menu.precio, Menu.foto ,RubroMenu.nombre as rubro FROM Menu  INNER JOIN RubroMenu  on Menu.idRubroMenu = RubroMenu.idRubroMenu WHERE Menu.nombre= @nombre", conexion))
                 {
-                    comando.Connection = Conexion.ObtenerConexion();
-                    comando.CommandText = "SELECT m.id,m.nombre,m.descripcion,m.precio,r.nombre as rubro FROM Menu m INNER JOIN RubroMenu r on m.idRubro = r.id WHERE m.nombre= @nombre";
                     comando.Parameters.AddWithValue("@nombre", Insum2);
                     SqlDataReader leido = comando.ExecuteReader();
                     if (leido.Read())
@@ -356,22 +377,20 @@ namespace BAREST
                         textDescM.Text = leido["descripcion"].ToString();
                         textPrecioM.Text = leido["precio"].ToString();
                         comborubroMenu.Text = leido["rubro"].ToString();
-
-
-                        arti = textnomM.Text;
+                        byte[] fotoBytes = (byte[])leido["foto"];
+                        MemoryStream ms = new MemoryStream(fotoBytes);
+                        pictureBox1.Image = Image.FromStream(ms);
+                        textId.Text = leido["idMenu"].ToString();
                     }
 
                     btnguardar.Visible = true;
                     btnInsertar.Visible = false;
                 }
-
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.Message, "ERROR EN BOTON DE LA MODIFICACION ", MessageBoxButtons.OK);
+                MessageBox.Show("Error al consultar para modificar el menú:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         //----------- PARA HACER QUE SOLO SE PUEDA PONER NUMEROS EN EL TEXTPRECIO -------------

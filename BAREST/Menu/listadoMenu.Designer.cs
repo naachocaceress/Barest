@@ -30,6 +30,7 @@ namespace BAREST
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idMenu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +47,7 @@ namespace BAREST
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idMenu,
             this.Nombre,
             this.Precio,
             this.Descripcion,
@@ -57,6 +59,12 @@ namespace BAREST
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(787, 501);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // idMenu
+            // 
+            this.idMenu.HeaderText = "Codigo";
+            this.idMenu.Name = "idMenu";
+            this.idMenu.ReadOnly = true;
             // 
             // Nombre
             // 
@@ -101,6 +109,7 @@ namespace BAREST
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMenu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;

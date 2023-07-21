@@ -38,9 +38,9 @@
             this.sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.VerUsuario = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -81,8 +81,6 @@
             this.tablaUsua.ReadOnly = true;
             this.tablaUsua.Size = new System.Drawing.Size(402, 468);
             this.tablaUsua.TabIndex = 0;
-            this.tablaUsua.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaUsua_CellContentClick);
-            this.tablaUsua.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaUsua_CellContentDoubleClick);
             // 
             // documento
             // 
@@ -146,38 +144,38 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Usuarios Creados:";
             // 
-            // button2
+            // btnEliminar
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(125, 467);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 29);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Eliminar Usuario";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(125, 467);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(134, 29);
+            this.btnEliminar.TabIndex = 12;
+            this.btnEliminar.Text = "Eliminar Usuario";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
-            // button3
+            // btnConfirmar
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(23, 419);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(134, 29);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Confirmar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.Location = new System.Drawing.Point(23, 419);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(134, 29);
+            this.btnConfirmar.TabIndex = 11;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click_1);
             // 
-            // button4
+            // VerUsuario
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(227, 419);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(134, 29);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "ModificarUsuario";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.VerUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VerUsuario.Location = new System.Drawing.Point(227, 419);
+            this.VerUsuario.Name = "VerUsuario";
+            this.VerUsuario.Size = new System.Drawing.Size(134, 29);
+            this.VerUsuario.TabIndex = 13;
+            this.VerUsuario.Text = "ModificarUsuario";
+            this.VerUsuario.UseVisualStyleBackColor = true;
+            this.VerUsuario.Click += new System.EventHandler(this.VerUsuario_Click);
             // 
             // label2
             // 
@@ -185,7 +183,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(19, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 16);
+            this.label2.Size = new System.Drawing.Size(59, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Nombre:";
             // 
@@ -205,7 +203,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(20, 274);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 16);
+            this.label4.Size = new System.Drawing.Size(108, 16);
             this.label4.TabIndex = 8;
             this.label4.Text = "F de Nacimiento:";
             // 
@@ -215,7 +213,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(19, 48);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 16);
+            this.label5.Size = new System.Drawing.Size(79, 16);
             this.label5.TabIndex = 9;
             this.label5.Text = "Documento:";
             // 
@@ -225,7 +223,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(20, 226);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 16);
+            this.label6.Size = new System.Drawing.Size(64, 16);
             this.label6.TabIndex = 10;
             this.label6.Text = "Telefono:";
             // 
@@ -264,7 +262,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(20, 180);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 16);
+            this.label10.Size = new System.Drawing.Size(60, 16);
             this.label10.TabIndex = 22;
             this.label10.Text = "Apellido:";
             // 
@@ -281,7 +279,7 @@
             this.txtSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSucursal.Location = new System.Drawing.Point(20, 314);
             this.txtSucursal.Name = "txtSucursal";
-            this.txtSucursal.Size = new System.Drawing.Size(63, 16);
+            this.txtSucursal.Size = new System.Drawing.Size(62, 16);
             this.txtSucursal.TabIndex = 23;
             this.txtSucursal.Text = "Sucursal:";
             // 
@@ -291,7 +289,7 @@
             this.txtCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCargo.Location = new System.Drawing.Point(20, 354);
             this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(48, 16);
+            this.txtCargo.Size = new System.Drawing.Size(47, 16);
             this.txtCargo.TabIndex = 24;
             this.txtCargo.Text = "Cargo:";
             // 
@@ -310,7 +308,6 @@
             this.comboCargo.Name = "comboCargo";
             this.comboCargo.Size = new System.Drawing.Size(212, 21);
             this.comboCargo.TabIndex = 9;
-            this.comboCargo.SelectedIndexChanged += new System.EventHandler(this.comboCargo_SelectedIndexChanged);
             // 
             // textEmail
             // 
@@ -325,7 +322,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(19, 90);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 16);
+            this.label8.Size = new System.Drawing.Size(35, 16);
             this.label8.TabIndex = 28;
             this.label8.Text = "Mail:";
             // 
@@ -362,15 +359,15 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.VerUsuario);
+            this.Controls.Add(this.btnConfirmar);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tablaUsua);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Usuarios";
             this.Text = "Usuarios";
-            this.Load += new System.EventHandler(this.Usuarios_Load);
+            this.Load += new System.EventHandler(this.Usuarios_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.tablaUsua)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -381,9 +378,9 @@
 
         private System.Windows.Forms.DataGridView tablaUsua;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Button VerUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

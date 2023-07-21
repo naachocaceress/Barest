@@ -19,19 +19,24 @@ namespace BAREST
                 using (var comando = new SqlCommand())
                 {
                     comando.Connection = Conexion.ObtenerConexion();
-                    comando.CommandText = "SELECT m.nombre,m.precio,m.descripcion, r.nombre  as rubro FROM Menu m  INNER JOIN RubroMenu r ON r.id = m.idRubro WHERE m.estado ='A' ORDER BY m.nombre ASC ";
+                    comando.CommandText = "SELECT Menu.idMenu, Menu.nombre, Menu.precio, Menu.descripcion, RubroMenu.nombre AS rubro FROM Menu INNER JOIN RubroMenu ON Menu.idRubroMenu = RubroMenu.idRubroMenu WHERE Menu.estado ='A' ORDER BY RubroMenu.nombre ASC";
                     SqlDataReader registros = comando.ExecuteReader();
                     dataGridView1.Rows.Clear();
                     while (registros.Read())
                     {
-                        dataGridView1.Rows.Add(registros["nombre"].ToString(), registros["precio"].ToString(), registros["descripcion"].ToString(), registros["rubro"].ToString());
+                        int id = Convert.ToInt32(registros["idMenu"].ToString());
+                        string nombre = registros["nombre"].ToString();
+                        decimal precio = Convert.ToDecimal(registros["precio"].ToString());
+                        string descripcion = registros["descripcion"].ToString();
+                        string rubro = registros["rubro"].ToString();
+                        dataGridView1.Rows.Add(id,nombre,precio,descripcion,rubro);
                     }
                     registros.Close();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "ERROR EN BUSQUEDA DE LA LISTA MENÚ");
+                MessageBox.Show("Error al cargar los datos del menú en el DataGridView:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

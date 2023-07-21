@@ -41,7 +41,9 @@
             this.agregarRubro = new System.Windows.Forms.Button();
             this.textRubro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tablaArticulos = new System.Windows.Forms.DataGridView();
+            this.tablaMenu = new System.Windows.Forms.DataGridView();
+            this.Articulos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.textnomM = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,15 +57,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.Articulos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.Nota = new System.Windows.Forms.GroupBox();
             this.textId = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Nota.SuspendLayout();
             this.SuspendLayout();
@@ -272,22 +272,36 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre:";
             // 
-            // tablaArticulos
+            // tablaMenu
             // 
-            this.tablaArticulos.AllowUserToAddRows = false;
-            this.tablaArticulos.AllowUserToDeleteRows = false;
-            this.tablaArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tablaArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tablaMenu.AllowUserToAddRows = false;
+            this.tablaMenu.AllowUserToDeleteRows = false;
+            this.tablaMenu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablaMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Articulos,
             this.precio});
-            this.tablaArticulos.Location = new System.Drawing.Point(345, 13);
-            this.tablaArticulos.Margin = new System.Windows.Forms.Padding(4);
-            this.tablaArticulos.Name = "tablaArticulos";
-            this.tablaArticulos.ReadOnly = true;
-            this.tablaArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaArticulos.Size = new System.Drawing.Size(223, 252);
-            this.tablaArticulos.TabIndex = 12;
+            this.tablaMenu.Location = new System.Drawing.Point(345, 13);
+            this.tablaMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.tablaMenu.Name = "tablaMenu";
+            this.tablaMenu.ReadOnly = true;
+            this.tablaMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tablaMenu.Size = new System.Drawing.Size(223, 252);
+            this.tablaMenu.TabIndex = 12;
+            // 
+            // Articulos
+            // 
+            this.Articulos.FillWeight = 101.5228F;
+            this.Articulos.HeaderText = "Articulo";
+            this.Articulos.Name = "Articulos";
+            this.Articulos.ReadOnly = true;
+            // 
+            // precio
+            // 
+            this.precio.FillWeight = 98.47717F;
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
             // 
             // label2
             // 
@@ -436,20 +450,6 @@
             this.label8.Text = "*";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Articulos
-            // 
-            this.Articulos.FillWeight = 101.5228F;
-            this.Articulos.HeaderText = "Articulo";
-            this.Articulos.Name = "Articulos";
-            this.Articulos.ReadOnly = true;
-            // 
-            // precio
-            // 
-            this.precio.FillWeight = 98.47717F;
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -477,7 +477,7 @@
             this.textId.ForeColor = System.Drawing.SystemColors.Control;
             this.textId.Location = new System.Drawing.Point(231, 199);
             this.textId.Name = "textId";
-            this.textId.Size = new System.Drawing.Size(52, 16);
+            this.textId.Size = new System.Drawing.Size(51, 16);
             this.textId.TabIndex = 34;
             this.textId.Text = "label10";
             // 
@@ -501,7 +501,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textnomM);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tablaArticulos);
+            this.Controls.Add(this.tablaMenu);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -516,7 +516,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Nota.ResumeLayout(false);
             this.Nota.PerformLayout();
@@ -538,7 +538,7 @@
         private System.Windows.Forms.Button agregarRubro;
         private System.Windows.Forms.TextBox textRubro;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView tablaArticulos;
+        private System.Windows.Forms.DataGridView tablaMenu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textnomM;
         private System.Windows.Forms.Label label3;
