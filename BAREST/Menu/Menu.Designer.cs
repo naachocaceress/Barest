@@ -399,6 +399,7 @@
             this.comborubroMenu.Name = "comborubroMenu";
             this.comborubroMenu.Size = new System.Drawing.Size(123, 21);
             this.comborubroMenu.TabIndex = 3;
+            this.comborubroMenu.SelectedIndexChanged += new System.EventHandler(this.comborubroMenu_SelectedIndexChanged);
             // 
             // label4
             // 

@@ -48,15 +48,17 @@ namespace BAREST.Compras
             this.label5 = new System.Windows.Forms.Label();
             this.textCantidad = new System.Windows.Forms.TextBox();
             this.tablaInsumo = new System.Windows.Forms.DataGridView();
-            this.consultarInsumos = new System.Windows.Forms.Button();
-            this.comboUnidad = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateTimefechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboUnidad = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimefechaIngreso = new System.Windows.Forms.DateTimePicker();
+            this.textidInsumo = new System.Windows.Forms.TextBox();
+            this.btnLista = new FontAwesome.Sharp.IconButton();
+            this.btnguardar = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubro)).BeginInit();
@@ -66,6 +68,8 @@ namespace BAREST.Compras
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.panel1.Controls.Add(this.btnguardar);
+            this.panel1.Controls.Add(this.btnLista);
             this.panel1.Controls.Add(this.agregarInsu);
             this.panel1.Controls.Add(this.EliminarInsu);
             this.panel1.Controls.Add(this.modificarInsu);
@@ -308,16 +312,35 @@ namespace BAREST.Compras
             this.tablaInsumo.Size = new System.Drawing.Size(879, 262);
             this.tablaInsumo.TabIndex = 11;
             // 
-            // consultarInsumos
+            // descripcion
             // 
-            this.consultarInsumos.Location = new System.Drawing.Point(45, 282);
-            this.consultarInsumos.Margin = new System.Windows.Forms.Padding(4);
-            this.consultarInsumos.Name = "consultarInsumos";
-            this.consultarInsumos.Size = new System.Drawing.Size(200, 31);
-            this.consultarInsumos.TabIndex = 12;
-            this.consultarInsumos.Text = "Consultar Insumos";
-            this.consultarInsumos.UseVisualStyleBackColor = true;
-            this.consultarInsumos.Click += new System.EventHandler(this.consultarInsumos_Click);
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            // 
+            // unidad
+            // 
+            this.unidad.HeaderText = "Unidad";
+            this.unidad.Name = "unidad";
+            this.unidad.ReadOnly = true;
+            // 
+            // rubro
+            // 
+            this.rubro.HeaderText = "Rubro";
+            this.rubro.Name = "rubro";
+            this.rubro.ReadOnly = true;
+            // 
+            // fechaIngreso
+            // 
+            this.fechaIngreso.HeaderText = "Fecha Ingresado";
+            this.fechaIngreso.Name = "fechaIngreso";
+            this.fechaIngreso.ReadOnly = true;
             // 
             // comboUnidad
             // 
@@ -355,35 +378,59 @@ namespace BAREST.Compras
             this.dateTimefechaIngreso.Size = new System.Drawing.Size(265, 22);
             this.dateTimefechaIngreso.TabIndex = 15;
             // 
-            // descripcion
+            // textidInsumo
             // 
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
+            this.textidInsumo.Location = new System.Drawing.Point(276, 302);
+            this.textidInsumo.Margin = new System.Windows.Forms.Padding(4);
+            this.textidInsumo.Name = "textidInsumo";
+            this.textidInsumo.Size = new System.Drawing.Size(85, 22);
+            this.textidInsumo.TabIndex = 16;
+            this.textidInsumo.Visible = false;
             // 
-            // cantidad
+            // btnLista
             // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
+            this.btnLista.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnLista.FlatAppearance.BorderSize = 0;
+            this.btnLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnLista.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
+            this.btnLista.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnLista.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLista.IconSize = 30;
+            this.btnLista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLista.Location = new System.Drawing.Point(0, 0);
+            this.btnLista.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLista.Name = "btnLista";
+            this.btnLista.Size = new System.Drawing.Size(110, 62);
+            this.btnLista.TabIndex = 10;
+            this.btnLista.Text = "       Lista";
+            this.btnLista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLista.UseVisualStyleBackColor = true;
+            this.btnLista.Click += new System.EventHandler(this.btnLista_Click);
             // 
-            // unidad
+            // btnguardar
             // 
-            this.unidad.HeaderText = "Unidad";
-            this.unidad.Name = "unidad";
-            this.unidad.ReadOnly = true;
-            // 
-            // rubro
-            // 
-            this.rubro.HeaderText = "Rubro";
-            this.rubro.Name = "rubro";
-            this.rubro.ReadOnly = true;
-            // 
-            // fechaIngreso
-            // 
-            this.fechaIngreso.HeaderText = "Fecha Ingresado";
-            this.fechaIngreso.Name = "fechaIngreso";
-            this.fechaIngreso.ReadOnly = true;
+            this.btnguardar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnguardar.FlatAppearance.BorderSize = 0;
+            this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnguardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnguardar.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight;
+            this.btnguardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnguardar.IconSize = 30;
+            this.btnguardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnguardar.Location = new System.Drawing.Point(360, 0);
+            this.btnguardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnguardar.Name = "btnguardar";
+            this.btnguardar.Size = new System.Drawing.Size(110, 62);
+            this.btnguardar.TabIndex = 14;
+            this.btnguardar.Text = "       Guardar";
+            this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Visible = false;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // Insumos
             // 
@@ -392,10 +439,10 @@ namespace BAREST.Compras
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(883, 652);
+            this.Controls.Add(this.textidInsumo);
             this.Controls.Add(this.dateTimefechaIngreso);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboUnidad);
-            this.Controls.Add(this.consultarInsumos);
             this.Controls.Add(this.tablaInsumo);
             this.Controls.Add(this.textCantidad);
             this.Controls.Add(this.label5);
@@ -446,7 +493,6 @@ namespace BAREST.Compras
         private FontAwesome.Sharp.IconButton EliminarInsu;
         private FontAwesome.Sharp.IconButton modificarInsu;
         private System.Windows.Forms.DataGridView tablaInsumo;
-        private System.Windows.Forms.Button consultarInsumos;
         private System.Windows.Forms.ComboBox comboUnidad;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimefechaIngreso;
@@ -455,5 +501,8 @@ namespace BAREST.Compras
         private System.Windows.Forms.DataGridViewTextBoxColumn unidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
+        private System.Windows.Forms.TextBox textidInsumo;
+        private FontAwesome.Sharp.IconButton btnLista;
+        private FontAwesome.Sharp.IconButton btnguardar;
     }
 }

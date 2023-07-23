@@ -18,8 +18,7 @@ namespace BAREST.Compras
 
         private void consultarInsumos_Click(object sender, EventArgs e)
         {
-            consultaInsumos m = new consultaInsumos();
-            m.ShowDialog();
+
         }
         private void limpiarCamposInsumo()
         {
@@ -50,7 +49,7 @@ namespace BAREST.Compras
             catch (Exception ex)
             {
                 MessageBox.Show("Error al verificar si el menú existe:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; 
+                return false;
             }
         }
         private void CargarComboRubroInsumo()
@@ -76,7 +75,7 @@ namespace BAREST.Compras
                 MessageBox.Show(ex.Message, "ERROR EN EL LLENAR COMBO RUBRO INSUMO", MessageBoxButtons.OK);
             }
         }
-    
+
 
         private void agregarInsu_Click(object sender, EventArgs e)
         {
@@ -99,7 +98,7 @@ namespace BAREST.Compras
                     {
                         comando.Parameters.AddWithValue("@descripcion", textDescInsumo.Text);
                         comando.Parameters.AddWithValue("@cantidad", int.Parse(textCantidad.Text));
-                        comando.Parameters.AddWithValue("@unidad",  comboUnidad.SelectedItem);
+                        comando.Parameters.AddWithValue("@unidad", comboUnidad.SelectedItem);
                         comando.Parameters.AddWithValue("@idrubroInsumo", comboRubroInsumo.SelectedValue);
                         comando.Parameters.AddWithValue("@fechaIngreso", dateTimefechaIngreso.Value);
                         comando.ExecuteNonQuery();
@@ -107,7 +106,7 @@ namespace BAREST.Compras
                         limpiarCamposInsumo();
                         // Opcional: Puedes mostrar un mensaje de éxito o actualizar la lista de insumos.
                         MessageBox.Show("Insumo registrado correctamente");
-                        // CargarInsumos();
+                        CargarGrilla();
                     }
                 }
                 catch (Exception ex)
@@ -137,22 +136,24 @@ namespace BAREST.Compras
         }
         //-------------------- PARA VERIFICAR SI EXISTE UN RUBRO -----------------------------------
 
-        private bool RubroExiste( string rubro)
+        private bool RubroExiste(string rubro)
         {
             try
             {
-                using(SqlConnection conexion = Conexion.ObtenerConexion())
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
                 {
                     string sql = "select COUNT(*) from RubroInsumo where descripcion = @desRubro";
                     SqlCommand comando = new SqlCommand(sql, conexion);
                     comando.Parameters.AddWithValue("@desRubro", textRubro.Text);
-                   int count = (int)comando.ExecuteScalar();
+                    int count = (int)comando.ExecuteScalar();
                     return count > 0;
                 }
 
-            }catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("Error al verificar el rubro:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; 
+                return false;
             }
         }
         //--------------------------------------------------------------------------------
@@ -173,16 +174,45 @@ namespace BAREST.Compras
             Conexion.ObtenerConexion().Close();
         }
 
-        void cargartabla()
-        {
 
+
+        private void CargarGrilla()
+        {
+            try
+            {
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (SqlCommand comando = new SqlCommand("SELECT Insumo.descripcion, Insumo.cantidad, Insumo.unidad, RubroInsumo.descripcion rubro, Insumo.fechaIngreso FROM Insumo INNER JOIN RubroInsumo ON Insumo.idrubroInsumo = RubroInsumo.idRubroInsumo WHERE Insumo.estado = 'A' ORDER BY LTRIM(Insumo.descripcion) ASC", conexion))
+                {
+                    SqlDataReader registros = comando.ExecuteReader();
+                    tablaInsumo.Rows.Clear();
+                    tablaInsumo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                    while (registros.Read())
+                    {
+                        string descripcion = registros["descripcion"].ToString();
+                        int cantidad = Convert.ToInt32(registros["cantidad"]);
+                        string unidad = registros["unidad"].ToString();
+                        string rubro = registros["rubro"].ToString();
+                        DateTime fechaIngreso = (DateTime)registros["fechaIngreso"];
+                        tablaInsumo.Rows.Add(descripcion, cantidad, unidad, rubro, fechaIngreso);
+                    }
+
+                    registros.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del Insumo en la tablaInsumo:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-       
+
+
 
         private void Insumos_Load(object sender, EventArgs e)
         {
             CargarRubro();
             CargarComboRubroInsumo();
+            CargarGrilla();
         }
 
         private void eliminarRubro_Click(object sender, EventArgs e)
@@ -217,7 +247,96 @@ namespace BAREST.Compras
 
         private void EliminarInsu_Click(object sender, EventArgs e)
         {
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("¿Está seguro que quiere borrar?", "Borrar Insumo", botones, MessageBoxIcon.Question);
 
+            if (dr == DialogResult.Yes)
+            {
+                string Insum = tablaInsumo.Rows[tablaInsumo.CurrentRow.Index].Cells["descripcion"].Value.ToString();
+                try
+                {
+                    using (SqlConnection conexion = Conexion.ObtenerConexion())
+                    using (var comando = new SqlCommand("UPDATE Insumo SET estado='D' WHERE descripcion=@descripcion", conexion))
+                    {
+                        comando.Parameters.AddWithValue("@descripcion", Insum);
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("Se eliminó el Insumo: " + Insum);
+                        CargarGrilla();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar el Insumo:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+
+        private void modificarInsu_Click(object sender, EventArgs e)
+        {
+            string Insumo = tablaInsumo.Rows[tablaInsumo.CurrentRow.Index].Cells["descripcion"].Value.ToString();
+            try
+            {
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (var comando = new SqlCommand("SELECT Insumo.descripcion ,Insumo.cantidad ,Insumo.unidad ,RubroInsumo.descripcion rubro ,Insumo.fechaIngreso , Insumo.idInsumo FROM Insumo  INNER JOIN RubroInsumo  ON Insumo.idrubroInsumo = RubroInsumo.idRubroInsumo WHERE Insumo.descripcion= @descripcion AND Insumo.estado='A' ", conexion))
+                {
+                    comando.Parameters.AddWithValue("@descripcion", Insumo);
+                    SqlDataReader leido = comando.ExecuteReader();
+                    if (leido.Read())
+                    {
+                        textDescInsumo.Text = leido["descripcion"].ToString();
+                        textCantidad.Text = leido["cantidad"].ToString();
+                        comboUnidad.Text = leido["unidad"].ToString();
+                        comboRubroInsumo.Text = leido["rubro"].ToString();
+                        dateTimefechaIngreso.Text = leido["fechaIngreso"].ToString();
+                        textidInsumo.Text = leido["idInsumo"].ToString();
+                        btnguardar.Visible = true;
+                        agregarInsu.Visible = false;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al consultar para modificar el Insumo:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textDescInsumo.Text) || string.IsNullOrWhiteSpace(textCantidad.Text) || comboUnidad.SelectedIndex == -1 || comboRubroInsumo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Falta completar algún campo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (var comando = new SqlCommand(" UPDATE [dbo].[Insumo] SET [descripcion] = @descripcion ,[cantidad] =@cantidad  ,[unidad] =@unidad  , [fechaIngreso] = @fechaIngreso ,[idrubroInsumo] = @idrubroInsumo   WHERE idInsumo = @idInsumo", conexion))
+                {
+                    comando.Parameters.AddWithValue("@descripcion", textDescInsumo.Text);
+                    comando.Parameters.AddWithValue("@cantidad", int.Parse(textCantidad.Text));
+                    comando.Parameters.AddWithValue("@unidad", comboUnidad.SelectedItem);
+                    comando.Parameters.AddWithValue("@idrubroInsumo", comboRubroInsumo.SelectedValue);
+                    comando.Parameters.AddWithValue("@fechaIngreso", dateTimefechaIngreso.Value);
+                    comando.Parameters.AddWithValue("@idInsumo", textidInsumo.Text);
+                    comando.ExecuteNonQuery();
+
+
+                    limpiarCamposInsumo();
+                    CargarGrilla();
+
+
+                    btnguardar.Visible = false;
+                    agregarInsu.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar el Insumo:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -229,32 +348,15 @@ namespace BAREST.Compras
         {
 
         }
-
-        private void modificarInsu_Click(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            string Insumo = tablaInsumo.Rows[tablaInsumo.CurrentRow.Index].Cells["descripcion"].Value.ToString();
-            try
-            {
-                using (SqlConnection conexion = Conexion.ObtenerConexion())
-                using (var comando = new SqlCommand("SELECT [Insumo.descripcion] ,[Insumo.cantidad] ,[Insumo.unidad] ,[RubroInsumo.descripcion] rubro ,[Insumo.fechaIngreso]  FROM [dbo].[Insumo]  INNER JOIN [dbo].[RubroInsumo]  ON Insumo.idrubroInsumo = RubroInsumo.idRubroInsumo WHERE Insumo.descripcion= @descripcion AND estado='A' " , conexion))
-                {
-                    comando.Parameters.AddWithValue("@descripcion", Insumo);
-                    SqlDataReader leido = comando.ExecuteReader();
-                    if (leido.Read())
-                    {
-                        textDescInsumo.Text = leido["descripcion"].ToString();
-                        textCantidad.Text = leido["cantidad"].ToString();
-                        comboUnidad.Text = leido["unidad"].ToString();
-                        comboRubroInsumo.Text = leido["rubro"].ToString();
-                        dateTimefechaIngreso.Text = leido["fechaIngreso"].ToString();
-                       
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al consultar para modificar el Insumo:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+        }
+
+        private void btnLista_Click(object sender, EventArgs e)
+        {
+            consultaInsumos m = new consultaInsumos();
+            m.ShowDialog();
         }
     }
 

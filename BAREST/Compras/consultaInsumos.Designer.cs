@@ -29,33 +29,33 @@ namespace BAREST.Compras
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tablaInsumo = new System.Windows.Forms.DataGridView();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaInsumo)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // tablaInsumo
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tablaInsumo.AllowUserToAddRows = false;
+            this.tablaInsumo.AllowUserToDeleteRows = false;
+            this.tablaInsumo.AllowUserToOrderColumns = true;
+            this.tablaInsumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaInsumo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Descripcion,
             this.unidad,
             this.Cantidad,
-            this.fechaIngreso,
-            this.Rubro});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 389);
-            this.dataGridView1.TabIndex = 0;
+            this.Rubro,
+            this.fechaIngreso});
+            this.tablaInsumo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablaInsumo.Location = new System.Drawing.Point(0, 0);
+            this.tablaInsumo.Name = "tablaInsumo";
+            this.tablaInsumo.ReadOnly = true;
+            this.tablaInsumo.Size = new System.Drawing.Size(643, 389);
+            this.tablaInsumo.TabIndex = 0;
             // 
             // Descripcion
             // 
@@ -81,13 +81,6 @@ namespace BAREST.Compras
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
             // 
-            // fechaIngreso
-            // 
-            this.fechaIngreso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fechaIngreso.HeaderText = "Fecha de ingreso";
-            this.fechaIngreso.Name = "fechaIngreso";
-            this.fechaIngreso.ReadOnly = true;
-            // 
             // Rubro
             // 
             this.Rubro.FillWeight = 55.49916F;
@@ -95,28 +88,35 @@ namespace BAREST.Compras
             this.Rubro.Name = "Rubro";
             this.Rubro.ReadOnly = true;
             // 
+            // fechaIngreso
+            // 
+            this.fechaIngreso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fechaIngreso.HeaderText = "Fecha de ingreso";
+            this.fechaIngreso.Name = "fechaIngreso";
+            this.fechaIngreso.ReadOnly = true;
+            // 
             // consultaInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 389);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tablaInsumo);
             this.Name = "consultaInsumos";
             this.ShowIcon = false;
             this.Text = "Lista de Insumos";
             this.Load += new System.EventHandler(this.consultaInsumos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaInsumo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tablaInsumo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn unidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
     }
 }

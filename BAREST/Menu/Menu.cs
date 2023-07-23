@@ -118,7 +118,7 @@ namespace BAREST
             }
         }
         //----------------------------------CARGAR COMBO MENU---------------------------------------------------------------
-        private void CargarcomboRubroMenu()     
+        private void CargarcomboRubroMenu()
         {
             try
             {
@@ -130,7 +130,7 @@ namespace BAREST
                     DataTable tabla1 = new DataTable();
                     adaptador1.Fill(tabla1);
                     comborubroMenu.DisplayMember = "nombre";
-                    comborubroMenu.ValueMember = "idRubroMenu"; 
+                    comborubroMenu.ValueMember = "idRubroMenu";
                     comborubroMenu.DataSource = tabla1;
                 }
             }
@@ -239,7 +239,7 @@ namespace BAREST
                     using (SqlConnection conexion = Conexion.ObtenerConexion())
                     using (var comando = new SqlCommand("INSERT INTO Menu (nombre, idRubroMenu, precio, descripcion, foto) VALUES (@nombre, @idRubroMenu, @precio, @descripcion, @foto)", conexion))
                     {
-                        comando.Parameters.AddWithValue("@nombre",  textnomM.Text);
+                        comando.Parameters.AddWithValue("@nombre", textnomM.Text);
                         comando.Parameters.Add("@idRubroMenu", SqlDbType.Int).Value = comborubroMenu.SelectedValue;
                         comando.Parameters.Add("@precio", SqlDbType.Float).Value = float.Parse(textPrecioM.Text);
                         comando.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = textDescM.Text;
@@ -315,6 +315,7 @@ namespace BAREST
             textDescM.Text = "";
             pictureBox1.Image = null;
             comborubroMenu.SelectedIndex = -1;
+
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------
@@ -407,6 +408,11 @@ namespace BAREST
             {
                 e.Handled = true;
             }
+        }
+
+        private void comborubroMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
 

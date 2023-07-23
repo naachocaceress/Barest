@@ -19,7 +19,7 @@ namespace BAREST.Compras
         void listaproveedor()
         {
             Conexion.ObtenerConexion();
-            string sql = "select cuit,empresa, telefono,direccion,altura,deptopiso,archivo from Proveedor ";
+            string sql = "select cuit,empresa, telefono,direccion,altura,depto,archivo from Proveedor  where estado ='A' ";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
             SqlDataReader registros = comando.ExecuteReader();
             dataGridView1.Rows.Clear();
@@ -30,7 +30,7 @@ namespace BAREST.Compras
                                        registros["telefono"].ToString(),
                                        registros["direccion"].ToString(),
                                        registros["altura"].ToString(),
-                                       registros["deptopiso"].ToString(),
+                                       registros["depto"].ToString(),
                                        registros["archivo"].ToString()
                                        );
             }

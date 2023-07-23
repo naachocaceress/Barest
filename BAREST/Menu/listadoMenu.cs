@@ -29,7 +29,7 @@ namespace BAREST
                         decimal precio = Convert.ToDecimal(registros["precio"].ToString());
                         string descripcion = registros["descripcion"].ToString();
                         string rubro = registros["rubro"].ToString();
-                        dataGridView1.Rows.Add(id,nombre,precio,descripcion,rubro);
+                        dataGridView1.Rows.Add(id, nombre, precio, descripcion, rubro);
                     }
                     registros.Close();
                 }

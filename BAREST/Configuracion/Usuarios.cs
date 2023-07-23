@@ -28,7 +28,7 @@ namespace BAREST
             adaptador.SelectCommand = comando;
             DataTable table = new DataTable();
             adaptador.Fill(table);
-            comboSucursal.ValueMember = "id";
+            comboSucursal.ValueMember = "idsucursal";
             comboSucursal.DisplayMember = "descripcion";
             DataRow dataRow = table.NewRow();
             dataRow[0] = 0;
@@ -46,7 +46,7 @@ namespace BAREST
             adaptador.SelectCommand = comando;
             DataTable table = new DataTable();
             adaptador.Fill(table);
-            comboCargo.ValueMember = "id";
+            comboCargo.ValueMember = "idCargo";
             comboCargo.DisplayMember = "descripcion";
             DataRow dataRow = table.NewRow();
             dataRow[0] = 0;
@@ -55,7 +55,7 @@ namespace BAREST
             comboCargo.DataSource = table;
             Conexion.ObtenerConexion().Close();
         }
-      
+
 
         public void limpiarcampo()
         {
@@ -158,8 +158,8 @@ namespace BAREST
             {
                 MessageBox.Show("Error No ha seleccionado  un Usuario:\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            
+
+
         }
 
 

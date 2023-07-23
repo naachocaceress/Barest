@@ -59,6 +59,7 @@ namespace BAREST
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(787, 501);
             this.dataGridView1.TabIndex = 0;
+           
             // 
             // idMenu
             // 
