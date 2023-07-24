@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnguardar = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.btnInsertar = new FontAwesome.Sharp.IconButton();
-            this.EliminarInsu = new FontAwesome.Sharp.IconButton();
-            this.btnModificar = new FontAwesome.Sharp.IconButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tablaRubro = new System.Windows.Forms.DataGridView();
             this.Rubros = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +45,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textPrecioM = new System.Windows.Forms.TextBox();
             this.textDescM = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bfoto = new System.Windows.Forms.Button();
             this.comborubroMenu = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -60,12 +54,18 @@
             this.label9 = new System.Windows.Forms.Label();
             this.Nota = new System.Windows.Forms.GroupBox();
             this.textId = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnguardar = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnInsertar = new FontAwesome.Sharp.IconButton();
+            this.EliminarInsu = new FontAwesome.Sharp.IconButton();
+            this.btnModificar = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Nota.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,117 +82,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(799, 50);
             this.panel1.TabIndex = 1;
-            // 
-            // btnguardar
-            // 
-            this.btnguardar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnguardar.FlatAppearance.BorderSize = 0;
-            this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnguardar.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight;
-            this.btnguardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnguardar.IconSize = 30;
-            this.btnguardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnguardar.Location = new System.Drawing.Point(359, 0);
-            this.btnguardar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(110, 50);
-            this.btnguardar.TabIndex = 13;
-            this.btnguardar.Text = "       Guardar";
-            this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnguardar.UseVisualStyleBackColor = true;
-            this.btnguardar.Visible = false;
-            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 0);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(110, 50);
-            this.iconButton1.TabIndex = 9;
-            this.iconButton1.Text = "       Carta";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
-            // 
-            // btnInsertar
-            // 
-            this.btnInsertar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnInsertar.FlatAppearance.BorderSize = 0;
-            this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInsertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnInsertar.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnInsertar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnInsertar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnInsertar.IconSize = 30;
-            this.btnInsertar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInsertar.Location = new System.Drawing.Point(469, 0);
-            this.btnInsertar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnInsertar.Name = "btnInsertar";
-            this.btnInsertar.Size = new System.Drawing.Size(110, 50);
-            this.btnInsertar.TabIndex = 10;
-            this.btnInsertar.Text = "       Agregar";
-            this.btnInsertar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInsertar.UseVisualStyleBackColor = true;
-            this.btnInsertar.Click += new System.EventHandler(this.agregarInsu_Click);
-            // 
-            // EliminarInsu
-            // 
-            this.EliminarInsu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.EliminarInsu.FlatAppearance.BorderSize = 0;
-            this.EliminarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EliminarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.CircleMinus;
-            this.EliminarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EliminarInsu.IconSize = 30;
-            this.EliminarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.Location = new System.Drawing.Point(579, 0);
-            this.EliminarInsu.Margin = new System.Windows.Forms.Padding(4);
-            this.EliminarInsu.Name = "EliminarInsu";
-            this.EliminarInsu.Size = new System.Drawing.Size(110, 50);
-            this.EliminarInsu.TabIndex = 11;
-            this.EliminarInsu.Text = "       Eliminar";
-            this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.UseVisualStyleBackColor = true;
-            this.EliminarInsu.Click += new System.EventHandler(this.EliminarInsu_Click_1);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnModificar.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
-            this.btnModificar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnModificar.IconSize = 30;
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(689, 0);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(110, 50);
-            this.btnModificar.TabIndex = 12;
-            this.btnModificar.Text = "       Modificar";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.modificarInsu_Click_1);
             // 
             // groupBox1
             // 
@@ -365,18 +254,6 @@
             this.textDescM.Size = new System.Drawing.Size(181, 25);
             this.textDescM.TabIndex = 2;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::BAREST.Properties.Resources.imagenmenu1;
-            this.pictureBox1.Location = new System.Drawing.Point(219, 35);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 112);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            // 
             // bfoto
             // 
             this.bfoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -482,6 +359,129 @@
             this.textId.TabIndex = 34;
             this.textId.Text = "label10";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::BAREST.Properties.Resources.imagenmenu1;
+            this.pictureBox1.Location = new System.Drawing.Point(219, 35);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(107, 112);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnguardar
+            // 
+            this.btnguardar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnguardar.FlatAppearance.BorderSize = 0;
+            this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnguardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnguardar.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight;
+            this.btnguardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnguardar.IconSize = 30;
+            this.btnguardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnguardar.Location = new System.Drawing.Point(359, 0);
+            this.btnguardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnguardar.Name = "btnguardar";
+            this.btnguardar.Size = new System.Drawing.Size(110, 50);
+            this.btnguardar.TabIndex = 13;
+            this.btnguardar.Text = "       Guardar";
+            this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Visible = false;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 0);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(110, 50);
+            this.iconButton1.TabIndex = 9;
+            this.iconButton1.Text = "       Carta";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
+            // 
+            // btnInsertar
+            // 
+            this.btnInsertar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnInsertar.FlatAppearance.BorderSize = 0;
+            this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInsertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnInsertar.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnInsertar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnInsertar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnInsertar.IconSize = 30;
+            this.btnInsertar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInsertar.Location = new System.Drawing.Point(469, 0);
+            this.btnInsertar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInsertar.Name = "btnInsertar";
+            this.btnInsertar.Size = new System.Drawing.Size(110, 50);
+            this.btnInsertar.TabIndex = 10;
+            this.btnInsertar.Text = "       Agregar";
+            this.btnInsertar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInsertar.UseVisualStyleBackColor = true;
+            this.btnInsertar.Click += new System.EventHandler(this.agregarInsu_Click);
+            // 
+            // EliminarInsu
+            // 
+            this.EliminarInsu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.EliminarInsu.FlatAppearance.BorderSize = 0;
+            this.EliminarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EliminarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EliminarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.CircleMinus;
+            this.EliminarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EliminarInsu.IconSize = 30;
+            this.EliminarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarInsu.Location = new System.Drawing.Point(579, 0);
+            this.EliminarInsu.Margin = new System.Windows.Forms.Padding(4);
+            this.EliminarInsu.Name = "EliminarInsu";
+            this.EliminarInsu.Size = new System.Drawing.Size(110, 50);
+            this.EliminarInsu.TabIndex = 11;
+            this.EliminarInsu.Text = "       Eliminar";
+            this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarInsu.UseVisualStyleBackColor = true;
+            this.EliminarInsu.Click += new System.EventHandler(this.EliminarInsu_Click_1);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnModificar.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.btnModificar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnModificar.IconSize = 30;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(689, 0);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(110, 50);
+            this.btnModificar.TabIndex = 12;
+            this.btnModificar.Text = "       Modificar";
+            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.modificarInsu_Click_1);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -518,9 +518,9 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Nota.ResumeLayout(false);
             this.Nota.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

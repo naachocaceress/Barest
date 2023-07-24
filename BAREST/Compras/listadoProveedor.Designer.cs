@@ -30,75 +30,18 @@ namespace BAREST.Compras
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CUITCUIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeptoPiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Archivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CUITCUIL,
-            this.empresa,
-            this.Telefono,
-            this.Direccion,
-            this.Nro,
-            this.DeptoPiso,
-            this.Archivo});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(952, 450);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // CUITCUIL
-            // 
-            this.CUITCUIL.HeaderText = "CUIT/CUIL";
-            this.CUITCUIL.Name = "CUITCUIL";
-            this.CUITCUIL.Width = 150;
-            // 
-            // empresa
-            // 
-            this.empresa.HeaderText = "Empresa";
-            this.empresa.Name = "empresa";
-            this.empresa.ReadOnly = true;
-            this.empresa.Width = 150;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            // 
-            // Direccion
-            // 
-            this.Direccion.HeaderText = "Calle";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            this.Direccion.Width = 200;
-            // 
-            // Nro
-            // 
-            this.Nro.HeaderText = "Nro";
-            this.Nro.Name = "Nro";
-            this.Nro.Width = 80;
-            // 
-            // DeptoPiso
-            // 
-            this.DeptoPiso.HeaderText = "Depto/Piso";
-            this.DeptoPiso.Name = "DeptoPiso";
-            // 
-            // Archivo
-            // 
-            this.Archivo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Archivo.HeaderText = "Archivo";
-            this.Archivo.Name = "Archivo";
             // 
             // listadoProveedor
             // 
@@ -119,12 +62,5 @@ namespace BAREST.Compras
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CUITCUIL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn empresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DeptoPiso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Archivo;
     }
 }

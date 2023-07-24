@@ -13,29 +13,44 @@ namespace BAREST.Compras
 
         private void listadoProveedor_Load(object sender, EventArgs e)
         {
-            listaproveedor();
+            try
+            {
+                using (SqlConnection conexion = Conexion.ObtenerConexion()) 
+                using (var comando = new SqlCommand("SELECT cuit, empresa, telefono, direccion, altura, depto, archivo FROM Proveedor WHERE estado ='A'", conexion))
+                using (SqlDataReader registros = comando.ExecuteReader())
+                {
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Columns.Clear();
+
+                    // Agregar las columnas necesarias al DataGridView
+                    dataGridView1.Columns.Add("cuit", "CUIT");
+                    dataGridView1.Columns.Add("empresa", "Empresa");
+                    dataGridView1.Columns.Add("telefono", "Teléfono");
+                    dataGridView1.Columns.Add("direccion", "Dirección");
+                    dataGridView1.Columns.Add("altura", "Altura");
+                    dataGridView1.Columns.Add("depto", "Depto");
+                    dataGridView1.Columns.Add("archivo", "Archivo");
+
+                    while (registros.Read())
+                    {
+                        dataGridView1.Rows.Add(
+                            registros["cuit"].ToString(),
+                            registros["empresa"].ToString(),
+                            registros["telefono"].ToString(),
+                            registros["direccion"].ToString(),
+                            registros["altura"].ToString(),
+                            registros["depto"].ToString(),
+                            registros["archivo"].ToString()
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos de los proveedores en la tabla: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        void listaproveedor()
-        {
-            Conexion.ObtenerConexion();
-            string sql = "select cuit,empresa, telefono,direccion,altura,depto,archivo from Proveedor  where estado ='A' ";
-            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            SqlDataReader registros = comando.ExecuteReader();
-            dataGridView1.Rows.Clear();
-            while (registros.Read())
-            {
-                dataGridView1.Rows.Add(registros["cuit"].ToString(),
-                                       registros["empresa"].ToString(),
-                                       registros["telefono"].ToString(),
-                                       registros["direccion"].ToString(),
-                                       registros["altura"].ToString(),
-                                       registros["depto"].ToString(),
-                                       registros["archivo"].ToString()
-                                       );
-            }
-            registros.Close();
-            Conexion.ObtenerConexion().Close();
-        }
+
     }
 }
