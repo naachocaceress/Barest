@@ -247,7 +247,7 @@ namespace BAREST.Compras
         {
             // Aquí puedes agregar el código necesario para imprimir la compra seleccionada en dataCompras.
         }
-
+        // lo voy a usar despues de entregar el proyecto.
         private void VisualizarPorProveedor()
         {
             // Mostrar las compras asociadas al proveedor seleccionado en comboProv.

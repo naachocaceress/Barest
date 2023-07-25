@@ -399,7 +399,7 @@ namespace BAREST
         
         //AGREGAR MESAS --------------------------------------------------------------------------
         
-        private void mesas_Click(object sender, EventArgs e)
+       /* private void mesas_Click(object sender, EventArgs e)
         {
             if (panel == 1)
             {
@@ -641,8 +641,116 @@ namespace BAREST
                     ClaseCompartida2.cancel = false;
                 }
             }
+        }*/
+        private void mesas_Click(object sender, EventArgs e)
+        {
+            Button boton = sender as Button;
+
+            if (panel == 1)
+            {
+                HandleMesaClick(panelPlano1, boton);
+            }
+            else if (panel == 2)
+            {
+                HandleMesaClick(panelPlano2, boton);
+            }
+            else if (panel == 3)
+            {
+                HandleMesaClick(panelPlano3, boton);
+            }
         }
 
+        private void HandleMesaClick(Panel panelPlano, Button boton)
+        {
+            if (panelPlano.BackColor == Color.FromArgb(27, 111, 114))//verde
+            {
+                if (boton.BackColor == Color.FromArgb(217, 96, 78))//jaune abricot
+                {
+                    OpenMesa1Dialog(boton);
+                    if (ClaseCompartida.valor == 5)
+                        boton.BackColor = Color.FromArgb(0, 255, 255);//azul claro
+                }
+                else if (boton.BackColor == Color.FromArgb(116, 199, 132))//verde claro
+                {
+                    OpenMozoDialog(boton);
+                    if (ClaseCompartida.valor == 1)
+                        boton.BackColor = Color.FromArgb(217, 96, 78);//jaune abricot
+                    else if (ClaseCompartida.valor == 5)
+                        boton.BackColor = Color.FromArgb(0, 255, 255);//azul claro
+                }
+                else
+                {
+                    if (boton.BackColor == Color.FromArgb(0, 255, 255))//azul claro
+                    {
+                        OpenCobroDialog(boton);
+                        boton.BackColor = Color.FromArgb(116, 199, 132);// verde claro
+                    }
+                }
+            }
+            else
+            {
+                if (move == false)
+                {
+                    ModoEditor n = new ModoEditor();
+                    ClaseCompartida2.nombreM = boton.Name;
+                    n.ShowDialog();
+
+                    if (ClaseCompartida2.cancel == true)
+                    {
+                        ClaseCompartida2.cancel = false;
+                        return;
+                    }
+
+                    if (ClaseCompartida2.check == true)
+                    {
+                        panelPlano.Controls.Remove(boton);
+                        ClaseCompartida2.check = false;
+                    }
+                    else
+                    {
+                        boton.Name = ClaseCompartida2.nombreM2;
+                        boton.Text = ClaseCompartida2.nombreM2;
+                    }
+                }
+                move = false;
+                ClaseCompartida2.cancel = false;
+            }
+        }
+
+        private void OpenMesa1Dialog(Button boton)
+        {
+            Mesa1 m = new Mesa1();
+            ClaseCompartida.Mesa = boton.Name;
+            ClaseCompartida.mmm = 1;
+            m.ShowDialog();
+        }
+
+        private void OpenMozoDialog(Button boton)
+        {
+            turno.Mozo m = new turno.Mozo();
+            m.label7.Text = boton.Name;
+
+            if (ClaseCompartida.usu == 0)
+                m.ShowDialog();
+            else
+            {
+                Mesa1 n = new Mesa1();
+                n.ShowDialog();
+            }
+        }
+
+        private void OpenCobroDialog(Button boton)
+        {
+            Cobro m = new Cobro();
+            ClaseCompartida.Mesa = boton.Name;
+            ClaseCompartida.mmm = 1;
+            m.ShowDialog();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mesas_Click_Deli(object sender, EventArgs e)
         {
             if (panel == 1)
