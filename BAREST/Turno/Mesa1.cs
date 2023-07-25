@@ -278,7 +278,7 @@ namespace BAREST
                         cantidad = cantN;
                         foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                         {
-                            row.Cells["cant"].Value = cantidad;
+                            row.Cells["cantidades"].Value = cantidad;
                         }
                         dataGridView1.Rows.Add(new String[] { cantidad.ToString() });
                         textBuscar.Text = "";
@@ -333,7 +333,7 @@ namespace BAREST
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                sumatorio += Convert.ToInt32(row.Cells["PTotal"].Value);
+                sumatorio += Convert.ToInt32(row.Cells["precioTotal"].Value);
             }
 
             string hola = sumatorio.ToString();
@@ -400,15 +400,15 @@ namespace BAREST
             double suma = 1;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                suma += Convert.ToDouble(row.Cells["cant"].Value);
-                row.Cells["cant"].Value = suma;
+                suma += Convert.ToDouble(row.Cells["cantidades"].Value);
+                row.Cells["cantidades"].Value = suma;
 
-                int cant = Convert.ToInt32(row.Cells["cant"].Value);
-                int puni = Convert.ToInt32(row.Cells["precio"].Value);
+                int cant = Convert.ToInt32(row.Cells["cantidades"].Value);
+                int puni = Convert.ToInt32(row.Cells["precioUnitario"].Value);
 
                 double sum = cant * puni;
 
-                row.Cells["PTotal"].Value = sum;
+                row.Cells["precioTotal"].Value = sum;
 
                 sumaT();
             }
@@ -419,12 +419,12 @@ namespace BAREST
             double resta = 1;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                resta = Convert.ToDouble(row.Cells["cant"].Value) - resta;
-                row.Cells["cant"].Value = resta;
-                int cant = Convert.ToInt32(row.Cells["cant"].Value);
-                int puni = Convert.ToInt32(row.Cells["precio"].Value);
+                resta = Convert.ToDouble(row.Cells["cantidades"].Value) - resta;
+                row.Cells["cantidades"].Value = resta;
+                int cant = Convert.ToInt32(row.Cells["cantidades"].Value);
+                int puni = Convert.ToInt32(row.Cells["precioUnitario"].Value);
                 double sum = cant * puni;
-                row.Cells["PTotal"].Value = sum;
+                row.Cells["precioTotal"].Value = sum;
             }
             if (resta == 0)
                 eliminar();
@@ -432,6 +432,49 @@ namespace BAREST
         }
         //---------------------------------------------------
         private void Mesa1_Load(object sender, EventArgs e)
+        {
+            if (ClaseCompartida.mmm == 1)
+            {
+                try
+                {
+                    Conexion.ObtenerConexion();
+                    string sql = "SELECT [idMesa], [cantidad], [detalles], [precioUnitario], [precioTotal] FROM [dbo].[Mesa] WHERE [mesa] = @mesa AND [mozo] = @mozo AND [estado] = 'A' AND [idComanda] = @idComanda";
+                    SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                    comando.Parameters.AddWithValue("@mesa", ClaseCompartida.Mesa);
+                    comando.Parameters.AddWithValue("@mozo", labelmozo.Text);
+                    comando.Parameters.AddWithValue("@idComanda", idComandaActual); // Usar el ID de la comanda actual
+                    SqlDataReader leido = comando.ExecuteReader();
+
+                    // Limpia las columnas existentes para evitar duplicados en cada carga
+                    dataGridView1.Columns.Clear();
+
+                    // Agrega las columnas al DataGridView
+                    dataGridView1.Columns.Add("idMesa", "ID Mesa");
+                    dataGridView1.Columns.Add("cantidades", "Cantidad");
+                    dataGridView1.Columns.Add("detalles", "Detalles");
+                    dataGridView1.Columns.Add("precioUnitario", "Precio Unitario");
+                    dataGridView1.Columns.Add("precioTotal", "Precio Total");
+
+                    while (leido.Read())
+                    {
+                        // Agrega los valores a las filas
+                        dataGridView1.Rows.Add(new string[] { leido["idMesa"].ToString(), leido["cantidad"].ToString(), leido["detalles"].ToString(), leido["precioUnitario"].ToString(), leido["precioTotal"].ToString() });
+                    }
+
+                    // Ahora, hacemos la columna "ID Mesa" invisible
+                    dataGridView1.Columns["idMesa"].Visible = false;
+
+                    ClaseCompartida.mmm = 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+            }
+        }
+
+        private void cargargrilla(object sender, EventArgs e)
         {
             if (ClaseCompartida.mmm == 1)
             {
@@ -457,7 +500,6 @@ namespace BAREST
                 }
             }
         }
-
 
         private void textBox2_KeyPress_1(object sender, KeyPressEventArgs e)
         {

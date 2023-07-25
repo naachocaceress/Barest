@@ -43,10 +43,6 @@ namespace BAREST
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Detalles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,6 +52,11 @@ namespace BAREST
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.cantidades = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Detalles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -248,44 +249,17 @@ namespace BAREST
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cant,
+            this.cantidades,
             this.Detalles,
-            this.precio,
-            this.PTotal});
+            this.precioUnitario,
+            this.precioTotal,
+            this.idMesa});
             this.dataGridView1.Location = new System.Drawing.Point(12, 109);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(359, 244);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // cant
-            // 
-            this.cant.HeaderText = "Cant.";
-            this.cant.Name = "cant";
-            this.cant.ReadOnly = true;
-            this.cant.Width = 50;
-            // 
-            // Detalles
-            // 
-            this.Detalles.HeaderText = "Detalles";
-            this.Detalles.Name = "Detalles";
-            this.Detalles.ReadOnly = true;
-            this.Detalles.Width = 130;
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "P.Unitario";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            this.precio.Width = 60;
-            // 
-            // PTotal
-            // 
-            this.PTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PTotal.HeaderText = "P.Total";
-            this.PTotal.Name = "PTotal";
-            this.PTotal.ReadOnly = true;
             // 
             // label1
             // 
@@ -366,6 +340,41 @@ namespace BAREST
             this.iconButton2.UseVisualStyleBackColor = true;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
+            // cantidades
+            // 
+            this.cantidades.HeaderText = "Cant.";
+            this.cantidades.Name = "cantidades";
+            this.cantidades.ReadOnly = true;
+            this.cantidades.Width = 50;
+            // 
+            // Detalles
+            // 
+            this.Detalles.HeaderText = "Detalles";
+            this.Detalles.Name = "Detalles";
+            this.Detalles.ReadOnly = true;
+            this.Detalles.Width = 130;
+            // 
+            // precioUnitario
+            // 
+            this.precioUnitario.HeaderText = "P.Unitario";
+            this.precioUnitario.Name = "precioUnitario";
+            this.precioUnitario.ReadOnly = true;
+            this.precioUnitario.Width = 60;
+            // 
+            // precioTotal
+            // 
+            this.precioTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.precioTotal.HeaderText = "P.Total";
+            this.precioTotal.Name = "precioTotal";
+            this.precioTotal.ReadOnly = true;
+            // 
+            // idMesa
+            // 
+            this.idMesa.HeaderText = "IdMesa";
+            this.idMesa.Name = "idMesa";
+            this.idMesa.ReadOnly = true;
+            this.idMesa.Visible = false;
+            // 
             // Mesa1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,11 +432,12 @@ namespace BAREST
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Detalles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PTotal;
         private FontAwesome.Sharp.IconButton btnComanda;
         private System.Windows.Forms.TextBox textIdComanda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidades;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Detalles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioUnitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMesa;
     }
 }
