@@ -181,6 +181,12 @@
     <Compile Include="Cajas\Cajasc.Designer.cs">
       <DependentUpon>Cajasc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cajas\EstadisticasCajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cajas\EstadisticasCajas.Designer.cs">
+      <DependentUpon>EstadisticasCajas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cajas\IngresarMonto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cajas\Cajasc.resx">
       <DependentUpon>Cajasc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cajas\EstadisticasCajas.resx">
+      <DependentUpon>EstadisticasCajas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cajas\IngresarMonto.resx">
       <DependentUpon>IngresarMonto.cs</DependentUpon>

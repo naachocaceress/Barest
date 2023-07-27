@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -18,185 +19,199 @@ namespace BAREST.Cajas
             InitializeComponent();
         }
 
-        public string Origen { get; set; }
-
         private void EliminarInsu_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        public TreeView TreeViewDestino { get; set; }
-        public int NodoIndex { get; set; }
+        //------------------------------------------------------------------------------------------
 
-        private CajaCh formularioCajaCh; // Variable para almacenar la referencia a CajaCh
-        private string nodoPrincipal; // Variable para almacenar el nombre del nodo principal
+        private CajaCh cajaChForm;
+        private string signoMontoOriginal;
+        public int idCajaChica;
+        public string condicion { get; set; }
+        public string balance { get; set; }
+        public string btncaja { get; set; }
 
-        public IngresarMonto(CajaCh cajaCh, string nodoPrincipal)
+        //------------------------------------------------------------------------------------------
+
+        public IngresarMonto(CajaCh cajaChForm, string condicion)
         {
             InitializeComponent();
-            formularioCajaCh = cajaCh;
-            this.nodoPrincipal = nodoPrincipal;
+            this.cajaChForm = cajaChForm;
+            this.condicion = condicion;
         }
 
-        private void confirmar_Click(object sender, EventArgs e)
+        private void confirmar_Click(Object sender, EventArgs e)
         {
-            if (pepe == false)
+            if (idCajaChica == 0)
             {
-                // Obtén el nodo correspondiente al índice
-                TreeNode nodo = TreeViewDestino.Nodes[NodoIndex];
+                InsertarRegistro();
+            }
+            else
+            {
+                ActualizarRegistro();
+            }
+        }
 
+        private void InsertarRegistro()
+        {
+            //Obtén el valor del concepto y el monto ingresado
+            string descripcion = txtConcepto.Text.Trim();
+            string montoStr = txtMonto.Text.Trim();
+            string negativo = "-" + montoStr;
 
-                    // Obtén el valor del concepto y el monto ingresado
-                    string concepto = txtConcepto.Text.Trim();
-                    string montoStr = txtMonto.Text.Trim();
+            if (!decimal.TryParse(montoStr, out decimal monto))
+            {
+                MessageBox.Show("El monto ingresado no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Sale del método sin continuar
+            }
+            else
+            {
+                Conexion.ObtenerConexion();
+                string sql1 = "insert into CajaChica (monto, condicion, descripcion, fecha, estado) values (@monto, @condicion, @descripcion, GETDATE(), 'A')";
+                SqlCommand comando = new SqlCommand(sql1, Conexion.ObtenerConexion());
 
-                    // Valida el formato del monto
-                    if (!decimal.TryParse(montoStr, out decimal monto))
-                    {
-                        MessageBox.Show("El monto ingresado no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return; // Sale del método sin continuar
-                    }
-
-                    // Define el límite máximo de caracteres para el monto en el tope a la derecha
-                    int limiteMaximoCaracteres = 10; // Ajusta el valor según tus necesidades
-
-                    // Formatea el monto con el límite máximo de caracteres
-                    string textoMonto = monto.ToString("C").PadLeft(limiteMaximoCaracteres);
-
-                    // Trunca el concepto si su longitud supera los 30 caracteres
-                    concepto = concepto.Length > 30 ? concepto.Substring(0, 30) : concepto;
-
-                    // Crea el texto del nodo con el concepto y el monto
-                    string textoNodo = $"{concepto,-30}{textoMonto}";
-
-                    // Actualiza el texto del nodo
-                    nodo.Text = textoNodo.Trim();
-
-                    // Refresca el TreeView en el formulario CajaCh
-                    TreeViewDestino.Refresh();
-
-                    formularioCajaCh.RealizarSumaTreeView1();
-                    formularioCajaCh.RealizarSumaTreeView2();
-                    formularioCajaCh.sumarsaldo();
-
-                    // Cierra el formulario "IngresarMonto"
-                    this.Close();
+                if (balance == "Egreso")
+                {
+                    comando.Parameters.AddWithValue("@monto", float.Parse(negativo));
                 }
                 else
-                {// Obtén el valor del concepto y el monto ingresado
-                    string concepto = txtConcepto.Text.Trim();
-                    string montoStr = txtMonto.Text.Trim();
-
-                    // Verifica si los campos están vacíos
-                    if (string.IsNullOrEmpty(concepto) || string.IsNullOrEmpty(montoStr))
-                    {
-                        MessageBox.Show("Debe completar ambos campos (concepto y monto).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return; // Sale del método sin continuar
-                    }
-
-                    // Valida el formato del monto
-                    if (!decimal.TryParse(montoStr, out decimal monto))
-                    {
-                        MessageBox.Show("El monto ingresado no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return; // Sale del método sin continuar
-                    }
-
-                    // Busca el nodo principal en el TreeView2
-                    TreeNode raiz = BuscarNodoPrincipal(TreeViewDestino);
-
-                    // Si no se encontró el nodo principal, se crea uno nuevo
-                    if (raiz == null)
-                    {
-                        raiz = CrearNodoPrincipal(TreeViewDestino);
-                        TreeViewDestino.Nodes.Add(raiz);
-                    }
-
-                    // Define el límite máximo de caracteres para el monto en el tope a la derecha
-                    int limiteMaximoCaracteres = 10; // Ajusta el valor según tus necesidades
-
-                    // Formatea el monto con el límite máximo de caracteres
-                    string textoMonto = monto.ToString("C").PadLeft(limiteMaximoCaracteres);
-
-                    // Trunca el concepto si su longitud supera los 30 caracteres
-                    concepto = concepto.Length > 30 ? concepto.Substring(0, 30) : concepto;
-
-                    // Crea el texto del nodo con el concepto y el monto
-                    string textoNodo = $"{concepto,-30}{textoMonto}";
-
-                    // Agrega un nuevo nodo al nodo principal
-                    TreeNode nuevoNodo = new TreeNode(textoNodo);
-                    raiz.Nodes.Add(nuevoNodo);
-
-                    // Refresca el TreeView en el formulario CajaCh
-                    TreeViewDestino.Refresh();
-
-                    formularioCajaCh.RealizarSumaTreeView1();
-                    formularioCajaCh.RealizarSumaTreeView2();
-                    formularioCajaCh.sumarsaldo();
-
-                    // Cierra el formulario "IngresarMonto"
-                    this.Close();
-                }
-            
-        }
-
-        private TreeNode BuscarNodoPrincipal(TreeView treeView)
-        {
-            // Busca el nodo principal en el TreeView
-            foreach (TreeNode node in treeView.Nodes)
-            {
-                if (node.Text == nodoPrincipal)
                 {
-                    return node;
+                    comando.Parameters.AddWithValue("@monto", float.Parse(montoStr));
                 }
+
+                comando.Parameters.Add("@condicion", SqlDbType.VarChar).Value = condicion;
+                comando.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = descripcion;
+                comando.ExecuteNonQuery();
+                Conexion.ObtenerConexion().Close();
+
+                if (btncaja == "Grande")
+                {
+                    Conexion.ObtenerConexion();
+                    string sql2 = "insert into CajaGrande (monto, condicion, descripcion, fecha, estado) values (@monto, @condicion, @descripcion, GETDATE(), 'A')";
+                    SqlCommand comando2 = new SqlCommand(sql2, Conexion.ObtenerConexion());
+
+                    if (balance == "Egreso")
+                    {
+                        comando2.Parameters.AddWithValue("@monto", float.Parse(montoStr));
+                        comando2.Parameters.Add("@condicion", SqlDbType.VarChar).Value = "Aporte de caja chica";
+                    }
+                    else
+                    {
+                        comando2.Parameters.AddWithValue("@monto", float.Parse(negativo));
+                        comando2.Parameters.Add("@condicion", SqlDbType.VarChar).Value = "Retiro a caja chica";
+                    }
+
+                    comando2.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = descripcion;
+                    comando2.ExecuteNonQuery();
+                    Conexion.ObtenerConexion().Close();
+                }
+                else if (btncaja == "Socios")
+                {
+                    Conexion.ObtenerConexion();
+                    string sql2 = "insert into CajaSocio (monto, condicion, descripcion, fecha, estado) values (@monto, @condicion, @descripcion, GETDATE(), 'A')";
+                    SqlCommand comando2 = new SqlCommand(sql2, Conexion.ObtenerConexion());
+
+                    if (balance == "Egreso")
+                    {
+                        comando2.Parameters.AddWithValue("@monto", float.Parse(montoStr));
+                        comando2.Parameters.Add("@condicion", SqlDbType.VarChar).Value = "Aporte de caja chica";
+                    }
+                    else
+                    {
+                        comando2.Parameters.AddWithValue("@monto", float.Parse(negativo));
+                        comando2.Parameters.Add("@condicion", SqlDbType.VarChar).Value = "Retiro a caja chica";
+                    }
+
+                    comando2.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = descripcion;
+                    comando2.ExecuteNonQuery();
+                    Conexion.ObtenerConexion().Close();
+                }
+
+                MessageBox.Show("Se cargo correctamente");
+                this.Close();
+                cajaChForm.todoload();
+
             }
-            return null;
         }
 
-        private TreeNode CrearNodoPrincipal(TreeView treeView)
+        private void ActualizarRegistro()
         {
-            // Crea un nuevo nodo principal con el nombre correspondiente
-            TreeNode nodo = new TreeNode(nodoPrincipal);
-            return nodo;
-        }
+            Conexion.ObtenerConexion();
 
+            // Obtener el nuevo monto ingresado en el campo de texto txtMonto
+            string nuevoMontoStr = txtMonto.Text.Trim();
 
-        bool pepe;
-
-
-
-        public string Concepto { get; private set; }
-        public decimal Monto { get; private set; }
-        public bool Confirmado { get; private set; }
-
-        public IngresarMonto(CajaCh cajaCh, string concepto, string montoStr)
-        {
-            InitializeComponent();
-
-            // Establece los valores iniciales en los campos de concepto y monto
-            txtConcepto.Text = concepto;
-            txtMonto.Text = montoStr;
-
-            // Habilita la edición del campo de concepto
-            txtConcepto.ReadOnly = false;
-
-            // Convierte el valor de monto a decimal y lo asigna a la propiedad Monto
-            decimal.TryParse(montoStr, NumberStyles.Currency, CultureInfo.CurrentCulture, out decimal monto);
-            Monto = monto;
-
-            // Habilita la edición del campo de monto si es un valor válido
-            if (Monto != 0)
+            // Mantener el signo (positivo o negativo) del monto original para el nuevo monto
+            if (signoMontoOriginal == "-" && !nuevoMontoStr.StartsWith("-"))
             {
-                txtMonto.ReadOnly = false;
+                nuevoMontoStr = "-" + nuevoMontoStr;
             }
+            else if (signoMontoOriginal == "" && nuevoMontoStr.StartsWith("-"))
+            {
+                nuevoMontoStr = nuevoMontoStr.Substring(1);
+            }
+
+            // Actualizar el registro en la base de datos con el nuevo monto
+            string sqlUpdate = "UPDATE CajaChica SET monto = @monto, descripcion = @descripcion WHERE idCajaChica = @idCajaChica;";
+            SqlCommand comandoUpdate = new SqlCommand(sqlUpdate, Conexion.ObtenerConexion());
+            comandoUpdate.Parameters.AddWithValue("@monto", nuevoMontoStr);
+            comandoUpdate.Parameters.AddWithValue("@descripcion", txtConcepto.Text);
+            comandoUpdate.Parameters.AddWithValue("@idCajaChica", idCajaChica);
+
+            int cant = comandoUpdate.ExecuteNonQuery();
+            if (cant != 0)
+            {
+                MessageBox.Show("Los datos se modificaron correctamente");
+                this.Close();
+                cajaChForm.todoload();
+            }
+
+            Conexion.ObtenerConexion().Close();
         }
 
         private void IngresarMonto_Load(object sender, EventArgs e)
         {
-            if(txtConcepto.Text == "")
+            if (idCajaChica != 0)
             {
-                pepe = true;
+                eliminarbtn.Visible = true;
+                Conexion.ObtenerConexion();
+                string sql = "SELECT monto, descripcion FROM CajaChica WHERE idCajaChica = @idCajaChica";
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                comando.Parameters.AddWithValue("@idCajaChica", SqlDbType.VarChar).Value = idCajaChica;
+                SqlDataReader leido = comando.ExecuteReader();
+                if (leido.Read())
+                {
+                    txtConcepto.Text = leido["descripcion"].ToString();
+
+                    // Obtener el monto original sin el signo y almacenar el signo en la variable signoMontoOriginal
+                    string montoActual = leido["monto"].ToString();
+                    signoMontoOriginal = (montoActual.StartsWith("-")) ? "-" : "";
+                    txtMonto.Text = montoActual.Replace("-", "");
+                }
+                Conexion.ObtenerConexion().Close();
+            }
+        }
+
+        private void eliminarbtn_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("¿Esta seguro que quiere eliminar?", "Eliminar", botones, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                Conexion.ObtenerConexion();
+                string sql = "delete from CajaChica where idCajaChica = @idcajachica";
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                comando.Parameters.AddWithValue("@idcajachica", idCajaChica);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Se eliminó la correctamente");
+                Conexion.ObtenerConexion().Close();
+                this.Close();
+                cajaChForm.todoload();
             }
         }
     }
 }
+

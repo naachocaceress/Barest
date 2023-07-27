@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -24,22 +26,24 @@ namespace BAREST.Cajas
             m.Show();
         }
 
-
-
+        //----------------------------------------------------------------------------
 
         private void gastosvarios_Click(object sender, System.EventArgs e)
         {
             IngresarMonto m = new IngresarMonto(this, "Gastos varios");
-            m.TreeViewDestino = treeView1; // Establece el TreeView 2 como destino
+            m.condicion = "Gastos varios";
+            m.balance = "Egreso";
             m.groupBox1.Text = "Caja chica";
             m.label1.Text = "Gastos varios";
             m.Show();
+            
         }
 
         private void ajustesdecaja_Click(object sender, System.EventArgs e)
         {
             IngresarMonto m = new IngresarMonto(this, "Ajuste de caja");
-            m.TreeViewDestino = treeView1; // Establece el TreeView 2 como destino
+            m.condicion = "Ajuste de caja";
+            m.balance = "Egreso";
             m.groupBox1.Text = "Caja chica";
             m.label1.Text = "Ajustes de caja - Egreso";
             m.Show();
@@ -48,7 +52,9 @@ namespace BAREST.Cajas
         private void acajagrande_Click(object sender, System.EventArgs e)
         {
             Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Retiros a caja grande");
-            m.TreeViewDestino = treeView1; // Establece el TreeView 2 como destino
+            m.condicion = "Retiros a caja grande";
+            m.btncaja = "Grande";
+            m.balance = "Egreso";
             m.groupBox1.Text = "Caja chica";
             m.label1.Text = "Retiros a caja grande";
             m.Show();
@@ -57,18 +63,21 @@ namespace BAREST.Cajas
         private void acajasocios_Click(object sender, System.EventArgs e)
         {
             Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Retiros a caja socios");
-            m.TreeViewDestino = treeView1; // Establece el TreeView 2 como destino
+            m.condicion = "Retiros a caja socios";
+            m.btncaja = "Socios";
+            m.balance = "Egreso";
             m.groupBox1.Text = "Caja chica";
             m.label1.Text = "Retiros a caja socios";
             m.Show();
         }
 
-        //---------------------------------------------------------------------------
+        //----------------------------------------------------------------------------
 
         private void ajustesdecajaingreso_Click(object sender, System.EventArgs e)
         {
-            Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Ajuste de cajasd");
-            m.TreeViewDestino = treeView2; // Establece el TreeView 2 como destino
+            Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Ajuste de cajas");
+            m.condicion = "Ajuste de cajas";
+            m.balance = "Ingreso"; 
             m.groupBox1.Text = "Caja chica";
             m.label1.Text = "Ajustes de caja - Ingreso";
             m.Show();
@@ -77,7 +86,9 @@ namespace BAREST.Cajas
         private void decajagrande_Click(object sender, System.EventArgs e)
         {
             Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Aporte de caja grande");
-            m.TreeViewDestino = treeView2; // Establece el TreeView 2 como destino
+            m.btncaja = "Grande";
+            m.condicion = "Aporte de caja grande";
+            m.balance = "Ingreso"; 
             m.groupBox1.Text = "Caja chica";
             m.label1.Text = "Aporte de caja grande";
             m.Show();
@@ -85,12 +96,16 @@ namespace BAREST.Cajas
 
         private void decajasocios_Click(object sender, System.EventArgs e)
         {
-            Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Aporte de caja socios");
-            m.TreeViewDestino = treeView2; // Establece el TreeView 2 como destino
+            Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Aporte de caja Socios");
+            m.condicion = "Aporte de caja Socios";
+            m.btncaja = "Socios";
+            m.balance = "Ingreso"; 
             m.groupBox1.Text = "Caja chica";
             m.label1.Text = "Aporte de caja socios";
             m.Show();
         }
+
+        //----------------------------------------------------------------------------
 
         public void sumarsaldo()
         {
@@ -101,7 +116,6 @@ namespace BAREST.Cajas
 
             textBox1.Text = total.ToString("N2");
         }
-
 
         public void RealizarSumaTreeView1()
         {
@@ -148,56 +162,120 @@ namespace BAREST.Cajas
         }
 
         private void CajaCh_Load(object sender, System.EventArgs e)
-        {
-            txtTotal.Text = "0,00";
-            textBox1.Text = "0,00";
-            textBox3.Text = "0,00";
+        {         
+            todoload();
         }
 
-
-
-        private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        public void todoload()
         {
-            if (e.Node != null && e.Node.Nodes.Count == 0) // Verifica que el nodo no tenga hijos
+            treeView1.Nodes.Clear();
+            treeView2.Nodes.Clear();
+            LoadDataIntoTreeViews();
+
+            RealizarSumaTreeView1();
+            RealizarSumaTreeView2();
+            sumarsaldo();
+        }
+
+        private void LoadDataIntoTreeViews()
+        {
+            DataTable negativeDataTable = GetDataFromDatabase("SELECT * FROM CajaChica WHERE monto < 0;");
+            DataTable positiveDataTable = GetDataFromDatabase("SELECT * FROM CajaChica WHERE monto >= 0;");
+
+            BuildTreeView(treeView1, negativeDataTable, false);
+            BuildTreeView(treeView2, positiveDataTable, true);
+        }
+
+        private DataTable GetDataFromDatabase(string sqlQuery)
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = Conexion.ObtenerConexion())
             {
-                // Obtén el texto completo del nodo
-                string nodeText = e.Node.Text;
+                SqlCommand command = new SqlCommand(sqlQuery, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dataTable);
+            }
 
-                // Obtiene el índice del nodo
-                int nodeIndex = e.Node.Index;
+            return dataTable;
+        }
 
-                // Busca el índice del signo peso en el texto
-                int pesoIndex = nodeText.IndexOf('$');
+        private void BuildTreeView(TreeView treeView, DataTable dataTable, bool isPositive)
+        {
+            foreach (DataRow row in dataTable.Rows)
+            {
+                int idCajaChica = Convert.ToInt32(row["idCajaChica"]);
+                float monto = Convert.ToSingle(row["monto"]);
+                string condicion = (string)row["condicion"];
+                string descripcion = (string)row["descripcion"];
 
-                if (pesoIndex != -1)
+                // Formatear el nodeText para alinear el monto con la descripción
+                string nodeText = descripcion.PadRight(35) + monto.ToString();
+
+                TreeNode parentNode = FindParentNode(treeView, condicion);
+
+                if (parentNode == null)
                 {
-                    // Extrae el concepto y el monto separadamente
-                    string concepto = nodeText.Substring(0, pesoIndex);
-                    string montoStr = nodeText.Substring(pesoIndex + 1).Trim(); // Elimina los espacios iniciales y finales
+                    parentNode = new TreeNode(condicion);
+                    treeView.Nodes.Add(parentNode);
+                }
 
-                    // Elimina el signo de peso del monto
-                    montoStr = montoStr.Replace("$", string.Empty);
+                // Agregar el nodo hijo con el nodeText formateado
+                TreeNode newNode = new TreeNode(nodeText);
+                newNode.Name = idCajaChica.ToString();
+                parentNode.Nodes.Add(newNode);
+            }
+        }
 
-                    // Crea una instancia del formulario IngresarMonto
-                    IngresarMonto ingresoMonto = new IngresarMonto(this, concepto, montoStr);
-
-                    ingresoMonto.NodoIndex = nodeIndex;
-                    ingresoMonto.TreeViewDestino = treeView1;
-                    // Muestra el formulario IngresarMonto
-                    ingresoMonto.ShowDialog();
-
-                    // Actualiza el nodo con los nuevos valores si se confirmó la operación
-                    if (ingresoMonto.Confirmado)
-                    {
-                        // Actualiza los campos de concepto y monto del nodo
-                        string updatedText = ingresoMonto.Concepto + " $" + ingresoMonto.Monto;
-                        e.Node.Text = updatedText.Trim(); // Elimina los espacios iniciales y finales
-
-                        // Refresca el TreeView para mostrar el cambio
-                        treeView1.Refresh();
-                    }
+        private TreeNode FindParentNode(TreeView treeView, string condicion)
+        {
+            foreach (TreeNode node in treeView.Nodes)
+            {
+                if (node.Text == condicion)
+                {
+                    return node;
                 }
             }
+            return null;
+        }
+
+        private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {        
+            TreeNode selectedNode = treeView1.GetNodeAt(e.Location);
+
+            if (selectedNode != null && selectedNode.Nodes.Count == 0) // Verifica que el nodo no tenga hijos
+            {
+                Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Editar");
+                m.idCajaChica = Convert.ToInt32(selectedNode.Name);
+                m.groupBox1.Text = "Caja chica";
+                m.label1.Text = "Editar";
+                m.Show();
+            }
+        }
+
+        private void treeView2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            TreeNode selectedNode = treeView2.GetNodeAt(e.Location);
+
+            if (selectedNode != null && selectedNode.Nodes.Count == 0) // Verifica que el nodo no tenga hijos
+            {
+                Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Editar");
+                m.idCajaChica = Convert.ToInt32(selectedNode.Name);
+                m.groupBox1.Text = "Caja chica";
+                m.label1.Text = "Editar";
+                m.Show();
+            } 
+        }
+
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+            Cajas.EstadisticasCajas m = new Cajas.EstadisticasCajas();
+            m.Show();
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

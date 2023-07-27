@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Ventas totales");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Ventas totales");
             this.gastosvarios = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -113,6 +113,7 @@
             this.btnEstadisticas.Text = "       Estadisticas";
             this.btnEstadisticas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstadisticas.UseVisualStyleBackColor = true;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
             // btnImprimir
             // 
@@ -133,6 +134,7 @@
             this.btnImprimir.Text = "       Imprimir";
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnAgregarRes
             // 
@@ -276,7 +278,7 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(379, 257);
             this.treeView1.TabIndex = 2;
-            this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
+            this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
             // 
             // panel3
             // 
@@ -365,12 +367,13 @@
             this.treeView2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView2.Location = new System.Drawing.Point(6, 21);
             this.treeView2.Name = "treeView2";
-            treeNode4.Name = "Nodo0";
-            treeNode4.Text = "Ventas totales";
+            treeNode3.Name = "Nodo0";
+            treeNode3.Text = "Ventas totales";
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode3});
             this.treeView2.Size = new System.Drawing.Size(379, 257);
             this.treeView2.TabIndex = 3;
+            this.treeView2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView2_MouseDoubleClick);
             // 
             // CajaCh
             // 

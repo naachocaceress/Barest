@@ -84,7 +84,7 @@ namespace BAREST.Reserva
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 415);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(524, 50);
+            this.panel1.Size = new System.Drawing.Size(601, 50);
             this.panel1.TabIndex = 48;
             // 
             // iconButton2
@@ -94,7 +94,7 @@ namespace BAREST.Reserva
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.AreaChart;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.ChartArea;
             this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 30;
@@ -136,7 +136,7 @@ namespace BAREST.Reserva
             this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstadisticas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.PieChart;
+            this.btnEstadisticas.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
             this.btnEstadisticas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.btnEstadisticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEstadisticas.IconSize = 30;
@@ -192,6 +192,7 @@ namespace BAREST.Reserva
             // 
             chartArea4.Name = "ChartArea1";
             this.chart4.ChartAreas.Add(chartArea4);
+            this.chart4.Dock = System.Windows.Forms.DockStyle.Fill;
             legend4.Name = "Legend1";
             this.chart4.Legends.Add(legend4);
             this.chart4.Location = new System.Drawing.Point(0, 0);
@@ -203,7 +204,7 @@ namespace BAREST.Reserva
             series4.Legend = "Legend1";
             series4.Name = "Series1";
             this.chart4.Series.Add(series4);
-            this.chart4.Size = new System.Drawing.Size(524, 409);
+            this.chart4.Size = new System.Drawing.Size(601, 415);
             this.chart4.TabIndex = 51;
             this.chart4.Text = "chart4";
             // 
@@ -211,7 +212,7 @@ namespace BAREST.Reserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 465);
+            this.ClientSize = new System.Drawing.Size(601, 465);
             this.Controls.Add(this.chart4);
             this.Controls.Add(this.chart3);
             this.Controls.Add(this.chart2);

@@ -38,6 +38,7 @@ namespace BAREST.Cajas
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.eliminarbtn = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -58,12 +59,13 @@ namespace BAREST.Cajas
             this.txtConcepto.Location = new System.Drawing.Point(95, 94);
             this.txtConcepto.Name = "txtConcepto";
             this.txtConcepto.Size = new System.Drawing.Size(170, 22);
-            this.txtConcepto.TabIndex = 1;
+            this.txtConcepto.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.panel1.Controls.Add(this.confirmar);
+            this.panel1.Controls.Add(this.eliminarbtn);
             this.panel1.Controls.Add(this.EliminarInsu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 164);
@@ -83,10 +85,10 @@ namespace BAREST.Cajas
             this.confirmar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.confirmar.IconSize = 30;
             this.confirmar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.confirmar.Location = new System.Drawing.Point(108, 0);
+            this.confirmar.Location = new System.Drawing.Point(0, 0);
             this.confirmar.Name = "confirmar";
-            this.confirmar.Size = new System.Drawing.Size(109, 50);
-            this.confirmar.TabIndex = 9;
+            this.confirmar.Size = new System.Drawing.Size(114, 50);
+            this.confirmar.TabIndex = 3;
             this.confirmar.Text = "       Confirmar";
             this.confirmar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.confirmar.UseVisualStyleBackColor = true;
@@ -104,10 +106,10 @@ namespace BAREST.Cajas
             this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.EliminarInsu.IconSize = 30;
             this.EliminarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.Location = new System.Drawing.Point(217, 0);
+            this.EliminarInsu.Location = new System.Drawing.Point(214, 0);
             this.EliminarInsu.Name = "EliminarInsu";
-            this.EliminarInsu.Size = new System.Drawing.Size(100, 50);
-            this.EliminarInsu.TabIndex = 10;
+            this.EliminarInsu.Size = new System.Drawing.Size(103, 50);
+            this.EliminarInsu.TabIndex = 4;
             this.EliminarInsu.Text = "       Cancelar";
             this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.EliminarInsu.UseVisualStyleBackColor = true;
@@ -128,7 +130,7 @@ namespace BAREST.Cajas
             this.txtMonto.Location = new System.Drawing.Point(95, 55);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(170, 22);
-            this.txtMonto.TabIndex = 50;
+            this.txtMonto.TabIndex = 1;
             // 
             // label3
             // 
@@ -155,6 +157,28 @@ namespace BAREST.Cajas
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Caja chica";
             // 
+            // eliminarbtn
+            // 
+            this.eliminarbtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.eliminarbtn.FlatAppearance.BorderSize = 0;
+            this.eliminarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.eliminarbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eliminarbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.eliminarbtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.eliminarbtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.eliminarbtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.eliminarbtn.IconSize = 30;
+            this.eliminarbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.eliminarbtn.Location = new System.Drawing.Point(114, 0);
+            this.eliminarbtn.Name = "eliminarbtn";
+            this.eliminarbtn.Size = new System.Drawing.Size(100, 50);
+            this.eliminarbtn.TabIndex = 5;
+            this.eliminarbtn.Text = "       Eliminar";
+            this.eliminarbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.eliminarbtn.UseVisualStyleBackColor = true;
+            this.eliminarbtn.Visible = false;
+            this.eliminarbtn.Click += new System.EventHandler(this.eliminarbtn_Click);
+            // 
             // IngresarMonto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,7 +191,7 @@ namespace BAREST.Cajas
             this.Name = "IngresarMonto";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ingresar";
+            this.Text = "Ingresar datos";
             this.Load += new System.EventHandler(this.IngresarMonto_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -186,5 +210,6 @@ namespace BAREST.Cajas
         public System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.TextBox txtConcepto;
         public System.Windows.Forms.TextBox txtMonto;
+        private FontAwesome.Sharp.IconButton eliminarbtn;
     }
 }
