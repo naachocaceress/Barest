@@ -8,157 +8,177 @@ namespace BAREST.Clientes
 {
     public partial class ingresarCliente : Form
     {
-        public string nombre;
-        public string apellido { get; set; }
-        public string domicilio { get; set; }
-        public string altura { get; set; }
-        public string depto { get; set; }
-        public string id { get; set; }
-        public string documento { get; set; }
-        public string piso { get; set; }
-        public string cuit { get; set; }
-        public  string telefono { get; set; }   
-        public DateTime fecha { get; set; }
-
         public ingresarCliente()
         {
             InitializeComponent();
+
         }
 
         private void agregarCliente_Click(object sender, EventArgs e)
         {
-            
             try
             {
-                if (string.IsNullOrEmpty(textid.Text))
+                if (textid.Text == "")
                 {
-                    if (existeCliente())
+                    if (existeCLiente())
                     {
-                        MessageBox.Show("Existe este documento en el sistema con el nombre: " + textNombre.Text);
+                        MessageBox.Show("Existe este documento en el sistema con el nombre:" + textNombre.Text + " ");
                         return;
                     }
-
-                    if (string.IsNullOrWhiteSpace(textApe.Text) || string.IsNullOrWhiteSpace(textNombre.Text) || string.IsNullOrWhiteSpace(textcalle.Text) || string.IsNullOrWhiteSpace(textAltura.Text))
+                    if (textApe.Text == "" || textNombre.Text == "" || textcalle.Text == "" || textNro.Text == "")
                     {
                         MessageBox.Show("Los campos con * son necesarios");
                         return;
                     }
+                    else
+                    {
+                        InsercionCLiente();
+                        limpiar();
+                        return;
 
-                    InsercionCliente();
+                    }
                 }
                 else
                 {
                     EditCliente();
-                }
-
-                LimpiarCampos();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private bool existeCliente()
-        {
-            try
-            {
-                using (SqlConnection conexion = Conexion.ObtenerConexion())
-                using (var comando = new SqlCommand("SELECT documento FROM Cliente WHERE documento = @dni", conexion))
-                {
-                    comando.Parameters.AddWithValue("@dni", SqlDbType.VarChar).Value = textdni.Text;
-                    return comando.ExecuteScalar() != null;
+                    limpiar();
+                    return;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-        }
 
-        private void InsercionCliente()
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        bool existeCLiente()
+        {
+            bool existe = false;
+            try
+            {
+                Conexion.ObtenerConexion();
+                String sql = " select dni from Cliente where dni like @dni";
+                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                comando.Parameters.Add("@dni", SqlDbType.Char).Value = textdni.Text;
+                SqlDataReader registro = comando.ExecuteReader();
+                if (registro.Read())
+                    existe = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            Conexion.ObtenerConexion().Close();
+            return existe;
+        }
+        void InsercionCLiente()
         {
             try
             {
-                using (SqlConnection conexion = Conexion.ObtenerConexion())
-                using (var comando = new SqlCommand("INSERT INTO Cliente (nombre, apellido, telefono, domicilio, altura, depto, documento, piso, cuit, fecha) VALUES (@nombre, @apellido, @telefono, @domicilio, @altura, @depto, @documento, @piso, @cuit, @fecha)", conexion))
+                String sql = " INSERT INTO Cliente(nombre,apellido,telefono,domicilio,altura,deptopiso,dni) VALUES(@nombre,@apellido,@telefono,@domicilio,@altura,@deptopiso,@dni)";
+
+                using (Conexion.ObtenerConexion())
                 {
-                    comando.Parameters.AddWithValue("@nombre", SqlDbType.VarChar).Value = textNombre.Text;
-                    comando.Parameters.AddWithValue("@apellido", SqlDbType.VarChar).Value = textApe.Text;
-                    comando.Parameters.AddWithValue("@telefono", SqlDbType.VarChar).Value = textTel.Text;
-                    comando.Parameters.AddWithValue("@domicilio", SqlDbType.VarChar).Value = textcalle.Text;
-                    comando.Parameters.AddWithValue("@altura", SqlDbType.VarChar).Value = textAltura.Text;
-                    comando.Parameters.AddWithValue("@depto", SqlDbType.VarChar).Value = textDepto.Text;
-                    comando.Parameters.AddWithValue("@documento", SqlDbType.VarChar).Value = textdni.Text;
-                    comando.Parameters.AddWithValue("@piso", SqlDbType.VarChar).Value = textPiso.Text;
-                    comando.Parameters.AddWithValue("@cuit", SqlDbType.VarChar).Value = textCuil.Text;
-                    comando.Parameters.AddWithValue("@fecha", DateTime.Now);
+
+                    var comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                    comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = textNombre.Text;
+                    comando.Parameters.Add("@apellido", SqlDbType.VarChar).Value = textApe.Text;
+                    comando.Parameters.Add("@telefono", SqlDbType.VarChar).Value = textTel.Text;
+                    comando.Parameters.Add("@domicilio", SqlDbType.VarChar).Value = textcalle.Text;
+                    comando.Parameters.Add("@dni", SqlDbType.VarChar).Value = textdni.Text;
+                    comando.Parameters.Add("@altura", SqlDbType.VarChar).Value = textNro.Text;
+                    comando.Parameters.Add("@deptopiso", SqlDbType.VarChar).Value = textDepto.Text;
                     comando.ExecuteNonQuery();
-                }
+                    Conexion.ObtenerConexion().Close();
+                    MessageBox.Show(" se  ha registrado un nuevo cliente");
+                    limpiar();
 
-                MessageBox.Show("Se ha registrado un nuevo cliente");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
             }
+
         }
 
         private void EditCliente()
         {
             try
             {
-                using (SqlConnection conexion = Conexion.ObtenerConexion())
-                using (var comando = new SqlCommand("UPDATE Cliente SET nombre = @nombre, apellido = @apellido, telefono = @telefono, domicilio = @domicilio, altura = @altura, depto = @depto, cuit = @cuit, fecha=@fecha WHERE dni = @dni", conexion))
+                String sql = "Update [Cliente] SET[nombre]= @nombre, [apellido] = @apellido,  [telefono] = @telefono,  [domicilio] = @domicilio,  [altura] = @altura,  [deptopiso] = @deptopiso, [dni] = @dni WHERE id = @id ";
+                using (Conexion.ObtenerConexion())
                 {
-                    comando.Parameters.AddWithValue("@nombre", SqlDbType.VarChar).Value = textNombre.Text;
-                    comando.Parameters.AddWithValue("@apellido", SqlDbType.VarChar).Value = textApe.Text;
-                    comando.Parameters.AddWithValue("@telefono", SqlDbType.VarChar).Value = textTel.Text;
-                    comando.Parameters.AddWithValue("@domicilio", SqlDbType.VarChar).Value = textcalle.Text;
-                    comando.Parameters.AddWithValue("@altura", SqlDbType.VarChar).Value = textAltura.Text;
-                    comando.Parameters.AddWithValue("@depto", SqlDbType.VarChar).Value = textDepto.Text;
-                    comando.Parameters.AddWithValue("@cuit", SqlDbType.VarChar).Value = textCuil.Text;
-                    comando.Parameters.AddWithValue("@dni", SqlDbType.VarChar).Value = textdni.Text;
-                    comando.Parameters.AddWithValue("@fecha", DateTime.Now);
+                    SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+                    comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = textNombre.Text;
+                    comando.Parameters.Add("@apellido", SqlDbType.VarChar).Value = textApe.Text;
+                    comando.Parameters.Add("@telefono", SqlDbType.VarChar).Value = textTel.Text;
+                    comando.Parameters.Add("@domicilio", SqlDbType.VarChar).Value = textcalle.Text;
+                    comando.Parameters.Add("@dni", SqlDbType.VarChar).Value = textdni.Text;
+                    comando.Parameters.Add("@altura", SqlDbType.VarChar).Value = textNro.Text;
+                    comando.Parameters.Add("@deptopiso", SqlDbType.VarChar).Value = textDepto.Text;
+                    comando.Parameters.AddWithValue("@id", SqlDbType.VarChar).Value = textid.Text;
                     comando.ExecuteNonQuery();
+                    Conexion.ObtenerConexion().Close();
+                    MessageBox.Show("Los datos de " + textNombre.Text + " ha cambiado correctamente");
                 }
-
-                MessageBox.Show("Se ha actualizado el cliente");
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show(ex.Message);
             }
+
         }
 
         private void buscarDatos()
         {
-            textid.Text = id;
-            textNombre.Text = nombre;
-            textApe.Text = apellido;
-            textTel.Text = telefono;
-            textcalle.Text = domicilio;
-            textAltura.Text = altura; 
-            textDepto.Text = depto;
-            textdni.Text = documento;
-            textPiso.Text = piso;
-            textCuil.Text = cuit;
-            
-            
+            Conexion.ObtenerConexion();
+            string sql = "SELECT id,nombre,apellido,telefono,domicilio,altura,deptopiso,dni from Cliente WHERE nombre = @nombre";
+            var comando = new SqlCommand(sql, Conexion.ObtenerConexion());
+            comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = CLientesshare.selectCliente;
+            SqlDataReader leido = comando.ExecuteReader();
+            if (leido.Read())
+            {
+                textid.Text = leido["id"].ToString();
+                textNombre.Text = leido["nombre"].ToString();
+                textApe.Text = leido["apellido"].ToString();
+                textcalle.Text = leido["domicilio"].ToString();
+                textTel.Text = leido["telefono"].ToString();
+                textNro.Text = leido["altura"].ToString();
+                textDepto.Text = leido["deptopiso"].ToString();
+                textdni.Text = leido["dni"].ToString();
+
+            }
+            Conexion.ObtenerConexion().Close();
         }
-        private void LimpiarCampos()
+
+        private void ingresarCliente_Load(object sender, EventArgs e)
         {
-            textid.Text = "";
-            textNombre.Text = "";
-            textApe.Text = "";
-            textTel.Text = "";
+            if (CLientesshare.selectCliente == "")
+            {
+
+            }
+            else
+            {
+                buscarDatos();
+            }
+        }
+
+        public void limpiar()
+        {
+            textNombre.Text = " ";
+            textApe.Text = " ";
+            textTel.Text = " ";
+            textdni.Text = " ";
             textcalle.Text = "";
-            textAltura.Text = "";
+            textNro.Text = "";
             textDepto.Text = "";
-            textdni.Text = "";
-            textPiso.Text = "";
-            textCuil.Text = "";
+            textid.Text = "";
         }
 
         private void modificarCliente_Click(object sender, EventArgs e)
@@ -166,12 +186,8 @@ namespace BAREST.Clientes
             this.Close();
         }
 
-        private void ingresarCliente_Load(object sender, EventArgs e)
-        {
-            if (nombre != "")
-            {
-                buscarDatos();
-            }
-        }
+
     }
+
+
 }

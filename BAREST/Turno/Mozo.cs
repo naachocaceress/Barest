@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace BAREST.turno
@@ -36,7 +35,6 @@ namespace BAREST.turno
             Mesa1 m = new Mesa1();
             m.labelmozo.Text = "Juan";
             m.labelmesa.Text = label7.Text;
-         
             this.Close();
             m.ShowDialog();
         }
@@ -46,7 +44,6 @@ namespace BAREST.turno
             Mesa1 m = new Mesa1();
             m.labelmozo.Text = "Caleb";
             m.labelmesa.Text = label7.Text;
-            
             this.Close();
             m.ShowDialog();
         }
@@ -56,7 +53,6 @@ namespace BAREST.turno
             Mesa1 m = new Mesa1();
             m.labelmozo.Text = "Nacho";
             m.labelmesa.Text = label7.Text;
-            
             this.Close();
             m.ShowDialog();
         }
@@ -66,46 +62,20 @@ namespace BAREST.turno
             Mesa1 m = new Mesa1();
             m.labelmozo.Text = "Ian";
             m.labelmesa.Text = label7.Text;
-            
             this.Close();
             m.ShowDialog();
         }
 
-       private void crearComanda()
+        private void pepefoto_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons botones = MessageBoxButtons.YesNo;
-            DialogResult dr = MessageBox.Show("¿Crear una nueva Comanda?", "Nueva Comanda", botones, MessageBoxIcon.Question);
-
-            if (dr == DialogResult.Yes)
-            {
-                try
-                {
-                    using (SqlConnection conexion = Conexion.ObtenerConexion())
-                    using (SqlCommand comando = new SqlCommand("INSERT INTO [dbo].[Comanda]([mesa],[mozo],[fecha]) VALUES (@mesa, @mozo, GETDATE())", conexion))
-                    {
-                        Mesa1 m = new Mesa1();
-                        comando.Parameters.AddWithValue("mesa", m.labelmesa.Text);
-                        comando.Parameters.AddWithValue("@mozo", m.labelmozo.Text);
-
-                        comando.ExecuteNonQuery();
-                        
-                    }
-                }
-                  catch (Exception ex)
-                {
-
-                    MessageBox.Show("Error al eliminar el crear comanda:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-                
+            Mesa1 m = new Mesa1();
+            m.labelmozo.Text = "Pepe";
+            m.labelmesa.Text = label7.Text;
+            this.Close();
+            m.ShowDialog();
         }
 
         private void Mozo_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

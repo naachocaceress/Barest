@@ -49,17 +49,10 @@ namespace BAREST.Compras
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textAltura = new System.Windows.Forms.TextBox();
+            this.textNro = new System.Windows.Forms.TextBox();
             this.textDepto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textEmail = new System.Windows.Forms.TextBox();
-            this.comboRazon = new System.Windows.Forms.ComboBox();
-            this.textPiso = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnguardar = new FontAwesome.Sharp.IconButton();
-            this.textid = new System.Windows.Forms.TextBox();
+            this.guardarModifi = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaProveedores)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -68,13 +61,12 @@ namespace BAREST.Compras
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
-            this.panel1.Controls.Add(this.btnguardar);
             this.panel1.Controls.Add(this.agregarProveedor);
             this.panel1.Controls.Add(this.EliminarProv);
             this.panel1.Controls.Add(this.modificarProveedor);
             this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 387);
+            this.panel1.Location = new System.Drawing.Point(0, 233);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(662, 50);
             this.panel1.TabIndex = 1;
@@ -169,9 +161,9 @@ namespace BAREST.Compras
             this.tablaProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Empresa,
             this.Telefono});
-            this.tablaProveedores.Location = new System.Drawing.Point(390, 12);
+            this.tablaProveedores.Location = new System.Drawing.Point(414, 12);
             this.tablaProveedores.Name = "tablaProveedores";
-            this.tablaProveedores.Size = new System.Drawing.Size(272, 369);
+            this.tablaProveedores.Size = new System.Drawing.Size(236, 207);
             this.tablaProveedores.TabIndex = 2;
             // 
             // Empresa
@@ -203,14 +195,14 @@ namespace BAREST.Compras
             // 
             this.textTel.Location = new System.Drawing.Point(15, 133);
             this.textTel.Name = "textTel";
-            this.textTel.Size = new System.Drawing.Size(153, 20);
+            this.textTel.Size = new System.Drawing.Size(150, 20);
             this.textTel.TabIndex = 3;
             // 
             // textcalle
             // 
-            this.textcalle.Location = new System.Drawing.Point(56, 20);
+            this.textcalle.Location = new System.Drawing.Point(9, 41);
             this.textcalle.Name = "textcalle";
-            this.textcalle.Size = new System.Drawing.Size(144, 20);
+            this.textcalle.Size = new System.Drawing.Size(170, 20);
             this.textcalle.TabIndex = 6;
             // 
             // label1
@@ -252,7 +244,7 @@ namespace BAREST.Compras
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(233, 118);
+            this.label7.Location = new System.Drawing.Point(12, 173);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 13);
             this.label7.TabIndex = 15;
@@ -260,7 +252,7 @@ namespace BAREST.Compras
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(250, 141);
+            this.button3.Location = new System.Drawing.Point(29, 196);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(122, 23);
             this.button3.TabIndex = 5;
@@ -270,18 +262,15 @@ namespace BAREST.Compras
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textid);
-            this.groupBox1.Controls.Add(this.textPiso);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textAltura);
+            this.groupBox1.Controls.Add(this.textNro);
             this.groupBox1.Controls.Add(this.textDepto);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textcalle);
-            this.groupBox1.Location = new System.Drawing.Point(12, 178);
+            this.groupBox1.Location = new System.Drawing.Point(193, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(236, 185);
+            this.groupBox1.Size = new System.Drawing.Size(185, 130);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Domicilio";
@@ -289,22 +278,22 @@ namespace BAREST.Compras
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 60);
+            this.label10.Location = new System.Drawing.Point(6, 73);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(37, 13);
+            this.label10.Size = new System.Drawing.Size(27, 13);
             this.label10.TabIndex = 17;
-            this.label10.Text = "Altura:";
+            this.label10.Text = "Nro:";
             // 
-            // textAltura
+            // textNro
             // 
-            this.textAltura.Location = new System.Drawing.Point(56, 57);
-            this.textAltura.Name = "textAltura";
-            this.textAltura.Size = new System.Drawing.Size(72, 20);
-            this.textAltura.TabIndex = 7;
+            this.textNro.Location = new System.Drawing.Point(9, 97);
+            this.textNro.Name = "textNro";
+            this.textNro.Size = new System.Drawing.Size(51, 20);
+            this.textNro.TabIndex = 7;
             // 
             // textDepto
             // 
-            this.textDepto.Location = new System.Drawing.Point(56, 105);
+            this.textDepto.Location = new System.Drawing.Point(91, 97);
             this.textDepto.Name = "textDepto";
             this.textDepto.Size = new System.Drawing.Size(73, 20);
             this.textDepto.TabIndex = 8;
@@ -312,105 +301,28 @@ namespace BAREST.Compras
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(0, 112);
+            this.label8.Location = new System.Drawing.Point(88, 73);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Depto:";
+            this.label8.Text = "Depto/Piso:";
             // 
-            // label6
+            // guardarModifi
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(213, 56);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Email:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(213, 12);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 13);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Razon:";
-            // 
-            // textEmail
-            // 
-            this.textEmail.Location = new System.Drawing.Point(216, 77);
-            this.textEmail.Name = "textEmail";
-            this.textEmail.Size = new System.Drawing.Size(153, 20);
-            this.textEmail.TabIndex = 21;
-            // 
-            // comboRazon
-            // 
-            this.comboRazon.FormattingEnabled = true;
-            this.comboRazon.Items.AddRange(new object[] {
-            "Responsable Inscripto",
-            "Monotributo",
-            "Exentos"});
-            this.comboRazon.Location = new System.Drawing.Point(216, 32);
-            this.comboRazon.Name = "comboRazon";
-            this.comboRazon.Size = new System.Drawing.Size(155, 21);
-            this.comboRazon.TabIndex = 26;
-            // 
-            // textPiso
-            // 
-            this.textPiso.Location = new System.Drawing.Point(56, 148);
-            this.textPiso.Name = "textPiso";
-            this.textPiso.Size = new System.Drawing.Size(73, 20);
-            this.textPiso.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 155);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Piso:";
-            // 
-            // btnguardar
-            // 
-            this.btnguardar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnguardar.FlatAppearance.BorderSize = 0;
-            this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnguardar.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight;
-            this.btnguardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnguardar.IconSize = 30;
-            this.btnguardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnguardar.Location = new System.Drawing.Point(242, 0);
-            this.btnguardar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(110, 50);
-            this.btnguardar.TabIndex = 17;
-            this.btnguardar.Text = "       Guardar";
-            this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnguardar.UseVisualStyleBackColor = true;
-            this.btnguardar.Visible = false;
-            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
-            // 
-            // textid
-            // 
-            this.textid.Location = new System.Drawing.Point(163, 165);
-            this.textid.Name = "textid";
-            this.textid.Size = new System.Drawing.Size(73, 20);
-            this.textid.TabIndex = 27;
-            this.textid.Visible = false;
+            this.guardarModifi.Location = new System.Drawing.Point(223, 173);
+            this.guardarModifi.Name = "guardarModifi";
+            this.guardarModifi.Size = new System.Drawing.Size(122, 23);
+            this.guardarModifi.TabIndex = 19;
+            this.guardarModifi.Text = "Guardar";
+            this.guardarModifi.UseVisualStyleBackColor = true;
+            this.guardarModifi.Click += new System.EventHandler(this.button1_Click);
             // 
             // Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 437);
-            this.Controls.Add(this.comboRazon);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.textEmail);
+            this.ClientSize = new System.Drawing.Size(662, 283);
+            this.Controls.Add(this.guardarModifi);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label7);
@@ -457,19 +369,12 @@ namespace BAREST.Compras
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textAltura;
+        private System.Windows.Forms.TextBox textNro;
         private System.Windows.Forms.TextBox textDepto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button guardarModifi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Empresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textEmail;
-        private System.Windows.Forms.ComboBox comboRazon;
-        private System.Windows.Forms.TextBox textPiso;
-        private System.Windows.Forms.Label label5;
-        private FontAwesome.Sharp.IconButton btnguardar;
-        private System.Windows.Forms.TextBox textid;
     }
 }

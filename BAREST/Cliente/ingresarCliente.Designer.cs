@@ -36,7 +36,7 @@ namespace BAREST.Clientes
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textAltura = new System.Windows.Forms.TextBox();
+            this.textNro = new System.Windows.Forms.TextBox();
             this.textDepto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,11 +53,6 @@ namespace BAREST.Clientes
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textPiso = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textCuil = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +63,7 @@ namespace BAREST.Clientes
             this.panel1.Controls.Add(this.agregarCliente);
             this.panel1.Controls.Add(this.modificarCliente);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 435);
+            this.panel1.Location = new System.Drawing.Point(0, 355);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(372, 50);
             this.panel1.TabIndex = 16;
@@ -117,19 +112,17 @@ namespace BAREST.Clientes
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textPiso);
-            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textAltura);
+            this.groupBox1.Controls.Add(this.textNro);
             this.groupBox1.Controls.Add(this.textDepto);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textcalle);
-            this.groupBox1.Location = new System.Drawing.Point(41, 225);
+            this.groupBox1.Location = new System.Drawing.Point(36, 183);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(319, 186);
+            this.groupBox1.Size = new System.Drawing.Size(319, 130);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Domicilio";
@@ -139,7 +132,7 @@ namespace BAREST.Clientes
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(145, 73);
+            this.label12.Location = new System.Drawing.Point(120, 97);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(17, 24);
@@ -150,7 +143,7 @@ namespace BAREST.Clientes
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 73);
+            this.label10.Location = new System.Drawing.Point(65, 73);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(27, 13);
             this.label10.TabIndex = 17;
@@ -169,16 +162,16 @@ namespace BAREST.Clientes
             this.label9.Text = "*";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textAltura
+            // textNro
             // 
-            this.textAltura.Location = new System.Drawing.Point(68, 70);
-            this.textAltura.Name = "textAltura";
-            this.textAltura.Size = new System.Drawing.Size(51, 20);
-            this.textAltura.TabIndex = 7;
+            this.textNro.Location = new System.Drawing.Point(68, 97);
+            this.textNro.Name = "textNro";
+            this.textNro.Size = new System.Drawing.Size(51, 20);
+            this.textNro.TabIndex = 7;
             // 
             // textDepto
             // 
-            this.textDepto.Location = new System.Drawing.Point(68, 106);
+            this.textDepto.Location = new System.Drawing.Point(200, 97);
             this.textDepto.Name = "textDepto";
             this.textDepto.Size = new System.Drawing.Size(73, 20);
             this.textDepto.TabIndex = 8;
@@ -186,11 +179,11 @@ namespace BAREST.Clientes
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 113);
+            this.label8.Location = new System.Drawing.Point(197, 73);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Depto:";
+            this.label8.Text = "Depto/Piso:";
             // 
             // label1
             // 
@@ -274,7 +267,7 @@ namespace BAREST.Clientes
             // 
             // textid
             // 
-            this.textid.Location = new System.Drawing.Point(276, 375);
+            this.textid.Location = new System.Drawing.Point(36, 319);
             this.textid.Name = "textid";
             this.textid.Size = new System.Drawing.Size(52, 20);
             this.textid.TabIndex = 30;
@@ -319,59 +312,11 @@ namespace BAREST.Clientes
             this.label11.Text = "*";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textPiso
-            // 
-            this.textPiso.Location = new System.Drawing.Point(68, 151);
-            this.textPiso.Name = "textPiso";
-            this.textPiso.Size = new System.Drawing.Size(73, 20);
-            this.textPiso.TabIndex = 35;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 158);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(30, 13);
-            this.label13.TabIndex = 36;
-            this.label13.Text = "Piso:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(316, 178);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(17, 24);
-            this.label14.TabIndex = 37;
-            this.label14.Text = "*";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textCuil
-            // 
-            this.textCuil.Location = new System.Drawing.Point(109, 178);
-            this.textCuil.Name = "textCuil";
-            this.textCuil.Size = new System.Drawing.Size(205, 20);
-            this.textCuil.TabIndex = 36;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(38, 178);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(30, 13);
-            this.label15.TabIndex = 35;
-            this.label15.Text = "Cuil :";
-            // 
             // ingresarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 485);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.textCuil);
-            this.Controls.Add(this.label15);
+            this.ClientSize = new System.Drawing.Size(372, 405);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -404,7 +349,7 @@ namespace BAREST.Clientes
         private FontAwesome.Sharp.IconButton modificarCliente;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textAltura;
+        private System.Windows.Forms.TextBox textNro;
         private System.Windows.Forms.TextBox textDepto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
@@ -423,10 +368,5 @@ namespace BAREST.Clientes
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textPiso;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textCuil;
-        private System.Windows.Forms.Label label15;
     }
 }

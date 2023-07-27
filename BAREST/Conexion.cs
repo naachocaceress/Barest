@@ -16,7 +16,7 @@ namespace BAREST
         public static SqlConnection ObtenerConexion()
         {
             //SqlConnection Cone = new SqlConnection(ConfigurationManager.ConnectionStrings["BARESTNEWConnectionString1"].ConnectionString);
-            SqlConnection Cone = new SqlConnection(ObtenerString());
+             SqlConnection Cone = new SqlConnection(ObtenerString());
             Cone.Open();
             return Cone;
         }
