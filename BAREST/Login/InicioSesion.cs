@@ -59,8 +59,8 @@ namespace BAREST
             Conexion.ObtenerConexion();
             string sql = "select documento,contraseña from Usuario WHERE documento = @documento AND contraseña = @contra";
             SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            comando.Parameters.Add("@documento", SqlDbType.VarChar).Value = tboxUsuario.Text;
-            comando.Parameters.Add("@contra", SqlDbType.VarChar).Value = tboxContraseña.Text;
+            comando.Parameters.AddWithValue("@documento", tboxUsuario.Text);
+            comando.Parameters.AddWithValue("@contra", tboxContraseña.Text);
             SqlDataReader dr = comando.ExecuteReader();
             if (dr.Read())
             {
@@ -106,7 +106,7 @@ namespace BAREST
                 Conexion.ObtenerConexion();
                 String sql = " select documento from Usuario where documento like @doc";
                 SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                comando.Parameters.Add("@doc", SqlDbType.Char).Value = textUsuario.Text;
+                comando.Parameters.AddWithValue("@doc", textUsuario.Text);
                 SqlDataReader registro = comando.ExecuteReader();
                 if (registro.Read())
                     existe = true;
@@ -134,11 +134,12 @@ namespace BAREST
             else
             {
                 Conexion.ObtenerConexion();
-                String sql = " insert into Usuario (documento,contraseña,email,idSucursal,idCargo) values(@documento,@contra,@correo,'6','5')";
+                String sql = " insert into Usuario (documento,contraseña,email,idSucursal,idCargo,fechaNacimiento) values(@documento,@contra,@correo,'6','5',@fecha)";
                 SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                comando.Parameters.Add("@documento", SqlDbType.VarChar).Value = textUsuario.Text;
-                comando.Parameters.Add("@contra", SqlDbType.VarChar).Value = textContra.Text;
-                comando.Parameters.Add("@correo", SqlDbType.VarChar).Value = textCorreo.Text;
+                comando.Parameters.AddWithValue("@documento", textUsuario.Text);
+                comando.Parameters.AddWithValue("@contra", textContra.Text);
+                comando.Parameters.AddWithValue("@correo", textCorreo.Text);
+                comando.Parameters.AddWithValue("@fecha", DateTime.Now);
                 comando.ExecuteNonQuery();
                 textUsuario.Text = " ";
                 textContra.Text = "";

@@ -15,23 +15,29 @@ namespace BAREST.Compras
         {
             try
             {
-                Conexion.ObtenerConexion();
-                string sql = "select descripcion as articulo, unidad, cantidad,fechaIngreso,R.descripcion as rubro from Insumo  inner join RubroInsumo R on R.id = Insumo.idrubro";
-                SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                SqlDataReader registros = comando.ExecuteReader();
-                dataGridView1.Rows.Clear();
-                while (registros.Read())
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (SqlCommand comando = new SqlCommand("SELECT Insumo.descripcion, Insumo.cantidad, Insumo.unidad, RubroInsumo.descripcion rubro, Insumo.fechaIngreso FROM Insumo INNER JOIN RubroInsumo ON Insumo.idrubroInsumo = RubroInsumo.idRubroInsumo WHERE Insumo.estado = 'A' ORDER BY LTRIM(Insumo.descripcion) ASC", conexion))
                 {
-                    dataGridView1.Rows.Add(registros["articulo"].ToString(), registros["unidad"].ToString(), registros["cantidad"].ToString(), registros["rubro"].ToString());
-                }
-                registros.Close();
-                Conexion.ObtenerConexion().Close();
+                    SqlDataReader registros = comando.ExecuteReader();
+                    tablaInsumo.Rows.Clear();
+                    tablaInsumo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+                    while (registros.Read())
+                    {
+                        string descripcion = registros["descripcion"].ToString();
+                        int cantidad = Convert.ToInt32(registros["cantidad"]);
+                        string unidad = registros["unidad"].ToString();
+                        string rubro = registros["rubro"].ToString();
+                        DateTime fechaIngreso = (DateTime)registros["fechaIngreso"];
+                        tablaInsumo.Rows.Add(descripcion, cantidad, unidad, rubro, fechaIngreso);
+                    }
+
+                    registros.Close();
+                }
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error al cargar los datos del Insumo en la tablaInsumo:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

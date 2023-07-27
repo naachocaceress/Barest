@@ -13,24 +13,35 @@ namespace BAREST.Configuracion
 
         private void listadoCliente_Load(object sender, EventArgs e)
         {
-            Conexion.ObtenerConexion();
-            String sql = " SELECT [nombre],[apellido] ,[telefono] ,[domicilio] ,[altura] ,[deptopiso] ,[dni]FROM[dbo].[Cliente] ORDER BY  [nombre] ASC";
-            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            SqlDataReader registros = comando.ExecuteReader();
-            dataGridView1.Rows.Clear();
-            while (registros.Read())
+            try
             {
-                llenar();
-                dataGridView1.Rows.Add(registros["nombre"].ToString(),
-                                       registros["Apellido"].ToString(),
-                                       registros["telefono"].ToString(),
-                                       registros["domicilio"].ToString(),
-                                       registros["altura"].ToString(),
-                                       registros["deptopiso"].ToString(),
-                                       registros["dni"].ToString());
+                using (SqlConnection conexion = Conexion.ObtenerConexion()) 
+                using (var comando = new SqlCommand(" SELECT [nombre],[apellido] ,[telefono]  ,[documento],[domicilio],[altura] ,[depto], [piso] FROM[dbo].[Cliente] ORDER BY  [nombre] ASC", conexion)) 
+                using(SqlDataReader registros= comando.ExecuteReader()) 
+                {
+                   
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Columns.Clear();
+
+                    dataGridView1.Columns.Add("nombre", "Nombre");
+                    dataGridView1.Columns.Add("apellido", "Apellido");
+                    dataGridView1.Columns.Add("documento", "Documento");
+                    dataGridView1.Columns.Add("domicilio", "Domicilio");
+                    dataGridView1.Columns.Add("altura", "altura");
+                    dataGridView1.Columns.Add("depto", "Nombre");
+                    dataGridView1.Columns.Add("piso", "Piso");
+                   while (registros.Read())
+                    {
+                        dataGridView1.Rows.Add(registros["nombre"] , registros["apellido"], registros["documento"], registros["domicilio"], registros["altura"], registros["depto"], registros["piso"]);
+                    }
+
+                }
             }
-            registros.Close();
-            Conexion.ObtenerConexion().Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos de la lista clientes en la tabla: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         void llenar()
         {
