@@ -211,6 +211,12 @@
     <Compile Include="Compras\Insumos.Designer.cs">
       <DependentUpon>Insumos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\ListaCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\ListaCompras.Designer.cs">
+      <DependentUpon>ListaCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\listadoProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +417,9 @@
     <EmbeddedResource Include="Compras\Insumos.resx">
       <DependentUpon>Insumos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\ListaCompras.resx">
+      <DependentUpon>ListaCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\listadoProveedor.resx">
       <DependentUpon>listadoProveedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -566,6 +575,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Email login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barest Marca de agua año3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
