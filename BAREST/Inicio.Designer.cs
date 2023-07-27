@@ -216,7 +216,7 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.Transparent;
-            this.panelContenedor.BackgroundImage = global::BAREST.Properties.Resources.Barest_Marca_de_agua_año;
+            this.panelContenedor.BackgroundImage = global::BAREST.Properties.Resources.Barest_Marca_de_agua_año1;
             this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelContenedor.Controls.Add(this.panelPlano3);
             this.panelContenedor.Controls.Add(this.panelPlano1);
@@ -1497,12 +1497,12 @@
             this.config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.config.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.config.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.config.IconChar = FontAwesome.Sharp.IconChar.Cogs;
+            this.config.IconChar = FontAwesome.Sharp.IconChar.Gears;
             this.config.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.config.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.config.IconSize = 30;
             this.config.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.config.Location = new System.Drawing.Point(0, 820);
+            this.config.Location = new System.Drawing.Point(0, 784);
             this.config.Name = "config";
             this.config.Size = new System.Drawing.Size(120, 35);
             this.config.TabIndex = 28;
@@ -1524,7 +1524,7 @@
             this.informes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.informes.IconSize = 30;
             this.informes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.informes.Location = new System.Drawing.Point(0, 785);
+            this.informes.Location = new System.Drawing.Point(0, 749);
             this.informes.Name = "informes";
             this.informes.Size = new System.Drawing.Size(120, 35);
             this.informes.TabIndex = 27;
@@ -1545,7 +1545,7 @@
             this.btnCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCliente.IconSize = 30;
             this.btnCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCliente.Location = new System.Drawing.Point(0, 750);
+            this.btnCliente.Location = new System.Drawing.Point(0, 714);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(120, 35);
             this.btnCliente.TabIndex = 25;
@@ -1559,7 +1559,7 @@
             this.panelPersonal.Controls.Add(this.categorias);
             this.panelPersonal.Controls.Add(this.buttonEmpleado);
             this.panelPersonal.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPersonal.Location = new System.Drawing.Point(0, 680);
+            this.panelPersonal.Location = new System.Drawing.Point(0, 644);
             this.panelPersonal.Name = "panelPersonal";
             this.panelPersonal.Size = new System.Drawing.Size(120, 70);
             this.panelPersonal.TabIndex = 12;
@@ -1609,13 +1609,14 @@
             this.personal.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.personal.IconSize = 30;
             this.personal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personal.Location = new System.Drawing.Point(0, 645);
+            this.personal.Location = new System.Drawing.Point(0, 609);
             this.personal.Name = "personal";
             this.personal.Size = new System.Drawing.Size(120, 35);
             this.personal.TabIndex = 19;
             this.personal.Text = "          Personal";
             this.personal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.personal.UseVisualStyleBackColor = false;
+            this.personal.Visible = false;
             this.personal.Click += new System.EventHandler(this.personal_Click);
             // 
             // panelStock
@@ -1625,7 +1626,7 @@
             this.panelStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStock.Location = new System.Drawing.Point(0, 575);
             this.panelStock.Name = "panelStock";
-            this.panelStock.Size = new System.Drawing.Size(120, 70);
+            this.panelStock.Size = new System.Drawing.Size(120, 34);
             this.panelStock.TabIndex = 11;
             // 
             // inventariosStock
@@ -1642,6 +1643,7 @@
             this.inventariosStock.Text = "       Inventarios";
             this.inventariosStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.inventariosStock.UseVisualStyleBackColor = false;
+            this.inventariosStock.Visible = false;
             this.inventariosStock.Click += new System.EventHandler(this.inventariosStock_Click);
             // 
             // manejoStock
@@ -1771,7 +1773,7 @@
             this.ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ventas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.ventas.IconChar = FontAwesome.Sharp.IconChar.HandHoldingDollar;
+            this.ventas.IconChar = FontAwesome.Sharp.IconChar.HandHoldingUsd;
             this.ventas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.ventas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ventas.IconSize = 30;
@@ -1793,7 +1795,7 @@
             this.menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.menu.IconChar = FontAwesome.Sharp.IconChar.BookReader;
+            this.menu.IconChar = FontAwesome.Sharp.IconChar.BookOpenReader;
             this.menu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.menu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.menu.IconSize = 30;
@@ -1965,7 +1967,7 @@
             this.salir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.salir.IconSize = 30;
             this.salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salir.Location = new System.Drawing.Point(0, 855);
+            this.salir.Location = new System.Drawing.Point(0, 819);
             this.salir.Name = "salir";
             this.salir.Size = new System.Drawing.Size(120, 35);
             this.salir.TabIndex = 24;

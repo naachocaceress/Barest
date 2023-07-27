@@ -576,5 +576,8 @@
   <ItemGroup>
     <None Include="Resources\Email login.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barest Marca de agua año1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

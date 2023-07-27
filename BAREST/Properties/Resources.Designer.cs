@@ -123,6 +123,16 @@ namespace BAREST.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Barest_Marca_de_agua_año1 {
+            get {
+                object obj = ResourceManager.GetObject("Barest Marca de agua año1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Candado_login1 {
             get {
                 object obj = ResourceManager.GetObject("Candado login1", resourceCulture);
