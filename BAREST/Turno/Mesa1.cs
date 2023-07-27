@@ -1,10 +1,12 @@
-﻿using System;
+﻿using BAREST.turno;
+using System;
 using System.Data;
 
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Windows.Forms;
 
@@ -13,16 +15,23 @@ namespace BAREST
     public partial class Mesa1 : Form
     {
         private int idComandaActual; // Variable para almacenar el ID de la comanda actual
+        private string mozoactual;
         public Mesa1()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public static class ClaseCompartida
         {
-            Comandas();
-            this.Close();
+            public static int valor = 0;
+            public static int usu = 0;
+            public static int ColorMesa = 0;
+            public static string Mesa = "";
+            public static int comanda = 0;
+            public static int comandaActual = 0;
+            public static int cobro= 0;
+            // otras variables estáticas
         }
+        
             
        
         /// <summary>
@@ -60,6 +69,7 @@ namespace BAREST
                     btnComanda.Visible = false;
                     agregarMenulista.Visible = true;
                     textBuscar.Enabled = true;
+                    textComensal.Enabled = false;
                 }
                 catch (Exception ex)
                 {
@@ -67,6 +77,7 @@ namespace BAREST
                 }
             }
         }
+        
         private void Comandas()
         {
             Conexion.ObtenerConexion();
@@ -151,107 +162,46 @@ namespace BAREST
                 throw;
             }
         }
-       /* private void Cobro()
-        {
-            Conexion.ObtenerConexion();
-            try
+        /* private void Cobro()
+         {
+             ClaseCompartida.ColorMesa == 5
+             Necesito que cambiar el estado de todas la filas que tiene el idcomanda el mozo y la mesa de la tabla mesa y comanda  a estado='C' 
+             
+         }*/
 
-            {
-                using (var comanda = new SqlCommand())
-                {
-                    comanda.Connection = Conexion.ObtenerConexion();
-                    comanda.CommandText = " INSERT INTO Cobro(idMozo,idMesa,comensal,total,fecha) VALUES (@mozoc,@mesac,@comensal,@total,@fecha)";
-                    comanda.Parameters.AddWithValue("@mesac", SqlDbType.VarChar).Value = labelmesa.Text;
-                    comanda.Parameters.AddWithValue("@mozoc", SqlDbType.VarChar).Value = labelmozo.Text;
-                    comanda.Parameters.AddWithValue("@comensal", SqlDbType.VarChar).Value = textComensal.Text;
-                    comanda.Parameters.AddWithValue("@total", SqlDbType.Float).Value = textTotal.Text;
-                    comanda.Parameters.AddWithValue("@fecha", SqlDbType.DateTime).Value = DateTime.Now;
-                    comanda.ExecuteNonQuery();
-                    comanda.Parameters.Clear();
-                }
 
-            }
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw;
-            }
-        }*/
 
-       
-
-        public static class ClaseCompartida
-        {
-            public static int valor = 0;
-            public static int usu = 0;
-            public static int mmm = 0;
-            public static string Mesa = "";
-            public static int comanda = 0;
-            // otras variables estáticas
-        }
 
         private void agregarMenulista_Click(object sender, EventArgs e)
         {
             agregarMenulista2();
+            
         }
 
         public int cantidad = 0;
         
-       /* private void crearComanda()
-        {
-
-            if (string.IsNullOrWhiteSpace(textComensal.Text))
-            {
-                MessageBox.Show("Falta agregar cantidad de comensal");
-                return;
-            }
-
-            
-
-            if (dr == DialogResult.Yes)
-            {
-                try
-                {
-                    using (SqlConnection conexion = Conexion.ObtenerConexion())
-                    using (SqlCommand comando = new SqlCommand("INSERT INTO [dbo].[Comanda]([mesa],[mozo],[comensal],[fecha]) VALUES (@mesa, @mozo, @comensal, GETDATE())", conexion))
-                    {
-
-                        comando.Parameters.AddWithValue("mesa", labelmesa.Text);
-                        comando.Parameters.AddWithValue("@mozo", labelmozo.Text);
-                        comando.Parameters.AddWithValue("@comensal", textComensal.Text);
-                        comando.ExecuteNonQuery();
-
-                    }
-                    btnComanda.Visible = false;
-                    agregarMenulista.Visible = true;
-                    textBuscar.Enabled = true;
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show("Error al eliminar el crear comanda:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-        }*/
+       
         /// <summary>
         /// el id para agregar a cada fila de la mesa.
         /// </summary>
         private void buscarIdComanda()
         {
+            
             try
             {
                 using (SqlConnection conexion = Conexion.ObtenerConexion())
-                using (SqlCommand comando = new SqlCommand("SELECT [idComanda]FROM [dbo].[Comanda] WHERE [mesa] =@mesa AND [mozo]=@mozo AND [estado] ='A'", conexion))
+                using (SqlCommand comando = new SqlCommand("SELECT [idComanda] FROM [dbo].[Comanda] WHERE [mesa] =@mesa AND [mozo] =@mozo  AND [estado] ='A'", conexion))
                 {
-                    comando.Parameters.AddWithValue("mesa", labelmesa.Text);
+                    comando.Parameters.AddWithValue("@mesa", labelmesa.Text);
                     comando.Parameters.AddWithValue("@mozo", labelmozo.Text);
                     SqlDataAdapter adaptador1 = new SqlDataAdapter();
                     adaptador1.SelectCommand = comando;
                     DataTable tabla1 = new DataTable();
                     adaptador1.Fill(tabla1);
-                    textIdComanda.Text = "idComada";
+                    idComandaActual = Convert.ToInt32("idComanda");
+                    mozoactual = "mozo";
+                    MessageBox.Show(Convert.ToString( idComandaActual) + mozoactual);
 
                 }
             }
@@ -260,8 +210,33 @@ namespace BAREST
                 MessageBox.Show(ex.Message, "error en el idComanda", MessageBoxButtons.OK);
             }
         }
-        
 
+        private void buscarIdComandaymozo()
+        {
+
+            try
+            {
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (SqlCommand comando = new SqlCommand("SELECT [idComanda], [mozo] FROM [dbo].[Comanda] WHERE [mesa] =@mesa  AND [estado] ='A'", conexion))
+                {
+                    comando.Parameters.AddWithValue("@mesa", labelmesa.Text);
+                    SqlDataAdapter adaptador1 = new SqlDataAdapter();
+                    adaptador1.SelectCommand = comando;
+                    DataTable tabla1 = new DataTable();
+                    adaptador1.Fill(tabla1);
+                   Int32.Parse( textIdComanda.Text = "idComanda");
+                    labelmozo.Text = "mozo";
+                    MessageBox.Show(textIdComanda.Text + labelmozo.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "error en el idComanda", MessageBoxButtons.OK);
+            }
+        }
+       /// <summary>
+       /// 
+       /// </summary>
         private void agregarMenulista2()
         {
 
@@ -301,51 +276,58 @@ namespace BAREST
         // insertar menu ------------------------------------------ 
         private void IngresarMenu()
         {
-            dataGridView1.Rows.Remove(dataGridView1.Rows[dataGridView1.Rows.Count - 1]);
-            Conexion.ObtenerConexion();
-            string sql = "SELECT nombre,precio FROM Menu WHERE idMenu = @idMenu";
-            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            comando.Parameters.Clear();
-            //comando.Parameters.Add("@nom", SqlDbType.VarChar).Value = textBox2.Text;
-            comando.Parameters.Add("@idMenu", SqlDbType.Int).Value = textBuscar.Text;
-            SqlDataReader registros = comando.ExecuteReader();
-            if (registros.Read())
+            if (dataGridView1.Rows.Count > 0)
+                dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1);
+
+            string sql = "SELECT nombre, precio FROM Menu WHERE idMenu = @idMenu";
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            using (SqlCommand comando = new SqlCommand(sql, conexion))
             {
-                float tt2 = float.Parse(registros["precio"].ToString());
-                float tt3 = cantidad * tt2;
-                string tt4 = tt3.ToString();
-                dataGridView1.Rows.Add(new String[] { cantidad.ToString(), registros["nombre"].ToString(), registros["precio"].ToString(), tt4 });
+                comando.Parameters.AddWithValue("@idMenu", SqlDbType.Int).Value = textBuscar.Text;
+                SqlDataReader registros = comando.ExecuteReader();
+
+                if (registros.Read())
+                {
+                    float precioUnitario = float.Parse(registros["precio"].ToString());
+                    float precioTotal = cantidad * precioUnitario;
+                    string tt4 = precioTotal.ToString();
+                    dataGridView1.Rows.Add(new string[] { cantidad.ToString(), registros["nombre"].ToString(), registros["precio"].ToString(), tt4 });
+                }
+                else
+                {
+                    registros.Close();
+                }
             }
-            else
-            registros.Close();
+
             sumaT();
-            Conexion.ObtenerConexion().Close();
             textBuscar.Text = "";
-
-            ClaseCompartida.valor = 1;// color rojo
             cantidad = 0;
+            
         }
-        //  suma los precio total--------------- perfecto
 
+        // Método para calcular y mostrar la suma total en el campo de texto textTotal
         private void sumaT()
         {
             int sumatorio = 0;
-
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 sumatorio += Convert.ToInt32(row.Cells["precioTotal"].Value);
             }
 
-            string hola = sumatorio.ToString();
-
-            textTotal.Text = hola;
+            textTotal.Text = sumatorio.ToString();
         }
         //------------------------------------------------------------------
+        private void ConfirmarComanda_Click(object sender, EventArgs e)
+        {
+            Comandas();
+            ClaseCompartida.valor = 1;
+            ClaseCompartida.ColorMesa = 1;
+            this.Close();
+        }
 
-        private void EliminarInsu_Click(object sender, EventArgs e)
+        private void EliminarComanda_Click(object sender, EventArgs e)
         {
             eliminar();
-           // eliminarFiladb();
         }
 
         private void eliminar()
@@ -433,16 +415,24 @@ namespace BAREST
         //---------------------------------------------------
         private void Mesa1_Load(object sender, EventArgs e)
         {
-            if (ClaseCompartida.mmm == 1)
+            try
             {
-                try
+
+
+                
+                if (ClaseCompartida.ColorMesa == 0)
                 {
+
+                }
+                else if (ClaseCompartida.ColorMesa == 1)
+                {
+                    textComensal.Enabled = false;
                     Conexion.ObtenerConexion();
                     string sql = "SELECT [idMesa], [cantidad], [detalles], [precioUnitario], [precioTotal] FROM [dbo].[Mesa] WHERE [mesa] = @mesa AND [mozo] = @mozo AND [estado] = 'A' AND [idComanda] = @idComanda";
                     SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
                     comando.Parameters.AddWithValue("@mesa", ClaseCompartida.Mesa);
                     comando.Parameters.AddWithValue("@mozo", labelmozo.Text);
-                    comando.Parameters.AddWithValue("@idComanda", idComandaActual); // Usar el ID de la comanda actual
+                    comando.Parameters.AddWithValue("@idComanda", textIdComanda.Text); // Usar el ID de la comanda actual
                     SqlDataReader leido = comando.ExecuteReader();
 
                     // Limpia las columnas existentes para evitar duplicados en cada carga
@@ -464,19 +454,24 @@ namespace BAREST
                     // Ahora, hacemos la columna "ID Mesa" invisible
                     dataGridView1.Columns["idMesa"].Visible = false;
 
-                    ClaseCompartida.mmm = 0;
+                    //ClaseCompartida.ColorMesa = 0;
                 }
-                catch (Exception ex)
+                else if (ClaseCompartida.ColorMesa == 5)
                 {
-                    MessageBox.Show(ex.Message);
-                    throw;
+                    textComensal.Enabled = false;
+                    //cambiar los estado a C cobrar;
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
         private void cargargrilla(object sender, EventArgs e)
         {
-            if (ClaseCompartida.mmm == 1)
+            if (ClaseCompartida.ColorMesa == 1)
             {
                 try
                 {
@@ -491,7 +486,7 @@ namespace BAREST
                     {
                         dataGridView1.Rows.Add(new string[] { leido["idMesa"].ToString(), leido["cantidad"].ToString(), leido["detalles"].ToString(), leido["precioUnitario"].ToString(), leido["precioTotal"].ToString() });
                     }
-                    ClaseCompartida.mmm = 0;
+                    ClaseCompartida.ColorMesa = 0;
                 }
                 catch (Exception ex)
                 {
@@ -599,5 +594,7 @@ namespace BAREST
         {
 
         }
+
+        
     }
 }

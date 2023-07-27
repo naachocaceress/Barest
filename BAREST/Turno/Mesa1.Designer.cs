@@ -33,16 +33,21 @@ namespace BAREST
             this.btnComanda = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.agregarMenulista = new FontAwesome.Sharp.IconButton();
-            this.EliminarInsu = new FontAwesome.Sharp.IconButton();
+            this.EliminarComanda = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textIdComanda = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ConfirmarComanda = new System.Windows.Forms.Button();
             this.labelmozo = new System.Windows.Forms.Label();
             this.labelmesa = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cantidades = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Detalles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,11 +57,6 @@ namespace BAREST
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.cantidades = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Detalles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,7 +69,7 @@ namespace BAREST
             this.panel1.Controls.Add(this.btnComanda);
             this.panel1.Controls.Add(this.iconButton3);
             this.panel1.Controls.Add(this.agregarMenulista);
-            this.panel1.Controls.Add(this.EliminarInsu);
+            this.panel1.Controls.Add(this.EliminarComanda);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 399);
             this.panel1.Name = "panel1";
@@ -140,33 +140,33 @@ namespace BAREST
             this.agregarMenulista.Visible = false;
             this.agregarMenulista.Click += new System.EventHandler(this.agregarMenulista_Click);
             // 
-            // EliminarInsu
+            // EliminarComanda
             // 
-            this.EliminarInsu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.EliminarInsu.FlatAppearance.BorderSize = 0;
-            this.EliminarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EliminarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconChar = FontAwesome.Sharp.IconChar.CircleMinus;
-            this.EliminarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EliminarInsu.IconSize = 30;
-            this.EliminarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.Location = new System.Drawing.Point(283, 0);
-            this.EliminarInsu.Name = "EliminarInsu";
-            this.EliminarInsu.Size = new System.Drawing.Size(100, 50);
-            this.EliminarInsu.TabIndex = 12;
-            this.EliminarInsu.Text = "       Eliminar";
-            this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.UseVisualStyleBackColor = true;
-            this.EliminarInsu.Click += new System.EventHandler(this.EliminarInsu_Click);
+            this.EliminarComanda.Dock = System.Windows.Forms.DockStyle.Right;
+            this.EliminarComanda.FlatAppearance.BorderSize = 0;
+            this.EliminarComanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EliminarComanda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EliminarComanda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.EliminarComanda.IconChar = FontAwesome.Sharp.IconChar.CircleMinus;
+            this.EliminarComanda.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.EliminarComanda.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EliminarComanda.IconSize = 30;
+            this.EliminarComanda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarComanda.Location = new System.Drawing.Point(283, 0);
+            this.EliminarComanda.Name = "EliminarComanda";
+            this.EliminarComanda.Size = new System.Drawing.Size(100, 50);
+            this.EliminarComanda.TabIndex = 12;
+            this.EliminarComanda.Text = "       Eliminar";
+            this.EliminarComanda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarComanda.UseVisualStyleBackColor = true;
+            this.EliminarComanda.Click += new System.EventHandler(this.EliminarComanda_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.textIdComanda);
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.ConfirmarComanda);
             this.panel2.Controls.Add(this.labelmozo);
             this.panel2.Controls.Add(this.labelmesa);
             this.panel2.Controls.Add(this.label3);
@@ -195,15 +195,15 @@ namespace BAREST
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // ConfirmarComanda
             // 
-            this.button1.Location = new System.Drawing.Point(296, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ConfirmarComanda.Location = new System.Drawing.Point(296, 12);
+            this.ConfirmarComanda.Name = "ConfirmarComanda";
+            this.ConfirmarComanda.Size = new System.Drawing.Size(75, 23);
+            this.ConfirmarComanda.TabIndex = 4;
+            this.ConfirmarComanda.Text = "Salir";
+            this.ConfirmarComanda.UseVisualStyleBackColor = true;
+            this.ConfirmarComanda.Click += new System.EventHandler(this.ConfirmarComanda_Click);
             // 
             // labelmozo
             // 
@@ -260,6 +260,41 @@ namespace BAREST
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(359, 244);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // cantidades
+            // 
+            this.cantidades.HeaderText = "Cant.";
+            this.cantidades.Name = "cantidades";
+            this.cantidades.ReadOnly = true;
+            this.cantidades.Width = 50;
+            // 
+            // Detalles
+            // 
+            this.Detalles.HeaderText = "Detalles";
+            this.Detalles.Name = "Detalles";
+            this.Detalles.ReadOnly = true;
+            this.Detalles.Width = 130;
+            // 
+            // precioUnitario
+            // 
+            this.precioUnitario.HeaderText = "P.Unitario";
+            this.precioUnitario.Name = "precioUnitario";
+            this.precioUnitario.ReadOnly = true;
+            this.precioUnitario.Width = 60;
+            // 
+            // precioTotal
+            // 
+            this.precioTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.precioTotal.HeaderText = "P.Total";
+            this.precioTotal.Name = "precioTotal";
+            this.precioTotal.ReadOnly = true;
+            // 
+            // idMesa
+            // 
+            this.idMesa.HeaderText = "IdMesa";
+            this.idMesa.Name = "idMesa";
+            this.idMesa.ReadOnly = true;
+            this.idMesa.Visible = false;
             // 
             // label1
             // 
@@ -340,41 +375,6 @@ namespace BAREST
             this.iconButton2.UseVisualStyleBackColor = true;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
-            // cantidades
-            // 
-            this.cantidades.HeaderText = "Cant.";
-            this.cantidades.Name = "cantidades";
-            this.cantidades.ReadOnly = true;
-            this.cantidades.Width = 50;
-            // 
-            // Detalles
-            // 
-            this.Detalles.HeaderText = "Detalles";
-            this.Detalles.Name = "Detalles";
-            this.Detalles.ReadOnly = true;
-            this.Detalles.Width = 130;
-            // 
-            // precioUnitario
-            // 
-            this.precioUnitario.HeaderText = "P.Unitario";
-            this.precioUnitario.Name = "precioUnitario";
-            this.precioUnitario.ReadOnly = true;
-            this.precioUnitario.Width = 60;
-            // 
-            // precioTotal
-            // 
-            this.precioTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.precioTotal.HeaderText = "P.Total";
-            this.precioTotal.Name = "precioTotal";
-            this.precioTotal.ReadOnly = true;
-            // 
-            // idMesa
-            // 
-            this.idMesa.HeaderText = "IdMesa";
-            this.idMesa.Name = "idMesa";
-            this.idMesa.ReadOnly = true;
-            this.idMesa.Visible = false;
-            // 
             // Mesa1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,7 +413,7 @@ namespace BAREST
 
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton agregarMenulista;
-        private FontAwesome.Sharp.IconButton EliminarInsu;
+        private FontAwesome.Sharp.IconButton EliminarComanda;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
@@ -422,7 +422,7 @@ namespace BAREST
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label labelmozo;
         public System.Windows.Forms.Label labelmesa;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ConfirmarComanda;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBuscar;
         private System.Windows.Forms.Label label7;

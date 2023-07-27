@@ -14,7 +14,7 @@ namespace BAREST.Turno
 
         private void Cobro_Load(object sender, EventArgs e)
         {
-            if (ClaseCompartida.mmm == 1)
+            if (ClaseCompartida.cobro == 1)
             {
                 Conexion.ObtenerConexion();
                 string sql = "select top (1) cantidad, detalles, precioUnitario, precioTotal, comensal, mesa, mozo ,total from Mesa  where Mesa = @mesa AND estado ='A' order by mesa desc";
@@ -33,7 +33,7 @@ namespace BAREST.Turno
                     labelmozo.Text = leido["mozo"].ToString();
                     textTotal.Text = leido["total"].ToString();
                 }
-                ClaseCompartida.mmm = 0;
+                ClaseCompartida.cobro = 0;
                 Conexion.ObtenerConexion().Close();
             }
 

@@ -348,7 +348,7 @@ namespace BAREST
         {
             esconderMenu();
             BotonActivo(sender);
-            // openChilForm(new Menu());
+            openChilForm(new Menu());
             Menu m = new Menu();
             m.Show();
         }
@@ -398,250 +398,7 @@ namespace BAREST
         }
         
         //AGREGAR MESAS --------------------------------------------------------------------------
-        
-       /* private void mesas_Click(object sender, EventArgs e)
-        {
-            if (panel == 1)
-            {
-                if (panelPlano1.BackColor == Color.FromArgb(27, 111, 114))
-                {
-                    if (((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
-                    {
-                        //ClaseCompartida.valor = 0;
-                        Button boton = sender as Button;
-                        Mesa1 m = new Mesa1();
-                        ClaseCompartida.Mesa = boton.Name;
-                        ClaseCompartida.mmm = 1;
-                        m.ShowDialog();
-                        if (ClaseCompartida.valor == 5)
-                            ((Button)sender).BackColor = Color.FromArgb(0, 255, 255);
-                    }
-                    else if (((Button)sender).BackColor == Color.FromArgb(116, 199, 132))
-                    {
-                        ClaseCompartida.valor = 0;
-                        Button boton = sender as Button;
-
-                        turno.Mozo m = new turno.Mozo();
-                        m.label7.Text = boton.Name;
-
-                        if (ClaseCompartida.usu == 0)
-                            m.ShowDialog();
-                        else
-                        {
-                            Mesa1 n = new Mesa1();
-                            n.ShowDialog();
-                        }
-
-                        if (ClaseCompartida.valor == 1)
-                            ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
-                        else if (ClaseCompartida.valor == 5)
-                            ((Button)sender).BackColor = Color.FromArgb(0, 255, 255);
-                    }
-                    else
-                    {
-                        if (((Button)sender).BackColor == Color.FromArgb(0, 255, 255))
-                        {
-                            Button boton = sender as Button;
-                            Cobro m = new Cobro();
-                            ClaseCompartida.Mesa = boton.Name;
-                            ClaseCompartida.mmm = 1;
-                            m.ShowDialog();
-                            ((Button)sender).BackColor = Color.FromArgb(116, 199, 132);
-                        }
-                    }
-                }
-                else
-                {
-                    if (move == false)
-                    {
-                        ModoEditor n = new ModoEditor();
-                        Button boton = sender as Button;
-
-                        ClaseCompartida2.nombreM = boton.Name;
-                        n.ShowDialog();
-
-                        if (ClaseCompartida2.cancel == true)
-                        {
-                            ClaseCompartida2.cancel = false;
-                            return;
-                        }
-
-                        if (ClaseCompartida2.check == true)
-                        {
-                            panelPlano1.Controls.Remove((Button)sender);
-                            ClaseCompartida2.check = false;
-                        }
-                        else
-                        {
-                            boton.Name = ClaseCompartida2.nombreM2;
-                            boton.Text = ClaseCompartida2.nombreM2;
-                        }
-                    }
-                    move = false;
-                    ClaseCompartida2.cancel = false;
-                }
-            }
-            else
-            //---------------------------------------------------------------------
-                if (panel == 2)
-            {
-                if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114))
-                {
-                    if (((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
-                    {
-                        Button boton = sender as Button;
-                        Mesa1 m = new Mesa1();
-                        ClaseCompartida.Mesa = boton.Name;
-                        ClaseCompartida.mmm = 1;
-                        m.ShowDialog();
-                    }
-                    else if (((Button)sender).BackColor == Color.FromArgb(116, 199, 132))
-                    {
-                        Button boton = sender as Button;
-
-                        turno.Mozo m = new turno.Mozo();
-                        m.label7.Text = boton.Name;
-
-                        if (ClaseCompartida.usu == 0)
-                            m.ShowDialog();
-                        else
-                        {
-                            Mesa1 n = new Mesa1();
-                            n.ShowDialog();
-                        }
-
-                        if (ClaseCompartida.valor == 1)
-                            ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
-                        else if (ClaseCompartida.valor == 5)
-                        {
-                            ((Button)sender).BackColor = Color.FromArgb(0, 255, 255);
-                        }
-                    }
-                    else
-                    {
-                        if (((Button)sender).BackColor == Color.FromArgb(0, 255, 255))
-                        {
-                            Button boton = sender as Button;
-                            Cobro m = new Cobro();
-                            ClaseCompartida.Mesa = boton.Name;
-                            ClaseCompartida.mmm = 1;
-                            m.ShowDialog();
-                            ((Button)sender).BackColor = Color.FromArgb(116, 199, 132);
-                        }
-                    }
-                }
-                else
-                {
-                    if (move == false)
-                    {
-                        ModoEditor n = new ModoEditor();
-                        Button boton = sender as Button;
-
-                        ClaseCompartida2.nombreM = boton.Name;
-                        n.ShowDialog();
-
-                        if (ClaseCompartida2.cancel == true)
-                        {
-                            ClaseCompartida2.cancel = false;
-                            return;
-                        }
-
-                        if (ClaseCompartida2.check == true)
-                        {
-                            panelPlano2.Controls.Remove((Button)sender);
-                            ClaseCompartida2.check = false;
-                        }
-                        else
-                        {
-                            boton.Name = ClaseCompartida2.nombreM2;
-                            boton.Text = ClaseCompartida2.nombreM2;
-                        }
-                    }
-                    move = false;
-                    ClaseCompartida2.cancel = false;
-                }
-            }
-            else
-                //---------------------------------------------------------------------
-                if (panel == 3)
-            {
-                if (panelPlano3.BackColor == Color.FromArgb(27, 111, 114))
-                {
-                    if (((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
-                    {
-                        Button boton = sender as Button;
-                        Mesa1 m = new Mesa1();
-                        ClaseCompartida.Mesa = boton.Name;
-                        ClaseCompartida.mmm = 1;
-                        m.ShowDialog();
-                    }
-                    else if (((Button)sender).BackColor == Color.FromArgb(116, 199, 132))
-                    {
-                        Button boton = sender as Button;
-
-                        turno.Mozo m = new turno.Mozo();
-                        m.label7.Text = boton.Name;
-
-                        if (ClaseCompartida.usu == 0)
-                            m.ShowDialog();
-                        else
-                        {
-                            Mesa1 n = new Mesa1();
-                            n.ShowDialog();
-                        }
-
-                        if (ClaseCompartida.valor == 1)
-                            ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
-                        else if (ClaseCompartida.valor == 5)
-                        {
-                            ((Button)sender).BackColor = Color.FromArgb(0, 255, 255);
-                        }
-                    }
-                    else
-                    {
-                        if (((Button)sender).BackColor == Color.FromArgb(0, 255, 255))
-                        {
-                            Button boton = sender as Button;
-                            Cobro m = new Cobro();
-                            ClaseCompartida.Mesa = boton.Name;
-                            ClaseCompartida.mmm = 1;
-                            m.ShowDialog();
-                            ((Button)sender).BackColor = Color.FromArgb(116, 199, 132);
-                        }
-                    }
-                }
-                else
-                {
-                    if (move == false)
-                    {
-                        ModoEditor n = new ModoEditor();
-                        Button boton = sender as Button;
-
-                        ClaseCompartida2.nombreM = boton.Name;
-                        n.ShowDialog();
-
-                        if (ClaseCompartida2.cancel == true)
-                        {
-                            ClaseCompartida2.cancel = false;
-                            return;
-                        }
-
-                        if (ClaseCompartida2.check == true)
-                        {
-                            panelPlano3.Controls.Remove((Button)sender);
-                            ClaseCompartida2.check = false;
-                        }
-                        else
-                        {
-                            boton.Name = ClaseCompartida2.nombreM2;
-                            boton.Text = ClaseCompartida2.nombreM2;
-                        }
-                    }
-                    move = false;
-                    ClaseCompartida2.cancel = false;
-                }
-            }
-        }*/
+       
         private void mesas_Click(object sender, EventArgs e)
         {
             Button boton = sender as Button;
@@ -662,19 +419,21 @@ namespace BAREST
 
         private void HandleMesaClick(Panel panelPlano, Button boton)
         {
-            if (panelPlano.BackColor == Color.FromArgb(27, 111, 114))//verde
+            if (panelPlano.BackColor == Color.FromArgb(27, 111, 114))//verde plano
             {
-                if (boton.BackColor == Color.FromArgb(217, 96, 78))//jaune abricot
+                if (boton.BackColor == Color.FromArgb(217, 96, 78))// rojo claro mesa ocupado
                 {
                     OpenMesa1Dialog(boton);
+                    
+                    
                     if (ClaseCompartida.valor == 5)
-                        boton.BackColor = Color.FromArgb(0, 255, 255);//azul claro
+                        boton.BackColor = Color.FromArgb(0, 255, 255);//azul claro  mesa por cobrar
                 }
                 else if (boton.BackColor == Color.FromArgb(116, 199, 132))//verde claro
                 {
                     OpenMozoDialog(boton);
                     if (ClaseCompartida.valor == 1)
-                        boton.BackColor = Color.FromArgb(217, 96, 78);//jaune abricot
+                        boton.BackColor = Color.FromArgb(217, 96, 78);// rojo claro mesa ocupado
                     else if (ClaseCompartida.valor == 5)
                         boton.BackColor = Color.FromArgb(0, 255, 255);//azul claro
                 }
@@ -721,7 +480,7 @@ namespace BAREST
         {
             Mesa1 m = new Mesa1();
             ClaseCompartida.Mesa = boton.Name;
-            ClaseCompartida.mmm = 1;
+            ClaseCompartida.ColorMesa = 1;
             m.ShowDialog();
         }
 
@@ -743,7 +502,7 @@ namespace BAREST
         {
             Cobro m = new Cobro();
             ClaseCompartida.Mesa = boton.Name;
-            ClaseCompartida.mmm = 1;
+            ClaseCompartida.ColorMesa = 5;
             m.ShowDialog();
         }
         /// <summary>
@@ -762,7 +521,7 @@ namespace BAREST
                         Button boton = sender as Button;
                         DeliveryMesa m = new DeliveryMesa();
                         ClaseCompartida.Mesa = boton.Name;
-                        //ClaseCompartida.mmm = 1;
+                        ClaseCompartida.ColorMesa = 1;
                         m.ShowDialog();
                     }
                     else
@@ -825,7 +584,7 @@ namespace BAREST
                         Button boton = sender as Button;
                         DeliveryMesa m = new DeliveryMesa();
                         ClaseCompartida.Mesa = boton.Name;
-                        //ClaseCompartida.mmm = 1;
+                        ClaseCompartida.ColorMesa = 1;
                         m.ShowDialog();
                     }
                     else
@@ -833,7 +592,7 @@ namespace BAREST
                         Button boton = sender as Button;
 
                         DeliveryMesa m = new DeliveryMesa();
-                        //m.label7.Text = boton.Name;
+                        ClaseCompartida.Mesa = boton.Name;//ahi estaba el label7
 
                         if (ClaseCompartida.usu == 0)
                             m.ShowDialog();
@@ -888,7 +647,7 @@ namespace BAREST
                         Button boton = sender as Button;
                         DeliveryMesa m = new DeliveryMesa();
                         ClaseCompartida.Mesa = boton.Name;
-                        //ClaseCompartida.mmm = 1;
+                        ClaseCompartida.ColorMesa = 1;
                         m.ShowDialog();
                     }
                     else
@@ -896,7 +655,7 @@ namespace BAREST
                         Button boton = sender as Button;
 
                         DeliveryMesa m = new DeliveryMesa();
-                        //m.label7.Text = boton.Name;
+                       ClaseCompartida.Mesa = boton.Name;
 
                         if (ClaseCompartida.usu == 0)
                             m.ShowDialog();

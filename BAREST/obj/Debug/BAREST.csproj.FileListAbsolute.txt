@@ -506,3 +506,4 @@ C:\Users\usuario\Source\Repos\Barest\BAREST\obj\Debug\BAREST.Ventas.Venta.resour
 C:\Users\usuario\Source\Repos\Barest\BAREST\obj\Debug\BAREST.Compras.ListaCompras.resources
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\Proyectos\Proyecto BAREST\BAREST\BAREST\obj\Debug\BAREST.Compras.ListaCompras.resources
 C:\Users\Nacho\OneDrive\Escritorio\Nacho6\Proyectos\Proyecto BAREST\BAREST\BAREST\obj\Debug\BAREST.Cajas.EstadisticasCajas.resources
+C:\Users\usuario\source\repos\Barest\BAREST\obj\Debug\BAREST.Cajas.EstadisticasCajas.resources

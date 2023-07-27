@@ -69,7 +69,6 @@
             this.JA1 = new System.Windows.Forms.Button();
             this.JA2 = new System.Windows.Forms.Button();
             this.JA4 = new System.Windows.Forms.Button();
-            this.button88 = new System.Windows.Forms.Button();
             this.D4 = new System.Windows.Forms.Button();
             this.panelPlano1 = new System.Windows.Forms.Panel();
             this.DY7 = new System.Windows.Forms.Button();
@@ -264,7 +263,6 @@
             this.panelPlano3.Controls.Add(this.JA1);
             this.panelPlano3.Controls.Add(this.JA2);
             this.panelPlano3.Controls.Add(this.JA4);
-            this.panelPlano3.Controls.Add(this.button88);
             this.panelPlano3.Controls.Add(this.D4);
             this.panelPlano3.Location = new System.Drawing.Point(629, 312);
             this.panelPlano3.Name = "panelPlano3";
@@ -703,7 +701,7 @@
             // 
             this.JA4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(199)))), ((int)(((byte)(132)))));
             this.JA4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.JA4.Location = new System.Drawing.Point(237, 167);
+            this.JA4.Location = new System.Drawing.Point(237, 109);
             this.JA4.Name = "JA4";
             this.JA4.Size = new System.Drawing.Size(40, 40);
             this.JA4.TabIndex = 20;
@@ -712,20 +710,6 @@
             this.JA4.Click += new System.EventHandler(this.mesas_Click);
             this.JA4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
             this.JA4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
-            // 
-            // button88
-            // 
-            this.button88.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(199)))), ((int)(((byte)(132)))));
-            this.button88.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button88.Location = new System.Drawing.Point(237, 109);
-            this.button88.Name = "button88";
-            this.button88.Size = new System.Drawing.Size(40, 40);
-            this.button88.TabIndex = 19;
-            this.button88.Text = "JA5";
-            this.button88.UseVisualStyleBackColor = false;
-            this.button88.Click += new System.EventHandler(this.mesas_Click);
-            this.button88.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseDown);
-            this.button88.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MesasEditor_MouseMove);
             // 
             // D4
             // 
@@ -2182,7 +2166,6 @@
         private System.Windows.Forms.Button JA1;
         private System.Windows.Forms.Button JA2;
         private System.Windows.Forms.Button JA4;
-        private System.Windows.Forms.Button button88;
         private System.Windows.Forms.Button D4;
         private System.Windows.Forms.PictureBox ayudaVisualMesas;
         private System.Windows.Forms.Panel panelAyudaVisual;
