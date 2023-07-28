@@ -1,9 +1,6 @@
-﻿using iText.StyledXmlParser.Jsoup.Nodes;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
-using System.Windows;
 using System.Windows.Forms;
 using MessageBox = System.Windows.Forms.MessageBox;
 

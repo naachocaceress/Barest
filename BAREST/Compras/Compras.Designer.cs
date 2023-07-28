@@ -214,7 +214,7 @@ namespace BAREST.Compras
             this.comboProv.Name = "comboProv";
             this.comboProv.Size = new System.Drawing.Size(132, 21);
             this.comboProv.TabIndex = 53;
-            this.comboProv.SelectedIndexChanged += new System.EventHandler(this.comboProv_SelectedIndexChanged);
+          
             // 
             // textCantidad
             // 

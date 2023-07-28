@@ -199,7 +199,7 @@ namespace BAREST.Compras
             agregarProveedor.Visible = false;
         }
 
-       
+
         private void btnguardar_Click(object sender, EventArgs e)
         {
             modificarProveedores();

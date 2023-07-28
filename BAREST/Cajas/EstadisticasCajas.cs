@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -76,54 +71,54 @@ namespace BAREST.Cajas
 
         private void MostrarGraficoSumaMontos()
         {
-                // Obtener los datos de la base de datos
-                DataTable dataTable = ObtenerDatosDesdeLaBaseDeDatos();
+            // Obtener los datos de la base de datos
+            DataTable dataTable = ObtenerDatosDesdeLaBaseDeDatos();
 
-                // Crear un diccionario para almacenar las sumas de montos por condición
-                Dictionary<string, decimal> sumasMontosPorCondicion = new Dictionary<string, decimal>();
+            // Crear un diccionario para almacenar las sumas de montos por condición
+            Dictionary<string, decimal> sumasMontosPorCondicion = new Dictionary<string, decimal>();
 
-                // Calcular la suma de montos por condición
-                foreach (DataRow row in dataTable.Rows)
+            // Calcular la suma de montos por condición
+            foreach (DataRow row in dataTable.Rows)
+            {
+                string condicion = row["condicion"].ToString();
+                decimal monto = Convert.ToDecimal(row["monto"]);
+
+                // Si ya existe la condición en el diccionario, se suma el monto
+                if (sumasMontosPorCondicion.ContainsKey(condicion))
                 {
-                    string condicion = row["condicion"].ToString();
-                    decimal monto = Convert.ToDecimal(row["monto"]);
-
-                    // Si ya existe la condición en el diccionario, se suma el monto
-                    if (sumasMontosPorCondicion.ContainsKey(condicion))
-                    {
-                        sumasMontosPorCondicion[condicion] += monto;
-                    }
-                    // Si no existe, se agrega al diccionario
-                    else
-                    {
-                        sumasMontosPorCondicion.Add(condicion, monto);
-                    }
+                    sumasMontosPorCondicion[condicion] += monto;
                 }
-
-                // Limpiar los puntos de datos actuales del Chart2 (si es necesario)
-                chart2.Series[0].Points.Clear();
-
-                // Agregar las sumas al Chart2
-                foreach (var kvp in sumasMontosPorCondicion)
+                // Si no existe, se agrega al diccionario
+                else
                 {
-                    string condicion = kvp.Key;
-                    decimal sumaMontos = kvp.Value;
-
-                    DataPoint dataPoint = new DataPoint();
-                    dataPoint.SetValueXY(condicion, sumaMontos);
-                    dataPoint.Label = sumaMontos.ToString("C"); // Mostrar la suma de montos como moneda (por ejemplo: $100.00)
-                    dataPoint.LabelToolTip = "Suma de Montos: " + sumaMontos.ToString("C");
-                    dataPoint.LegendText = condicion + " (" + sumaMontos.ToString("C") + ")";
-                    chart2.Series[0].Points.Add(dataPoint);
+                    sumasMontosPorCondicion.Add(condicion, monto);
                 }
+            }
 
-                // Configurar el gráfico para que sea de tipo columnas agrupadas
-                chart2.Series[0].ChartType = SeriesChartType.Column;
-                chart2.Series[0]["BarLabelStyle"] = "Outside";
-                chart2.Legends[0].Enabled = true;
-                chart2.Titles.Clear();
-                chart2.Titles.Add("Suma de Montos por Condición");
-            
+            // Limpiar los puntos de datos actuales del Chart2 (si es necesario)
+            chart2.Series[0].Points.Clear();
+
+            // Agregar las sumas al Chart2
+            foreach (var kvp in sumasMontosPorCondicion)
+            {
+                string condicion = kvp.Key;
+                decimal sumaMontos = kvp.Value;
+
+                DataPoint dataPoint = new DataPoint();
+                dataPoint.SetValueXY(condicion, sumaMontos);
+                dataPoint.Label = sumaMontos.ToString("C"); // Mostrar la suma de montos como moneda (por ejemplo: $100.00)
+                dataPoint.LabelToolTip = "Suma de Montos: " + sumaMontos.ToString("C");
+                dataPoint.LegendText = condicion + " (" + sumaMontos.ToString("C") + ")";
+                chart2.Series[0].Points.Add(dataPoint);
+            }
+
+            // Configurar el gráfico para que sea de tipo columnas agrupadas
+            chart2.Series[0].ChartType = SeriesChartType.Column;
+            chart2.Series[0]["BarLabelStyle"] = "Outside";
+            chart2.Legends[0].Enabled = true;
+            chart2.Titles.Clear();
+            chart2.Titles.Add("Suma de Montos por Condición");
+
         }
 
 

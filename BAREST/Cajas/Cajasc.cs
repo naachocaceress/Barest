@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BAREST.Cajas
@@ -79,7 +73,8 @@ namespace BAREST.Cajas
         }
 
         private void decajachica_Click(object sender, EventArgs e)
-        {Cajas.IngresarMonto m = new Cajas.IngresarMonto();
+        {
+            Cajas.IngresarMonto m = new Cajas.IngresarMonto();
             m.groupBox1.Text = "Caja socios";
             m.label1.Text = "Aporte de caja chica";
             m.Show();

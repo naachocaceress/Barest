@@ -338,7 +338,6 @@ namespace BAREST
         private void reservas_Click(object sender, EventArgs e)
         {
             esconderMenu();
-            //openChilForm(new Reservas());
             BotonActivo(sender);
             Reservas m = new Reservas();
             m.Show();
@@ -348,7 +347,6 @@ namespace BAREST
         {
             esconderMenu();
             BotonActivo(sender);
-            openChilForm(new Menu());
             Menu m = new Menu();
             m.Show();
         }
@@ -396,9 +394,9 @@ namespace BAREST
         {
             fechaLabel.Text = DateTime.Now.ToString("g");
         }
-        
+
         //AGREGAR MESAS --------------------------------------------------------------------------
-       
+
         private void mesas_Click(object sender, EventArgs e)
         {
             Button boton = sender as Button;
@@ -420,20 +418,19 @@ namespace BAREST
         private void HandleMesaClick(Panel panelPlano, Button boton)
         {
             if (panelPlano.BackColor == Color.FromArgb(27, 111, 114))//verde plano
+
             {
-                if (boton.BackColor == Color.FromArgb(217, 96, 78))// rojo claro mesa ocupado
+                if(boton.BackColor == Color.FromArgb(217, 96, 78))//jaune abricot
                 {
                     OpenMesa1Dialog(boton);
-                    
-                    
                     if (ClaseCompartida.valor == 5)
-                        boton.BackColor = Color.FromArgb(0, 255, 255);//azul claro  mesa por cobrar
+                        boton.BackColor = Color.FromArgb(0, 255, 255);//azul claro
                 }
                 else if (boton.BackColor == Color.FromArgb(116, 199, 132))//verde claro
                 {
                     OpenMozoDialog(boton);
                     if (ClaseCompartida.valor == 1)
-                        boton.BackColor = Color.FromArgb(217, 96, 78);// rojo claro mesa ocupado
+                        boton.BackColor = Color.FromArgb(217, 96, 78);//jaune abricot
                     else if (ClaseCompartida.valor == 5)
                         boton.BackColor = Color.FromArgb(0, 255, 255);//azul claro
                 }
@@ -480,16 +477,17 @@ namespace BAREST
         {
             Mesa1 m = new Mesa1();
             ClaseCompartida.Mesa = boton.Name;
-            ClaseCompartida.ColorMesa = 1;
+
             m.ShowDialog();
         }
 
         private void OpenMozoDialog(Button boton)
         {
             turno.Mozo m = new turno.Mozo();
-            m.label7.Text = boton.Name;
 
-            if (ClaseCompartida.usu == 0)
+            m.label7.Text = boton.Name;
+            // ClaseCompartida.ColorMesa = 0;
+            if (ClaseCompartida.AbrirTurno == 0)
                 m.ShowDialog();
             else
             {
@@ -512,193 +510,75 @@ namespace BAREST
         /// <param name="e"></param>
         private void mesas_Click_Deli(object sender, EventArgs e)
         {
-            if (panel == 1)
+            Button boton = sender as Button;
+
+            if (panel == 1 && panelPlano1.BackColor == Color.FromArgb(27, 111, 114))
             {
-                if (panelPlano1.BackColor == Color.FromArgb(27, 111, 114))
-                {
-                    if (((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
-                    {
-                        Button boton = sender as Button;
-                        DeliveryMesa m = new DeliveryMesa();
-                        ClaseCompartida.Mesa = boton.Name;
-                        ClaseCompartida.ColorMesa = 1;
-                        m.ShowDialog();
-                    }
-                    else
-                    {
-                        Button boton = sender as Button;
-
-                        DeliveryMesa m = new DeliveryMesa();
-                        ClaseCompartida2.mesaD = boton.Name;
-
-                        if (ClaseCompartida.usu == 0)
-                            m.ShowDialog();
-                        else
-                        {
-                            DeliveryMesa n = new DeliveryMesa();
-                            n.ShowDialog();
-                        }
-
-                        if (ClaseCompartida.valor == 1)
-                            ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
-                    }
-                }
-                else
-                {
-                    if (move == false)
-                    {
-                        ModoEditor n = new ModoEditor();
-                        Button boton = sender as Button;
-
-                        ClaseCompartida2.nombreM = boton.Name;
-                        n.ShowDialog();
-
-                        if (ClaseCompartida2.cancel == true)
-                        {
-                            ClaseCompartida2.cancel = false;
-                            return;
-                        }
-
-                        if (ClaseCompartida2.check == true)
-                        {
-                            panelPlano1.Controls.Remove((Button)sender);
-                            ClaseCompartida2.check = false;
-                        }
-                        else
-                        {
-                            boton.Name = ClaseCompartida2.nombreM2;
-                            boton.Text = ClaseCompartida2.nombreM2;
-                        }
-                    }
-                    move = false;
-                    ClaseCompartida2.cancel = false;
-                }
+                HandleMesaClick(boton);
+            }
+            else if (panel == 2 && panelPlano2.BackColor == Color.FromArgb(27, 111, 114))
+            {
+                HandleMesaClick(boton);
+            }
+            else if (panel == 3 && panelPlano3.BackColor == Color.FromArgb(27, 111, 114))
+            {
+                HandleMesaClick(boton);
             }
             else
-                if (panel == 2)
             {
-                if (panelPlano2.BackColor == Color.FromArgb(27, 111, 114))
+                if (move == false)
                 {
-                    if (((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
+                    ModoEditor n = new ModoEditor();
+
+                    ClaseCompartida2.nombreM = boton.Name;
+                    n.ShowDialog();
+
+                    if (ClaseCompartida2.cancel == true)
                     {
-                        Button boton = sender as Button;
-                        DeliveryMesa m = new DeliveryMesa();
-                        ClaseCompartida.Mesa = boton.Name;
-                        ClaseCompartida.ColorMesa = 1;
-                        m.ShowDialog();
+                        ClaseCompartida2.cancel = false;
+                        return;
+                    }
+
+                    if (ClaseCompartida2.check == true)
+                    {
+                        panelPlano1.Controls.Remove(boton);
+                        ClaseCompartida2.check = false;
                     }
                     else
                     {
-                        Button boton = sender as Button;
-
-                        DeliveryMesa m = new DeliveryMesa();
-                        ClaseCompartida.Mesa = boton.Name;//ahi estaba el label7
-
-                        if (ClaseCompartida.usu == 0)
-                            m.ShowDialog();
-                        else
-                        {
-                            DeliveryMesa n = new DeliveryMesa();
-                            n.ShowDialog();
-                        }
-
-                        if (ClaseCompartida.valor == 1)
-                            ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
+                        boton.Name = ClaseCompartida2.nombreM2;
+                        boton.Text = ClaseCompartida2.nombreM2;
                     }
                 }
-                else
-                {
-                    if (move == false)
-                    {
-                        ModoEditor n = new ModoEditor();
-                        Button boton = sender as Button;
+                move = false;
+                ClaseCompartida2.cancel = false;
+            }
+        }
 
-                        ClaseCompartida2.nombreM = boton.Name;
-                        n.ShowDialog();
-
-                        if (ClaseCompartida2.cancel == true)
-                        {
-                            ClaseCompartida2.cancel = false;
-                            return;
-                        }
-
-                        if (ClaseCompartida2.check == true)
-                        {
-                            panelPlano1.Controls.Remove((Button)sender);
-                            ClaseCompartida2.check = false;
-                        }
-                        else
-                        {
-                            boton.Name = ClaseCompartida2.nombreM2;
-                            boton.Text = ClaseCompartida2.nombreM2;
-                        }
-                    }
-                    move = false;
-                    ClaseCompartida2.cancel = false;
-                }
+        private void HandleMesaClick(Button boton)
+        {
+            if (boton.BackColor == Color.FromArgb(217, 96, 78))
+            {
+                DeliveryMesa m = new DeliveryMesa();
+                ClaseCompartida.Mesa = boton.Name;
+                ClaseCompartida.ColorMesa = 1;
+                m.ShowDialog();
             }
             else
-                if (panel == 3)
             {
-                if (panelPlano3.BackColor == Color.FromArgb(27, 111, 114))
-                {
-                    if (((Button)sender).BackColor == Color.FromArgb(217, 96, 78))
-                    {
-                        Button boton = sender as Button;
-                        DeliveryMesa m = new DeliveryMesa();
-                        ClaseCompartida.Mesa = boton.Name;
-                        ClaseCompartida.ColorMesa = 1;
-                        m.ShowDialog();
-                    }
-                    else
-                    {
-                        Button boton = sender as Button;
+                DeliveryMesa m = new DeliveryMesa();
+                ClaseCompartida.Mesa = boton.Name;
 
-                        DeliveryMesa m = new DeliveryMesa();
-                       ClaseCompartida.Mesa = boton.Name;
-
-                        if (ClaseCompartida.usu == 0)
-                            m.ShowDialog();
-                        else
-                        {
-                            DeliveryMesa n = new DeliveryMesa();
-                            n.ShowDialog();
-                        }
-
-                        if (ClaseCompartida.valor == 1)
-                            ((Button)sender).BackColor = Color.FromArgb(217, 96, 78);
-                    }
-                }
+                if (ClaseCompartida.AbrirTurno == 0)
+                    m.ShowDialog();
                 else
                 {
-                    if (move == false)
-                    {
-                        ModoEditor n = new ModoEditor();
-                        Button boton = sender as Button;
-
-                        ClaseCompartida2.nombreM = boton.Name;
-                        n.ShowDialog();
-
-                        if (ClaseCompartida2.cancel == true)
-                        {
-                            ClaseCompartida2.cancel = false;
-                            return;
-                        }
-
-                        if (ClaseCompartida2.check == true)
-                        {
-                            panelPlano1.Controls.Remove((Button)sender);
-                            ClaseCompartida2.check = false;
-                        }
-                        else
-                        {
-                            boton.Name = ClaseCompartida2.nombreM2;
-                            boton.Text = ClaseCompartida2.nombreM2;
-                        }
-                    }
-                    move = false;
-                    ClaseCompartida2.cancel = false;
+                    DeliveryMesa n = new DeliveryMesa();
+                    n.ShowDialog();
                 }
+
+                if (ClaseCompartida.valor == 1)
+                    boton.BackColor = Color.FromArgb(217, 96, 78);
             }
         }
 

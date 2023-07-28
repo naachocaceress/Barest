@@ -15,7 +15,7 @@ namespace BAREST.Compras
         {
             try
             {
-                using (SqlConnection conexion = Conexion.ObtenerConexion()) 
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
                 using (var comando = new SqlCommand("SELECT cuit, empresa, telefono, direccion, altura, depto, archivo FROM Proveedor WHERE estado ='A'", conexion))
                 using (SqlDataReader registros = comando.ExecuteReader())
                 {
