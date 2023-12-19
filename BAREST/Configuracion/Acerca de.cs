@@ -39,5 +39,10 @@ namespace BAREST.Configuracion
         {
             System.Diagnostics.Process.Start("");
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

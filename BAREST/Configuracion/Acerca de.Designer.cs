@@ -159,7 +159,8 @@ namespace BAREST.Configuracion
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 162);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Caleb Jolicoeur\r\n\r\n\r\n\r\nAranda Leyla\r\n\r\n\r\n\r\nCaceres Ignacio";
+            this.label6.Text = "Ivan Ivanovic\r\n\r\n\r\n\r\nAranda Leyla\r\n\r\n\r\n\r\nCaceres Ignacio";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // pictureBox4
             // 
