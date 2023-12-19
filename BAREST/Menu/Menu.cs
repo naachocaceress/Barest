@@ -2,9 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace BAREST

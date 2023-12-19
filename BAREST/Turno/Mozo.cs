@@ -36,7 +36,7 @@ namespace BAREST.turno
             Mesa1 m = new Mesa1();
             m.labelmozo.Text = "Juan";
             m.labelmesa.Text = label7.Text;
-         
+
             this.Close();
             m.ShowDialog();
         }
@@ -46,7 +46,7 @@ namespace BAREST.turno
             Mesa1 m = new Mesa1();
             m.labelmozo.Text = "Caleb";
             m.labelmesa.Text = label7.Text;
-            
+
             this.Close();
             m.ShowDialog();
         }
@@ -56,7 +56,7 @@ namespace BAREST.turno
             Mesa1 m = new Mesa1();
             m.labelmozo.Text = "Nacho";
             m.labelmesa.Text = label7.Text;
-            
+
             this.Close();
             m.ShowDialog();
         }
@@ -66,12 +66,12 @@ namespace BAREST.turno
             Mesa1 m = new Mesa1();
             m.labelmozo.Text = "Ian";
             m.labelmesa.Text = label7.Text;
-            
+
             this.Close();
             m.ShowDialog();
         }
 
-       private void crearComanda()
+        private void crearComanda()
         {
             MessageBoxButtons botones = MessageBoxButtons.YesNo;
             DialogResult dr = MessageBox.Show("¿Crear una nueva Comanda?", "Nueva Comanda", botones, MessageBoxIcon.Question);
@@ -88,16 +88,16 @@ namespace BAREST.turno
                         comando.Parameters.AddWithValue("@mozo", m.labelmozo.Text);
 
                         comando.ExecuteNonQuery();
-                        
+
                     }
                 }
-                  catch (Exception ex)
+                catch (Exception ex)
                 {
 
                     MessageBox.Show("Error al eliminar el crear comanda:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-                
+
         }
 
         private void Mozo_Load(object sender, EventArgs e)

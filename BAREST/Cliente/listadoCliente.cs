@@ -15,11 +15,11 @@ namespace BAREST.Configuracion
         {
             try
             {
-                using (SqlConnection conexion = Conexion.ObtenerConexion()) 
-                using (var comando = new SqlCommand(" SELECT [nombre],[apellido] ,[telefono]  ,[documento],[domicilio],[altura] ,[depto], [piso] FROM[dbo].[Cliente] ORDER BY  [nombre] ASC", conexion)) 
-                using(SqlDataReader registros= comando.ExecuteReader()) 
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (var comando = new SqlCommand(" SELECT [nombre],[apellido] ,[telefono]  ,[documento],[domicilio],[altura] ,[depto], [piso] FROM[dbo].[Cliente] ORDER BY  [nombre] ASC", conexion))
+                using (SqlDataReader registros = comando.ExecuteReader())
                 {
-                   
+
                     dataGridView1.Rows.Clear();
                     dataGridView1.Columns.Clear();
 
@@ -30,9 +30,9 @@ namespace BAREST.Configuracion
                     dataGridView1.Columns.Add("altura", "altura");
                     dataGridView1.Columns.Add("depto", "Nombre");
                     dataGridView1.Columns.Add("piso", "Piso");
-                   while (registros.Read())
+                    while (registros.Read())
                     {
-                        dataGridView1.Rows.Add(registros["nombre"] , registros["apellido"], registros["documento"], registros["domicilio"], registros["altura"], registros["depto"], registros["piso"]);
+                        dataGridView1.Rows.Add(registros["nombre"], registros["apellido"], registros["documento"], registros["domicilio"], registros["altura"], registros["depto"], registros["piso"]);
                     }
 
                 }
@@ -41,7 +41,7 @@ namespace BAREST.Configuracion
             {
                 MessageBox.Show("Error al cargar los datos de la lista clientes en la tabla: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
         void llenar()
         {

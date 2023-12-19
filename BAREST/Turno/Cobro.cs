@@ -37,7 +37,7 @@ namespace BAREST.Turno
                 Conexion.ObtenerConexion().Close();
             }
 
-           
+
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

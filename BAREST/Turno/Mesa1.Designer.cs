@@ -197,12 +197,14 @@ namespace BAREST
             // 
             // ConfirmarComanda
             // 
-            this.ConfirmarComanda.Location = new System.Drawing.Point(296, 12);
+            this.ConfirmarComanda.BackColor = System.Drawing.Color.Red;
+            this.ConfirmarComanda.Cursor = System.Windows.Forms.Cursors.No;
+            this.ConfirmarComanda.Location = new System.Drawing.Point(335, 3);
             this.ConfirmarComanda.Name = "ConfirmarComanda";
-            this.ConfirmarComanda.Size = new System.Drawing.Size(75, 23);
+            this.ConfirmarComanda.Size = new System.Drawing.Size(45, 40);
             this.ConfirmarComanda.TabIndex = 4;
-            this.ConfirmarComanda.Text = "Salir";
-            this.ConfirmarComanda.UseVisualStyleBackColor = true;
+            this.ConfirmarComanda.Text = "Cerrar";
+            this.ConfirmarComanda.UseVisualStyleBackColor = false;
             this.ConfirmarComanda.Click += new System.EventHandler(this.ConfirmarComanda_Click);
             // 
             // labelmozo
@@ -391,7 +393,7 @@ namespace BAREST
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Mesa1";

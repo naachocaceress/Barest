@@ -7,7 +7,7 @@ namespace BAREST.Compras
 {
     public partial class Compras : Form
     {
-        
+
         public Compras()
         {
             InitializeComponent();
@@ -18,9 +18,9 @@ namespace BAREST.Compras
             try
             {
                 SumarSiExiste();
-                
-                
-                cargarTabla();
+
+
+                CargarTabla();
             }
             catch (Exception ex)
             {
@@ -34,7 +34,7 @@ namespace BAREST.Compras
             {
                 int InsumoId = Convert.ToInt32(comboInsumo.SelectedValue);
 
-                int ProveedorId =Convert.ToInt32(comboProv.SelectedValue);
+                int ProveedorId = Convert.ToInt32(comboProv.SelectedValue);
 
                 try
                 {
@@ -64,7 +64,7 @@ namespace BAREST.Compras
                                 comando1.ExecuteNonQuery();
 
                             }
-                            MessageBox.Show("Se ha sumado la compra pendiente una suma de:."+cantidadNueva );
+                            MessageBox.Show("Se ha sumado la compra pendiente una suma de:." + cantidadNueva);
                         }
                         else
                         {
@@ -72,7 +72,7 @@ namespace BAREST.Compras
                             int insumoId = Convert.ToInt32(comboInsumo.SelectedValue);
                             int cantidad = Convert.ToInt32(textCantidad.Text);
                             string especificacion = textEspecificacion.Text;
-                          
+
                             using (SqlCommand comando2 = new SqlCommand(" INSERT INTO [dbo].[Compra] ([idProveedor], [idInsumo], [cantidad], [espec], [fecha], [estado]) VALUES (@proveedorId, @insumoId, @cantidad, @especificacion, GETDATE(), 'P') ", conexion))
                             {
                                 comando2.Parameters.AddWithValue("@proveedorId", proveedorId);
@@ -96,10 +96,10 @@ namespace BAREST.Compras
             return false;
         }
 
-        
 
-       private void buscarProveedor()
-       {
+
+        private void BuscarProveedor()
+        {
             try
             {
                 Conexion.ObtenerConexion();
@@ -122,7 +122,7 @@ namespace BAREST.Compras
             }
         }
 
-        private void buscarinsumo()
+        private void Buscarinsumo()
         {
             try
             {
@@ -145,7 +145,7 @@ namespace BAREST.Compras
                 Conexion.ObtenerConexion().Close();
             }
         }
-        void limpiarCampos()
+        void LimpiarCampos()
         {
             comboProv.SelectedIndex = -1;
             comboInsumo.SelectedIndex = -1;
@@ -153,8 +153,8 @@ namespace BAREST.Compras
             textEspecificacion.Text = "";
         }
 
-        
-        private void cargarTabla()
+
+        private void CargarTabla()
         {
             try
             {
@@ -179,7 +179,7 @@ namespace BAREST.Compras
                         {
                             estado = "DEMORADO";
                         }
-                        else if (estado == "D" )
+                        else if (estado == "D")
                         {
                             estado = "CANCELADO";
                         }
@@ -205,15 +205,15 @@ namespace BAREST.Compras
                 Conexion.ObtenerConexion().Close();
             }
         }
-        
+
 
 
         private void Compras_Load(object sender, EventArgs e)
         {
-            buscarinsumo();
-            buscarProveedor();
-            cargarTabla();
-            limpiarCampos();
+            Buscarinsumo();
+            BuscarProveedor();
+            CargarTabla();
+            LimpiarCampos();
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
@@ -230,7 +230,7 @@ namespace BAREST.Compras
                     comando.Parameters.AddWithValue("@idCompra", idCompra);
                     comando.ExecuteNonQuery();
                     MessageBox.Show("Compra cancelada correctamente.");
-                    cargarTabla();
+                    CargarTabla();
                 }
                 catch (Exception ex)
                 {
@@ -292,10 +292,7 @@ namespace BAREST.Compras
                 }
             }
         }
-        private void comboProv_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+
 
         private void btnlista_Click(object sender, EventArgs e)
         {
