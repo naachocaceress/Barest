@@ -33,6 +33,8 @@ namespace BAREST.Clientes
             this.agregarCliente = new FontAwesome.Sharp.IconButton();
             this.modificarCliente = new FontAwesome.Sharp.IconButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textPiso = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@ namespace BAREST.Clientes
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textPiso = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.textCuil = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -68,9 +68,9 @@ namespace BAREST.Clientes
             this.panel1.Controls.Add(this.agregarCliente);
             this.panel1.Controls.Add(this.modificarCliente);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 435);
+            this.panel1.Location = new System.Drawing.Point(0, 427);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(372, 50);
+            this.panel1.Size = new System.Drawing.Size(290, 50);
             this.panel1.TabIndex = 16;
             // 
             // agregarCliente
@@ -85,7 +85,7 @@ namespace BAREST.Clientes
             this.agregarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.agregarCliente.IconSize = 30;
             this.agregarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarCliente.Location = new System.Drawing.Point(121, 0);
+            this.agregarCliente.Location = new System.Drawing.Point(39, 0);
             this.agregarCliente.Name = "agregarCliente";
             this.agregarCliente.Size = new System.Drawing.Size(141, 50);
             this.agregarCliente.TabIndex = 10;
@@ -106,10 +106,10 @@ namespace BAREST.Clientes
             this.modificarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.modificarCliente.IconSize = 30;
             this.modificarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.modificarCliente.Location = new System.Drawing.Point(262, 0);
+            this.modificarCliente.Location = new System.Drawing.Point(180, 0);
             this.modificarCliente.Name = "modificarCliente";
             this.modificarCliente.Size = new System.Drawing.Size(110, 50);
-            this.modificarCliente.TabIndex = 12;
+            this.modificarCliente.TabIndex = 11;
             this.modificarCliente.Text = "      Cancelar";
             this.modificarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.modificarCliente.UseVisualStyleBackColor = true;
@@ -127,19 +127,35 @@ namespace BAREST.Clientes
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textcalle);
-            this.groupBox1.Location = new System.Drawing.Point(41, 225);
+            this.groupBox1.Location = new System.Drawing.Point(15, 206);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(319, 186);
+            this.groupBox1.Size = new System.Drawing.Size(253, 186);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Domicilio";
+            // 
+            // textPiso
+            // 
+            this.textPiso.Location = new System.Drawing.Point(53, 132);
+            this.textPiso.Name = "textPiso";
+            this.textPiso.Size = new System.Drawing.Size(78, 20);
+            this.textPiso.TabIndex = 9;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 135);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(30, 13);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "Piso:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(145, 73);
+            this.label12.Location = new System.Drawing.Point(138, 57);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(17, 24);
@@ -150,7 +166,7 @@ namespace BAREST.Clientes
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 73);
+            this.label10.Location = new System.Drawing.Point(6, 57);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(27, 13);
             this.label10.TabIndex = 17;
@@ -161,7 +177,7 @@ namespace BAREST.Clientes
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(275, 20);
+            this.label9.Location = new System.Drawing.Point(216, 20);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(17, 24);
@@ -171,22 +187,22 @@ namespace BAREST.Clientes
             // 
             // textAltura
             // 
-            this.textAltura.Location = new System.Drawing.Point(68, 70);
+            this.textAltura.Location = new System.Drawing.Point(53, 57);
             this.textAltura.Name = "textAltura";
-            this.textAltura.Size = new System.Drawing.Size(51, 20);
+            this.textAltura.Size = new System.Drawing.Size(78, 20);
             this.textAltura.TabIndex = 7;
             // 
             // textDepto
             // 
-            this.textDepto.Location = new System.Drawing.Point(68, 106);
+            this.textDepto.Location = new System.Drawing.Point(53, 95);
             this.textDepto.Name = "textDepto";
-            this.textDepto.Size = new System.Drawing.Size(73, 20);
+            this.textDepto.Size = new System.Drawing.Size(78, 20);
             this.textDepto.TabIndex = 8;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 113);
+            this.label8.Location = new System.Drawing.Point(6, 95);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 13);
             this.label8.TabIndex = 12;
@@ -203,43 +219,43 @@ namespace BAREST.Clientes
             // 
             // textcalle
             // 
-            this.textcalle.Location = new System.Drawing.Point(68, 20);
+            this.textcalle.Location = new System.Drawing.Point(53, 20);
             this.textcalle.Name = "textcalle";
-            this.textcalle.Size = new System.Drawing.Size(205, 20);
+            this.textcalle.Size = new System.Drawing.Size(156, 20);
             this.textcalle.TabIndex = 6;
             // 
             // textdni
             // 
-            this.textdni.Location = new System.Drawing.Point(104, 96);
+            this.textdni.Location = new System.Drawing.Point(68, 94);
             this.textdni.Name = "textdni";
-            this.textdni.Size = new System.Drawing.Size(205, 20);
-            this.textdni.TabIndex = 27;
+            this.textdni.Size = new System.Drawing.Size(156, 20);
+            this.textdni.TabIndex = 3;
             // 
             // textTel
             // 
-            this.textTel.Location = new System.Drawing.Point(104, 137);
+            this.textTel.Location = new System.Drawing.Point(68, 134);
             this.textTel.Name = "textTel";
-            this.textTel.Size = new System.Drawing.Size(205, 20);
-            this.textTel.TabIndex = 26;
+            this.textTel.Size = new System.Drawing.Size(156, 20);
+            this.textTel.TabIndex = 4;
             // 
             // textApe
             // 
-            this.textApe.Location = new System.Drawing.Point(104, 65);
+            this.textApe.Location = new System.Drawing.Point(68, 52);
             this.textApe.Name = "textApe";
-            this.textApe.Size = new System.Drawing.Size(205, 20);
-            this.textApe.TabIndex = 25;
+            this.textApe.Size = new System.Drawing.Size(156, 20);
+            this.textApe.TabIndex = 2;
             // 
             // textNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(104, 30);
+            this.textNombre.Location = new System.Drawing.Point(68, 11);
             this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(205, 20);
-            this.textNombre.TabIndex = 24;
+            this.textNombre.Size = new System.Drawing.Size(156, 20);
+            this.textNombre.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(41, 99);
+            this.label5.Location = new System.Drawing.Point(12, 97);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 23;
@@ -248,7 +264,7 @@ namespace BAREST.Clientes
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 137);
+            this.label4.Location = new System.Drawing.Point(12, 134);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 22;
@@ -257,7 +273,7 @@ namespace BAREST.Clientes
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 68);
+            this.label3.Location = new System.Drawing.Point(12, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 21;
@@ -266,7 +282,7 @@ namespace BAREST.Clientes
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 30);
+            this.label2.Location = new System.Drawing.Point(12, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 20;
@@ -274,7 +290,7 @@ namespace BAREST.Clientes
             // 
             // textid
             // 
-            this.textid.Location = new System.Drawing.Point(276, 375);
+            this.textid.Location = new System.Drawing.Point(215, 398);
             this.textid.Name = "textid";
             this.textid.Size = new System.Drawing.Size(52, 20);
             this.textid.TabIndex = 30;
@@ -285,7 +301,7 @@ namespace BAREST.Clientes
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(311, 26);
+            this.label7.Location = new System.Drawing.Point(231, 11);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(17, 24);
@@ -298,7 +314,7 @@ namespace BAREST.Clientes
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(311, 65);
+            this.label6.Location = new System.Drawing.Point(231, 52);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(17, 24);
@@ -311,7 +327,7 @@ namespace BAREST.Clientes
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(311, 137);
+            this.label11.Location = new System.Drawing.Point(231, 134);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(17, 24);
@@ -319,28 +335,12 @@ namespace BAREST.Clientes
             this.label11.Text = "*";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textPiso
-            // 
-            this.textPiso.Location = new System.Drawing.Point(68, 151);
-            this.textPiso.Name = "textPiso";
-            this.textPiso.Size = new System.Drawing.Size(73, 20);
-            this.textPiso.TabIndex = 35;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 158);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(30, 13);
-            this.label13.TabIndex = 36;
-            this.label13.Text = "Piso:";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(316, 178);
+            this.label14.Location = new System.Drawing.Point(231, 177);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(17, 24);
@@ -350,15 +350,15 @@ namespace BAREST.Clientes
             // 
             // textCuil
             // 
-            this.textCuil.Location = new System.Drawing.Point(109, 178);
+            this.textCuil.Location = new System.Drawing.Point(68, 174);
             this.textCuil.Name = "textCuil";
-            this.textCuil.Size = new System.Drawing.Size(205, 20);
-            this.textCuil.TabIndex = 36;
+            this.textCuil.Size = new System.Drawing.Size(156, 20);
+            this.textCuil.TabIndex = 5;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(38, 178);
+            this.label15.Location = new System.Drawing.Point(12, 177);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(30, 13);
             this.label15.TabIndex = 35;
@@ -368,7 +368,7 @@ namespace BAREST.Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 485);
+            this.ClientSize = new System.Drawing.Size(290, 477);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.textCuil);
             this.Controls.Add(this.label15);
@@ -386,7 +386,10 @@ namespace BAREST.Clientes
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ingresarCliente";
+            this.ShowIcon = false;
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.ingresarCliente_Load);
             this.panel1.ResumeLayout(false);

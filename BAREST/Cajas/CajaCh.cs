@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace BAREST.Cajas
@@ -34,7 +36,7 @@ namespace BAREST.Cajas
             m.groupBox1.Text = "Caja chica";
             m.label1.Text = "Gastos varios";
             m.Show();
-
+            
         }
 
         private void ajustesdecaja_Click(object sender, System.EventArgs e)
@@ -75,7 +77,7 @@ namespace BAREST.Cajas
         {
             Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Ajuste de cajas");
             m.condicion = "Ajuste de cajas";
-            m.balance = "Ingreso";
+            m.balance = "Ingreso"; 
             m.groupBox1.Text = "Caja chica";
             m.label1.Text = "Ajustes de caja - Ingreso";
             m.Show();
@@ -86,7 +88,7 @@ namespace BAREST.Cajas
             Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Aporte de caja grande");
             m.btncaja = "Grande";
             m.condicion = "Aporte de caja grande";
-            m.balance = "Ingreso";
+            m.balance = "Ingreso"; 
             m.groupBox1.Text = "Caja chica";
             m.label1.Text = "Aporte de caja grande";
             m.Show();
@@ -97,7 +99,7 @@ namespace BAREST.Cajas
             Cajas.IngresarMonto m = new Cajas.IngresarMonto(this, "Aporte de caja Socios");
             m.condicion = "Aporte de caja Socios";
             m.btncaja = "Socios";
-            m.balance = "Ingreso";
+            m.balance = "Ingreso"; 
             m.groupBox1.Text = "Caja chica";
             m.label1.Text = "Aporte de caja socios";
             m.Show();
@@ -160,7 +162,7 @@ namespace BAREST.Cajas
         }
 
         private void CajaCh_Load(object sender, System.EventArgs e)
-        {
+        {         
             todoload();
         }
 
@@ -238,7 +240,7 @@ namespace BAREST.Cajas
         }
 
         private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
+        {        
             TreeNode selectedNode = treeView1.GetNodeAt(e.Location);
 
             if (selectedNode != null && selectedNode.Nodes.Count == 0) // Verifica que el nodo no tenga hijos
@@ -262,7 +264,7 @@ namespace BAREST.Cajas
                 m.groupBox1.Text = "Caja chica";
                 m.label1.Text = "Editar";
                 m.Show();
-            }
+            } 
         }
 
         private void btnEstadisticas_Click(object sender, EventArgs e)

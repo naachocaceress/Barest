@@ -1,14 +1,16 @@
 ﻿using BAREST.Clientes;
+using iText.StyledXmlParser.Jsoup.Nodes;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Windows.Forms;
 
 namespace BAREST.Configuracion
 {
     public partial class CLIENTE : Form
     {
-
+       
 
         public CLIENTE()
         {
@@ -32,40 +34,31 @@ namespace BAREST.Configuracion
         {
             string cliente = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["nombre"].Value.ToString();
 
-
-            try
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            using (var comando = new SqlCommand("SELECT nombre, apellido, telefono ,domicilio, altura, depto, documento, piso, cuit, idCliente FROM Cliente WHERE nombre = @nombre", conexion))
             {
-                using (SqlConnection conexion = Conexion.ObtenerConexion())
-                using (var comando = new SqlCommand(" SELECT nombre,apellido telefono ,domicilio,altura,depto, documento, piso.cuit, idCliente FROM Cliente nombre = @nombre", conexion))
+                comando.Parameters.AddWithValue("@nombre", cliente);
+                SqlDataReader leido = comando.ExecuteReader();
+                if (leido.Read())
                 {
-                    comando.Parameters.AddWithValue("@nombre", cliente);
-                    SqlDataReader leido = comando.ExecuteReader();
-                    if (leido.Read())
-                    {
 
-                        ingresarCliente vista = new ingresarCliente();
-                        vista.nombre = leido["Nombre"].ToString();
-                        vista.apellido = leido["apellido"].ToString();
-                        vista.telefono = leido["telefono"].ToString();
-                        vista.domicilio = leido["domicilio"].ToString();
-                        vista.altura = leido["altura"].ToString();
-                        vista.depto = leido["depto"].ToString();
-                        vista.documento = leido["documento"].ToString();
-                        vista.piso = leido["piso"].ToString();
-                        vista.cuit = leido["cuit"].ToString();
-                        vista.id = leido["idCliente"].ToString();
-                    }
-                    var i = new ingresarCliente();
-                    i.ShowDialog();
+                    ingresarCliente vista = new ingresarCliente();
+                    vista.nombre = leido["Nombre"].ToString();
+                    vista.apellido = leido["apellido"].ToString();
+                    vista.telefono = leido["telefono"].ToString();
+                    vista.domicilio = leido["domicilio"].ToString();
+                    vista.altura = leido["altura"].ToString();
+                    vista.depto = leido["depto"].ToString();
+                    vista.documento = leido["documento"].ToString();
+                    vista.piso = leido["piso"].ToString();
+                    vista.cuit = leido["cuit"].ToString();
+                    vista.id = leido["idCliente"].ToString();
 
+                    vista.ShowDialog(); // Muestra la ventana 'vista'
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al consultar para modificar el menú:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
+
 
 
 
@@ -80,7 +73,7 @@ namespace BAREST.Configuracion
                 try
                 {
                     using (SqlConnection conexion = Conexion.ObtenerConexion())
-                    using (var comando = new SqlCommand("UPDATE Cliente SET estado='D' WHERE nombre=@nombre", conexion))
+                    using (var comando = new SqlCommand("DELETE FROM Cliente WHERE nombre=@nombre", conexion))
                     {
                         comando.Parameters.AddWithValue("@nombre", Insum);
                         comando.ExecuteNonQuery();
@@ -94,6 +87,7 @@ namespace BAREST.Configuracion
                 }
             }
         }
+
 
         private void Clientes_Load(object sender, EventArgs e)
         {
@@ -112,7 +106,7 @@ namespace BAREST.Configuracion
                     dataGridView1.Rows.Clear();
                     dataGridView1.Columns.Clear();
 
-
+                   
                     dataGridView1.Columns.Add("nombre", "NOMBRE");
                     dataGridView1.Columns.Add("documento", "DOCUMENTO");
                     dataGridView1.Columns.Add("telefono", "TELEFONO");
@@ -120,7 +114,7 @@ namespace BAREST.Configuracion
 
                     while (registros.Read())
                     {
-                        dataGridView1.Rows.Add(registros["nombre"], registros["documento"], registros["telefono"]);
+                        dataGridView1.Rows.Add( registros["nombre"], registros["documento"], registros["telefono"]);
                     }
                 }
             }

@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static BAREST.Configuracion.CLIENTE;
 
 namespace BAREST.Clientes
 {
@@ -16,7 +17,7 @@ namespace BAREST.Clientes
         public string documento { get; set; }
         public string piso { get; set; }
         public string cuit { get; set; }
-        public string telefono { get; set; }
+        public  string telefono { get; set; }   
         public DateTime fecha { get; set; }
 
         public ingresarCliente()
@@ -26,7 +27,7 @@ namespace BAREST.Clientes
 
         private void agregarCliente_Click(object sender, EventArgs e)
         {
-
+            
             try
             {
                 if (string.IsNullOrEmpty(textid.Text))
@@ -138,14 +139,15 @@ namespace BAREST.Clientes
             textApe.Text = apellido;
             textTel.Text = telefono;
             textcalle.Text = domicilio;
-            textAltura.Text = altura;
+            textAltura.Text = altura; 
             textDepto.Text = depto;
             textdni.Text = documento;
             textPiso.Text = piso;
             textCuil.Text = cuit;
-
-
+            
+            
         }
+
         private void LimpiarCampos()
         {
             textid.Text = "";
