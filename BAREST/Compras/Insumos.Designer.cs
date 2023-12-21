@@ -30,6 +30,8 @@ namespace BAREST.Compras
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnguardar = new FontAwesome.Sharp.IconButton();
+            this.btnLista = new FontAwesome.Sharp.IconButton();
             this.agregarInsu = new FontAwesome.Sharp.IconButton();
             this.EliminarInsu = new FontAwesome.Sharp.IconButton();
             this.modificarInsu = new FontAwesome.Sharp.IconButton();
@@ -57,8 +59,6 @@ namespace BAREST.Compras
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimefechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.textidInsumo = new System.Windows.Forms.TextBox();
-            this.btnLista = new FontAwesome.Sharp.IconButton();
-            this.btnguardar = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubro)).BeginInit();
@@ -74,11 +74,56 @@ namespace BAREST.Compras
             this.panel1.Controls.Add(this.EliminarInsu);
             this.panel1.Controls.Add(this.modificarInsu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 590);
+            this.panel1.Location = new System.Drawing.Point(0, 519);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(883, 62);
+            this.panel1.Size = new System.Drawing.Size(709, 62);
             this.panel1.TabIndex = 0;
+            // 
+            // btnguardar
+            // 
+            this.btnguardar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnguardar.FlatAppearance.BorderSize = 0;
+            this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnguardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnguardar.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight;
+            this.btnguardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnguardar.IconSize = 30;
+            this.btnguardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnguardar.Location = new System.Drawing.Point(308, 0);
+            this.btnguardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnguardar.Name = "btnguardar";
+            this.btnguardar.Size = new System.Drawing.Size(99, 62);
+            this.btnguardar.TabIndex = 14;
+            this.btnguardar.Text = "       Guardar";
+            this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Visible = false;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
+            // 
+            // btnLista
+            // 
+            this.btnLista.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnLista.FlatAppearance.BorderSize = 0;
+            this.btnLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnLista.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
+            this.btnLista.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.btnLista.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLista.IconSize = 30;
+            this.btnLista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLista.Location = new System.Drawing.Point(0, 0);
+            this.btnLista.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLista.Name = "btnLista";
+            this.btnLista.Size = new System.Drawing.Size(110, 62);
+            this.btnLista.TabIndex = 10;
+            this.btnLista.Text = "       Lista";
+            this.btnLista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLista.UseVisualStyleBackColor = true;
+            this.btnLista.Click += new System.EventHandler(this.btnLista_Click);
             // 
             // agregarInsu
             // 
@@ -92,10 +137,10 @@ namespace BAREST.Compras
             this.agregarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.agregarInsu.IconSize = 30;
             this.agregarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarInsu.Location = new System.Drawing.Point(470, 0);
+            this.agregarInsu.Location = new System.Drawing.Point(407, 0);
             this.agregarInsu.Margin = new System.Windows.Forms.Padding(4);
             this.agregarInsu.Name = "agregarInsu";
-            this.agregarInsu.Size = new System.Drawing.Size(133, 62);
+            this.agregarInsu.Size = new System.Drawing.Size(102, 62);
             this.agregarInsu.TabIndex = 7;
             this.agregarInsu.Text = "       Agregar";
             this.agregarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,10 +159,10 @@ namespace BAREST.Compras
             this.EliminarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.EliminarInsu.IconSize = 30;
             this.EliminarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarInsu.Location = new System.Drawing.Point(603, 0);
+            this.EliminarInsu.Location = new System.Drawing.Point(509, 0);
             this.EliminarInsu.Margin = new System.Windows.Forms.Padding(4);
             this.EliminarInsu.Name = "EliminarInsu";
-            this.EliminarInsu.Size = new System.Drawing.Size(133, 62);
+            this.EliminarInsu.Size = new System.Drawing.Size(98, 62);
             this.EliminarInsu.TabIndex = 6;
             this.EliminarInsu.Text = "       Eliminar";
             this.EliminarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -136,10 +181,10 @@ namespace BAREST.Compras
             this.modificarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.modificarInsu.IconSize = 30;
             this.modificarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.modificarInsu.Location = new System.Drawing.Point(736, 0);
+            this.modificarInsu.Location = new System.Drawing.Point(607, 0);
             this.modificarInsu.Margin = new System.Windows.Forms.Padding(4);
             this.modificarInsu.Name = "modificarInsu";
-            this.modificarInsu.Size = new System.Drawing.Size(147, 62);
+            this.modificarInsu.Size = new System.Drawing.Size(102, 62);
             this.modificarInsu.TabIndex = 5;
             this.modificarInsu.Text = "       Modificar";
             this.modificarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -149,10 +194,10 @@ namespace BAREST.Compras
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 32);
+            this.label1.Location = new System.Drawing.Point(8, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.Size = new System.Drawing.Size(60, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre:";
             // 
@@ -164,11 +209,11 @@ namespace BAREST.Compras
             this.groupBox1.Controls.Add(this.textRubro);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(560, 15);
+            this.groupBox1.Location = new System.Drawing.Point(460, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(307, 310);
+            this.groupBox1.Size = new System.Drawing.Size(225, 237);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rubros";
@@ -178,10 +223,10 @@ namespace BAREST.Compras
             this.tablaRubro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaRubro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Rubros});
-            this.tablaRubro.Location = new System.Drawing.Point(43, 67);
+            this.tablaRubro.Location = new System.Drawing.Point(11, 46);
             this.tablaRubro.Margin = new System.Windows.Forms.Padding(4);
             this.tablaRubro.Name = "tablaRubro";
-            this.tablaRubro.Size = new System.Drawing.Size(254, 182);
+            this.tablaRubro.Size = new System.Drawing.Size(206, 145);
             this.tablaRubro.TabIndex = 4;
             // 
             // Rubros
@@ -192,10 +237,10 @@ namespace BAREST.Compras
             // 
             // eliminarRubro
             // 
-            this.eliminarRubro.Location = new System.Drawing.Point(197, 257);
+            this.eliminarRubro.Location = new System.Drawing.Point(147, 199);
             this.eliminarRubro.Margin = new System.Windows.Forms.Padding(4);
             this.eliminarRubro.Name = "eliminarRubro";
-            this.eliminarRubro.Size = new System.Drawing.Size(100, 41);
+            this.eliminarRubro.Size = new System.Drawing.Size(70, 29);
             this.eliminarRubro.TabIndex = 3;
             this.eliminarRubro.Text = "Eliminar";
             this.eliminarRubro.UseVisualStyleBackColor = true;
@@ -203,10 +248,10 @@ namespace BAREST.Compras
             // 
             // agregarRubro
             // 
-            this.agregarRubro.Location = new System.Drawing.Point(43, 257);
+            this.agregarRubro.Location = new System.Drawing.Point(11, 199);
             this.agregarRubro.Margin = new System.Windows.Forms.Padding(4);
             this.agregarRubro.Name = "agregarRubro";
-            this.agregarRubro.Size = new System.Drawing.Size(100, 41);
+            this.agregarRubro.Size = new System.Drawing.Size(70, 29);
             this.agregarRubro.TabIndex = 2;
             this.agregarRubro.Text = "Agregar";
             this.agregarRubro.UseVisualStyleBackColor = true;
@@ -214,50 +259,50 @@ namespace BAREST.Compras
             // 
             // textRubro
             // 
-            this.textRubro.Location = new System.Drawing.Point(97, 28);
+            this.textRubro.Location = new System.Drawing.Point(76, 16);
             this.textRubro.Margin = new System.Windows.Forms.Padding(4);
             this.textRubro.Name = "textRubro";
-            this.textRubro.Size = new System.Drawing.Size(200, 22);
+            this.textRubro.Size = new System.Drawing.Size(141, 22);
             this.textRubro.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(41, 27);
+            this.label2.Location = new System.Drawing.Point(18, 20);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 16);
+            this.label2.Size = new System.Drawing.Size(83, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Descripcion:";
             // 
             // textDescInsumo
             // 
-            this.textDescInsumo.Location = new System.Drawing.Point(165, 23);
+            this.textDescInsumo.Location = new System.Drawing.Point(109, 17);
             this.textDescInsumo.Margin = new System.Windows.Forms.Padding(4);
             this.textDescInsumo.Name = "textDescInsumo";
             this.textDescInsumo.Size = new System.Drawing.Size(240, 22);
-            this.textDescInsumo.TabIndex = 4;
+            this.textDescInsumo.TabIndex = 1;
             // 
             // comboRubroInsumo
             // 
             this.comboRubroInsumo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboRubroInsumo.FormattingEnabled = true;
-            this.comboRubroInsumo.Location = new System.Drawing.Point(165, 137);
+            this.comboRubroInsumo.Location = new System.Drawing.Point(109, 126);
             this.comboRubroInsumo.Margin = new System.Windows.Forms.Padding(4);
             this.comboRubroInsumo.Name = "comboRubroInsumo";
             this.comboRubroInsumo.Size = new System.Drawing.Size(160, 24);
-            this.comboRubroInsumo.TabIndex = 5;
+            this.comboRubroInsumo.TabIndex = 4;
             this.comboRubroInsumo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(41, 146);
+            this.label3.Location = new System.Drawing.Point(18, 129);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
+            this.label3.Size = new System.Drawing.Size(48, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "Rubro:";
             // 
@@ -265,10 +310,10 @@ namespace BAREST.Compras
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(41, 108);
+            this.label4.Location = new System.Drawing.Point(18, 87);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 16);
+            this.label4.Size = new System.Drawing.Size(55, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "Unidad:";
             // 
@@ -276,20 +321,20 @@ namespace BAREST.Compras
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(41, 70);
+            this.label5.Location = new System.Drawing.Point(18, 54);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 16);
+            this.label5.Size = new System.Drawing.Size(65, 16);
             this.label5.TabIndex = 9;
             this.label5.Text = "Cantidad:";
             // 
             // textCantidad
             // 
-            this.textCantidad.Location = new System.Drawing.Point(165, 62);
+            this.textCantidad.Location = new System.Drawing.Point(109, 51);
             this.textCantidad.Margin = new System.Windows.Forms.Padding(4);
             this.textCantidad.Name = "textCantidad";
             this.textCantidad.Size = new System.Drawing.Size(85, 22);
-            this.textCantidad.TabIndex = 10;
+            this.textCantidad.TabIndex = 2;
             // 
             // tablaInsumo
             // 
@@ -305,11 +350,12 @@ namespace BAREST.Compras
             this.unidad,
             this.rubro,
             this.fechaIngreso});
-            this.tablaInsumo.Location = new System.Drawing.Point(4, 332);
+            this.tablaInsumo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tablaInsumo.Location = new System.Drawing.Point(0, 257);
             this.tablaInsumo.Margin = new System.Windows.Forms.Padding(4);
             this.tablaInsumo.Name = "tablaInsumo";
             this.tablaInsumo.ReadOnly = true;
-            this.tablaInsumo.Size = new System.Drawing.Size(879, 262);
+            this.tablaInsumo.Size = new System.Drawing.Size(709, 262);
             this.tablaInsumo.TabIndex = 11;
             // 
             // descripcion
@@ -344,6 +390,7 @@ namespace BAREST.Compras
             // 
             // comboUnidad
             // 
+            this.comboUnidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboUnidad.FormattingEnabled = true;
             this.comboUnidad.Items.AddRange(new object[] {
             "Kg",
@@ -352,85 +399,40 @@ namespace BAREST.Compras
             "Bolsa",
             "Caja",
             "Otra"});
-            this.comboUnidad.Location = new System.Drawing.Point(165, 98);
+            this.comboUnidad.Location = new System.Drawing.Point(109, 87);
             this.comboUnidad.Margin = new System.Windows.Forms.Padding(4);
             this.comboUnidad.Name = "comboUnidad";
-            this.comboUnidad.Size = new System.Drawing.Size(47, 24);
-            this.comboUnidad.TabIndex = 13;
+            this.comboUnidad.Size = new System.Drawing.Size(85, 24);
+            this.comboUnidad.TabIndex = 3;
             this.comboUnidad.SelectedIndexChanged += new System.EventHandler(this.comboUnidad_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(41, 190);
+            this.label6.Location = new System.Drawing.Point(18, 171);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 16);
+            this.label6.Size = new System.Drawing.Size(86, 16);
             this.label6.TabIndex = 14;
             this.label6.Text = "F. ingresado:";
             // 
             // dateTimefechaIngreso
             // 
-            this.dateTimefechaIngreso.Location = new System.Drawing.Point(165, 182);
+            this.dateTimefechaIngreso.Location = new System.Drawing.Point(109, 166);
             this.dateTimefechaIngreso.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimefechaIngreso.Name = "dateTimefechaIngreso";
             this.dateTimefechaIngreso.Size = new System.Drawing.Size(265, 22);
-            this.dateTimefechaIngreso.TabIndex = 15;
+            this.dateTimefechaIngreso.TabIndex = 5;
             // 
             // textidInsumo
             // 
-            this.textidInsumo.Location = new System.Drawing.Point(276, 302);
+            this.textidInsumo.Location = new System.Drawing.Point(289, 228);
             this.textidInsumo.Margin = new System.Windows.Forms.Padding(4);
             this.textidInsumo.Name = "textidInsumo";
             this.textidInsumo.Size = new System.Drawing.Size(85, 22);
             this.textidInsumo.TabIndex = 16;
             this.textidInsumo.Visible = false;
-            // 
-            // btnLista
-            // 
-            this.btnLista.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnLista.FlatAppearance.BorderSize = 0;
-            this.btnLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnLista.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
-            this.btnLista.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnLista.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLista.IconSize = 30;
-            this.btnLista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLista.Location = new System.Drawing.Point(0, 0);
-            this.btnLista.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLista.Name = "btnLista";
-            this.btnLista.Size = new System.Drawing.Size(110, 62);
-            this.btnLista.TabIndex = 10;
-            this.btnLista.Text = "       Lista";
-            this.btnLista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLista.UseVisualStyleBackColor = true;
-            this.btnLista.Click += new System.EventHandler(this.btnLista_Click);
-            // 
-            // btnguardar
-            // 
-            this.btnguardar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnguardar.FlatAppearance.BorderSize = 0;
-            this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnguardar.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight;
-            this.btnguardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnguardar.IconSize = 30;
-            this.btnguardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnguardar.Location = new System.Drawing.Point(360, 0);
-            this.btnguardar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(110, 62);
-            this.btnguardar.TabIndex = 14;
-            this.btnguardar.Text = "       Guardar";
-            this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnguardar.UseVisualStyleBackColor = true;
-            this.btnguardar.Visible = false;
-            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // Insumos
             // 
@@ -438,7 +440,7 @@ namespace BAREST.Compras
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(883, 652);
+            this.ClientSize = new System.Drawing.Size(709, 581);
             this.Controls.Add(this.textidInsumo);
             this.Controls.Add(this.dateTimefechaIngreso);
             this.Controls.Add(this.label6);

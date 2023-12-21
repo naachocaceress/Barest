@@ -34,7 +34,6 @@
             this.idInsumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.espec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataListaCompras)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +48,6 @@
             this.idInsumo,
             this.cantidad,
             this.espec,
-            this.estado,
             this.fecha});
             this.dataListaCompras.Location = new System.Drawing.Point(12, 12);
             this.dataListaCompras.Name = "dataListaCompras";
@@ -81,11 +79,6 @@
             this.espec.HeaderText = "especificacion";
             this.espec.Name = "espec";
             // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            // 
             // fecha
             // 
             this.fecha.HeaderText = "Fecha";
@@ -113,7 +106,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idInsumo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn espec;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
     }
 }

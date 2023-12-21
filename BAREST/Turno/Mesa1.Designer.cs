@@ -176,7 +176,6 @@ namespace BAREST
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(383, 52);
             this.panel2.TabIndex = 2;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // textIdComanda
             // 
@@ -197,11 +196,11 @@ namespace BAREST
             // 
             // ConfirmarComanda
             // 
-            this.ConfirmarComanda.BackColor = System.Drawing.Color.Red;
+            this.ConfirmarComanda.BackColor = System.Drawing.SystemColors.Control;
             this.ConfirmarComanda.Cursor = System.Windows.Forms.Cursors.No;
-            this.ConfirmarComanda.Location = new System.Drawing.Point(335, 3);
+            this.ConfirmarComanda.Location = new System.Drawing.Point(310, 9);
             this.ConfirmarComanda.Name = "ConfirmarComanda";
-            this.ConfirmarComanda.Size = new System.Drawing.Size(45, 40);
+            this.ConfirmarComanda.Size = new System.Drawing.Size(61, 31);
             this.ConfirmarComanda.TabIndex = 4;
             this.ConfirmarComanda.Text = "Cerrar";
             this.ConfirmarComanda.UseVisualStyleBackColor = false;
@@ -213,7 +212,7 @@ namespace BAREST
             this.labelmozo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelmozo.Location = new System.Drawing.Point(60, 30);
             this.labelmozo.Name = "labelmozo";
-            this.labelmozo.Size = new System.Drawing.Size(22, 16);
+            this.labelmozo.Size = new System.Drawing.Size(23, 16);
             this.labelmozo.TabIndex = 3;
             this.labelmozo.Text = "---";
             // 
@@ -223,7 +222,7 @@ namespace BAREST
             this.labelmesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelmesa.Location = new System.Drawing.Point(60, 9);
             this.labelmesa.Name = "labelmesa";
-            this.labelmesa.Size = new System.Drawing.Size(22, 16);
+            this.labelmesa.Size = new System.Drawing.Size(23, 16);
             this.labelmesa.TabIndex = 2;
             this.labelmesa.Text = "---";
             // 
@@ -393,7 +392,7 @@ namespace BAREST
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Mesa1";

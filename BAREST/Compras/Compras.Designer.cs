@@ -49,7 +49,6 @@ namespace BAREST.Compras
             this.idInsumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.espec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataCompras)).BeginInit();
@@ -59,27 +58,30 @@ namespace BAREST.Compras
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 29);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.Size = new System.Drawing.Size(75, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Proveedor:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(265, 29);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(54, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Insumo:";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataCompras);
-            this.groupBox1.Location = new System.Drawing.Point(12, 85);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 139);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1015, 213);
+            this.groupBox1.Size = new System.Drawing.Size(901, 234);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Factura";
@@ -95,24 +97,24 @@ namespace BAREST.Compras
             this.idInsumo,
             this.cantidad,
             this.espec,
-            this.estado,
             this.fecha});
-            this.dataCompras.Location = new System.Drawing.Point(7, 8);
+            this.dataCompras.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataCompras.Location = new System.Drawing.Point(3, 18);
             this.dataCompras.Name = "dataCompras";
-            this.dataCompras.Size = new System.Drawing.Size(996, 188);
+            this.dataCompras.Size = new System.Drawing.Size(895, 213);
             this.dataCompras.TabIndex = 10;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.panel1.Controls.Add(this.Imprimir);
             this.panel1.Controls.Add(this.btnlista);
             this.panel1.Controls.Add(this.Confirmar);
             this.panel1.Controls.Add(this.Cancelar);
-            this.panel1.Controls.Add(this.Imprimir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 307);
+            this.panel1.Location = new System.Drawing.Point(0, 386);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1027, 50);
+            this.panel1.Size = new System.Drawing.Size(924, 50);
             this.panel1.TabIndex = 49;
             // 
             // btnlista
@@ -143,16 +145,16 @@ namespace BAREST.Compras
             this.Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Confirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Confirmar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.Confirmar.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.Confirmar.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
             this.Confirmar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.Confirmar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Confirmar.IconSize = 30;
             this.Confirmar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Confirmar.Location = new System.Drawing.Point(718, 0);
+            this.Confirmar.Location = new System.Drawing.Point(715, 0);
             this.Confirmar.Name = "Confirmar";
             this.Confirmar.Size = new System.Drawing.Size(109, 50);
             this.Confirmar.TabIndex = 7;
-            this.Confirmar.Text = "       Confirmar";
+            this.Confirmar.Text = "       Agregar";
             this.Confirmar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Confirmar.UseVisualStyleBackColor = true;
             this.Confirmar.Click += new System.EventHandler(this.Confirmar_Click);
@@ -164,23 +166,23 @@ namespace BAREST.Compras
             this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.Cancelar.IconChar = FontAwesome.Sharp.IconChar.Cancel;
+            this.Cancelar.IconChar = FontAwesome.Sharp.IconChar.CircleMinus;
             this.Cancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.Cancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Cancelar.IconSize = 30;
             this.Cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Cancelar.Location = new System.Drawing.Point(827, 0);
+            this.Cancelar.Location = new System.Drawing.Point(824, 0);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(100, 50);
             this.Cancelar.TabIndex = 8;
-            this.Cancelar.Text = "       Cancelar";
+            this.Cancelar.Text = "       Eliminar";
             this.Cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Cancelar.UseVisualStyleBackColor = true;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
             // Imprimir
             // 
-            this.Imprimir.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Imprimir.Dock = System.Windows.Forms.DockStyle.Left;
             this.Imprimir.FlatAppearance.BorderSize = 0;
             this.Imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Imprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -190,7 +192,7 @@ namespace BAREST.Compras
             this.Imprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Imprimir.IconSize = 30;
             this.Imprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Imprimir.Location = new System.Drawing.Point(927, 0);
+            this.Imprimir.Location = new System.Drawing.Point(84, 0);
             this.Imprimir.Name = "Imprimir";
             this.Imprimir.Size = new System.Drawing.Size(100, 50);
             this.Imprimir.TabIndex = 6;
@@ -201,89 +203,93 @@ namespace BAREST.Compras
             // 
             // comboInsumo
             // 
+            this.comboInsumo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboInsumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboInsumo.FormattingEnabled = true;
-            this.comboInsumo.Location = new System.Drawing.Point(324, 24);
+            this.comboInsumo.Location = new System.Drawing.Point(93, 53);
             this.comboInsumo.Name = "comboInsumo";
-            this.comboInsumo.Size = new System.Drawing.Size(132, 21);
+            this.comboInsumo.Size = new System.Drawing.Size(132, 24);
             this.comboInsumo.TabIndex = 52;
             // 
             // comboProv
             // 
+            this.comboProv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboProv.FormattingEnabled = true;
-            this.comboProv.Location = new System.Drawing.Point(78, 24);
+            this.comboProv.Location = new System.Drawing.Point(93, 14);
             this.comboProv.Name = "comboProv";
             this.comboProv.Size = new System.Drawing.Size(132, 21);
             this.comboProv.TabIndex = 53;
-          
             // 
             // textCantidad
             // 
-            this.textCantidad.Location = new System.Drawing.Point(587, 26);
+            this.textCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCantidad.Location = new System.Drawing.Point(93, 96);
             this.textCantidad.Name = "textCantidad";
-            this.textCantidad.Size = new System.Drawing.Size(67, 20);
+            this.textCantidad.Size = new System.Drawing.Size(67, 22);
             this.textCantidad.TabIndex = 55;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(532, 32);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 99);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.Size = new System.Drawing.Size(62, 16);
             this.label4.TabIndex = 54;
             this.label4.Text = "Cantidad";
             // 
             // textEspecificacion
             // 
-            this.textEspecificacion.Location = new System.Drawing.Point(792, 29);
+            this.textEspecificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEspecificacion.Location = new System.Drawing.Point(402, 12);
             this.textEspecificacion.Multiline = true;
             this.textEspecificacion.Name = "textEspecificacion";
-            this.textEspecificacion.Size = new System.Drawing.Size(173, 58);
+            this.textEspecificacion.Size = new System.Drawing.Size(257, 106);
             this.textEspecificacion.TabIndex = 56;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(701, 29);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(291, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.Size = new System.Drawing.Size(105, 16);
             this.label5.TabIndex = 57;
             this.label5.Text = "Especificacion  :";
             // 
             // idCompra
             // 
-            this.idCompra.FillWeight = 50F;
-            this.idCompra.HeaderText = "NroCompras";
+            this.idCompra.FillWeight = 48.66751F;
+            this.idCompra.HeaderText = "Nro";
             this.idCompra.Name = "idCompra";
             // 
             // idProveedor
             // 
+            this.idProveedor.FillWeight = 97.33503F;
             this.idProveedor.HeaderText = "Proveedor";
             this.idProveedor.Name = "idProveedor";
             // 
             // idInsumo
             // 
+            this.idInsumo.FillWeight = 97.33503F;
             this.idInsumo.HeaderText = "Insumo";
             this.idInsumo.Name = "idInsumo";
             // 
             // cantidad
             // 
-            this.cantidad.FillWeight = 50F;
+            this.cantidad.FillWeight = 65.98985F;
             this.cantidad.HeaderText = "Cantidad";
             this.cantidad.Name = "cantidad";
             // 
             // espec
             // 
-            this.espec.FillWeight = 150F;
+            this.espec.FillWeight = 146.0025F;
             this.espec.HeaderText = "Especificacion";
             this.espec.Name = "espec";
             // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            // 
             // fecha
             // 
+            this.fecha.FillWeight = 97.33503F;
             this.fecha.HeaderText = "Fecha";
             this.fecha.Name = "fecha";
             // 
@@ -291,7 +297,7 @@ namespace BAREST.Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1027, 357);
+            this.ClientSize = new System.Drawing.Size(924, 436);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textEspecificacion);
             this.Controls.Add(this.textCantidad);
@@ -338,7 +344,6 @@ namespace BAREST.Compras
         private System.Windows.Forms.DataGridViewTextBoxColumn idInsumo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn espec;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
     }
 }

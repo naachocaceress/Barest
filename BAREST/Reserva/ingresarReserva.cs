@@ -56,7 +56,7 @@ namespace BAREST
                     Conexion.ObtenerConexion();
                     string sql = "update Reserva set nombre= @nombre, apellido= @apellido, telefono= @telefono, fechaReserva= @fecha, cantComensales= @cant, posicion= @posicion, hora= @hora, comentarios= @com where nombre=@nombre";
                     SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                    comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = ClaseCompartida.Insum3;
+                    comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = textNombre.Text;
                     comando.Parameters.Add("@apellido", SqlDbType.VarChar).Value = textApellido.Text;
                     comando.Parameters.Add("@telefono", SqlDbType.VarChar).Value = textTelefono.Text;
                     comando.Parameters.Add("@cant", SqlDbType.VarChar).Value = textcant.Text;

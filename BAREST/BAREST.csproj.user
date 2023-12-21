@@ -7,6 +7,6 @@
     <EnableSQLServerDebugging>true</EnableSQLServerDebugging>
     <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
-    <StartWorkingDirectory>C:\Users\usuario\source\repos\Barest\</StartWorkingDirectory>
+    <StartWorkingDirectory>C:\Proyectos\Proyecto BAREST\BAREST\BAREST\</StartWorkingDirectory>
   </PropertyGroup>
 </Project>

@@ -42,11 +42,9 @@ namespace BAREST.turno
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.agregarInsu = new FontAwesome.Sharp.IconButton();
             this.EliminarInsu = new FontAwesome.Sharp.IconButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.juanfoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calebfoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nachofoto)).BeginInit();
@@ -54,7 +52,6 @@ namespace BAREST.turno
             ((System.ComponentModel.ISupportInitialize)(this.pepefoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.penelopefoto)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // juanfoto
@@ -191,34 +188,12 @@ namespace BAREST.turno
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
-            this.panel1.Controls.Add(this.agregarInsu);
             this.panel1.Controls.Add(this.EliminarInsu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 297);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(311, 50);
             this.panel1.TabIndex = 24;
-            // 
-            // agregarInsu
-            // 
-            this.agregarInsu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.agregarInsu.FlatAppearance.BorderSize = 0;
-            this.agregarInsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarInsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarInsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.agregarInsu.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.agregarInsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.agregarInsu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.agregarInsu.IconSize = 30;
-            this.agregarInsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarInsu.Location = new System.Drawing.Point(111, 0);
-            this.agregarInsu.Name = "agregarInsu";
-            this.agregarInsu.Size = new System.Drawing.Size(100, 50);
-            this.agregarInsu.TabIndex = 7;
-            this.agregarInsu.Text = "       Aceptar";
-            this.agregarInsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agregarInsu.UseVisualStyleBackColor = true;
-            this.agregarInsu.Click += new System.EventHandler(this.IngresarMozo_Click);
             // 
             // EliminarInsu
             // 
@@ -259,24 +234,11 @@ namespace BAREST.turno
             this.label8.TabIndex = 26;
             this.label8.Text = "Mesa:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::BAREST.Properties.Resources.Usuario_login2;
-            this.pictureBox1.Location = new System.Drawing.Point(163, 109);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 27;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // Mozo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 347);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel1);
@@ -307,7 +269,6 @@ namespace BAREST.turno
             ((System.ComponentModel.ISupportInitialize)(this.pepefoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.penelopefoto)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,10 +289,8 @@ namespace BAREST.turno
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
-        private FontAwesome.Sharp.IconButton agregarInsu;
         private FontAwesome.Sharp.IconButton EliminarInsu;
         public System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

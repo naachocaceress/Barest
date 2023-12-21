@@ -1,4 +1,5 @@
 ﻿using BAREST.Reserva;
+using ClosedXML.Excel;
 using iText.IO.Font.Constants;
 using iText.IO.Image;
 using iText.Kernel.Font;
@@ -36,7 +37,7 @@ namespace BAREST
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime hoy = DateTime.Now;
-            fechaLabel.Text = "Hoy " + hoy.ToString("M") + " hay un total de " + ScantReservasHoy + " reservas con " + ScantPAXHoy + " PAX en total";
+            fechaLabel.Text = "Hoy " + hoy.ToString("M") + " hay " + ScantReservasHoy + " reservas con " + ScantPAXHoy + " PAX en total";
             btnActualMes.Text = DateTime.Now.ToString("MMMM").ToUpper();
             btnAnteriorMes.Text = DateTime.Now.AddMonths(-1).ToString("MMMM").ToUpper();
         }
@@ -105,6 +106,7 @@ namespace BAREST
             cargarTabla();
             cantReservasHoy();
         }
+
         #region  Anulacion y recuperacion de  estado de reserva  disponible o anulado
         private void btnAnuRecu_Click(object sender, EventArgs e)
         {
@@ -146,6 +148,7 @@ namespace BAREST
             cantReservasHoy();
         }
         #endregion
+
         #region Cambio de cuando el estado de la reserva es anulado
         public void anuladas()
         {
@@ -162,75 +165,44 @@ namespace BAREST
                         });
         }
         #endregion
+
         private void crearPDF()
         {
-            PdfWriter pdfWriter = new PdfWriter("Reservas.pdf");
-            PdfDocument pdf = new PdfDocument(pdfWriter);
-            Document documento = new Document(pdf, PageSize.A4);
-
-            documento.SetMargins(60, 20, 55, 20);
-
-            PdfFont fontColumnas = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
-            PdfFont fontContenido = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
-
-            string[] columnas = { "Nombre", "Apellido", "PAX", "Hora", "Fecha", "Mesa", "Estado" };
-
-            float[] tamanios = { 2, 4, 2, 3, 3, 4, 2 };
-            Table tabla = new Table(UnitValue.CreatePercentArray(tamanios));
-            tabla.SetWidth(UnitValue.CreatePercentValue(100));
-
-            foreach (string columna in columnas)
+            try
             {
-                tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(fontColumnas)));
-            }
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (var comando = new SqlCommand("SELECT nombre, apellido, cantComensales, hora, fechaReserva, posicion, estado FROM Reserva" +
+                                                   " GROUP BY fechaReserva, apellido, nombre, cantComensales, posicion, hora, estado", conexion))
+                {
+                    SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+                    DataTable tablaDatos = new DataTable();
+                    adaptador.Fill(tablaDatos);
 
-            Conexion.ObtenerConexion();
-            string sql = "select nombre,apellido,cantComensales,hora,fechaReserva,posicion, estado from Reserva" +
-                " group by fechaReserva,apellido,nombre,cantComensales,posicion, hora, estado";
-            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            SqlDataReader registros = comando.ExecuteReader();
-            while (registros.Read())
+                    // Crear un nuevo libro de Excel usando ClosedXML
+                    using (var workbook = new XLWorkbook())
+                    {
+                        // Agregar una hoja al libro
+                        var worksheet = workbook.Worksheets.Add("Reservas");
+
+                        // Rellenar la hoja con los datos del DataTable
+                        worksheet.Cell(1, 1).InsertTable(tablaDatos.AsEnumerable(), "Reservas", true);
+
+                        // Guardar el libro de Excel
+                        var saveFileDialog = new SaveFileDialog();
+                        saveFileDialog.Filter = "Archivos Excel|*.xlsx";
+                        saveFileDialog.Title = "Guardar como archivo Excel";
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            workbook.SaveAs(saveFileDialog.FileName);
+                            MessageBox.Show("Datos de reservas exportados exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                tabla.AddCell(new Cell().Add(new Paragraph(registros["nombre"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(registros["apellido"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(registros["cantComensales"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(registros["hora"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(registros["fechaReserva"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(registros["posicion"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(registros["estado"].ToString()).SetFont(fontContenido)));
+                MessageBox.Show("Error al exportar datos de reservas a Excel: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            registros.Close();
-            Conexion.ObtenerConexion().Close();
-
-            documento.Add(tabla);
-            documento.Close();
-
-            var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Nacho/OneDrive/Escritorio/Nacho6/ISSD/BAREST/Recursos/Barest (NUEVO COLOR).png")).SetWidth(50);
-            var PLOGO = new Paragraph("").Add(logo);
-            var titulo = new Paragraph("RESERVAS");
-            titulo.SetTextAlignment(TextAlignment.CENTER);
-            titulo.SetFontSize(12);
-
-            var dfecha = DateTime.Now.ToString("dd-MM-yyyy");
-            var dhora = DateTime.Now.ToString("hh:mm:ss");
-            var fecha = new Paragraph("Fecha: " + dfecha + "\nHora: " + dhora);
-
-            PdfDocument pdfDoc = new PdfDocument(new PdfReader("Reservas.pdf"), new PdfWriter("C:/Users/Nacho/OneDrive/Escritorio/ReservasVidonAlta.pdf"));
-            Document doc = new Document(pdfDoc);
-
-            int numero = pdfDoc.GetNumberOfPages();
-
-            for (int i = 1; i <= numero; i++)
-            {
-                PdfPage pagina = pdfDoc.GetPage(i);
-                float y = (pdfDoc.GetPage(i).GetPageSize().GetTop() - 15);
-                doc.ShowTextAligned(PLOGO, 40, y + 8, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
-                doc.ShowTextAligned(titulo, 150, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
-                doc.ShowTextAligned(fecha, 520, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
-
-                doc.ShowTextAligned(new Paragraph(String.Format("Pagina {0} de {1}", i, numero)), pdfDoc.GetPage(i).GetPageSize().GetWidth() / 2, pdfDoc.GetPage(i).GetPageSize().GetBottom() + 30, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
-            }
-            doc.Close();
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

@@ -27,8 +27,8 @@ namespace BAREST.Configuracion
                     dataGridView1.Columns.Add("apellido", "Apellido");
                     dataGridView1.Columns.Add("documento", "Documento");
                     dataGridView1.Columns.Add("domicilio", "Domicilio");
-                    dataGridView1.Columns.Add("altura", "altura");
-                    dataGridView1.Columns.Add("depto", "Nombre");
+                    dataGridView1.Columns.Add("altura", "Altura");
+                    dataGridView1.Columns.Add("depto", "Depto");
                     dataGridView1.Columns.Add("piso", "Piso");
                    while (registros.Read())
                     {

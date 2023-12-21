@@ -89,7 +89,6 @@ namespace BAREST
                 compras.Text = ("");
                 menu.Text = ("");
                 stock.Text = ("");
-                informes.Text = ("");
                 personal.Text = ("");
                 config.Text = ("");
                 salir.Text = ("");
@@ -105,7 +104,6 @@ namespace BAREST
                 compras.Text = ("          Compras");
                 menu.Text = ("          Menu");
                 stock.Text = ("          Stock");
-                informes.Text = ("          Informes");
                 personal.Text = ("          Personal");
                 btnCliente.Text = ("          Cliente");
                 config.Text = ("          Configuracion");
@@ -124,7 +122,6 @@ namespace BAREST
             compras.Text = ("");
             menu.Text = ("");
             stock.Text = ("");
-            informes.Text = ("");
             personal.Text = ("");
             btnCliente.Text = ("");
             config.Text = ("");
@@ -146,7 +143,6 @@ namespace BAREST
                 compras.Text = ("          Compras");
                 menu.Text = ("          Menu");
                 stock.Text = ("          Stock");
-                informes.Text = ("          Informes");
                 personal.Text = ("          Personal");
                 btnCliente.Text = ("          Cliente");
                 config.Text = ("          Configuracion");
@@ -365,7 +361,6 @@ namespace BAREST
                 compras.Text = ("");
                 menu.Text = ("");
                 stock.Text = ("");
-                informes.Text = ("");
                 personal.Text = ("");
                 btnCliente.Text = ("");
                 config.Text = ("");
@@ -382,7 +377,6 @@ namespace BAREST
                 compras.Text = ("          Compras");
                 menu.Text = ("          Menu");
                 stock.Text = ("          Stock");
-                informes.Text = ("          Informes");
                 personal.Text = ("          Personal");
                 btnCliente.Text = ("          Cliente");
                 config.Text = ("          Configuracion");
@@ -732,6 +726,11 @@ namespace BAREST
             esconderMenu();
             Cajas.Cajasc m = new Cajas.Cajasc();
             m.Show();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void Add()

@@ -10,12 +10,11 @@ namespace BAREST.Configuracion
 {
     public partial class CLIENTE : Form
     {
-       
-
         public CLIENTE()
         {
             InitializeComponent();
         }
+
         public static class CLientesshare
         {
             public static string selectCliente = "";
@@ -25,9 +24,8 @@ namespace BAREST.Configuracion
         private void agregarCliente_Click(object sender, EventArgs e)
         {
             CLientesshare.selectCliente = "";
-            var i = new ingresarCliente();
-            i.ShowDialog();
-            CargarGrilla();
+            BAREST.Clientes.ingresarCliente vista = new BAREST.Clientes.ingresarCliente(this);
+            vista.Show();
         }
 
         private void modificarCliente_Click(object sender, EventArgs e)
@@ -42,7 +40,7 @@ namespace BAREST.Configuracion
                 if (leido.Read())
                 {
 
-                    ingresarCliente vista = new ingresarCliente();
+                    BAREST.Clientes.ingresarCliente vista = new BAREST.Clientes.ingresarCliente(this);
                     vista.nombre = leido["Nombre"].ToString();
                     vista.apellido = leido["apellido"].ToString();
                     vista.telefono = leido["telefono"].ToString();
@@ -100,7 +98,7 @@ namespace BAREST.Configuracion
             try
             {
                 using (SqlConnection conexion = Conexion.ObtenerConexion())
-                using (var comando = new SqlCommand(" SELECT  idCliente ,nombre, documento, telefono FROM Cliente WHERE estado = 'A' ORDER BY nombre ASC", conexion))
+                using (var comando = new SqlCommand("SELECT nombre, documento, telefono FROM Cliente ORDER BY nombre ASC", conexion))
                 using (SqlDataReader registros = comando.ExecuteReader())
                 {
                     dataGridView1.Rows.Clear();
@@ -132,6 +130,11 @@ namespace BAREST.Configuracion
 
         private void iconPictureBox1_Click(object sender, EventArgs e)
         {
+            lupita();
+        }
+
+        public void lupita()
+        {
             using (SqlConnection conexion = Conexion.ObtenerConexion())
             using (var comando = new SqlCommand("SELECT nombre, documento, telefono FROM Cliente WHERE nombre LIKE @nombre", conexion))
             {
@@ -153,7 +156,6 @@ namespace BAREST.Configuracion
                 }
             }
         }
-
 
     }
 

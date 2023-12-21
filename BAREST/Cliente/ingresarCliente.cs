@@ -20,16 +20,16 @@ namespace BAREST.Clientes
         public  string telefono { get; set; }   
         public DateTime fecha { get; set; }
 
-        public ingresarCliente()
+        private BAREST.Configuracion.CLIENTE cliente;
+
+        public ingresarCliente(BAREST.Configuracion.CLIENTE cliente)
         {
             InitializeComponent();
+            this.cliente = cliente;
         }
 
         private void agregarCliente_Click(object sender, EventArgs e)
         {
-            
-            try
-            {
                 if (string.IsNullOrEmpty(textid.Text))
                 {
                     if (existeCliente())
@@ -51,12 +51,9 @@ namespace BAREST.Clientes
                     EditCliente();
                 }
 
-                LimpiarCampos();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            cliente.lupita();
+
+            LimpiarCampos();
         }
 
         private bool existeCliente()
@@ -107,10 +104,8 @@ namespace BAREST.Clientes
 
         private void EditCliente()
         {
-            try
-            {
                 using (SqlConnection conexion = Conexion.ObtenerConexion())
-                using (var comando = new SqlCommand("UPDATE Cliente SET nombre = @nombre, apellido = @apellido, telefono = @telefono, domicilio = @domicilio, altura = @altura, depto = @depto, cuit = @cuit, fecha=@fecha WHERE dni = @dni", conexion))
+                using (var comando = new SqlCommand("UPDATE Cliente SET nombre = @nombre, apellido = @apellido, telefono = @telefono, domicilio = @domicilio, altura = @altura, depto = @depto, piso=@piso, cuit = @cuit, fecha=@fecha WHERE documento = @dni", conexion))
                 {
                     comando.Parameters.AddWithValue("@nombre", SqlDbType.VarChar).Value = textNombre.Text;
                     comando.Parameters.AddWithValue("@apellido", SqlDbType.VarChar).Value = textApe.Text;
@@ -118,6 +113,7 @@ namespace BAREST.Clientes
                     comando.Parameters.AddWithValue("@domicilio", SqlDbType.VarChar).Value = textcalle.Text;
                     comando.Parameters.AddWithValue("@altura", SqlDbType.VarChar).Value = textAltura.Text;
                     comando.Parameters.AddWithValue("@depto", SqlDbType.VarChar).Value = textDepto.Text;
+                    comando.Parameters.AddWithValue("@piso", SqlDbType.VarChar).Value = textPiso.Text;
                     comando.Parameters.AddWithValue("@cuit", SqlDbType.VarChar).Value = textCuil.Text;
                     comando.Parameters.AddWithValue("@dni", SqlDbType.VarChar).Value = textdni.Text;
                     comando.Parameters.AddWithValue("@fecha", DateTime.Now);
@@ -125,11 +121,10 @@ namespace BAREST.Clientes
                 }
 
                 MessageBox.Show("Se ha actualizado el cliente");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            cliente.lupita();
+
+            this.Close();
         }
 
         private void buscarDatos()

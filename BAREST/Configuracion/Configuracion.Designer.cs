@@ -32,10 +32,10 @@ namespace BAREST
             this.panelMenu = new System.Windows.Forms.Panel();
             this.acercaDe = new FontAwesome.Sharp.IconButton();
             this.disenioBtn = new FontAwesome.Sharp.IconButton();
+            this.Reservas = new FontAwesome.Sharp.IconButton();
             this.usuariosBtn = new FontAwesome.Sharp.IconButton();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Reservas = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -95,7 +95,30 @@ namespace BAREST
             this.disenioBtn.TabIndex = 9;
             this.disenioBtn.Text = "Diseño                     >";
             this.disenioBtn.UseVisualStyleBackColor = false;
+            this.disenioBtn.Visible = false;
             this.disenioBtn.Click += new System.EventHandler(this.disenioBtn_Click);
+            // 
+            // Reservas
+            // 
+            this.Reservas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.Reservas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Reservas.FlatAppearance.BorderSize = 0;
+            this.Reservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Reservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Reservas.ForeColor = System.Drawing.Color.Black;
+            this.Reservas.IconChar = FontAwesome.Sharp.IconChar._500Px;
+            this.Reservas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Reservas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Reservas.IconSize = 1;
+            this.Reservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Reservas.Location = new System.Drawing.Point(0, 48);
+            this.Reservas.Name = "Reservas";
+            this.Reservas.Size = new System.Drawing.Size(170, 48);
+            this.Reservas.TabIndex = 11;
+            this.Reservas.Text = "Manual de Usuario   >";
+            this.Reservas.UseVisualStyleBackColor = false;
+            this.Reservas.Visible = false;
+            this.Reservas.Click += new System.EventHandler(this.Reservas_Click);
             // 
             // usuariosBtn
             // 
@@ -137,27 +160,6 @@ namespace BAREST
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // Reservas
-            // 
-            this.Reservas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.Reservas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Reservas.FlatAppearance.BorderSize = 0;
-            this.Reservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Reservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reservas.ForeColor = System.Drawing.Color.Black;
-            this.Reservas.IconChar = FontAwesome.Sharp.IconChar._500Px;
-            this.Reservas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Reservas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Reservas.IconSize = 1;
-            this.Reservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reservas.Location = new System.Drawing.Point(0, 48);
-            this.Reservas.Name = "Reservas";
-            this.Reservas.Size = new System.Drawing.Size(170, 48);
-            this.Reservas.TabIndex = 11;
-            this.Reservas.Text = "Manual de Usuario   >";
-            this.Reservas.UseVisualStyleBackColor = false;
-            this.Reservas.Click += new System.EventHandler(this.Reservas_Click);
             // 
             // configuracion
             // 

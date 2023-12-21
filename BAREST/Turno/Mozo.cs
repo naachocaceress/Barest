@@ -11,11 +11,6 @@ namespace BAREST.turno
             InitializeComponent();
         }
 
-        private void IngresarMozo_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void pictureBox9_Click(object sender, EventArgs e)
         {
             Mesa1 m = new Mesa1();

@@ -17,6 +17,7 @@ namespace BAREST
         {
             InitializeComponent();
         }
+
         public static class ClaseCompartida
         {
             public static int valor = 0;
@@ -29,17 +30,11 @@ namespace BAREST
             // otras variables estáticas
         }
 
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-
-
         private void btnComanda_Click(object sender, EventArgs e)
         {
             crearComanda();
         }
+
         private void crearComanda()
         {
             MessageBoxButtons botones = MessageBoxButtons.YesNo;
@@ -74,9 +69,7 @@ namespace BAREST
                 }
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
+
         private void Comandas()
         {
             Conexion.ObtenerConexion();
@@ -106,6 +99,7 @@ namespace BAREST
                 throw;
             }
         }
+
         private void SumarSiExisteFila()
         {
             Conexion.ObtenerConexion();
@@ -134,6 +128,7 @@ namespace BAREST
                 throw;
             }
         }
+
         private void eliminarFiladb()
         {
             Conexion.ObtenerConexion();
@@ -161,16 +156,13 @@ namespace BAREST
                 throw;
             }
         }
+
         /* private void Cobro()
          {
              ClaseCompartida.ColorMesa == 5
              Necesito que cambiar el estado de todas la filas que tiene el idcomanda el mozo y la mesa de la tabla mesa y comanda  a estado='C' 
              
          }*/
-
-
-
-
 
         private void agregarMenulista_Click(object sender, EventArgs e)
         {
@@ -180,10 +172,8 @@ namespace BAREST
 
         public int cantidad = 0;
 
+        // el id para agregar a cada fila de la mesa.
 
-        /// <summary>
-        /// el id para agregar a cada fila de la mesa.
-        /// </summary>
         private void buscarIdComanda()
         {
 
@@ -208,10 +198,6 @@ namespace BAREST
             }
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
         private void agregarMenulista2()
         {
 
@@ -248,7 +234,9 @@ namespace BAREST
                 MessageBox.Show(ex.Message, "ERROR EN LA AGREGAR MENU", MessageBoxButtons.OK);
             }
         }
+
         // insertar menu ------------------------------------------ 
+
         private void IngresarMenu()
         {
             if (dataGridView1.Rows.Count > 0)
@@ -281,6 +269,7 @@ namespace BAREST
         }
 
         // Método para calcular y mostrar la suma total en el campo de texto textTotal
+
         private void sumaT()
         {
             int sumatorio = 0;
@@ -291,7 +280,9 @@ namespace BAREST
 
             textTotal.Text = sumatorio.ToString();
         }
+
         //------------------------------------------------------------------
+
         private void ConfirmarComanda_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count == -1)
@@ -329,6 +320,7 @@ namespace BAREST
                 agregarMenulista2();
             }
         }
+
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 8)
@@ -360,6 +352,7 @@ namespace BAREST
         }
 
         // suma --------------------- perfecto----
+
         private void iconButton1_Click(object sender, EventArgs e)
         {
             double suma = 1;
@@ -378,7 +371,9 @@ namespace BAREST
                 sumaT();
             }
         }
+
         //  resta -----------------------perfecto----------------------
+
         private void iconButton2_Click(object sender, EventArgs e)
         {
             double resta = 1;
@@ -395,6 +390,7 @@ namespace BAREST
                 eliminar();
             sumaT();
         }
+
         //---------------------------------------------------
 
         private void buscarIdComandaymozo()
@@ -522,6 +518,7 @@ namespace BAREST
             ClaseCompartida.valor = 5;// color celeste.
             this.Close();
         }
+
         private void Imprimir(object sender, PrintPageEventArgs e)
         {
             Font font = new Font("Arial", 14, FontStyle.Bold, GraphicsUnit.Point);
@@ -554,6 +551,7 @@ namespace BAREST
 
             //e.Graphics.DrawString(" " + dataGridView1.Rows[0].Cells[0].Value.ToString() + " " + dataGridView1.Rows[0].Cells[1].Value.ToString(), font3, Brushes.Black, new RectangleF(15, 130, 300, 20));
         }
+
         private void Imprimir2(object sender, PrintPageEventArgs e)
         {
             Font font = new Font("Arial", 13, FontStyle.Bold, GraphicsUnit.Point);
@@ -594,12 +592,6 @@ namespace BAREST
             e.Graphics.DrawString("GRACIAS POR ELEGIR VIDON BAR", font21, Brushes.Black, new RectangleF(25, 290, 300, 20));
             e.Graphics.DrawImage(pictureBox1.Image, new Rectangle(130, 320, 50, 50));
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
 
     }
 }

@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using ClosedXML.Excel;
 
 namespace BAREST.Compras
 {
@@ -17,9 +18,14 @@ namespace BAREST.Compras
         {
             try
             {
+                // Verificar si txtCantidad está nulo o vacío
+                if (string.IsNullOrWhiteSpace(textCantidad.Text))
+                {
+                    MessageBox.Show("Tienes que completar los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 SumarSiExiste();
-
-
                 CargarTabla();
             }
             catch (Exception ex)
@@ -27,6 +33,7 @@ namespace BAREST.Compras
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private bool SumarSiExiste()
         {
@@ -96,8 +103,6 @@ namespace BAREST.Compras
             return false;
         }
 
-
-
         private void BuscarProveedor()
         {
             try
@@ -145,6 +150,7 @@ namespace BAREST.Compras
                 Conexion.ObtenerConexion().Close();
             }
         }
+
         void LimpiarCampos()
         {
             comboProv.SelectedIndex = -1;
@@ -153,44 +159,25 @@ namespace BAREST.Compras
             textEspecificacion.Text = "";
         }
 
-
         private void CargarTabla()
         {
             try
             {
                 using (SqlConnection conexion = Conexion.ObtenerConexion())
-                using (var comando = new SqlCommand("SELECT [idCompra], [Proveedor].empresa proveedor , [Insumo].descripcion insumo, [COmpra].cantidad, [Compra].espec, [Compra].Estado, [Compra].fecha FROM [dbo].[Compra] INNER JOIN Proveedor ON Compra.idProveedor= Proveedor.idProveedor  INNER JOIN Insumo ON Compra.idInsumo = Insumo.idInsumo WHERE Compra.estado IN ('A', 'P', 'L', 'D') ORDER BY COmpra.Estado", conexion))
+                using (var comando = new SqlCommand("SELECT [idCompra], [Proveedor].empresa proveedor , [Insumo].descripcion insumo, [COmpra].cantidad, [Compra].espec, [Compra].fecha FROM [dbo].[Compra] INNER JOIN Proveedor ON Compra.idProveedor= Proveedor.idProveedor  INNER JOIN Insumo ON Compra.idInsumo = Insumo.idInsumo", conexion))
                 {
                     SqlDataReader registros = comando.ExecuteReader();
                     dataCompras.Rows.Clear();
 
                     while (registros.Read())
                     {
-                        string estado = registros["Estado"].ToString();
-                        if (estado == "A")
-                        {
-                            estado = "HECHO";
-                        }
-                        else if (estado == "P")
-                        {
-                            estado = "PENDIENTE";
-                        }
-                        else if (estado == "L" && (DateTime.Now - Convert.ToDateTime(registros["fecha"])).Days > 3)
-                        {
-                            estado = "DEMORADO";
-                        }
-                        else if (estado == "D")
-                        {
-                            estado = "CANCELADO";
-                        }
-
+                        
                         dataCompras.Rows.Add(
                             registros["idCompra"].ToString(),
                             registros["Proveedor"].ToString(),
                             registros["insumo"].ToString(),
                             registros["cantidad"].ToString(),
                             registros["espec"].ToString(),
-                            estado,
                             Convert.ToDateTime(registros["fecha"]).ToString("dd/MM/yyyy")
                         );
                     }
@@ -224,29 +211,65 @@ namespace BAREST.Compras
                 string idCompra = dataCompras.SelectedRows[0].Cells["idCompra"].Value.ToString();
                 try
                 {
-                    Conexion.ObtenerConexion();
-                    string sql = "UPDATE Compra SET Estado = 'D' WHERE idCompra = @idCompra";
-                    SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-                    comando.Parameters.AddWithValue("@idCompra", idCompra);
-                    comando.ExecuteNonQuery();
-                    MessageBox.Show("Compra cancelada correctamente.");
+                    using (SqlConnection conexion = Conexion.ObtenerConexion())
+                    {
+                        string sql = "DELETE FROM Compra WHERE idCompra = @idCompra";
+                        using (SqlCommand comando = new SqlCommand(sql, conexion))
+                        {
+                            comando.Parameters.AddWithValue("@idCompra", idCompra);
+                            comando.ExecuteNonQuery();
+                        }
+                    }
+
+                    MessageBox.Show("Compra eliminada correctamente.");
                     CargarTabla();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al cancelar la compra:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    Conexion.ObtenerConexion().Close();
+                    MessageBox.Show("Error al eliminar la compra:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
+
         private void Imprimir_Click(object sender, EventArgs e)
         {
-            // Aquí puedes agregar el código necesario para imprimir la compra seleccionada en dataCompras.
+            try
+            {
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                using (var comando = new SqlCommand("SELECT [idCompra], [Proveedor].empresa proveedor, [Insumo].descripcion insumo, [Compra].cantidad, [Compra].espec, [Compra].fecha FROM [dbo].[Compra] INNER JOIN Proveedor ON Compra.idProveedor= Proveedor.idProveedor  INNER JOIN Insumo ON Compra.idInsumo = Insumo.idInsumo", conexion))
+                {
+                    SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+                    DataTable tablaDatos = new DataTable();
+                    adaptador.Fill(tablaDatos);
+
+                    // Crear un nuevo libro de Excel usando ClosedXML
+                    using (var workbook = new XLWorkbook())
+                    {
+                        // Agregar una hoja al libro
+                        var worksheet = workbook.Worksheets.Add("Datos");
+
+                        // Rellenar la hoja con los datos del DataTable
+                        worksheet.Cell(1, 1).InsertTable(tablaDatos.AsEnumerable());
+
+                        // Guardar el libro de Excel
+                        var saveFileDialog = new SaveFileDialog();
+                        saveFileDialog.Filter = "Archivos Excel|*.xlsx";
+                        saveFileDialog.Title = "Guardar como archivo Excel";
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            workbook.SaveAs(saveFileDialog.FileName);
+                            MessageBox.Show("Datos exportados exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al exportar a Excel: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
         // lo voy a usar despues de entregar el proyecto.
         private void VisualizarPorProveedor()
         {

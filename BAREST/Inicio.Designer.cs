@@ -125,7 +125,6 @@
             this.ayudaVisualMesas = new System.Windows.Forms.PictureBox();
             this.panelBotones = new System.Windows.Forms.Panel();
             this.config = new FontAwesome.Sharp.IconButton();
-            this.informes = new FontAwesome.Sharp.IconButton();
             this.btnCliente = new FontAwesome.Sharp.IconButton();
             this.panelPersonal = new System.Windows.Forms.Panel();
             this.categorias = new System.Windows.Forms.Button();
@@ -1424,6 +1423,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // panelAyudaVisual
             // 
@@ -1450,7 +1450,6 @@
             this.panelBotones.AutoScroll = true;
             this.panelBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
             this.panelBotones.Controls.Add(this.config);
-            this.panelBotones.Controls.Add(this.informes);
             this.panelBotones.Controls.Add(this.btnCliente);
             this.panelBotones.Controls.Add(this.panelPersonal);
             this.panelBotones.Controls.Add(this.personal);
@@ -1486,7 +1485,7 @@
             this.config.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.config.IconSize = 30;
             this.config.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.config.Location = new System.Drawing.Point(0, 784);
+            this.config.Location = new System.Drawing.Point(0, 749);
             this.config.Name = "config";
             this.config.Size = new System.Drawing.Size(120, 35);
             this.config.TabIndex = 28;
@@ -1494,27 +1493,6 @@
             this.config.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.config.UseVisualStyleBackColor = false;
             this.config.Click += new System.EventHandler(this.config_Click);
-            // 
-            // informes
-            // 
-            this.informes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
-            this.informes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.informes.FlatAppearance.BorderSize = 0;
-            this.informes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.informes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.informes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.informes.IconChar = FontAwesome.Sharp.IconChar.Wpforms;
-            this.informes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.informes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.informes.IconSize = 30;
-            this.informes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.informes.Location = new System.Drawing.Point(0, 749);
-            this.informes.Name = "informes";
-            this.informes.Size = new System.Drawing.Size(120, 35);
-            this.informes.TabIndex = 27;
-            this.informes.Text = "          Informes";
-            this.informes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.informes.UseVisualStyleBackColor = false;
             // 
             // btnCliente
             // 
@@ -1533,7 +1511,7 @@
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(120, 35);
             this.btnCliente.TabIndex = 25;
-            this.btnCliente.Text = "          Cliente";
+            this.btnCliente.Text = "          Clientes";
             this.btnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCliente.UseVisualStyleBackColor = false;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
@@ -1869,7 +1847,7 @@
             this.caja.Name = "caja";
             this.caja.Size = new System.Drawing.Size(120, 35);
             this.caja.TabIndex = 6;
-            this.caja.Text = "          Caja";
+            this.caja.Text = "          Cajas";
             this.caja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.caja.UseVisualStyleBackColor = false;
             this.caja.Click += new System.EventHandler(this.iconButton1_Click);
@@ -1951,7 +1929,7 @@
             this.salir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.salir.IconSize = 30;
             this.salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salir.Location = new System.Drawing.Point(0, 819);
+            this.salir.Location = new System.Drawing.Point(0, 784);
             this.salir.Name = "salir";
             this.salir.Size = new System.Drawing.Size(120, 35);
             this.salir.TabIndex = 24;
@@ -2178,7 +2156,6 @@
         private System.Windows.Forms.Button DY7;
         private System.Windows.Forms.Button DY6;
         private FontAwesome.Sharp.IconButton config;
-        private FontAwesome.Sharp.IconButton informes;
         private FontAwesome.Sharp.IconButton btnCliente;
     }
 }

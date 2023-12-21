@@ -115,22 +115,45 @@ namespace BAREST.Compras
 
         private void agregarRubro_Click(object sender, EventArgs e)
         {
-            if (RubroExiste(textRubro.Text))
+            // Verificar si textRubro está en blanco
+            if (string.IsNullOrWhiteSpace(textRubro.Text))
             {
-                MessageBox.Show("Ya existió un Rubro con este Nombre ");
+                MessageBox.Show("Por favor, ingrese un nombre de Rubro válido.");
                 return;
             }
-            Conexion.ObtenerConexion();
-            string sql = "insert into RubroInsumo (descripcion) values (@desRubro)";
-            SqlCommand comando = new SqlCommand(sql, Conexion.ObtenerConexion());
-            comando.Parameters.Add("@desRubro", SqlDbType.VarChar).Value = textRubro.Text;
-            comando.ExecuteNonQuery();
-            textRubro.Text = " ";
-            Conexion.ObtenerConexion().Close();
-            CargarComboRubroInsumo();
-            CargarRubro();
-            MessageBox.Show("Rubro Registrado");
+
+            // Verificar si el Rubro ya existe
+            if (RubroExiste(textRubro.Text))
+            {
+                MessageBox.Show("Ya existió un Rubro con este Nombre.");
+                return;
+            }
+
+            // Resto del código para agregar el Rubro
+            try
+            {
+                using (SqlConnection conexion = Conexion.ObtenerConexion())
+                {
+                    string sql = "INSERT INTO RubroInsumo (descripcion) VALUES (@desRubro)";
+                    using (SqlCommand comando = new SqlCommand(sql, conexion))
+                    {
+                        comando.Parameters.Add("@desRubro", SqlDbType.VarChar).Value = textRubro.Text;
+                        comando.ExecuteNonQuery();
+                    }
+                }
+
+                textRubro.Text = string.Empty; // Limpiar el TextBox después de la inserción
+                CargarComboRubroInsumo();
+                CargarRubro();
+                MessageBox.Show("Rubro Registrado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar el Rubro: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
         //-------------------- PARA VERIFICAR SI EXISTE UN RUBRO -----------------------------------
 
         private bool RubroExiste(string rubro)
@@ -224,7 +247,7 @@ namespace BAREST.Compras
                 try
                 {
                     using (SqlConnection conexion = Conexion.ObtenerConexion())
-                    using (var comando = new SqlCommand("UPDATE RubroInsumo SET estado = 'D' WHERE descripcion = @nombreRubro", conexion))
+                    using (var comando = new SqlCommand("DELETE FROM RubroInsumo WHERE descripcion = @nombreRubro", conexion))
                     {
                         comando.Parameters.AddWithValue("@nombreRubro", nombreRubro);
                         comando.ExecuteNonQuery();
@@ -241,6 +264,7 @@ namespace BAREST.Compras
                 }
             }
         }
+
 
         private void EliminarInsu_Click(object sender, EventArgs e)
         {

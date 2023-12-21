@@ -43,10 +43,10 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelNuevo = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textContra = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.textCorreo = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -54,6 +54,16 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.textUsuario = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panelclave = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panelInicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -62,6 +72,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelclave.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -112,7 +125,7 @@
             this.labelSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
-            this.labelSalir.Location = new System.Drawing.Point(133, 508);
+            this.labelSalir.Location = new System.Drawing.Point(133, 506);
             this.labelSalir.Name = "labelSalir";
             this.labelSalir.Size = new System.Drawing.Size(40, 16);
             this.labelSalir.TabIndex = 4;
@@ -150,7 +163,7 @@
             this.panelMovimiento.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMovimiento.Location = new System.Drawing.Point(0, 0);
             this.panelMovimiento.Name = "panelMovimiento";
-            this.panelMovimiento.Size = new System.Drawing.Size(324, 28);
+            this.panelMovimiento.Size = new System.Drawing.Size(316, 28);
             this.panelMovimiento.TabIndex = 15;
             this.panelMovimiento.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMovimiento_MouseMove);
             // 
@@ -160,11 +173,12 @@
             this.labelOpciones.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelOpciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOpciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
-            this.labelOpciones.Location = new System.Drawing.Point(97, 483);
+            this.labelOpciones.Location = new System.Drawing.Point(187, 515);
             this.labelOpciones.Name = "labelOpciones";
             this.labelOpciones.Size = new System.Drawing.Size(111, 16);
             this.labelOpciones.TabIndex = 16;
             this.labelOpciones.Text = "Nuevo Usuario";
+            this.labelOpciones.Visible = false;
             this.labelOpciones.Click += new System.EventHandler(this.labelOpciones_Click);
             // 
             // panelInicio
@@ -231,6 +245,21 @@
             this.pictureBox6.TabIndex = 16;
             this.pictureBox6.TabStop = false;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(21, 201);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(236, 33);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "CREAR USUARIO";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
@@ -264,21 +293,6 @@
             this.label2.Size = new System.Drawing.Size(259, 39);
             this.label2.TabIndex = 10;
             this.label2.Text = "NUEVO USUARIO";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(21, 201);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(236, 33);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "CREAR USUARIO";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox4
             // 
@@ -355,19 +369,137 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.label3.Location = new System.Drawing.Point(97, 480);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 16);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Olvide mi clave";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // panelclave
+            // 
+            this.panelclave.Controls.Add(this.pictureBox7);
+            this.panelclave.Controls.Add(this.button3);
+            this.panelclave.Controls.Add(this.label4);
+            this.panelclave.Controls.Add(this.pictureBox8);
+            this.panelclave.Controls.Add(this.textBox2);
+            this.panelclave.Controls.Add(this.panel8);
+            this.panelclave.Controls.Add(this.panel9);
+            this.panelclave.Controls.Add(this.textBox3);
+            this.panelclave.Location = new System.Drawing.Point(12, 230);
+            this.panelclave.Name = "panelclave";
+            this.panelclave.Size = new System.Drawing.Size(286, 243);
+            this.panelclave.TabIndex = 19;
+            this.panelclave.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(21, 193);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(236, 33);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "RECUPERAR USUARIO";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.label4.Location = new System.Drawing.Point(19, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(248, 39);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "RECUPERACION";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.panel8.Location = new System.Drawing.Point(21, 112);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(236, 1);
+            this.panel8.TabIndex = 12;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.textBox3.Location = new System.Drawing.Point(52, 83);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(204, 25);
+            this.textBox3.TabIndex = 1;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::BAREST.Properties.Resources.Usuario_login2;
+            this.pictureBox8.Location = new System.Drawing.Point(21, 81);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 11;
+            this.pictureBox8.TabStop = false;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.panel9.Location = new System.Drawing.Point(21, 163);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(236, 1);
+            this.panel9.TabIndex = 14;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(105)))));
+            this.textBox2.Location = new System.Drawing.Point(52, 135);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(204, 25);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.UseSystemPasswordChar = true;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::BAREST.Properties.Resources.Email_login;
+            this.pictureBox7.Location = new System.Drawing.Point(22, 134);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 16;
+            this.pictureBox7.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(324, 538);
-            this.Controls.Add(this.panelNuevo);
+            this.ClientSize = new System.Drawing.Size(316, 539);
+            this.Controls.Add(this.panelclave);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panelInicio);
             this.Controls.Add(this.labelOpciones);
             this.Controls.Add(this.panelMovimiento);
             this.Controls.Add(this.labelSalir);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panelNuevo);
             this.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -387,6 +519,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelclave.ResumeLayout(false);
+            this.panelclave.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,6 +554,16 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textContra;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panelclave;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 

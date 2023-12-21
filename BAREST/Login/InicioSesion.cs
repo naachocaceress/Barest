@@ -88,13 +88,17 @@ namespace BAREST
             {
                 panelInicio.Visible = false;
                 panelNuevo.Visible = true;
+                panelclave.Visible = false;
                 labelOpciones.Text = " Iniciar Sesion";
+                label3.Visible = true;
             }
             else
             {
                 panelInicio.Visible = true;
                 panelNuevo.Visible = false;
+                panelclave.Visible = false;
                 labelOpciones.Text = "Nuevo Usuario";
+                label3.Visible = true;
             }
         }
         bool existeUsuario()
@@ -213,6 +217,55 @@ namespace BAREST
         private void panelNuevo_Paint(object sender, PaintEventArgs e)
         {
 
+
+
+
+        }
+
+
+
+
+
+
+
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            if (label3.Text == "Olvide mi clave")
+            {
+                panelInicio.Visible = false;
+                panelNuevo.Visible = false;
+                panelclave.Visible = true;
+                label3.Text = "         Atras";
+            }
+            else
+            {
+                panelInicio.Visible = true;
+                panelclave.Visible = false;
+                label3.Text = "Olvide mi clave";
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "" || textBox3.Text == "")
+            {
+                MessageBox.Show("Faltan ingresar datos");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Email de recuperación enviado con exito a " + textBox2.Text);
+
+                textBox2.Text = "";
+                textBox3.Text = "";
+
+                panelInicio.Visible = true;
+                panelNuevo.Visible = false;
+                panelclave.Visible = false;
+                labelOpciones.Text = "Nuevo Usuario";
+                label3.Visible = true;
+            }
         }
 
 

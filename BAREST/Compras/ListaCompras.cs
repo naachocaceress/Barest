@@ -20,38 +20,19 @@ namespace BAREST.Compras
             try
             {
                 using (SqlConnection conexion = Conexion.ObtenerConexion())
-                using (var comando = new SqlCommand("SELECT [idCompra], [Proveedor].empresa proveedor, [Insumo].descripcion insumo, [COmpra].cantidad, [Compra].espec, [Compra].Estado, [Compra].fecha FROM [dbo].[Compra] INNER JOIN Proveedor ON Compra.idProveedor= Proveedor.idProveedor  INNER JOIN Insumo ON Compra.idInsumo = Insumo.idInsumo WHERE Compra.estado IN ('A', 'P', 'L', 'D') ORDER BY COmpra.Estado", conexion))
+                using (var comando = new SqlCommand("SELECT [idCompra], [Proveedor].empresa proveedor, [Insumo].descripcion insumo, [COmpra].cantidad, [Compra].espec, [Compra].fecha FROM [dbo].[Compra] INNER JOIN Proveedor ON Compra.idProveedor= Proveedor.idProveedor  INNER JOIN Insumo ON Compra.idInsumo = Insumo.idInsumo", conexion))
                 {
                     SqlDataReader registros = comando.ExecuteReader();
                     dataListaCompras.Rows.Clear();
 
                     while (registros.Read())
-                    {
-                        string estado = registros["Estado"].ToString();
-                        if (estado == "A")
-                        {
-                            estado = "HECHO";
-                        }
-                        else if (estado == "P")
-                        {
-                            estado = "PENDIENTE";
-                        }
-                        else if (estado == "L" && (DateTime.Now - Convert.ToDateTime(registros["fecha"])).Days > 3)
-                        {
-                            estado = "DEMORADO";
-                        }
-                        else if (estado == "D")
-                        {
-                            estado = "CANCELADO";
-                        }
-
+                    {                        
                         dataListaCompras.Rows.Add(
                             registros["idCompra"].ToString(),
                             registros["proveedor"].ToString(),
                             registros["insumo"].ToString(),
                             registros["cantidad"].ToString(),
                             registros["espec"].ToString(),
-                            estado,
                             Convert.ToDateTime(registros["fecha"]).ToString("dd/MM/yyyy")
                         );
                     }

@@ -173,6 +173,7 @@ namespace BAREST.Reserva
             // 
             chartArea3.Name = "ChartArea1";
             this.chart3.ChartAreas.Add(chartArea3);
+            this.chart3.Dock = System.Windows.Forms.DockStyle.Fill;
             legend3.Name = "Legend1";
             this.chart3.Legends.Add(legend3);
             this.chart3.Location = new System.Drawing.Point(0, 0);
@@ -184,7 +185,7 @@ namespace BAREST.Reserva
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(524, 409);
+            this.chart3.Size = new System.Drawing.Size(601, 415);
             this.chart3.TabIndex = 50;
             this.chart3.Text = "chart3";
             // 
