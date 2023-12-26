@@ -482,11 +482,11 @@ namespace BAREST
             m.label7.Text = boton.Name;
             // ClaseCompartida.ColorMesa = 0;
             if (ClaseCompartida.AbrirTurno == 0)
-                m.ShowDialog();
+                m.Show();
             else
             {
                 Mesa1 n = new Mesa1();
-                n.ShowDialog();
+                n.Show();
             }
         }
 

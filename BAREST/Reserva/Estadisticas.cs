@@ -128,5 +128,10 @@ namespace BAREST.Reserva
             registros.Close();
             Conexion.ObtenerConexion().Close();
         }
+
+        private void chart3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

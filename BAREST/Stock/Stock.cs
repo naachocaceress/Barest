@@ -8,5 +8,10 @@ namespace BAREST.Stock
         {
             InitializeComponent();
         }
+
+        private void Stock_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

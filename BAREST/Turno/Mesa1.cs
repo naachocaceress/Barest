@@ -164,19 +164,79 @@ namespace BAREST
              
          }*/
 
+        // insertar menu real ------------------------------------------ 
+
         private void agregarMenulista_Click(object sender, EventArgs e)
         {
             agregarMenulista2();
+        }
 
+        private void textBox2_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                agregarMenulista2();
+            }
+        }
+
+        private void comboBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                agregarMenulista2();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
 
         public int cantidad = 0;
 
-        // el id para agregar a cada fila de la mesa.
+        private void agregarMenulista2()
+        {
+            //buscarIdComanda();
+
+            dataGridView1.ClearSelection();
+
+            if (string.IsNullOrEmpty(comboBox1.Text) && string.IsNullOrEmpty(textBuscar.Text))
+            {
+                return;
+            }
+
+            if (cantidad == 0)
+            {
+                if (textBuscar.Text.All(char.IsDigit) && textBuscar.Text.Length != 0)
+                {
+                    int cantN = Int32.Parse(textBuscar.Text);
+
+                    cantidad = cantN;
+
+                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                    {
+                        row.Cells["cantidades"].Value = cantidad;
+                    }
+
+                    dataGridView1.Rows.Add(new String[] { cantidad.ToString() });
+                    textBuscar.Text = "";
+                    labelBuscar.Text = "Articulos:";
+
+                    // Cambia a mostrar el ComboBox
+                    comboBox1.Visible = true;
+                    textBuscar.Visible = false;
+                    comboBox1.Focus();
+                }
+                else
+                {
+                    IngresarMenu();
+                }
+            }
+            else
+            {
+                IngresarMenu();
+            }
+        }
 
         private void buscarIdComanda()
         {
-
             try
             {
                 using (SqlConnection conexion = Conexion.ObtenerConexion())
@@ -198,55 +258,16 @@ namespace BAREST
             }
         }
 
-        private void agregarMenulista2()
-        {
-
-            buscarIdComanda();
-
-            dataGridView1.ClearSelection();
-            try
-            {
-                if (cantidad == 0)
-                {
-                    if (textBuscar.Text.All(char.IsDigit) && textBuscar.Text.Length != 0)
-                    {
-                        int cantN = Int32.Parse(textBuscar.Text);
-                        cantidad = cantN;
-                        foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-                        {
-                            row.Cells["cantidades"].Value = cantidad;
-                        }
-                        dataGridView1.Rows.Add(new String[] { cantidad.ToString() });
-                        textBuscar.Text = "";
-                    }
-                    else
-                    {
-                        IngresarMenu();
-                    }
-                }
-                else
-                {
-                    IngresarMenu();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "ERROR EN LA AGREGAR MENU", MessageBoxButtons.OK);
-            }
-        }
-
-        // insertar menu ------------------------------------------ 
-
         private void IngresarMenu()
         {
             if (dataGridView1.Rows.Count > 0)
                 dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1);
 
-            string sql = "SELECT nombre, precio FROM Menu WHERE idMenu = @idMenu";
+            string sql = "SELECT idMenu, nombre, precio FROM Menu WHERE nombre = @nombre";
             using (SqlConnection conexion = Conexion.ObtenerConexion())
             using (SqlCommand comando = new SqlCommand(sql, conexion))
             {
-                comando.Parameters.AddWithValue("@idMenu", SqlDbType.Int).Value = textBuscar.Text;
+                comando.Parameters.AddWithValue("@nombre", SqlDbType.VarChar).Value = comboBox1.Text;
                 SqlDataReader registros = comando.ExecuteReader();
 
                 if (registros.Read())
@@ -263,12 +284,13 @@ namespace BAREST
             }
 
             sumaT();
-            textBuscar.Text = "";
+            comboBox1.Text = "";
             cantidad = 0;
-
+            labelBuscar.Text = "Cantidad:";
+            comboBox1.Visible = false;
+            textBuscar.Visible = true;
+            textBuscar.Focus();
         }
-
-        // Método para calcular y mostrar la suma total en el campo de texto textTotal
 
         private void sumaT()
         {
@@ -288,9 +310,11 @@ namespace BAREST
             if (dataGridView1.Rows.Count == -1)
             {
                 this.Close();
+                MessageBox.Show("No hay nada");
             }
             else
             {
+                MessageBox.Show("Si hay algo");
                 Comandas();
                 ClaseCompartida.ColorMesa = 1;
                 this.Close();
@@ -419,6 +443,24 @@ namespace BAREST
 
         private void Mesa1_Load(object sender, EventArgs e)
         {
+            textTotal.ReadOnly = true;
+            textTotal.BackColor = System.Drawing.SystemColors.Window; // Color de fondo blanco
+
+            string sql2 = "SELECT nombre FROM Menu";
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            using (SqlCommand comando = new SqlCommand(sql2, conexion))
+            {
+                SqlDataReader registros = comando.ExecuteReader();
+                while (registros.Read())
+                {
+                    comboBox1.Items.Add(registros["nombre"].ToString());
+                }
+            }
+
+            comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+
             try
             {
                 if (ClaseCompartida.ColorMesa == 0)
@@ -427,7 +469,7 @@ namespace BAREST
                 }
                 else if (ClaseCompartida.ColorMesa == 1)
                 {
-                    buscarIdComandaymozo();
+                    //buscarIdComandaymozo();
                     textComensal.Enabled = false;
                     Conexion.ObtenerConexion();
                     string sql = "SELECT [cantidad], [detalles], [precioUnitario], [precioTotal] FROM [dbo].[Mesa] WHERE [mesa] = @mesa AND [mozo] = @mozo AND [estado] = 'A' AND [idComanda] = @idComanda";
@@ -497,14 +539,6 @@ namespace BAREST
             }
         }
 
-        private void textBox2_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                agregarMenulista2();
-            }
-        }
-
         private void iconButton3_Click(object sender, EventArgs e)
         {
             // IMPRIMIR CONTROL -----------------------------------
@@ -559,7 +593,6 @@ namespace BAREST
             Font font21 = new Font("Arial", 10, FontStyle.Bold, GraphicsUnit.Point);
             Font font3 = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
 
-
             e.Graphics.DrawString(" VIDON BAR", font, Brushes.Black, new RectangleF(90, 10, 120, 20));
             e.Graphics.DrawString("Fragueiro 2185", font21, Brushes.Black, new RectangleF(98, 35, 300, 20));
             e.Graphics.DrawString("3514742328", font21, Brushes.Black, new RectangleF(110, 50, 300, 20));
@@ -580,18 +613,30 @@ namespace BAREST
 
             e.Graphics.DrawString("--------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 170, 300, 20));
 
-            e.Graphics.DrawString(dataGridView1.CurrentRow.Cells[0].Value.ToString() + "     " + dataGridView1.CurrentRow.Cells[1].Value.ToString(), font3, Brushes.Black, new RectangleF(10, 190, 300, 20));
-            e.Graphics.DrawString(dataGridView1.CurrentRow.Cells[2].Value.ToString() + "   " + dataGridView1.CurrentRow.Cells[3].Value.ToString(), font3, Brushes.Black, new RectangleF(205, 190, 300, 20));
+            int y = 190; // Posición inicial en el eje y para dibujar las filas
 
-            e.Graphics.DrawString("--------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, 210, 300, 20));
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                string cantidad = row.Cells[0].Value.ToString();
+                string descripcion = row.Cells[1].Value.ToString();
+                string subTotal = row.Cells[2].Value.ToString();
+                string total = row.Cells[3].Value.ToString();
 
-            e.Graphics.DrawString("                                          Subtotal: $" + textTotal.Text, font21, Brushes.Black, new RectangleF(5, 230, 300, 20));
-            e.Graphics.DrawString("                                      Descuento: ", font21, Brushes.Black, new RectangleF(5, 245, 300, 20));
-            e.Graphics.DrawString("                                                Total: $" + textTotal.Text, font21, Brushes.Black, new RectangleF(5, 260, 300, 20));
+                e.Graphics.DrawString(cantidad + "     " + descripcion, font3, Brushes.Black, new RectangleF(10, y, 300, 20));
+                e.Graphics.DrawString(subTotal + "   " + total, font3, Brushes.Black, new RectangleF(205, y, 300, 20));
 
-            e.Graphics.DrawString("GRACIAS POR ELEGIR VIDON BAR", font21, Brushes.Black, new RectangleF(25, 290, 300, 20));
-            e.Graphics.DrawImage(pictureBox1.Image, new Rectangle(130, 320, 50, 50));
+                y += 20; // Aumenta la posición en el eje y para la siguiente fila
+            }
+
+            e.Graphics.DrawString("--------------------------------------------------------", font3, Brushes.Black, new RectangleF(5, y, 300, 20));
+
+            e.Graphics.DrawString("                                          Subtotal: $" + textTotal.Text, font21, Brushes.Black, new RectangleF(5, y + 20, 300, 20));
+            e.Graphics.DrawString("                                                Total: $" + textTotal.Text, font21, Brushes.Black, new RectangleF(5, y + 40, 300, 20));
+
+            e.Graphics.DrawString("GRACIAS POR ELEGIR VIDON BAR", font21, Brushes.Black, new RectangleF(25, y + 70, 300, 20));
+            e.Graphics.DrawImage(pictureBox1.Image, new Rectangle(130, y + 100, 50, 50));
         }
+
 
     }
 }

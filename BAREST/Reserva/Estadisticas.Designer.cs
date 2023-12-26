@@ -60,6 +60,7 @@ namespace BAREST.Reserva
             // 
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(0, 0);
@@ -71,7 +72,7 @@ namespace BAREST.Reserva
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(524, 409);
+            this.chart1.Size = new System.Drawing.Size(618, 586);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -82,9 +83,9 @@ namespace BAREST.Reserva
             this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.btnEstadisticas);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 415);
+            this.panel1.Location = new System.Drawing.Point(0, 536);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(601, 50);
+            this.panel1.Size = new System.Drawing.Size(618, 50);
             this.panel1.TabIndex = 48;
             // 
             // iconButton2
@@ -99,11 +100,11 @@ namespace BAREST.Reserva
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 30;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(330, 0);
+            this.iconButton2.Location = new System.Drawing.Point(370, 0);
             this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(191, 50);
+            this.iconButton2.Size = new System.Drawing.Size(219, 50);
             this.iconButton2.TabIndex = 13;
-            this.iconButton2.Text = "       Anuladas mes pasado";
+            this.iconButton2.Text = "       Reservas del mes pasado";
             this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton2.UseVisualStyleBackColor = true;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
@@ -120,11 +121,11 @@ namespace BAREST.Reserva
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 30;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(150, 0);
+            this.iconButton1.Location = new System.Drawing.Point(163, 0);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(180, 50);
+            this.iconButton1.Size = new System.Drawing.Size(207, 50);
             this.iconButton1.TabIndex = 12;
-            this.iconButton1.Text = "       Anuladas mes actual";
+            this.iconButton1.Text = "       Reservas del mes actual";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
@@ -143,9 +144,9 @@ namespace BAREST.Reserva
             this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstadisticas.Location = new System.Drawing.Point(0, 0);
             this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(150, 50);
+            this.btnEstadisticas.Size = new System.Drawing.Size(163, 50);
             this.btnEstadisticas.TabIndex = 11;
-            this.btnEstadisticas.Text = "       Anuladas totales";
+            this.btnEstadisticas.Text = "       Total de reservas";
             this.btnEstadisticas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstadisticas.UseVisualStyleBackColor = true;
             this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
@@ -154,6 +155,7 @@ namespace BAREST.Reserva
             // 
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
+            this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
             this.chart2.Location = new System.Drawing.Point(0, 0);
@@ -165,7 +167,7 @@ namespace BAREST.Reserva
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(524, 409);
+            this.chart2.Size = new System.Drawing.Size(618, 536);
             this.chart2.TabIndex = 49;
             this.chart2.Text = "chart2";
             // 
@@ -185,9 +187,10 @@ namespace BAREST.Reserva
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(601, 415);
+            this.chart3.Size = new System.Drawing.Size(618, 536);
             this.chart3.TabIndex = 50;
             this.chart3.Text = "chart3";
+            this.chart3.Click += new System.EventHandler(this.chart3_Click);
             // 
             // chart4
             // 
@@ -205,7 +208,7 @@ namespace BAREST.Reserva
             series4.Legend = "Legend1";
             series4.Name = "Series1";
             this.chart4.Series.Add(series4);
-            this.chart4.Size = new System.Drawing.Size(601, 415);
+            this.chart4.Size = new System.Drawing.Size(618, 536);
             this.chart4.TabIndex = 51;
             this.chart4.Text = "chart4";
             // 
@@ -213,7 +216,7 @@ namespace BAREST.Reserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 465);
+            this.ClientSize = new System.Drawing.Size(618, 586);
             this.Controls.Add(this.chart4);
             this.Controls.Add(this.chart3);
             this.Controls.Add(this.chart2);

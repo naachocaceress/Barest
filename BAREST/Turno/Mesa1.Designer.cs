@@ -50,13 +50,14 @@ namespace BAREST
             this.idMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textTotal = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelBuscar = new System.Windows.Forms.Label();
             this.textBuscar = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textComensal = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -95,6 +96,7 @@ namespace BAREST
             this.btnComanda.Text = "      Comanda";
             this.btnComanda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnComanda.UseVisualStyleBackColor = true;
+            this.btnComanda.Visible = false;
             this.btnComanda.Click += new System.EventHandler(this.btnComanda_Click);
             // 
             // iconButton3
@@ -137,7 +139,6 @@ namespace BAREST
             this.agregarMenulista.Text = "       Agregar";
             this.agregarMenulista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.agregarMenulista.UseVisualStyleBackColor = true;
-            this.agregarMenulista.Visible = false;
             this.agregarMenulista.Click += new System.EventHandler(this.agregarMenulista_Click);
             // 
             // EliminarComanda
@@ -172,6 +173,7 @@ namespace BAREST
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(383, 52);
@@ -179,10 +181,11 @@ namespace BAREST
             // 
             // textIdComanda
             // 
-            this.textIdComanda.Location = new System.Drawing.Point(233, 3);
+            this.textIdComanda.Location = new System.Drawing.Point(237, 13);
             this.textIdComanda.Name = "textIdComanda";
-            this.textIdComanda.Size = new System.Drawing.Size(50, 20);
+            this.textIdComanda.Size = new System.Drawing.Size(50, 22);
             this.textIdComanda.TabIndex = 11;
+            this.textIdComanda.Visible = false;
             // 
             // pictureBox1
             // 
@@ -231,7 +234,7 @@ namespace BAREST
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(50, 16);
             this.label3.TabIndex = 1;
             this.label3.Text = "MOZO:";
             // 
@@ -240,7 +243,7 @@ namespace BAREST
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.Size = new System.Drawing.Size(49, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "MESA:";
             // 
@@ -300,56 +303,62 @@ namespace BAREST
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(231, 365);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.Size = new System.Drawing.Size(42, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Total:";
             // 
             // textTotal
             // 
+            this.textTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotal.Location = new System.Drawing.Point(271, 362);
             this.textTotal.Name = "textTotal";
-            this.textTotal.Size = new System.Drawing.Size(100, 20);
+            this.textTotal.Size = new System.Drawing.Size(100, 22);
             this.textTotal.TabIndex = 1;
             // 
-            // label6
+            // labelBuscar
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 76);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Buscar:";
+            this.labelBuscar.AutoSize = true;
+            this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBuscar.Location = new System.Drawing.Point(12, 76);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(65, 16);
+            this.labelBuscar.TabIndex = 6;
+            this.labelBuscar.Text = "Cantidad:";
             // 
             // textBuscar
             // 
-            this.textBuscar.Enabled = false;
-            this.textBuscar.Location = new System.Drawing.Point(61, 73);
+            this.textBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBuscar.Location = new System.Drawing.Point(83, 73);
             this.textBuscar.Name = "textBuscar";
-            this.textBuscar.Size = new System.Drawing.Size(130, 20);
-            this.textBuscar.TabIndex = 0;
+            this.textBuscar.Size = new System.Drawing.Size(148, 22);
+            this.textBuscar.TabIndex = 1;
             this.textBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress_1);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(12, 365);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.Size = new System.Drawing.Size(87, 16);
             this.label7.TabIndex = 7;
             this.label7.Text = "Comensales:";
             // 
             // textComensal
             // 
-            this.textComensal.Location = new System.Drawing.Point(85, 362);
+            this.textComensal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textComensal.Location = new System.Drawing.Point(100, 362);
             this.textComensal.Name = "textComensal";
-            this.textComensal.Size = new System.Drawing.Size(50, 20);
-            this.textComensal.TabIndex = 1;
+            this.textComensal.Size = new System.Drawing.Size(50, 22);
+            this.textComensal.TabIndex = 4;
             this.textComensal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // iconButton1
             // 
+            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Add;
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -364,6 +373,7 @@ namespace BAREST
             // 
             // iconButton2
             // 
+            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Minus;
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -376,17 +386,28 @@ namespace BAREST
             this.iconButton2.UseVisualStyleBackColor = true;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(83, 73);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(148, 21);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.Visible = false;
+            this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox1_KeyDown);
+            // 
             // Mesa1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 449);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.textComensal);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBuscar);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.textTotal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -424,7 +445,7 @@ namespace BAREST
         public System.Windows.Forms.Label labelmozo;
         public System.Windows.Forms.Label labelmesa;
         private System.Windows.Forms.Button ConfirmarComanda;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelBuscar;
         private System.Windows.Forms.TextBox textBuscar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textComensal;
@@ -440,5 +461,6 @@ namespace BAREST
         private System.Windows.Forms.DataGridViewTextBoxColumn precioUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMesa;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
